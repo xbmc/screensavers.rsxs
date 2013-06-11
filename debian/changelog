@@ -1,0 +1,11 @@
+xbmc-screensavers-rsxs (1.0.1-1~raring) raring; urgency=low
+
+  * Fix install paths
+
+ -- Arne Morten Kvarving <arne.morten.kvarving@sintef.no>  Sat, 01 Jun 2013 00:16:29 +0200
+
+xbmc-screensavers-rsxs (1.0.0-1~raring) raring; urgency=low
+
+  * Initial release
+
+ -- Arne Morten Kvarving <arne.morten.kvarving@sintef.no>  Sun, 26 May 2013 23:51:28 +0200

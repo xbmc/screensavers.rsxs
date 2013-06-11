@@ -1,0 +1,31 @@
+Source: xbmc-screensavers-rsxs
+Priority: extra
+Maintainer: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
+Build-Depends: debhelper (>= 8.0.0), cmake, xbmc-addon-dev,
+               xbmc-screensaver-dev, libgl1-mesa-dev, libltdl-dev,
+               libglu1-mesa-dev, automake, autoconf, libtool,
+               libxt-dev, libxmu-headers, libxmu-dev
+Standards-Version: 3.9.2
+Section: libs
+Homepage: http://xbmc.org
+
+Package: xbmc-screensaver-rsxs-euphoria
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Euphoria screensaver add-on for XBMC
+ Euphoria screensaver add-on for XBMC
+
+Package: xbmc-screensaver-rsxs-plasma
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Plasma screensaver add-on for XBMC
+ Plasma screensaver add-on for XBMC
+
+Package: xbmc-screensaver-rsxs-solarwinds
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Solarwinds screensaver add-on for XBMC
+ Solarwinds screensaver add-on for XBMC
