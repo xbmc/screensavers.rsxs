@@ -90,4 +90,4 @@ SET_TARGET_PROPERTIES(euphoria
                       PREFIX "")
 
 INSTALL(TARGETS euphoria DESTINATION lib/xbmc/addons/screensaver.rsxs.euphoria)
-INSTALL(DIRECTORY screensaver.rsxs.euphora DESTINATION share/xbmc/addons)
+INSTALL(DIRECTORY screensaver.rsxs.euphoria DESTINATION share/xbmc/addons)
