@@ -13,4 +13,10 @@
 	dh $@ 
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=1
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=1 -DUSE_LTO=1
+
+override_dh_strip:
+	dh_strip -pxbmc-screensaver-rsxs-euphoria --dbg-package=xbmc-screensaver-rsxs-euphoria-dbg
+	dh_strip -pxbmc-screensaver-rsxs-plasma --dbg-package=xbmc-screensaver-rsxs-plasma-dbg
+	dh_strip -pxbmc-screensaver-rsxs-solarwinds --dbg-package=xbmc-screensaver-rsxs-solarwinds-dbg
+

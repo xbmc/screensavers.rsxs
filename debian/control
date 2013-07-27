@@ -16,6 +16,13 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Euphoria screensaver add-on for XBMC
  Euphoria screensaver add-on for XBMC
 
+Package: xbmc-screensaver-rsxs-euphoria-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Euphoria screensaver add-on for XBMC
+ debug symbols for Euphoria screensaver add-on for XBMC
+
 Package: xbmc-screensaver-rsxs-plasma
 Section: libs
 Architecture: any
@@ -23,9 +30,24 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Plasma screensaver add-on for XBMC
  Plasma screensaver add-on for XBMC
 
+Package: xbmc-screensaver-rsxs-plasma-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Plasma screensaver add-on for XBMC
+ debug symbols for Plasma screensaver add-on for XBMC
+
 Package: xbmc-screensaver-rsxs-solarwinds
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Solarwinds screensaver add-on for XBMC
  Solarwinds screensaver add-on for XBMC
+
+Package: xbmc-screensaver-rsxs-solarwinds-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Solarwinds screensaver add-on for XBMC
+ debug symbols for Solarwinds screensaver add-on for XBMC
+
