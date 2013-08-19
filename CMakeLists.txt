@@ -35,38 +35,33 @@ ExternalProject_ADD(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
 ADD_DEFINITIONS(-DHAVE_CONFIG_H)
 
 SET(SOLARWINDS_SOURCES lib/rsxs-0.9/src/color.cc
-                      lib/rsxs-0.9/src/common.cc
-                      lib/rsxs-0.9/src/solarwinds/solarwinds.cc
-                      lib/rsxs-0.9/src/solarwinds/wind.cc)
+                       lib/rsxs-0.9/src/common.cc
+                       lib/rsxs-0.9/src/solarwinds/solarwinds.cc
+                       lib/rsxs-0.9/src/solarwinds/wind.cc)
 
 SET(PLASMA_SOURCES lib/rsxs-0.9/src/color.cc
                    lib/rsxs-0.9/src/common.cc
                    lib/rsxs-0.9/src/plasma/plasma.cc)
 
 SET(EUPHORIA_SOURCES lib/rsxs-0.9/src/color.cc
-                   lib/rsxs-0.9/src/common.cc
-                   lib/rsxs-0.9/src/euphoria/euphoria.cc
-                   lib/rsxs-0.9/src/euphoria/wisp.cc)
+                     lib/rsxs-0.9/src/common.cc
+                     lib/rsxs-0.9/src/euphoria/euphoria.cc
+                     lib/rsxs-0.9/src/euphoria/wisp.cc)
 
 SET(DEPLIBS ${OPENGL_LIBRARIES}
             ${GLEW_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a)
 
-addon_version(screensaver.rsxs.solarwinds SOLARWINDS)
-build_addon(screensaver.rsxs.solarwinds SOLARWINDS_SOURCES DEPLIBS SOLARWINDS_VERSION)
+build_addon(screensaver.rsxs.solarwinds SOLARWINDS DEPLIBS)
 SET_TARGET_PROPERTIES(screensaver.rsxs.solarwinds PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.solarwinds\\"")
-install_addon(screensaver.rsxs.solarwinds ${SOLARWINDS_VERSION})
 
-addon_version(screensaver.rsxs.plasma PLASMA)
-build_addon(screensaver.rsxs.plasma PLASMA_SOURCES DEPLIBS PLASMA_VERSION)
+build_addon(screensaver.rsxs.plasma PLASMA DEPLIBS)
 SET_TARGET_PROPERTIES(screensaver.rsxs.plasma PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.plasma\\"")
-install_addon(screensaver.rsxs.plasma ${PLASMA_VERSION})
 
-addon_version(screensaver.rsxs.euphoria EUPHORIA)
-build_addon(screensaver.rsxs.euphoria EUPHORIA_SOURCES DEPLIBS EUPHORIA_VERSION)
+build_addon(screensaver.rsxs.euphoria EUPHORIA DEPLIBS)
 SET_TARGET_PROPERTIES(screensaver.rsxs.euphoria PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.euphoria\\"")
-install_addon(screensaver.rsxs.euphoria ${EUPHORIA_VERSION})
 
+include(CPack)
