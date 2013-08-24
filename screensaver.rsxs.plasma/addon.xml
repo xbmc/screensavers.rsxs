@@ -9,8 +9,8 @@
   </requires>
   <extension
     point="xbmc.ui.screensaver"
-    library_linux="plasma.so"
-    library_osx="Plasma.xbs"/>
+    library_linux="screensaver.rsxs.plasma.so"
+    library_osx="screensaver.rsxs.plasma.so"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="af">Seker die tweede mees psigedeliese sluimerskerm ooit</summary>
     <summary lang="ar">ربما شاشة التوقف الثانية الأكثر هدوء على الإطلاق</summary>
