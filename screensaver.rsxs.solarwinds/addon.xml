@@ -9,8 +9,8 @@
   </requires>
   <extension
     point="xbmc.ui.screensaver"
-    library_linux="solarwinds.so"
-    library_osx="Solarwinds.xbs"/>
+    library_linux="screensaver.rsxs.solarwinds.so"
+    library_osx="screensaver.rsxs.solarwinds.so"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="af">'n Betoverende deeltjie effek sluimerskerm</summary>
     <summary lang="ar">أداة ساحرة تؤثر بشاشة التوقف</summary>

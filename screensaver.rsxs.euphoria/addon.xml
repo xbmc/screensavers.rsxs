@@ -9,8 +9,8 @@
   </requires>
   <extension
     point="xbmc.ui.screensaver"
-    library_linux="euphoria.so"
-    library_osx="Euphoria.xbs"/>
+    library_linux="screensaver.rsxs.euphoria.so"
+    library_osx="screensaver.rsxs.euphoria.so"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="af">Omtrent so psigedelies soos sluimerskerm kan kom</summary>
     <summary lang="ar">حول الحصول على مهدء كشاشة التوقف</summary>
