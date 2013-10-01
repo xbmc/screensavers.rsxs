@@ -55,13 +55,16 @@ SET(DEPLIBS ${OPENGL_LIBRARIES}
 build_addon(screensaver.rsxs.solarwinds SOLARWINDS DEPLIBS)
 SET_TARGET_PROPERTIES(screensaver.rsxs.solarwinds PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.solarwinds\\"")
+add_dependencies(screensaver.rsxs.solarwinds rsxs)
 
 build_addon(screensaver.rsxs.plasma PLASMA DEPLIBS)
 SET_TARGET_PROPERTIES(screensaver.rsxs.plasma PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.plasma\\"")
+add_dependencies(screensaver.rsxs.plasma rsxs)
 
 build_addon(screensaver.rsxs.euphoria EUPHORIA DEPLIBS)
 SET_TARGET_PROPERTIES(screensaver.rsxs.euphoria PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.euphoria\\"")
+add_dependencies(screensaver.rsxs.euphoria rsxs)
 
 include(CPack)
