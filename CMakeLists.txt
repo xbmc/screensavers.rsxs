@@ -16,8 +16,12 @@ INCLUDE_DIRECTORIES(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src/solarwinds)
                         
 INCLUDE(ExternalProject)
+set(update_command "")
+if(BOOTSTRAP_IN_TREE)
+  set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
+endif()
 ExternalProject_ADD(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
-                    UPDATE_COMMAND autoreconf -vif configure.ac WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
+                    "${update_command}"
                     CONFIGURE_COMMAND ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/configure
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
