@@ -21,7 +21,6 @@ if(BOOTSTRAP_IN_TREE)
   set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
 endif()
 ExternalProject_ADD(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
-                    "${update_command}"
                     CONFIGURE_COMMAND ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/configure
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
@@ -34,7 +33,8 @@ ExternalProject_ADD(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
                                       --disable-hyperspace
                                       --disable-lattice
                                       --disable-skyrocket "CFLAGS=-fPIC -I${XBMC_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${XBMC_INCLUDE_DIR}"
-                    BUILD_COMMAND ${MAKE})
+                    BUILD_COMMAND ${MAKE}
+                    "${update_command}")
 
 ADD_DEFINITIONS(-DHAVE_CONFIG_H)
 
