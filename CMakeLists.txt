@@ -1,13 +1,13 @@
-PROJECT(visualizations.rsxs)
+project(visualizations.rsxs)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
 
-ENABLE_LANGUAGE(CXX)
+enable_language(CXX)
 
-FIND_PACKAGE(xbmc REQUIRED)
-FIND_PACKAGE(OpenGL REQUIRED)
+find_package(xbmc REQUIRED)
+find_package(OpenGL REQUIRED)
 
-INCLUDE_DIRECTORIES(${OpenGL_INCLUDE_DIR}
+include_directories(${OpenGL_INCLUDE_DIR}
                     ${XBMC_INCLUDE_DIR}
                     ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
                     ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src
@@ -15,12 +15,12 @@ INCLUDE_DIRECTORIES(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src/plasma
                     ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src/solarwinds)
                         
-INCLUDE(ExternalProject)
+include(ExternalProject)
 set(update_command "")
 if(BOOTSTRAP_IN_TREE OR NOT DEFINED BOOTSTRAP_IN_TREE)
   set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
 endif()
-ExternalProject_ADD(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
+externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
                     CONFIGURE_COMMAND ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/configure
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
@@ -36,37 +36,37 @@ ExternalProject_ADD(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
                     BUILD_COMMAND ${MAKE}
                     "${update_command}")
 
-ADD_DEFINITIONS(-DHAVE_CONFIG_H)
+add_definitions(-DHAVE_CONFIG_H)
 
-SET(SOLARWINDS_SOURCES lib/rsxs-0.9/src/color.cc
+set(SOLARWINDS_SOURCES lib/rsxs-0.9/src/color.cc
                        lib/rsxs-0.9/src/common.cc
                        lib/rsxs-0.9/src/solarwinds/solarwinds.cc
                        lib/rsxs-0.9/src/solarwinds/wind.cc)
 
-SET(PLASMA_SOURCES lib/rsxs-0.9/src/color.cc
+set(PLASMA_SOURCES lib/rsxs-0.9/src/color.cc
                    lib/rsxs-0.9/src/common.cc
                    lib/rsxs-0.9/src/plasma/plasma.cc)
 
-SET(EUPHORIA_SOURCES lib/rsxs-0.9/src/color.cc
+set(EUPHORIA_SOURCES lib/rsxs-0.9/src/color.cc
                      lib/rsxs-0.9/src/common.cc
                      lib/rsxs-0.9/src/euphoria/euphoria.cc
                      lib/rsxs-0.9/src/euphoria/wisp.cc)
 
-SET(DEPLIBS ${OPENGL_LIBRARIES}
+set(DEPLIBS ${OPENGL_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a)
 
 build_addon(screensaver.rsxs.solarwinds SOLARWINDS DEPLIBS)
-SET_TARGET_PROPERTIES(screensaver.rsxs.solarwinds PROPERTIES
+set_target_properties(screensaver.rsxs.solarwinds PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.solarwinds\\"")
 add_dependencies(screensaver.rsxs.solarwinds rsxs)
 
 build_addon(screensaver.rsxs.plasma PLASMA DEPLIBS)
-SET_TARGET_PROPERTIES(screensaver.rsxs.plasma PROPERTIES
+set_target_properties(screensaver.rsxs.plasma PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.plasma\\"")
 add_dependencies(screensaver.rsxs.plasma rsxs)
 
 build_addon(screensaver.rsxs.euphoria EUPHORIA DEPLIBS)
-SET_TARGET_PROPERTIES(screensaver.rsxs.euphoria PROPERTIES
+set_target_properties(screensaver.rsxs.euphoria PROPERTIES
                       COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.euphoria\\"")
 add_dependencies(screensaver.rsxs.euphoria rsxs)
 
