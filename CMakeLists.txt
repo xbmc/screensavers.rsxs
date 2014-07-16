@@ -17,7 +17,7 @@ INCLUDE_DIRECTORIES(${OpenGL_INCLUDE_DIR}
                         
 INCLUDE(ExternalProject)
 set(update_command "")
-if(BOOTSTRAP_IN_TREE)
+if(BOOTSTRAP_IN_TREE OR NOT DEFINED BOOTSTRAP_IN_TREE)
   set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
 endif()
 ExternalProject_ADD(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
