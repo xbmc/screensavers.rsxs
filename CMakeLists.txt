@@ -53,7 +53,6 @@ SET(EUPHORIA_SOURCES lib/rsxs-0.9/src/color.cc
                      lib/rsxs-0.9/src/euphoria/wisp.cc)
 
 SET(DEPLIBS ${OPENGL_LIBRARIES}
-            ${GLEW_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a)
 
 build_addon(screensaver.rsxs.solarwinds SOLARWINDS DEPLIBS)
