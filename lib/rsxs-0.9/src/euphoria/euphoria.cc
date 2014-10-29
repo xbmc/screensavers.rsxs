@@ -398,7 +398,7 @@ void Hack::buttonRelease(unsigned int) {}
 void Hack::pointerEnter() {}
 void Hack::pointerLeave() {}
 
-#include "xbmc/xbmc_scr_dll.h"
+#include "kodi/xbmc_scr_dll.h"
 
 extern "C" {
 

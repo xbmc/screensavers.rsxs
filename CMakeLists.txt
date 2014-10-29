@@ -4,11 +4,11 @@ cmake_minimum_required(VERSION 2.6)
 
 enable_language(CXX)
 
-find_package(xbmc REQUIRED)
+find_package(kodi REQUIRED)
 find_package(OpenGL REQUIRED)
 
 include_directories(${OpenGL_INCLUDE_DIR}
-                    ${XBMC_INCLUDE_DIR}
+                    ${KODI_INCLUDE_DIR}
                     ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
                     ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src
                     ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src/euphoria
@@ -32,7 +32,7 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
                                       --disable-helios
                                       --disable-hyperspace
                                       --disable-lattice
-                                      --disable-skyrocket "CFLAGS=-fPIC -I${XBMC_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${XBMC_INCLUDE_DIR}"
+                                      --disable-skyrocket "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
                     BUILD_COMMAND ${MAKE}
                     "${update_command}")
 
