@@ -56,7 +56,8 @@ set(PLASMA_SOURCES ${rsxs_dir}/src/plasma/plasma.cc
                    src/plasma.cpp)
 
 set(EUPHORIA_SOURCES ${rsxs_dir}/src/euphoria/euphoria.cc
-                     ${rsxs_dir}/src/euphoria/wisp.cc)
+                     ${rsxs_dir}/src/euphoria/wisp.cc
+                     src/euphoria.cpp)
 
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${PNG_LIBRARIES}

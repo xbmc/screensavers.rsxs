@@ -1,0 +1,10 @@
+<settings>
+  <setting id="wisps" label="30000" type="slider" range="0,1,100" option="int" default="5"/>
+  <setting id="background" label="30001" type="slider" range="0,1,100" option="int" default="0"/>
+  <setting id="density" label="30002" type="slider" range="2,1,100" option="int" default="25"/>
+  <setting id="speed" label="30003" type="slider" range="1,1,100" option="int" default="15"/>
+  <setting id="texture" label="30004" type="enum" lvalues="30005|30006|30007|30008|30009" default="30005"/>
+  <setting id="feedback" label="30010" type="slider" range="0,1,100" option="int" default="0"/>
+  <setting id="fspeed" label="30011" type="slider" range="1,1,100" option="int" default="1"/>
+  <setting id="fsize" label="30012" type="slider" range="1,1,10" option="int" default="3"/>
+</settings>
