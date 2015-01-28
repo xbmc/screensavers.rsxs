@@ -7,21 +7,23 @@ enable_language(CXX)
 find_package(kodi REQUIRED)
 find_package(OpenGL REQUIRED)
 
+set(rsxs_dir lib/rsxs-1.0)
+
 include_directories(${OpenGL_INCLUDE_DIR}
                     ${KODI_INCLUDE_DIR}
                     ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
-                    ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src
-                    ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src/euphoria
-                    ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src/plasma
-                    ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/src/solarwinds)
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/euphoria
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
                         
 include(ExternalProject)
 set(update_command "")
 if(BOOTSTRAP_IN_TREE OR NOT DEFINED BOOTSTRAP_IN_TREE)
   set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
 endif()
-externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
-                    CONFIGURE_COMMAND ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/configure
+externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
+                    CONFIGURE_COMMAND ${PROJECT_SOURCE_DIR}/${rsxs_dir}/configure
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
                                       --disable-sound
@@ -38,19 +40,19 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/rsxs-0.9/
 
 add_definitions(-DHAVE_CONFIG_H)
 
-set(SOLARWINDS_SOURCES lib/rsxs-0.9/src/color.cc
-                       lib/rsxs-0.9/src/common.cc
-                       lib/rsxs-0.9/src/solarwinds/solarwinds.cc
-                       lib/rsxs-0.9/src/solarwinds/wind.cc)
+set(SOLARWINDS_SOURCES ${rsxs_dir}/src/color.cc
+                       ${rsxs_dir}/src/common.cc
+                       ${rsxs_dir}/src/solarwinds/solarwinds.cc
+                       ${rsxs_dir}/src/solarwinds/wind.cc)
 
-set(PLASMA_SOURCES lib/rsxs-0.9/src/color.cc
-                   lib/rsxs-0.9/src/common.cc
-                   lib/rsxs-0.9/src/plasma/plasma.cc)
+set(PLASMA_SOURCES ${rsxs_dir}/src/color.cc
+                   ${rsxs_dir}/src/common.cc
+                   ${rsxs_dir}/src/plasma/plasma.cc)
 
-set(EUPHORIA_SOURCES lib/rsxs-0.9/src/color.cc
-                     lib/rsxs-0.9/src/common.cc
-                     lib/rsxs-0.9/src/euphoria/euphoria.cc
-                     lib/rsxs-0.9/src/euphoria/wisp.cc)
+set(EUPHORIA_SOURCES ${rsxs_dir}/src/color.cc
+                     ${rsxs_dir}/src/common.cc
+                     ${rsxs_dir}/src/euphoria/euphoria.cc
+                     ${rsxs_dir}/src/euphoria/wisp.cc)
 
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a)
