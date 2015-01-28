@@ -116,6 +116,9 @@ std::string Hack::getShortName() { return "plasma"; }
 std::string Hack::getName()      { return "Plasma"; }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
+
 	glViewport(0, 0, Common::width, Common::height);
 
 	if (Common::aspectRatio >= 1.0f) {
@@ -125,13 +128,13 @@ void Hack::start() {
 		_high = 30.0f / zoom;
 		_wide = _high * Common::aspectRatio;
 	}
-
+/*
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0.0f, 1.0f, 0.0f, 1.0f);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
+*/
 	// Set resolution of plasma
 	if (Common::aspectRatio >= 1.0f)
 		_plasmaHeight = (resolution * MAXTEXSIZE) / 100;
@@ -172,7 +175,7 @@ void Hack::start() {
 	}
 
 	// Make texture
-	glBindTexture(GL_TEXTURE_2D, 1);
+	glBindTexture(GL_TEXTURE_2D, 1000);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
@@ -192,6 +195,20 @@ void Hack::start() {
 }
 
 void Hack::tick() {
+        int origRowLength;
+        glViewport(0, 0, Common::width, Common::height);
+        glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+        glLoadIdentity();
+        gluOrtho2D(0.0f, 1.0f, 0.0f, 1.0f);
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        glLoadIdentity();
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, 1000);
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+        glGetIntegerv(GL_UNPACK_ROW_LENGTH, &origRowLength);
+        glPixelStorei(GL_UNPACK_ROW_LENGTH, _texSize);
 	// Update constants
 	for(unsigned int i = 0; i < NUMCONSTS; ++i) {
 		_ct[i] += _cv[i];
@@ -266,14 +283,20 @@ void Hack::tick() {
 		glVertex2f(1.0f, 1.0f);
 	glEnd();
 
-	Common::flush();
+        glMatrixMode(GL_MODELVIEW);
+        glPopMatrix();
+        glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
+        glPixelStorei(GL_UNPACK_ROW_LENGTH, origRowLength);
+
+	//Common::flush();
 }
 
 void Hack::reshape() {
 	glViewport(0, 0, Common::width, Common::height);
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {

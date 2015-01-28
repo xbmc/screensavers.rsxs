@@ -1,0 +1,6 @@
+<settings>
+  <setting id="zoom" label="30000" type="slider" range="1,5,100" option="int" default="10"/>
+  <setting id="focus" label="30001" type="slider" range="1,5,100" option="int" default="30"/>
+  <setting id="speed" label="30002" type="slider" range="1,5,100" option="int" default="20"/>
+  <setting id="resolution" label="30003" type="slider" range="1,5,100" option="int" default="20"/>
+</settings>

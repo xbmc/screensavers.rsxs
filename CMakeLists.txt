@@ -52,7 +52,8 @@ add_dependencies(rsxs_common rsxs)
 set(SOLARWINDS_SOURCES ${rsxs_dir}/src/solarwinds/solarwinds.cc
                        ${rsxs_dir}/src/solarwinds/wind.cc)
 
-set(PLASMA_SOURCES ${rsxs_dir}/src/plasma/plasma.cc)
+set(PLASMA_SOURCES ${rsxs_dir}/src/plasma/plasma.cc
+                   src/plasma.cpp)
 
 set(EUPHORIA_SOURCES ${rsxs_dir}/src/euphoria/euphoria.cc
                      ${rsxs_dir}/src/euphoria/wisp.cc)
