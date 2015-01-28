@@ -1,0 +1,11 @@
+<settings>
+  <setting id="winds" label="30000" type="slider" range="0,1,10" option="int" default="1"/>
+  <setting id="particles" label="30001" type="slider" range="0,100,10000" option="int" default="2000"/>
+  <setting id="emitters" label="30002" type="slider" range="1,10,1000" option="int" default="30"/>
+  <setting id="speed" label="30003" type="slider" range="1,1,100" option="int" default="20"/>
+  <setting id="psize" label="30004" type="slider" range="1,1,100" option="int" default="50"/>
+  <setting id="pgeom" label="30005" type="enum" lvalues="30006|30007|30008" default="30006"/>
+  <setting id="pspeed" label="30009" type="slider" range="1,1,100" option="int" default="10"/>
+  <setting id="espeed" label="30010" type="slider" range="1,1,100" option="int" default="15"/>
+  <setting id="blur" label="30011" type="slider" range="0,1,100" option="int" default="40"/>
+</settings>

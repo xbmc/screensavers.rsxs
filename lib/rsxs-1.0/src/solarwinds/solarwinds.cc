@@ -27,6 +27,7 @@
 #include <solarwinds.hh>
 #include <vector.hh>
 #include <wind.hh>
+#include <string.h>
 
 namespace Hack {
 	unsigned int numWinds = 1;
@@ -147,15 +148,8 @@ std::string Hack::getShortName() { return "solarwinds"; }
 std::string Hack::getName()      { return "Solar Winds"; }
 
 void Hack::start() {
-	glViewport(0, 0, Common::width, Common::height);
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(90.0, Common::aspectRatio, 1.0, 10000);
-	glTranslatef(0.0, 0.0, -15.0);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
@@ -184,7 +178,19 @@ void Hack::reshape() {
 }
 
 void Hack::tick() {
+	glViewport(0, 0, Common::width, Common::height);
+
+	glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
 	glLoadIdentity();
+	gluPerspective(90.0, Common::aspectRatio, 1.0, 10000);
+	glTranslatef(0.0, 0.0, -15.0);
+	glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+	glLoadIdentity();
+
+        glEnable(GL_TEXTURE_2D);
+        glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
 	if (!blur) {
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -208,10 +214,15 @@ void Hack::tick() {
 	// Update surfaces
 	stdx::call_all(_winds, &Wind::update);
 
-	Common::flush();
+	//Common::flush();
+
+        glMatrixMode(GL_MODELVIEW);
+        glPopMatrix();
+        glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib(); glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {

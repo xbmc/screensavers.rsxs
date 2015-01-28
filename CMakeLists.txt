@@ -50,7 +50,8 @@ add_library(rsxs_common STATIC ${rsxs_dir}/src/color.cc
 add_dependencies(rsxs_common rsxs)
 
 set(SOLARWINDS_SOURCES ${rsxs_dir}/src/solarwinds/solarwinds.cc
-                       ${rsxs_dir}/src/solarwinds/wind.cc)
+                       ${rsxs_dir}/src/solarwinds/wind.cc
+                       src/solarwinds.cpp)
 
 set(PLASMA_SOURCES ${rsxs_dir}/src/plasma/plasma.cc
                    src/plasma.cpp)
