@@ -174,7 +174,12 @@ error_t Common::parse(int key, char* arg, struct argp_state* state) {
 	}
 }
 
+static struct timeval now;
+static struct timeval then;
+
+
 void Common::init(int argc, char** argv) {
+#if 0
 	display = XOpenDisplay(_displayName);
 	if (!display) {
 		if (_displayName[0])
@@ -190,22 +195,21 @@ void Common::init(int argc, char** argv) {
 
 	updateAttributes();
 	XMapRaised(display, window);
+#endif
 	running = true;
 	speed = 1.0f;
 
 	resources = new ResourceManager;
+	gettimeofday(&now, NULL);
 }
 
 void Common::run() {
+#if 0
 	Hack::start();
 
 #ifndef NDEBUG
 	dumpErrors("start");
 #endif // !NDEBUG
-
-	struct timeval now;
-	struct timeval then;
-	gettimeofday(&now, NULL);
 
 	while (running) {
 		Hack::tick();
@@ -288,6 +292,7 @@ void Common::run() {
 				break;
 			}
 		}
+#endif
 
 		then = now;
 		gettimeofday(&now, NULL);
@@ -329,8 +334,10 @@ void Common::run() {
 		}
 #endif // !NDEBUG
 		elapsedTime = speed * elapsedSecs;
+#if 0
 	}
 	Hack::stop();
+#endif
 #ifndef NDEBUG
 	dumpErrors("stop");
 #endif // !NDEBUG

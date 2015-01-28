@@ -136,6 +136,9 @@ namespace Common {
 			item < min || item > max;
 	}
 
+        void run();
+        void init(int argc, char** argv);
+
 	template <typename T>
 	static inline bool parseArg(
 		const char* arg, T& item, const T& min, const T& max, const T& extra
