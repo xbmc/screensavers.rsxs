@@ -1,0 +1,9 @@
+<settings>
+  <setting id="cyclones" label="30000" type="slider" range="1,1,10" option="int" default="1"/>
+  <setting id="complexity" label="30001" type="slider" range="1,1,10" option="int" default="3"/>
+  <setting id="particles" label="30002" type="slider" range="1,10,10000" option="int" default="200"/>
+  <setting id="curves" label="30003" type="bool" default="0"/>
+  <setting id="hemisphere" label="30004" type="enum" lvalues="30005|30006" default="30005"/>
+  <setting id="size" label="30007" type="slider" range="1,1,100" option="int" default="7"/>
+  <setting id="stretch" label="30008" type="bool" default="1"/>
+</settings>

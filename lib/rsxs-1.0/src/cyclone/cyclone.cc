@@ -25,8 +25,9 @@
 #include <blend.hh>
 #include <color.hh>
 #include <hack.hh>
-#include <particle.hh>
+#include "particle.hh"
 #include <vector.hh>
+#include <string.h>
 
 #define WIDE 200.0f
 #define HIGH 200.0f
@@ -35,7 +36,7 @@ namespace Hack {
 	unsigned int numCyclones = 1;
 	unsigned int numParticles = 200;
 	float size = 7.0f;
-	unsigned int complexity = 3;
+	unsigned int complexity = 1;
 	float speed = 10.0f;
 	bool stretch = true;
 	bool showCurves = false;
@@ -144,12 +145,14 @@ std::string Hack::getShortName() { return "cyclone"; }
 std::string Hack::getName()      { return "Cyclone"; }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
 	glViewport(0, 0, Common::width, Common::height);
 
-	glEnable(GL_DEPTH_TEST);
-	glFrontFace(GL_CCW);
-	glEnable(GL_CULL_FACE);
-	glClearColor(0.0, 0.0, 0.0, 1.0);
+	//glEnable(GL_DEPTH_TEST);
+	//glFrontFace(GL_CCW);
+	//glEnable(GL_CULL_FACE);
+	//glClearColor(0.0, 0.0, 0.0, 1.0);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -162,8 +165,8 @@ void Hack::start() {
 		glTranslatef(0.0f, 0.0f, WIDE * -2.0f);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
 	Particle::init();
+
 
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
@@ -193,19 +196,64 @@ void Hack::start() {
 }
 
 void Hack::tick() {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	Common::run();
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, Common::width, Common::height);
+
+	//glEnable(GL_DEPTH_TEST);
+	glFrontFace(GL_CCW);
+	glEnable(GL_CULL_FACE);
+	glClearColor(0.0, 0.0, 0.0, 1.0);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluPerspective(80.0, Common::aspectRatio, 50, 3000);
+
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+	if (Common::randomInt(500) == 0) {
+		TRACE("Easter egg view!");
+		glRotatef(90, 1, 0, 0);
+		glTranslatef(0.0f, WIDE * -2.0f, 0.0f);
+	} else
+		glTranslatef(0.0f, 0.0f, WIDE * -2.0f);
+
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	float ambient[4] = {0.25f, 0.25f, 0.25f, 0.0f};
+	float diffuse[4] = {1.0f, 1.0f, 1.0f, 0.0f};
+	float specular[4] = {1.0f, 1.0f, 1.0f, 0.0f};
+	float position[4] = {WIDE * 2.0f, -HIGH, WIDE * 2.0f, 0.0f};
+	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+	glLightfv(GL_LIGHT0, GL_POSITION, position);
+	glEnable(GL_COLOR_MATERIAL);
+	glMaterialf(GL_FRONT, GL_SHININESS, 20.0f);
+	glColorMaterial(GL_FRONT, GL_SPECULAR);
+	glColor3f(0.7f, 0.7f, 0.7f);
+	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 
 	stdx::call_all(_cyclones, &Cyclone::update);
 	stdx::call_all(_particles, &Particle::update);
 
-	Common::flush();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	//glDisable(GL_DEPTH_TEST);
+//	Common::flush();
 }
 
 void Hack::reshape() {
 	glViewport(0, 0, Common::width, Common::height);
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 Cyclone::Cyclone() {
 	// Initialize position stuff

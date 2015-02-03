@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="screensaver.rsxs.cyclone"
+  version="1.0.0"
+  name="Cyclone"
+  provider-name="mogumbo, Team XBMC">
+  <requires>
+    <c-pluff version="0.1"/>
+  </requires>
+  <extension
+    point="xbmc.ui.screensaver"
+    library_linux="screensaver.rsxs.cyclone.so"
+    library_osx="screensaver.rsxs.cyclone.so"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Probably the second most psychedelic screensaver ever</summary>
+    <description lang="en">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
+    <platform>linux osx</platform>
+  </extension>
+</addon>
