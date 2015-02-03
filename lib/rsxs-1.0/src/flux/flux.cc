@@ -28,6 +28,8 @@
 #include <trail.hh>
 #include <vector.hh>
 
+#include <string.h>
+
 namespace Hack {
 	unsigned int numFluxes = 1;
 	unsigned int numTrails = 20;
@@ -221,6 +223,8 @@ std::string Hack::getShortName() { return "flux"; }
 std::string Hack::getName()      { return "Flux"; }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
 	glViewport(0, 0, Common::width, Common::height);
 
 	glMatrixMode(GL_PROJECTION);
@@ -246,7 +250,23 @@ void Hack::start() {
 
 void Hack::tick() {
 	// clear the screen
+	Common::run();
+	glViewport(0, 0, Common::width, Common::height);
+
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+	gluPerspective(100.0, Common::aspectRatio, 0.01, 200);
+	glTranslatef(0.0, 0.0, -2.5);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	if (geometry == POINTS_GEOMETRY)
+		glEnable(GL_POINT_SMOOTH);
+
+	glFrontFace(GL_CCW);
+	glEnable(GL_CULL_FACE);
+	//glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	if (blur) {	// partially
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_BLEND);
@@ -298,7 +318,7 @@ void Hack::tick() {
 	for (std::vector<Flux>::iterator i = _fluxes.begin(); i != j; ++i)
 		i->update(cosCameraAngle, sinCameraAngle);
 
-	Common::flush();
+//	Common::flush();
 }
 
 void Hack::reshape() {
@@ -312,7 +332,7 @@ void Hack::reshape() {
 	glLoadIdentity();
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {
