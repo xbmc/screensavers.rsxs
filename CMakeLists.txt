@@ -16,6 +16,7 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/euphoria
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flocks
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
                         
@@ -31,7 +32,6 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                                       --disable-sound
                                       --disable-cyclone
                                       --disable-fieldlines
-                                      --disable-flocks
                                       --disable-flux
                                       --disable-helios
                                       --disable-hyperspace
@@ -60,15 +60,29 @@ set(EUPHORIA_SOURCES ${rsxs_dir}/src/euphoria/euphoria.cc
                      ${rsxs_dir}/src/euphoria/wisp.cc
                      src/euphoria.cpp)
 
+set(FLOCKS_SOURCES ${rsxs_dir}/src/flocks/bug.cc
+                   ${rsxs_dir}/src/flocks/flocks.cc
+                   src/flocks.cpp)
+
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${PNG_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a
             rsxs_common)
 
-foreach(addon solarwinds plasma euphoria)
+foreach(addon solarwinds plasma euphoria flocks)
   string(TOUPPER ${addon} ADDON)
   build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
   add_dependencies(screensaver.rsxs.${addon} rsxs_common)
 endforeach()
+
+build_addon(screensaver.rsxs.flux FLUX DEPLIBS)
+set_target_properties(screensaver.rsxs.flux PROPERTIES
+                      COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.flux\\"")
+add_dependencies(screensaver.rsxs.flux rsxs)
+
+build_addon(screensaver.rsxs.cyclone CYCLONE DEPLIBS)
+set_target_properties(screensaver.rsxs.cyclone PROPERTIES
+                      COMPILE_FLAGS -DPKGDATADIR="\\"/usr/share/xbmc/addons/screensaver.rsxs.cyclone\\"")
+add_dependencies(screensaver.rsxs.cyclone rsxs)
 
 include(CPack)

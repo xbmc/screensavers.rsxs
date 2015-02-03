@@ -28,13 +28,15 @@
 #include <hack.hh>
 #include <vector.hh>
 
+#include <string.h>
+
 namespace Hack {
 	unsigned int numLeaders = 4;
 	unsigned int numFollowers = 400;
 	bool blobs = true;
 	float size = 10.0f;
 	unsigned int complexity = 1;
-	float speed = 15.0f;
+	float speed = 5.0f;
 	float stretch = 20.0f;
 	float colorFadeSpeed = 15.0f;
 	bool chromatek = false;
@@ -147,7 +149,10 @@ std::string Hack::getShortName() { return "flocks"; }
 std::string Hack::getName()      { return "Flocks"; }
 
 void Hack::start() {
-	glEnable(GL_DEPTH_TEST);
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
+
+	/*glEnable(GL_DEPTH_TEST);
 	glFrontFace(GL_CCW);
 	glEnable(GL_CULL_FACE);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -158,12 +163,12 @@ void Hack::start() {
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(80.0, Common::aspectRatio, 50, 2000);
+	gluPerspective(80.0, Common::aspectRatio, 50, 2000);*/
 
 	Bug::initBoundaries();
 
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+//	glMatrixMode(GL_MODELVIEW);
+//	glLoadIdentity();
 
 	Bug::init();
 
@@ -174,12 +179,27 @@ void Hack::start() {
 }
 
 void Hack::tick() {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	Common::run();
+
+	glEnable(GL_LINE_SMOOTH);
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+
+	glViewport(0, 0, Common::width, Common::height);
+
+//	glMatrixMode(GL_MODELVIEW);
+	//glPushMatrix();
+//	glLoadIdentity();
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluPerspective(80.0, Common::aspectRatio, 50, 2000);
 
 	stdx::call_all(_leaders, &Leader::update);
 	stdx::call_all(_followers, &Follower::update, _leaders);
 
-	Common::flush();
+	//Common::flush();
 }
 
 void Hack::reshape() {
@@ -195,7 +215,7 @@ void Hack::reshape() {
 	glLoadIdentity();
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {

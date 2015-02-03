@@ -1,0 +1,11 @@
+<settings>
+  <setting id="leaders" label="30000" type="slider" range="1,1,100" option="int" default="4"/>
+  <setting id="followers" label="30001" type="slider" range="0,10,1000" option="int" default="400"/>
+  <setting id="size" label="30002" type="slider" range="1,1,100" option="int" default="10"/>
+  <setting id="stretch" label="30003" type="slider" range="0,1,100" option="int" default="20"/>
+  <setting id="speed" label="30004" type="slider" range="1,1,100" option="int" default="15"/>
+  <setting id="complexity" label="30005" type="slider" range="0,1,10" option="int" default="1"/>
+  <setting id="cspeed" label="30006" type="slider" range="0,1,100" option="int" default="15"/>
+  <setting id="cdepth" label="30007" type="bool" default="0"/>
+  <setting id="connections" label="30008" type="bool" default="0"/>
+</settings>
