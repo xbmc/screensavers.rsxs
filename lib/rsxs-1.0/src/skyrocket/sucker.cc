@@ -24,7 +24,7 @@
 
 #include <color.hh>
 #include <explosion.hh>
-#include <resources.hh>
+#include "resources.hh"
 #include <shockwave.hh>
 #include <skyrocket.hh>
 #include <star.hh>

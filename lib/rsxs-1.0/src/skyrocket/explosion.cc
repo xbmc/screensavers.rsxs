@@ -27,7 +27,7 @@
 #include <color.hh>
 #include <explosion.hh>
 #include <meteor.hh>
-#include <resources.hh>
+#include "resources.hh"
 #include <skyrocket.hh>
 #include <star.hh>
 #include <streamer.hh>

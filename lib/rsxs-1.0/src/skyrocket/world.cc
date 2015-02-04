@@ -24,7 +24,7 @@
 
 #include <color.hh>
 #include <skyrocket.hh>
-#include <resources.hh>
+#include "resources.hh"
 #include <vector.hh>
 #include <world.hh>
 

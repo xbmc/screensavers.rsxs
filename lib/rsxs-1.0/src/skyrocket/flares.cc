@@ -23,8 +23,8 @@
 #include <common.hh>
 
 #include <color.hh>
-#include <flares.hh>
-#include <resources.hh>
+#include "flares.hh"
+#include "resources.hh"
 
 // Draw a flare at a specified (x,y) location on the screen
 // Screen corners are at (0,0) and (1,1)

@@ -26,8 +26,8 @@
 #include <common.hh>
 
 #include <color.hh>
-#include <particle.hh>
-#include <resources.hh>
+#include "particle.hh"
+#include "resources.hh"
 #include <skyrocket.hh>
 #include <vector.hh>
 

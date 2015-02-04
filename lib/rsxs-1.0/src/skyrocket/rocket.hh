@@ -27,7 +27,7 @@
 
 #include <color.hh>
 #include <explosion.hh>
-#include <particle.hh>
+#include "particle.hh"
 #include <vector.hh>
 
 class Rocket : public Particle {

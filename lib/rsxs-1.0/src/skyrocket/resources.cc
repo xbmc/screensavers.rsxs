@@ -25,7 +25,7 @@
 #include <color.hh>
 #include <oggsound.hh>
 #include <pngimage.hh>
-#include <resources.hh>
+#include "resources.hh"
 #include <skyrocket.hh>
 #include <vector.hh>
 

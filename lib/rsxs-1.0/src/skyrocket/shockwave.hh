@@ -25,7 +25,7 @@
 
 #include <common.hh>
 
-#include <particle.hh>
+#include "particle.hh"
 #include <vector.hh>
 
 #define WAVESTEPS 40

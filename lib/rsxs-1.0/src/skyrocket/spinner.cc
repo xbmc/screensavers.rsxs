@@ -22,7 +22,7 @@
  */
 #include <common.hh>
 
-#include <resources.hh>
+#include "resources.hh"
 #include <skyrocket.hh>
 #include <spinner.hh>
 #include <star.hh>

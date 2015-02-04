@@ -23,10 +23,10 @@
 #include <common.hh>
 
 #include <explosion.hh>
-#include <flares.hh>
+#include "flares.hh"
 #include <fountain.hh>
 #include <overlay.hh>
-#include <resources.hh>
+#include "resources.hh"
 #include <rocket.hh>
 #include <shockwave.hh>
 #include <skyrocket.hh>
@@ -395,6 +395,9 @@ void Hack::crashChainCamera() {
 }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
+
 	_action = true;
 	_cameraMode = CAMERA_AUTO;
 	_userDefinedExplosion = Explosion::EXPLODE_NONE;
@@ -427,7 +430,7 @@ void Hack::start() {
 	Shockwave::init();
 	Smoke::init();
 	World::init();
-	Overlay::init();
+	//Overlay::init();
 }
 
 void Hack::reshape() {
@@ -441,8 +444,18 @@ void Hack::reshape() {
 }
 
 void Hack::tick() {
+	Common::run();
+
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_TEXTURE_2D);
+	glFrontFace(GL_CCW);
+	glEnable(GL_CULL_FACE);
+
 	// build viewing matrix
 	glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
 	glLoadIdentity();
 	gluPerspective(60.0f, Common::aspectRatio, 1.0f, 40000.0f);
 	glGetDoublev(GL_PROJECTION_MATRIX, _projectionMat);
@@ -451,6 +464,7 @@ void Hack::tick() {
 	// Don't use gluLookAt() because it's easier to find the billboard matrix
 	// if we know the heading and pitch
 	glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
 	glLoadIdentity();
 
 	switch (_cameraMode) {
@@ -523,7 +537,7 @@ void Hack::tick() {
 					Explosion::EXPLODE_FLASH)
 				);
 				_cameraMode = CAMERA_AUTO;
-				Overlay::set("Automatic camera");
+				//Overlay::set("Automatic camera");
 				crashChainCamera();
 			}
 		}
@@ -534,7 +548,7 @@ void Hack::tick() {
 	glTranslatef(-cameraPos.x(), -cameraPos.y(), -cameraPos.z());
 	glGetDoublev(GL_MODELVIEW_MATRIX, _modelMat);
 
-	glClear(GL_COLOR_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT);
 
 	if (_action) {
 		World::update();
@@ -658,15 +672,20 @@ void Hack::tick() {
 
 	if (volume) Sound::update();
 
-	Overlay::update();
-	Overlay::draw();
+	//Overlay::update();
+	//Overlay::draw();
 
-	Common::flush();
+	//Common::flush();
+	glMatrixMode(GL_MODELVIEW);
+        glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
 
 	frameToggle = !frameToggle;
 }
 
 void Hack::stop() {
+	glPopAttrib();  glPopClientAttrib();
 	stdx::destroy_all_ptr(pending);
 	stdx::destroy_all_ptr(_particles);
 }
@@ -680,33 +699,33 @@ void Hack::keyPress(char c, const KeySym&) {
 		_action = !_action;
 		if (_action) {
 			Common::speed = 1.0f;
-			Overlay::set("Action continuing");
+			//Overlay::set("Action continuing");
 		} else {
 			Common::speed = 0.0f;
-			Overlay::set("Action paused");
+			//Overlay::set("Action paused");
 		}
 		break;
 	case 'c': case 'C':
 		_cameraMode = (_cameraMode == CAMERA_FIXED) ? CAMERA_AUTO : CAMERA_FIXED;
 		if (_cameraMode == CAMERA_AUTO)
-			Overlay::set("Automatic camera");
+			; //Overlay::set("Automatic camera");
 		else
-			Overlay::set("Fixed camera");
+			// Overlay::set("Fixed camera");
 		break;
 	case 'm': case 'M':
 		_cameraMode = (_cameraMode == CAMERA_MANUAL) ? CAMERA_AUTO : CAMERA_MANUAL;
 		if (_cameraMode == CAMERA_AUTO) {
-			Overlay::set("Automatic camera");
+			//Overlay::set("Automatic camera");
 			_cameraEndPos = cameraPos;
 			_cameraEndDir = _cameraMatInv;
 			chainCamera();
 		} else {
-			Overlay::set("Mouse-controlled camera");
+			//Overlay::set("Mouse-controlled camera");
 			_cameraSpeed = 100.0f;
 		}
 		break;
 	case 'n': case 'N':
-		Overlay::set("New camera");
+		//Overlay::set("New camera");
 		newCamera();
 		break;
 	case 's': case 'S':
@@ -715,96 +734,96 @@ void Hack::keyPress(char c, const KeySym&) {
 			slowMotion = !slowMotion;
 			if (slowMotion) {
 				Common::speed = 0.125;
-				Overlay::set("Slow-motion");
+				//Overlay::set("Slow-motion");
 			} else {
 				Common::speed = 1.0f;
-				Overlay::set("Normal speed");
+				//Overlay::set("Normal speed");
 			}
 		}
 		break;
 	case '1':
 		_userDefinedExplosion = Explosion::EXPLODE_SPHERE;
-		Overlay::set("Sphere of stars");
+		//Overlay::set("Sphere of stars");
 		break;
 	case '2':
 		_userDefinedExplosion = Explosion::EXPLODE_SPLIT_SPHERE;
-		Overlay::set("Split sphere of stars");
+		//Overlay::set("Split sphere of stars");
 		break;
 	case '3':
 		_userDefinedExplosion = Explosion::EXPLODE_MULTICOLORED_SPHERE;
-		Overlay::set("Multicolored sphere of stars");
+		//Overlay::set("Multicolored sphere of stars");
 		break;
 	case '4':
 		_userDefinedExplosion = Explosion::EXPLODE_RING;
-		Overlay::set("Ring of stars");
+		//Overlay::set("Ring of stars");
 		break;
 	case '5':
 		_userDefinedExplosion = Explosion::EXPLODE_DOUBLE_SPHERE;
-		Overlay::set("Double-sphere of stars");
+		//Overlay::set("Double-sphere of stars");
 		break;
 	case '6':
 		_userDefinedExplosion = Explosion::EXPLODE_SPHERE_INSIDE_RING;
-		Overlay::set("Sphere of stars inside ring of stars");
+		//Overlay::set("Sphere of stars inside ring of stars");
 		break;
 	case '7':
 		_userDefinedExplosion = Explosion::EXPLODE_STREAMERS;
-		Overlay::set("Sphere of streamers");
+		//Overlay::set("Sphere of streamers");
 		break;
 	case '8':
 		_userDefinedExplosion = Explosion::EXPLODE_METEORS;
-		Overlay::set("Sphere of meteors");
+		//Overlay::set("Sphere of meteors");
 		break;
 	case '9':
 		_userDefinedExplosion = Explosion::EXPLODE_STARS_INSIDE_STREAMERS;
-		Overlay::set("Sphere of stars inside sphere of streamers");
+		//Overlay::set("Sphere of stars inside sphere of streamers");
 		break;
 	case '0':
 		_userDefinedExplosion = Explosion::EXPLODE_STARS_INSIDE_METEORS;
-		Overlay::set("Sphere of stars inside sphere of meteors");
+		//Overlay::set("Sphere of stars inside sphere of meteors");
 		break;
 	case 'q': case 'Q':
 		_userDefinedExplosion = Explosion::EXPLODE_STREAMERS_INSIDE_STARS;
-		Overlay::set("Sphere of streamers inside sphere of stars");
+		//Overlay::set("Sphere of streamers inside sphere of stars");
 		break;
 	case 'w': case 'W':
 		_userDefinedExplosion = Explosion::EXPLODE_METEORS_INSIDE_STARS;
-		Overlay::set("Sphere of meteors inside sphere of stars");
+		//Overlay::set("Sphere of meteors inside sphere of stars");
 		break;
 	case 'e': case 'E':
 		_userDefinedExplosion = Explosion::EXPLODE_STAR_BOMBS;
-		Overlay::set("Star bombs");
+		//Overlay::set("Star bombs");
 		break;
 	case 'r': case 'R':
 		_userDefinedExplosion = Explosion::EXPLODE_STREAMER_BOMBS;
-		Overlay::set("Streamer bombs");
+		//Overlay::set("Streamer bombs");
 		break;
 	case 't': case 'T':
 		_userDefinedExplosion = Explosion::EXPLODE_METEOR_BOMBS;
-		Overlay::set("Meteor bombs");
+		//Overlay::set("Meteor bombs");
 		break;
 	case 'y': case 'Y':
 		_userDefinedExplosion = Explosion::EXPLODE_CRACKER_BOMBS;
-		Overlay::set("Cracker bombs");
+		//Overlay::set("Cracker bombs");
 		break;
 	case 'u': case 'U':
 		_userDefinedExplosion = Explosion::EXPLODE_BEES;
-		Overlay::set("Bees");
+		//Overlay::set("Bees");
 		break;
 	case 'i': case 'I':
 		_userDefinedExplosion = Explosion::EXPLODE_FLASH;
-		Overlay::set("Flash-bang");
+		//Overlay::set("Flash-bang");
 		break;
 	case 'o': case 'O':
 		_userDefinedExplosion = Explosion::EXPLODE_SPINNER;
-		Overlay::set("Spinner");
+		//Overlay::set("Spinner");
 		break;
 	case '{':
 		_userDefinedExplosion = Explosion::EXPLODE_SUCKER;
-		Overlay::set("Sucker and shockwave");
+		//Overlay::set("Sucker and shockwave");
 		break;
 	case '}':
 		_userDefinedExplosion = Explosion::EXPLODE_STRETCHER;
-		Overlay::set("Stretcher and Big Mama");
+		//Overlay::set("Stretcher and Big Mama");
 		break;
 	case '/':
 		TRACE("Particles: " << _particles.size());

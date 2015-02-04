@@ -23,7 +23,7 @@
 #include <common.hh>
 
 #include <color.hh>
-#include <resources.hh>
+#include "resources.hh"
 #include <star.hh>
 #include <streamer.hh>
 #include <skyrocket.hh>

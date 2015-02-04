@@ -24,6 +24,7 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/hyperspace
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/lattice
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/skyrocket
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
                         
 include(ExternalProject)
@@ -36,7 +37,7 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
                                       --disable-sound
-                                      --disable-skyrocket "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
+                                      "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
                     BUILD_COMMAND ${MAKE}
                     "${update_command}")
 
@@ -98,13 +99,34 @@ set(LATTICE_SOURCES ${rsxs_dir}/src/lattice/lattice.cc
                     ${rsxs_dir}/src/lattice/resources.cc
                     src/lattice.cpp)
 
+set(SKYROCKET_SOURCES ${rsxs_dir}/src/skyrocket/bee.cc
+                      ${rsxs_dir}/src/skyrocket/bigmama.cc
+                      ${rsxs_dir}/src/skyrocket/bomb.cc
+                      ${rsxs_dir}/src/skyrocket/explosion.cc
+                      ${rsxs_dir}/src/skyrocket/flares.cc
+                      ${rsxs_dir}/src/skyrocket/fountain.cc
+                      ${rsxs_dir}/src/skyrocket/meteor.cc
+                      ${rsxs_dir}/src/skyrocket/overlay.cc
+                      ${rsxs_dir}/src/skyrocket/resources.cc
+                      ${rsxs_dir}/src/skyrocket/rocket.cc
+                      ${rsxs_dir}/src/skyrocket/shockwave.cc
+                      ${rsxs_dir}/src/skyrocket/skyrocket.cc
+                      ${rsxs_dir}/src/skyrocket/smoke.cc
+                      ${rsxs_dir}/src/skyrocket/spinner.cc
+                      ${rsxs_dir}/src/skyrocket/star.cc
+                      ${rsxs_dir}/src/skyrocket/streamer.cc
+                      ${rsxs_dir}/src/skyrocket/stretcher.cc
+                      ${rsxs_dir}/src/skyrocket/sucker.cc
+                      ${rsxs_dir}/src/skyrocket/world.cc
+                      src/skyrocket.cpp)
+
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${PNG_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a
             rsxs_common)
 
 foreach(addon solarwinds plasma euphoria flocks flux cyclone fieldlines helios
-              hyperspace lattice)
+              hyperspace lattice skyrocket)
   string(TOUPPER ${addon} ADDON)
   build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
   add_dependencies(screensaver.rsxs.${addon} rsxs_common)

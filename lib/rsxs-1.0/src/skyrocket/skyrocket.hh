@@ -54,7 +54,7 @@ namespace Hack {
 	extern float speedOfSound;
 };
 
-#include <particle.hh>
+#include "particle.hh"
 #include <smoke.hh>
 #include <world.hh>
 

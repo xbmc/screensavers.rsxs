@@ -24,7 +24,7 @@
 
 #include <bigmama.hh>
 #include <color.hh>
-#include <resources.hh>
+#include "resources.hh"
 #include <skyrocket.hh>
 #include <star.hh>
 #include <vector.hh>

@@ -26,7 +26,7 @@
 #include <common.hh>
 
 #include <color.hh>
-#include <particle.hh>
+#include "particle.hh"
 #include <vector.hh>
 
 class Streamer : public Particle {
