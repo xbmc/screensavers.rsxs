@@ -22,7 +22,7 @@
  */
 #include <common.hh>
 
-#include <particle.hh>
+#include "particle.hh"
 #include <resource.hh>
 
 GLuint Ion::_texture;

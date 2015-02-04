@@ -1,0 +1,11 @@
+<settings>
+  <setting id="ions" label="30000" type="slider" range="1,10,30000" option="int" default="1500"/>
+  <setting id="emitters" label="30001" type="slider" range="1,1,10" option="int" default="3"/>
+  <setting id="attractors" label="30002" type="slider" range="1,1,10" option="int" default="3"/>
+  <setting id="size" label="30003" type="slider" range="1,1,100" option="int" default="10"/>
+  <setting id="speed" label="30004" type="slider" range="1,1,100" option="int" default="10"/>
+  <setting id="isosurface" label="30005" type="bool" default="true"/>
+  <setting id="wireframe" label="30006" type="bool" default="false"/>
+  <setting id="cspeed" label="30007" type="slider" range="0,1,100" option="int" default="10"/>
+  <setting id="blur" label="30008" type="slider" range="0,1,100" option="int" default="30"/>
+</settings>

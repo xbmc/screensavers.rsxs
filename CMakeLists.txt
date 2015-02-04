@@ -20,6 +20,7 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/fieldlines
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flocks
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flux
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/helios
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
                         
@@ -33,7 +34,6 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
                                       --disable-sound
-                                      --disable-helios
                                       --disable-hyperspace
                                       --disable-lattice
                                       --disable-skyrocket "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
@@ -76,12 +76,16 @@ set(FLUX_SOURCES ${rsxs_dir}/src/flux/flux.cc
 set(FIELDLINES_SOURCES ${rsxs_dir}/src/fieldlines/fieldlines.cc
                        src/fieldlines.cpp)
 
+set(HELIOS_SOURCES ${rsxs_dir}/src/helios/helios.cc
+                   ${rsxs_dir}/src/helios/particle.cc
+                   src/helios.cpp)
+
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${PNG_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a
             rsxs_common)
 
-foreach(addon solarwinds plasma euphoria flocks flux cyclone fieldlines)
+foreach(addon solarwinds plasma euphoria flocks flux cyclone fieldlines helios)
   string(TOUPPER ${addon} ADDON)
   build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
   add_dependencies(screensaver.rsxs.${addon} rsxs_common)

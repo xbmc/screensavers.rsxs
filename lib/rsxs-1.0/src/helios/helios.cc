@@ -26,7 +26,7 @@
 #include <hack.hh>
 #include <helios.hh>
 #include <implicit.hh>
-#include <particle.hh>
+#include "particle.hh"
 #include <pngimage.hh>
 #include <sphere.hh>
 #include <resource.hh>
@@ -413,6 +413,9 @@ float Hack::surfaceFunction(const Vector& XYZ) {
 }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
+
 	glViewport(0, 0, Common::width, Common::height);
 
 	glMatrixMode(GL_PROJECTION);
@@ -460,6 +463,22 @@ void Hack::start() {
 }
 
 void Hack::tick() {
+	Common::run();
+
+	glViewport(0, 0, Common::width, Common::height);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluPerspective(60.0, Common::aspectRatio, 0.1, 10000.0f);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+
+	glDisable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+	glEnable(GL_TEXTURE_2D);
+
 	// Camera movements
 	// first do translation (distance from center)
 	static float targetCameraDistance = -1000.0f;
@@ -667,7 +686,12 @@ void Hack::tick() {
 		glPopAttrib(); glPopMatrix();
 	}
 
-	Common::flush();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	//Common::flush();
 }
 
 void Hack::reshape() {
@@ -679,7 +703,7 @@ void Hack::reshape() {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {
