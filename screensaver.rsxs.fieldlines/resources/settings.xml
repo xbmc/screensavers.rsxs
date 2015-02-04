@@ -1,0 +1,9 @@
+<settings>
+  <setting id="ions" label="30000" type="slider" range="1,1,10" option="int" default="4"/>
+  <setting id="speed" label="30001" type="slider" range="1,1,100" option="int" default="10"/>
+  <setting id="seqsize" label="30002" type="slider" range="1,1,100" option="int" default="15"/>
+  <setting id="numlines" label="30003" type="slider" range="1,10,1000" option="int" default="100"/>
+  <setting id="width" label="30004" type="slider" range="1,1,100" option="int" default="30"/>
+  <setting id="constant" label="30005" type="bool" default="0"/>
+  <setting id="electric" label="30006" type="bool" default="0"/>
+</settings>

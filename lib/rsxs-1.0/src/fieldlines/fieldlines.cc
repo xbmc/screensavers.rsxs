@@ -237,9 +237,11 @@ std::string Hack::getShortName() { return "fieldlines"; }
 std::string Hack::getName()      { return "Field Lines"; }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
 	glViewport(0, 0, Common::width, Common::height);
 
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LINE_SMOOTH);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
@@ -258,8 +260,26 @@ void Hack::start() {
 
 void Hack::tick() {
 	static float s = std::sqrt(stepSize * stepSize * 0.333f);
+	Common::run();
 
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, Common::width, Common::height);
+
+	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_LINE_SMOOTH);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+	glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+	glLoadIdentity();
+	gluPerspective(80.0, Common::aspectRatio, 50, 3000);
+	glTranslatef(0.0, 0.0, -(WIDE * 2));
+	glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+	glLoadIdentity();
+
+	if (constWidth)
+		glLineWidth(width * 0.1f);
 
 	stdx::call_all(_ions, &Ion::update);
 
@@ -274,14 +294,19 @@ void Hack::tick() {
 		drawFieldLine(*i, -s, -s, -s);
 	}
 
-	Common::flush();
+	glMatrixMode(GL_MODELVIEW);
+        glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
+
+	//Common::flush();
 }
 
 void Hack::reshape() {
 	glViewport(0, 0, Common::width, Common::height);
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {

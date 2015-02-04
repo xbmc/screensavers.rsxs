@@ -17,6 +17,7 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/cyclone
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/euphoria
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/fieldlines
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flocks
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flux
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
@@ -32,7 +33,6 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
                                       --disable-sound
-                                      --disable-fieldlines
                                       --disable-helios
                                       --disable-hyperspace
                                       --disable-lattice
@@ -73,12 +73,15 @@ set(FLUX_SOURCES ${rsxs_dir}/src/flux/flux.cc
                  ${rsxs_dir}/src/flux/trail.cc
                  src/flux.cpp)
 
+set(FIELDLINES_SOURCES ${rsxs_dir}/src/fieldlines/fieldlines.cc
+                       src/fieldlines.cpp)
+
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${PNG_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a
             rsxs_common)
 
-foreach(addon solarwinds plasma euphoria flocks flux cyclone)
+foreach(addon solarwinds plasma euphoria flocks flux cyclone fieldlines)
   string(TOUPPER ${addon} ADDON)
   build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
   add_dependencies(screensaver.rsxs.${addon} rsxs_common)
