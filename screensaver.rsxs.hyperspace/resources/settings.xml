@@ -1,0 +1,9 @@
+<settings>
+  <setting id="stars" label="30000" type="slider" range="0,10,10000" option="int" default="1000"/>
+  <setting id="size" label="30001" type="slider" range="1,1,100" option="int" default="10"/>
+  <setting id="depth" label="30002" type="slider" range="1,1,10" option="int" default="5"/>
+  <setting id="fov" label="30003" type="slider" range="10,1,150" option="int" default="90"/>
+  <setting id="speed" label="30004" type="slider" range="1,1,100" option="int" default="10"/>
+  <setting id="resolution" label="30005" type="slider" range="4,1,20" option="int" default="10"/>
+  <setting id="shaders" label="30006" type="bool" default="on"/>
+</settings>

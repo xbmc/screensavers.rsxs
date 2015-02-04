@@ -28,6 +28,11 @@
 #include <vector.hh>
 
 namespace Hack {
+        extern unsigned int numStars;
+        extern float starSize;
+        extern unsigned int depth;
+        extern float fov;
+        extern float speed;
 	extern unsigned int resolution;
 	extern bool shaders;
 

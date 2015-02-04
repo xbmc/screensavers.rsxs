@@ -25,7 +25,7 @@
 #include <flares.hh>
 #include <hyperspace.hh>
 #include <nebula.hh>
-#include <particle.hh>
+#include "particle.hh"
 #include <shaders.hh>
 #include <starburst.hh>
 

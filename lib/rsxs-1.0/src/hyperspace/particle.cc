@@ -23,7 +23,7 @@
 #include <common.hh>
 
 #include <hyperspace.hh>
-#include <particle.hh>
+#include "particle.hh"
 
 StretchedParticle::StretchedParticle(
 	const Vector& XYZ, float radius, const RGBColor& color, float fov) :

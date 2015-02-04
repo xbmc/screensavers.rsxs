@@ -27,7 +27,7 @@
 #include <goo.hh>
 #include <hack.hh>
 #include <nebula.hh>
-#include <particle.hh>
+#include "particle.hh"
 #include <spline.hh>
 #include <starburst.hh>
 #include <tunnel.hh>
@@ -161,6 +161,9 @@ float Hack::nextFrame() {
 }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
+
 	glViewport(0, 0, Common::width, Common::height);
 	glGetIntegerv(GL_VIEWPORT, viewport);
 
@@ -233,7 +236,23 @@ void Hack::start() {
 }
 
 void Hack::tick() {
+	Common::run();
+	glViewport(0, 0, Common::width, Common::height);
+	glGetIntegerv(GL_VIEWPORT, viewport);
+
+	glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+	glLoadIdentity();
+	gluPerspective(fov, Common::aspectRatio, 0.001f, 200.0f);
+	glGetDoublev(GL_PROJECTION_MATRIX, projMat);
 	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+
+	glDisable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+	glEnable(GL_TEXTURE_2D);
+	glDisable(GL_LIGHTING);
 
 	// Camera movements
 	static float heading[3] = { 0.0f, 0.0f, 0.0f }; // current, target, and last
@@ -337,7 +356,12 @@ void Hack::tick() {
 		Flares::draw(flarePos, RGBColor(1.0f, 1.0f, 1.0f), alpha);
 	glEnable(GL_FOG);
 
-	Common::flush();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	//Common::flush();
 }
 
 void Hack::reshape() {
@@ -351,7 +375,7 @@ void Hack::reshape() {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {
