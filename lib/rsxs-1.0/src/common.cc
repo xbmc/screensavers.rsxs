@@ -121,7 +121,6 @@ error_t Common::parse(int key, char* arg, struct argp_state* state) {
 		window = None;
 		context = None;
 		running = false;
-		resourceDir = std::string(PKGDATADIR "/") + Hack::getShortName();
 		_displayName = NULL;
 		_onRoot = false;
 		_windowID = 0;
