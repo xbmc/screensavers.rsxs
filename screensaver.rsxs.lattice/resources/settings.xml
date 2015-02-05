@@ -1,0 +1,9 @@
+<settings>
+  <setting id="density" label="30000" type="slider" range="1,1,100" option="int" default="50"/>
+  <setting id="depth" label="30001" type="slider" range="1,1,8" option="int" default="4"/>
+  <setting id="fog" label="30002" type="bool" default="yes"/>
+  <setting id="latitude" label="30003" type="slider" range="2,1,100" option="int" default="8"/>
+  <setting id="longitude" label="30004" type="slider" range="4,1,10" option="int" default="16"/>
+  <setting id="thickness" label="30005" type="slider" range="1,1,100" option="int" default="50"/>
+  <setting id="smooth" label="30006" type="bool" default="true"/>
+</settings>

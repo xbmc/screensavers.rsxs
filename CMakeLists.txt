@@ -22,6 +22,7 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flux
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/helios
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/hyperspace
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/lattice
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
                         
@@ -35,7 +36,6 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
                                       --disable-sound
-                                      --disable-lattice
                                       --disable-skyrocket "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
                     BUILD_COMMAND ${MAKE}
                     "${update_command}")
@@ -94,13 +94,17 @@ set(HYPERSPACE_SOURCES ${rsxs_dir}/src/hyperspace/caustic.cc
                        ${rsxs_dir}/src/hyperspace/tunnel.cc
                        src/hyperspace.cpp)
 
+set(LATTICE_SOURCES ${rsxs_dir}/src/lattice/lattice.cc
+                    ${rsxs_dir}/src/lattice/resources.cc
+                    src/lattice.cpp)
+
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${PNG_LIBRARIES}
             ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a
             rsxs_common)
 
 foreach(addon solarwinds plasma euphoria flocks flux cyclone fieldlines helios
-              hyperspace)
+              hyperspace lattice)
   string(TOUPPER ${addon} ADDON)
   build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
   add_dependencies(screensaver.rsxs.${addon} rsxs_common)

@@ -554,6 +554,9 @@ std::string Hack::getShortName() { return "lattice"; }
 std::string Hack::getName()      { return "Lattice"; }
 
 void Hack::start() {
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS);
+
 	if (widescreen)
 		glViewport(
 			0, Common::height / 2 - Common::width / 4,
@@ -564,9 +567,6 @@ void Hack::start() {
 
 	Resources::init();
 
-	glFrontFace(GL_CCW);
-	glEnable(GL_CULL_FACE);
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -625,6 +625,35 @@ void Hack::start() {
 }
 
 void Hack::tick() {
+	Common::run();
+
+	if (widescreen)
+		glViewport(
+			0, Common::height / 2 - Common::width / 4,
+			Common::width, Common::width / 2
+		);
+	else
+		glViewport(0, 0, Common::width, Common::height);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	float mat[16] = {
+		std::cos(fov * 0.5f * D2R) / std::sin(fov * 0.5f * D2R), 0.0f, 0.0f, 0.0f,
+		0.0f, 0.0, 0.0f, 0.0f,
+		0.0f, 0.0f, -1.0f - 0.02f / float(depth), -1.0f,
+		0.0f, 0.0f, -(0.02f + 0.0002f / float(depth)), 0.0f
+	};
+	if (widescreen)
+		mat[5] = mat[0] * 2.0f;
+	else
+		mat[5] = mat[0] * Common::aspectRatio;
+	glLoadMatrixf(mat);
+	Camera::set(mat, float(depth));
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+
 	static float where = 0.0f;	// Position on path
 	static unsigned int seg = 0;	// Section of path
 	where += speed * 0.05f * Common::elapsedSecs;
@@ -750,7 +779,12 @@ void Hack::tick() {
 		}
 	}
 
-	Common::flush();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	//Common::flush();
 }
 
 void Hack::reshape() {
@@ -777,7 +811,7 @@ void Hack::reshape() {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-void Hack::stop() {}
+void Hack::stop() { glPopAttrib();  glPopClientAttrib(); }
 
 void Hack::keyPress(char c, const KeySym&) {
 	switch (c) {
