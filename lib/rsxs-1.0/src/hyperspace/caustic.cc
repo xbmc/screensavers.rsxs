@@ -50,7 +50,7 @@ void CausticTextures::init() {
 	float x[CAUSTIC_RESOLUTION + 1];
 	float z[CAUSTIC_RESOLUTION + 1];
 
-	stdx::dim2<float, CAUSTIC_RESOLUTION> y[Hack::frames];
+	std::vector<stdx::dim2<float, CAUSTIC_RESOLUTION> > y(Hack::frames);
 	for (unsigned int i = 0; i < Hack::frames; ++i)
 		y[i].resize(CAUSTIC_RESOLUTION);
 	stdx::dim2<std::pair<float, float>, CAUSTIC_RESOLUTION + 1> xz(CAUSTIC_RESOLUTION + 1);
