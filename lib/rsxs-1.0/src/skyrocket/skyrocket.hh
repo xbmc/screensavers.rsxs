@@ -154,8 +154,8 @@ inline void Hack::flare(
 	if (attenuation < 0.0f)
 		attenuation = 0.0f;
 	_Flare flare = {
-		winX * Common::aspectRatio / Common::width,
-		winY / Common::height,
+		(float)winX * Common::aspectRatio / Common::width,
+		(float)winY / Common::height,
 		RGB,
 		brightness * flares * 0.01f * attenuation
 	};
@@ -182,8 +182,8 @@ inline void Hack::superFlare(
 		attenuation = 0.0f;
 	float temp = 1.0f - (brightness - 0.5f) * flares * 0.02f;
 	_Flare flare = {
-		winX * Common::aspectRatio / Common::width,
-		winY / Common::height,
+		(float)winX * Common::aspectRatio / Common::width,
+		(float)winY / Common::height,
 		RGB,
 		(1.0f - temp * temp * temp * temp) * attenuation
 	};

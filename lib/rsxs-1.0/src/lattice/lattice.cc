@@ -571,7 +571,7 @@ void Hack::start() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	float mat[16] = {
-		std::cos(fov * 0.5f * D2R) / std::sin(fov * 0.5f * D2R), 0.0f, 0.0f, 0.0f,
+		(float)std::cos(fov * 0.5f * D2R) / (float)std::sin(fov * 0.5f * D2R), 0.0f, 0.0f, 0.0f,
 		0.0f, 0.0, 0.0f, 0.0f,
 		0.0f, 0.0f, -1.0f - 0.02f / float(depth), -1.0f,
 		0.0f, 0.0f, -(0.02f + 0.0002f / float(depth)), 0.0f
@@ -639,7 +639,7 @@ void Hack::tick() {
 	glPushMatrix();
 	glLoadIdentity();
 	float mat[16] = {
-		std::cos(fov * 0.5f * D2R) / std::sin(fov * 0.5f * D2R), 0.0f, 0.0f, 0.0f,
+		(float)std::cos(fov * 0.5f * D2R) / (float)std::sin(fov * 0.5f * D2R), 0.0f, 0.0f, 0.0f,
 		0.0f, 0.0, 0.0f, 0.0f,
 		0.0f, 0.0f, -1.0f - 0.02f / float(depth), -1.0f,
 		0.0f, 0.0f, -(0.02f + 0.0002f / float(depth)), 0.0f
@@ -797,7 +797,7 @@ void Hack::reshape() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	float mat[16] = {
-		std::cos(fov * 0.5f * D2R) / std::sin(fov * 0.5f * D2R), 0.0f, 0.0f, 0.0f,
+		(float)std::cos(fov * 0.5f * D2R) / (float)std::sin(fov * 0.5f * D2R), 0.0f, 0.0f, 0.0f,
 		0.0f, 0.0, 0.0f, 0.0f,
 		0.0f, 0.0f, -1.0f - 0.02f / float(depth), -1.0f,
 		0.0f, 0.0f, -(0.02f + 0.0002f / float(depth)), 0.0f
