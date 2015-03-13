@@ -7,6 +7,7 @@ enable_language(CXX)
 find_package(kodi REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(PNG REQUIRED)
+find_package(ZLIB REQUIRED)
 
 set(rsxs_dir lib/rsxs-1.0)
 
@@ -43,6 +44,7 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                                       ${PNG_PATH}
                                       "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
                                       "CPPFLAGS=-Dpng_set_gray_1_2_4_to_8=png_set_expand_gray_1_2_4_to_8"
+                                      "LIBS=${ZLIB_LIBRARIES}"
                     BUILD_COMMAND ${MAKE}
                     "${update_command}")
 
