@@ -32,11 +32,15 @@ set(update_command "")
 if(BOOTSTRAP_IN_TREE OR NOT DEFINED BOOTSTRAP_IN_TREE)
   set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
 endif()
+if(NOT "${DEPENDS_PATH}" STREQUAL "")
+  set(PNG_PATH "--with-png=${DEPENDS_PATH}")
+endif()
 externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                     CONFIGURE_COMMAND ${PROJECT_SOURCE_DIR}/${rsxs_dir}/configure
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
                                       --disable-sound
+                                      ${PNG_PATH}
                                       "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
                     BUILD_COMMAND ${MAKE}
                     "${update_command}")
