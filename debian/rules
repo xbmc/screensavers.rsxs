@@ -16,7 +16,16 @@ override_dh_auto_configure:
 	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=1 -DUSE_LTO=1
 
 override_dh_strip:
-	dh_strip -pxbmc-screensaver-rsxs-euphoria --dbg-package=xbmc-screensaver-rsxs-euphoria-dbg
-	dh_strip -pxbmc-screensaver-rsxs-plasma --dbg-package=xbmc-screensaver-rsxs-plasma-dbg
-	dh_strip -pxbmc-screensaver-rsxs-solarwinds --dbg-package=xbmc-screensaver-rsxs-solarwinds-dbg
+	dh_strip -pkodi-screensaver-rsxs-cyclone --dbg-package=kodi-screensaver-rsxs-cyclone-dbg
+	dh_strip -pkodi-screensaver-rsxs-euphoria --dbg-package=kodi-screensaver-rsxs-euphoria-dbg
+	dh_strip -pkodi-screensaver-rsxs-fieldlines --dbg-package=kodi-screensaver-rsxs-fieldlines-dbg
+	dh_strip -pkodi-screensaver-rsxs-flocks --dbg-package=kodi-screensaver-rsxs-flocks-dbg
+	dh_strip -pkodi-screensaver-rsxs-flux --dbg-package=kodi-screensaver-rsxs-flux-dbg
+	dh_strip -pkodi-screensaver-rsxs-helios --dbg-package=kodi-screensaver-rsxs-helios-dbg
+	dh_strip -pkodi-screensaver-rsxs-hyperspace --dbg-package=kodi-screensaver-rsxs-hyperspace-dbg
+	dh_strip -pkodi-screensaver-rsxs-lattice --dbg-package=kodi-screensaver-rsxs-lattice-dbg
+	dh_strip -pkodi-screensaver-rsxs-plasma --dbg-package=kodi-screensaver-rsxs-plasma-dbg
+	dh_strip -pkodi-screensaver-rsxs-skyrocket --dbg-package=kodi-screensaver-rsxs-skyrocket-dbg
+	dh_strip -pkodi-screensaver-rsxs-solarwinds --dbg-package=kodi-screensaver-rsxs-solarwinds-dbg
+
 
