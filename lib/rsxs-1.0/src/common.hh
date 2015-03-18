@@ -54,6 +54,11 @@
 #include <utility>
 #include <vector>
 
+#ifdef TARGET_DARWIN
+#include <OpenGL/gl.h>
+#include <OpenGL/glext.h>
+#else
+
 #if HAVE_GL_GL_H
 	#include <GL/gl.h>
 #endif
@@ -66,6 +71,8 @@
 #if HAVE_GL_GLX_H
 	#include <GL/glx.h>
 #endif
+#endif
+
 #if HAVE_X11_XLIB_H
 	#include <X11/Xlib.h>
 #endif

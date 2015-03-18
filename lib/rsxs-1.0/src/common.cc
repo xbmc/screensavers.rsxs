@@ -33,8 +33,6 @@
 #endif
 
 #include <ctime>
-#include <GL/gl.h>
-#include <GL/glx.h>
 #include <hack.hh>
 #include <resource.hh>
 #include <X11/X.h>
