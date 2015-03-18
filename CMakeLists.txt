@@ -33,13 +33,26 @@ set(update_command "")
 if(BOOTSTRAP_IN_TREE OR NOT DEFINED BOOTSTRAP_IN_TREE)
   set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
 endif()
-if(NOT "${DEPENDS_PATH}" STREQUAL "")
+set(configure_start ${PROJECT_SOURCE_DIR}/${rsxs_dir}/configure)
+if(DEPENDS_PATH)
   set(PNG_PATH "--with-png=${DEPENDS_PATH}")
+  set(configure_start CONFIG_SITE=${DEPENDS_PATH}/share/config.site ${configure_start})
 endif()
 externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
-                    CONFIGURE_COMMAND ${PROJECT_SOURCE_DIR}/${rsxs_dir}/configure
+                    CONFIGURE_COMMAND ${configure_start}
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
+                                      --disable-cyclone
+                                      --disable-euphoria
+                                      --disable-fieldlines
+                                      --disable-flocks
+                                      --disable-flux
+                                      --disable-helios
+                                      --disable-hyperspace
+                                      --disable-lattice
+                                      --disable-plasma
+                                      --disable-skyrocket
+                                      --disable-solarwinds
                                       --disable-sound
                                       ${PNG_PATH}
                                       "CFLAGS=-fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=-fPIC -I${KODI_INCLUDE_DIR}"
