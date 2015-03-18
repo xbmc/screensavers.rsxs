@@ -16,6 +16,7 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${KODI_INCLUDE_DIR}
                     ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src
+                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/lib
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/cyclone
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/euphoria
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/fieldlines
