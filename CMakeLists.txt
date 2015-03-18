@@ -37,7 +37,9 @@ endif()
 set(configure_start ${PROJECT_SOURCE_DIR}/${rsxs_dir}/configure)
 if(DEPENDS_PATH)
   set(PNG_PATH "--with-png=${DEPENDS_PATH}")
-  set(configure_start CONFIG_SITE=${DEPENDS_PATH}/share/config.site ${configure_start})
+  if(EXISTS ${DEPENDS_PATH}/share/config.site)
+    set(configure_start CONFIG_SITE=${DEPENDS_PATH}/share/config.site ${configure_start})
+  endif()
 endif()
 externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                     CONFIGURE_COMMAND ${configure_start}
