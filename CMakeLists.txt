@@ -68,7 +68,7 @@ externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                     BUILD_COMMAND ${MAKE}
                     "${update_command}")
 
-add_definitions(-DHAVE_CONFIG_H -Dpng_set_gray_1_2_4_to_8=png_set_expand_gray_1_2_4_to_8)
+add_definitions(-DHAVE_CONFIG_H=1 -DHAVE_X11_XLIB_H=1 -Dpng_set_gray_1_2_4_to_8=png_set_expand_gray_1_2_4_to_8)
 add_options(ALL_LANGUAGES ALL_BUILDS -fPIC)
 
 add_library(rsxs_common STATIC ${rsxs_dir}/src/color.cc
