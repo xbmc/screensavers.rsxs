@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 2.6)
 
 enable_language(CXX)
 
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
+
 find_package(kodi REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(PNG REQUIRED)
