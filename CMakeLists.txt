@@ -8,14 +8,14 @@ find_package(kodi REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(PNG REQUIRED)
 find_package(ZLIB REQUIRED)
-find_package(X11 REQUIRED)
+find_package(X REQUIRED)
 
 set(rsxs_dir lib/rsxs-1.0)
 
 include_directories(${OpenGL_INCLUDE_DIR}
                     ${PNG_INCLUDE_DIR}
                     ${KODI_INCLUDE_DIR}
-                    ${X11_INCLUDE_DIR}
+                    ${X_INCLUDE_DIR}
                     ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/lib
