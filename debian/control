@@ -4,8 +4,9 @@ Maintainer: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
 Build-Depends: debhelper (>= 8.0.0), cmake, kodi-addon-dev,
                kodi-screensaver-dev, libgl1-mesa-dev, libltdl-dev,
                libglu1-mesa-dev, automake, autoconf, libtool,
-               libxt-dev, libxmu-headers, libxmu-dev
-Standards-Version: 3.9.2
+               libxt-dev, libxmu-headers, libxmu-dev, zlib1g-dev,
+               libpng12-dev, libx11-dev
+Standards-Version: 3.9.5
 Section: libs
 Homepage: http://kodi.org
 
