@@ -1,2 +1,2 @@
-usr/lib/kodi/addons/screensaver.rsxs.flux/*
+usr/lib/*/addons/screensaver.rsxs.flux/* /usr/lib/kodi/addons/screensaver.rsxs.flux
 usr/share/kodi/addons/screensaver.rsxs.flux/*
