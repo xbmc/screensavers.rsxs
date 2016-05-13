@@ -1,7 +1,7 @@
 #pragma once
 
-#include "kodi/xbmc_scr_dll.h"
-#include "kodi/libXBMC_addon.h"
+#include "xbmc_scr_dll.h"
+#include "libXBMC_addon.h"
 #include "hack.hh"
 
 ADDON::CHelper_libXBMC_addon *XBMC           = NULL;
