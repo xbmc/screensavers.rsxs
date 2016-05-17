@@ -9,8 +9,7 @@
   </requires>
   <extension
     point="xbmc.ui.screensaver"
-    library_linux="screensaver.rsxs.plasma.so"
-    library_osx="screensaver.rsxs.plasma.so"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="af">Seker die tweede mees psigedeliese sluimerskerm ooit</summary>
     <summary lang="ar">ربما شاشة التوقف الثانية الأكثر هدوء على الإطلاق</summary>
@@ -112,6 +111,6 @@
     <description lang="vi">Đây có thể là trình bảo vệ màn hình gây ảo giác mạnh thứ hai tại thời điểm này. Hãy thử xem các hình ảnh tạo nên từ các màu sắc di chuyển khắp nơi</description>
     <description lang="zh">或许是排名第二的迷幻效果屏幕保护程序。你将看到所有颜色满处乱飞。</description>
     <description lang="zh_TW">可能是現存第二最夢幻的螢幕保護程式。快來嘗試想像一下所有移動中的色彩變化。</description>
-    <platform>linux osx</platform>
+    <platform>@PLATFORM@</platform>
   </extension>
 </addon>

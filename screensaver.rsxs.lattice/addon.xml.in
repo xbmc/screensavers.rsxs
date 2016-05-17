@@ -9,11 +9,10 @@
   </requires>
   <extension
     point="xbmc.ui.screensaver"
-    library_linux="screensaver.rsxs.lattice.so"
-    library_osx="screensaver.rsxs.lattice.so"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Probably the second most psychedelic screensaver ever</summary>
     <description lang="en">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
-    <platform>linux osx</platform>
+    <platform>@PLATFORM@</platform>
   </extension>
 </addon>
