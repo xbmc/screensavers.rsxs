@@ -1,19 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <addon
-  id="screensaver.rsxs.fieldlines"
-  version="1.2.0"
-  name="Fieldlines"
+  id="screensaver.rsxs.helios"
+  version="1.3.0"
+  name="Helios"
   provider-name="mogumbo, Team XBMC">
   <requires>
     <c-pluff version="0.1"/>
   </requires>
   <extension
     point="xbmc.ui.screensaver"
-    library_linux="screensaver.rsxs.fieldlines.so"
-    library_osx="screensaver.rsxs.fieldlines.so"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Probably the second most psychedelic screensaver ever</summary>
     <description lang="en">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
-    <platform>linux osx</platform>
+    <platform>@PLATFORM@</platform>
   </extension>
 </addon>

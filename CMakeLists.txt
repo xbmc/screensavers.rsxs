@@ -6,7 +6,7 @@ enable_language(CXX)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
 
-find_package(kodi REQUIRED)
+find_package(Kodi REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(PNG REQUIRED)
 find_package(ZLIB REQUIRED)
