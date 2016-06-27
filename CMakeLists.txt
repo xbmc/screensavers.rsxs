@@ -163,8 +163,11 @@ set(DEPLIBS ${OPENGL_LIBRARIES}
 foreach(addon solarwinds plasma euphoria flocks flux cyclone fieldlines helios
               hyperspace lattice skyrocket)
   string(TOUPPER ${addon} ADDON)
-  build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
-  add_dependencies(screensaver.rsxs.${addon} rsxs_common)
+  option(BUILD_${ADDON} "Build screensaver.rsxs.${addon}?" ON)
+  if(BUILD_${ADDON})
+    build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
+    add_dependencies(screensaver.rsxs.${addon} rsxs_common)
+  endif()
 endforeach()
 
 include(CPack)
