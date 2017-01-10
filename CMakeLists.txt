@@ -52,6 +52,7 @@ else()
 endif()
 externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                     CONFIGURE_COMMAND ${configure_start}
+                                      ac_cv_type__Bool=yes
                                       --prefix=<INSTALL_DIR>
                                       --without-xscreensaver
                                       --disable-cyclone
