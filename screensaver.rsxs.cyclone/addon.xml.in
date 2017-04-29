@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.cyclone"
-  version="1.4.0"
+  version="1.4.1"
   name="Cyclone"
   provider-name="mogumbo, Team XBMC">
   <requires>
