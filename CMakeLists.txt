@@ -87,34 +87,42 @@ add_dependencies(rsxs_common rsxs)
 
 set(SOLARWINDS_SOURCES ${rsxs_dir}/src/solarwinds/solarwinds.cc
                        ${rsxs_dir}/src/solarwinds/wind.cc
-                       src/solarwinds.cpp)
+                       src/solarwinds.cpp
+                       src/addoncommon.h)
 
 set(PLASMA_SOURCES ${rsxs_dir}/src/plasma/plasma.cc
-                   src/plasma.cpp)
+                   src/plasma.cpp
+                   src/addoncommon.h)
 
 set(EUPHORIA_SOURCES ${rsxs_dir}/src/euphoria/euphoria.cc
                      ${rsxs_dir}/src/euphoria/wisp.cc
-                     src/euphoria.cpp)
+                     src/euphoria.cpp
+                     src/addoncommon.h)
 
 set(FLOCKS_SOURCES ${rsxs_dir}/src/flocks/bug.cc
                    ${rsxs_dir}/src/flocks/flocks.cc
-                   src/flocks.cpp)
+                   src/flocks.cpp
+                   src/addoncommon.h)
 
 set(CYCLONE_SOURCES ${rsxs_dir}/src/cyclone/blend.cc
                     ${rsxs_dir}/src/cyclone/cyclone.cc
                     ${rsxs_dir}/src/cyclone/particle.cc
-                    src/cyclone.cpp)
+                    src/cyclone.cpp
+                    src/addoncommon.h)
 
 set(FLUX_SOURCES ${rsxs_dir}/src/flux/flux.cc
                  ${rsxs_dir}/src/flux/trail.cc
-                 src/flux.cpp)
+                 src/flux.cpp
+                 src/addoncommon.h)
 
 set(FIELDLINES_SOURCES ${rsxs_dir}/src/fieldlines/fieldlines.cc
-                       src/fieldlines.cpp)
+                       src/fieldlines.cpp
+                       src/addoncommon.h)
 
 set(HELIOS_SOURCES ${rsxs_dir}/src/helios/helios.cc
                    ${rsxs_dir}/src/helios/particle.cc
-                   src/helios.cpp)
+                   src/helios.cpp
+                   src/addoncommon.h)
 
 set(HYPERSPACE_SOURCES ${rsxs_dir}/src/hyperspace/caustic.cc
                        ${rsxs_dir}/src/hyperspace/cubemaps.cc
@@ -128,11 +136,13 @@ set(HYPERSPACE_SOURCES ${rsxs_dir}/src/hyperspace/caustic.cc
                        ${rsxs_dir}/src/hyperspace/spline.cc
                        ${rsxs_dir}/src/hyperspace/starburst.cc
                        ${rsxs_dir}/src/hyperspace/tunnel.cc
-                       src/hyperspace.cpp)
+                       src/hyperspace.cpp
+                       src/addoncommon.h)
 
 set(LATTICE_SOURCES ${rsxs_dir}/src/lattice/lattice.cc
                     ${rsxs_dir}/src/lattice/resources.cc
-                    src/lattice.cpp)
+                    src/lattice.cpp
+                    src/addoncommon.h)
 
 set(SKYROCKET_SOURCES ${rsxs_dir}/src/skyrocket/bee.cc
                       ${rsxs_dir}/src/skyrocket/bigmama.cc
@@ -153,7 +163,8 @@ set(SKYROCKET_SOURCES ${rsxs_dir}/src/skyrocket/bee.cc
                       ${rsxs_dir}/src/skyrocket/stretcher.cc
                       ${rsxs_dir}/src/skyrocket/sucker.cc
                       ${rsxs_dir}/src/skyrocket/world.cc
-                      src/skyrocket.cpp)
+                      src/skyrocket.cpp
+                      src/addoncommon.h)
 
 set(DEPLIBS ${OPENGL_LIBRARIES}
             ${PNG_LIBRARIES}
