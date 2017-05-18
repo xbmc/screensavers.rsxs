@@ -2,7 +2,7 @@ Source: kodi-screensavers-rsxs
 Priority: extra
 Maintainer: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
 Build-Depends: debhelper (>= 8.0.0), cmake, kodi-addon-dev,
-               kodi-screensaver-dev, libgl1-mesa-dev, libltdl-dev,
+               libgl1-mesa-dev, libltdl-dev,
                libglu1-mesa-dev, automake, autoconf, libtool,
                libxt-dev, libxmu-headers, libxmu-dev, zlib1g-dev,
                libpng12-dev, libx11-dev
