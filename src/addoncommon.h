@@ -1,69 +1,50 @@
 #pragma once
 
-#include "xbmc_scr_dll.h"
-#include "libXBMC_addon.h"
+#include <kodi/addon-instance/Screensaver.h>
+
 #include "hack.hh"
 
-ADDON::CHelper_libXBMC_addon *XBMC           = NULL;
-
-extern "C" {
-
-ADDON_STATUS ADDON_Create(void* hdl, void* props)
+class CMyAddon
+  : public kodi::addon::CAddonBase,
+    public kodi::addon::CInstanceScreensaver
 {
-  if (!props)
-    return ADDON_STATUS_UNKNOWN;
+public:
+  CMyAddon();
 
-  if (!XBMC)
-    XBMC = new ADDON::CHelper_libXBMC_addon;
+  virtual bool Start() override;
+  virtual void Stop() override;
+  virtual void Render() override;
 
-  if (!XBMC->RegisterMe(hdl))
-  {
-    delete XBMC, XBMC=NULL;
-    return ADDON_STATUS_PERMANENT_FAILURE;
-  }
+private:
+  void SetSettings();
+};
 
-  SCR_PROPS* scrprops = (SCR_PROPS*)props;
-
-  Common::width = scrprops->width;
-  Common::height = scrprops->height;
+CMyAddon::CMyAddon()
+{
+  Common::width = Width();
+  Common::height = Height();
   Common::aspectRatio = float(Common::width) / float(Common::height);
   Common::init(0, NULL);
 
-  char temp[1024];
-  XBMC->GetSetting("__addonpath__",temp);
-  Common::resourceDir = temp;
-  Common::resourceDir += "/resources/";
+  Common::resourceDir = kodi::GetAddonPath() + "/resources/";
 
-  return ADDON_STATUS_NEED_SETTINGS;
+  SetSettings();
 }
 
-void Start()
+bool CMyAddon::Start()
 {
   Hack::start();
+  return true;
 }
 
-void Render()
+void CMyAddon::Stop()
+{
+  Hack::stop();
+}
+
+void CMyAddon::Render()
 {
   Hack::tick();
 }
 
-void ADDON_Stop()
-{
-  Hack::stop();
-  delete XBMC, XBMC=NULL;
-}
-
-void ADDON_Destroy()
-{
-}
-
-ADDON_STATUS ADDON_GetStatus()
-{
-  return ADDON_STATUS_OK;
-}
-
-void Remove()
-{
-}
-
-}
+ADDONCREATOR(CMyAddon);

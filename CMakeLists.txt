@@ -16,7 +16,7 @@ set(rsxs_dir lib/rsxs-1.0)
 
 include_directories(${OpenGL_INCLUDE_DIR}
                     ${PNG_INCLUDE_DIR}
-                    ${KODI_INCLUDE_DIR}
+                    ${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
                     ${X_INCLUDE_DIRS}
                     ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src

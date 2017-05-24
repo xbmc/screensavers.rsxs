@@ -1,38 +1,22 @@
 #include "solarwinds/solarwinds.hh"
 #include "addoncommon.h"
 
-extern "C" {
-
-ADDON_STATUS ADDON_SetSetting(const char *settingName, const void *settingValue)
+void CMyAddon::SetSettings()
 {
-  if (strcmp(settingName, "winds") == 0)
-    Hack::numWinds = *(int*)(settingValue);
-  if (strcmp(settingName, "particles") == 0)
-    Hack::numParticles = *(int*)(settingValue);
-  if (strcmp(settingName, "emitters") == 0)
-    Hack::numEmitters = *(int*)(settingValue);
-  if (strcmp(settingName, "speed") == 0)
-    Hack::windSpeed = *(int*)(settingValue);
-  if (strcmp(settingName, "psize") == 0)
-    Hack::size = *(int*)(settingValue);
-  if (strcmp(settingName, "pspeed") == 0)
-    Hack::particleSpeed = *(int*)(settingValue);
-  if (strcmp(settingName, "espeed") == 0)
-    Hack::emitterSpeed = *(int*)(settingValue);
-  if (strcmp(settingName, "blur") == 0)
-    Hack::blur = *(int*)(settingValue);
+  Hack::numWinds = kodi::GetSettingInt("winds");
+  Hack::numParticles = kodi::GetSettingInt("particles");
+  Hack::numEmitters = kodi::GetSettingInt("emitters");
+  Hack::windSpeed = static_cast<float>(kodi::GetSettingInt("speed"));
+  Hack::size = static_cast<float>(kodi::GetSettingInt("psize"));
+  Hack::particleSpeed = static_cast<float>(kodi::GetSettingInt("pspeed"));
+  Hack::emitterSpeed = static_cast<float>(kodi::GetSettingInt("espeed"));
+  Hack::blur = static_cast<float>(kodi::GetSettingInt("blur"));
 
-  if (strcmp(settingName, "pgeom") == 0)
-  {
-    if (*(int*)settingValue == 0)
-      Hack::geometry = Hack::LIGHTS_GEOMETRY;
-    if (*(int*)settingValue == 1)
-      Hack::geometry = Hack::POINTS_GEOMETRY;
-    if (*(int*)settingValue == 2)
-      Hack::geometry = Hack::LINES_GEOMETRY;
-  }
-
-  return ADDON_STATUS_OK;
-}
-
+  int val = kodi::GetSettingInt("pgeom");
+  if (val == 0)
+    Hack::geometry = Hack::LIGHTS_GEOMETRY;
+  else if (val == 1)
+    Hack::geometry = Hack::POINTS_GEOMETRY;
+  else if (val == 2)
+    Hack::geometry = Hack::LINES_GEOMETRY;
 }
