@@ -1,26 +1,13 @@
 #include "hyperspace/hyperspace.hh"
 #include "addoncommon.h"
 
-extern "C" {
-
-ADDON_STATUS ADDON_SetSetting(const char *settingName, const void *settingValue)
+void CMyAddon::SetSettings()
 {
-  if (strcmp(settingName, "stars") == 0)
-    Hack::numStars = *(int*)(settingValue);
-  if (strcmp(settingName, "size") == 0)
-    Hack::starSize = *(int*)(settingValue);
-  if (strcmp(settingName, "depth") == 0)
-    Hack::depth = *(int*)(settingValue);
-  if (strcmp(settingName, "fov") == 0)
-    Hack::fov = *(int*)(settingValue);
-  if (strcmp(settingName, "speed") == 0)
-    Hack::speed = *(int*)(settingValue);
-  if (strcmp(settingName, "resolution") == 0)
-    Hack::resolution = *(int*)(settingValue);
-  if (strcmp(settingName, "shaders") == 0)
-    Hack::shaders = *(bool*)(settingValue);
-
-  return ADDON_STATUS_OK;
-}
-
+  Hack::numStars = kodi::GetSettingInt("stars");
+  Hack::starSize = static_cast<float>(kodi::GetSettingInt("size"));
+  Hack::depth = kodi::GetSettingInt("depth");
+  Hack::fov = static_cast<float>(kodi::GetSettingInt("fov"));
+  Hack::speed = static_cast<float>(kodi::GetSettingInt("speed"));
+  Hack::resolution = kodi::GetSettingInt("resolution");
+  Hack::shaders = kodi::GetSettingBoolean("shaders");
 }

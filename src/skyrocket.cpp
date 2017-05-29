@@ -1,36 +1,18 @@
 #include "skyrocket/skyrocket.hh"
 #include "addoncommon.h"
 
-extern "C" {
-
-ADDON_STATUS ADDON_SetSetting(const char *settingName, const void *settingValue)
+void CMyAddon::SetSettings()
 {
-  if (strcmp(settingName, "rockets") == 0)
-    Hack::maxRockets = *(int*)(settingValue);
-  if (strcmp(settingName, "smoke") == 0)
-    Hack::smoke = *(int*)(settingValue);
-  if (strcmp(settingName, "esmoke") == 0)
-    Hack::explosionSmoke = *(int*)(settingValue);
-  if (strcmp(settingName, "moon") == 0)
-    Hack::drawMoon = *(bool*)(settingValue);
-  if (strcmp(settingName, "clouds") == 0)
-    Hack::drawClouds = *(bool*)(settingValue);
-  if (strcmp(settingName, "earth") == 0)
-    Hack::drawEarth = *(bool*)(settingValue);
-  if (strcmp(settingName, "glow") == 0)
-    Hack::drawIllumination = *(bool*)(settingValue);
-  if (strcmp(settingName, "stars") == 0)
-    Hack::starDensity = *(int*)(settingValue);
-  if (strcmp(settingName, "halo") == 0)
-    Hack::moonGlow = *(int*)(settingValue);
-  if (strcmp(settingName, "ambient") == 0)
-    Hack::ambient = *(int*)(settingValue);
-  if (strcmp(settingName, "wind") == 0)
-    Hack::wind = *(int*)(settingValue);
-  if (strcmp(settingName, "flares") == 0)
-    Hack::flares = *(int*)(settingValue);
-
-  return ADDON_STATUS_OK;
-}
-
+  Hack::maxRockets = kodi::GetSettingInt("rockets");
+  Hack::smoke = static_cast<float>(kodi::GetSettingInt("smoke"));
+  Hack::explosionSmoke = kodi::GetSettingInt("esmoke");
+  Hack::drawMoon = kodi::GetSettingBoolean("moon");
+  Hack::drawClouds = kodi::GetSettingBoolean("clouds");
+  Hack::drawEarth = kodi::GetSettingBoolean("earth");
+  Hack::drawIllumination = kodi::GetSettingBoolean("glow");
+  Hack::starDensity = kodi::GetSettingInt("stars");
+  Hack::moonGlow = static_cast<float>(kodi::GetSettingInt("halo"));
+  Hack::ambient = static_cast<float>(kodi::GetSettingInt("ambient"));
+  Hack::wind = static_cast<float>(kodi::GetSettingInt("wind"));
+  Hack::flares = static_cast<float>(kodi::GetSettingInt("flares"));
 }
