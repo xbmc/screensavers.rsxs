@@ -33,6 +33,11 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/skyrocket
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
                         
+
+get_filename_component( COMPILER_FILENAME "${CMAKE_C_COMPILER}" NAME )
+string( REGEX REPLACE "-[^-]+$" ""
+        TOOLCHAIN_NAME "${COMPILER_FILENAME}" )
+
 include(ExternalProject)
 set(update_command "")
 if(BOOTSTRAP_IN_TREE OR NOT DEFINED BOOTSTRAP_IN_TREE)
@@ -53,7 +58,10 @@ endif()
 externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                     CONFIGURE_COMMAND ${configure_start}
                                       ac_cv_type__Bool=yes
+                                      gl_cv_func_gettimeofday_clobber=no
+                                      ac_cv_func_malloc_0_nonnull=yes
                                       --prefix=<INSTALL_DIR>
+                                      --host=${TOOLCHAIN_NAME}
                                       --without-xscreensaver
                                       --disable-cyclone
                                       --disable-euphoria
