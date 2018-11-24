@@ -32,11 +32,6 @@ include_directories(${OpenGL_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/skyrocket
                     ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
-                        
-
-get_filename_component( COMPILER_FILENAME "${CMAKE_C_COMPILER}" NAME )
-string( REGEX REPLACE "-[^-]+$" ""
-        TOOLCHAIN_NAME "${COMPILER_FILENAME}" )
 
 include(ExternalProject)
 set(update_command "")
@@ -55,13 +50,21 @@ if(APPLE)
 else()
   set(EXTRA_FLAGS "CFLAGS=${CMAKE_C_FLAGS} -fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=${CMAKE_CXX_FLAGS} -fPIC -I${KODI_INCLUDE_DIR}")
 endif()
+
+get_filename_component(COMPILER_FILENAME "${CMAKE_C_COMPILER}" NAME )
+if(NOT ${COMPILER_FILENAME} MATCHES "cc" AND
+   NOT ${COMPILER_FILENAME} MATCHES "clang")
+  string( REGEX REPLACE "-[^-]+$" ""
+          TOOLCHAIN_NAME "${COMPILER_FILENAME}" )
+  list(APPEND EXTRA_FLAGS "--host=${TOOLCHAIN_NAME}")
+endif()
+
 externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
                     CONFIGURE_COMMAND ${configure_start}
                                       ac_cv_type__Bool=yes
                                       gl_cv_func_gettimeofday_clobber=no
                                       ac_cv_func_malloc_0_nonnull=yes
                                       --prefix=<INSTALL_DIR>
-                                      --host=${TOOLCHAIN_NAME}
                                       --without-xscreensaver
                                       --disable-cyclone
                                       --disable-euphoria
