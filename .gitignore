@@ -3,6 +3,20 @@ build/
 obj-x86_64-linux-gnu/
 screensaver.rsxs.*/addon.xml
 
+# Prevent add of with autoreconf generated files
+Makefile.in
+lib/rsxs-1.0/INSTALL
+lib/rsxs-1.0/aclocal.m4
+lib/rsxs-1.0/autom4te.cache
+lib/rsxs-1.0/compile
+lib/rsxs-1.0/config.guess
+lib/rsxs-1.0/config.h.in
+lib/rsxs-1.0/config.sub
+lib/rsxs-1.0/configure
+lib/rsxs-1.0/depcomp
+lib/rsxs-1.0/install-sh
+lib/rsxs-1.0/missing
+
 # commonly used editors
 # vim
 *.swp
