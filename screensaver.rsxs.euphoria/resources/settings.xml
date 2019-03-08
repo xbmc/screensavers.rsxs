@@ -1,10 +1,222 @@
-<settings>
-  <setting id="wisps" label="30000" type="slider" range="0,1,100" option="int" default="5"/>
-  <setting id="background" label="30001" type="slider" range="0,1,100" option="int" default="0"/>
-  <setting id="density" label="30002" type="slider" range="2,1,100" option="int" default="25"/>
-  <setting id="speed" label="30003" type="slider" range="1,1,100" option="int" default="15"/>
-  <setting id="texture" label="30004" type="enum" lvalues="30005|30006|30007|30008|30009" default="30005"/>
-  <setting id="feedback" label="30010" type="slider" range="0,1,100" option="int" default="0"/>
-  <setting id="fspeed" label="30011" type="slider" range="1,1,100" option="int" default="1"/>
-  <setting id="fsize" label="30012" type="slider" range="1,1,10" option="int" default="3"/>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.rsxs.euphoria">
+    <category id="general" label="30000">
+      <group id="1">
+        <setting id="general.type" type="integer" label="30010">
+          <level>0</level>
+          <default>0</default>
+          <constraints>
+            <options>
+              <option label="30011">0</option>
+              <option label="30012">1</option>
+              <option label="30013">2</option>
+              <option label="30014">3</option>
+              <option label="30015">4</option>
+              <option label="30016">5</option>
+              <option label="30017">6</option>
+              <option label="30018">7</option>
+              <option label="30019">8</option>
+              <option label="30020">9</option>
+              <option label="30021">10</option>
+              <option label="30022">11</option>
+              <option label="30023">-1</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"/>
+        </setting>
+        <setting id="general.texture" type="integer" label="30024">
+          <level>0</level>
+          <default>-1</default>
+          <constraints>
+            <options>
+              <option label="30025">-1</option>
+              <option label="30026">0</option>
+              <option label="30027">1</option>
+              <option label="30028">2</option>
+              <option label="30029">3</option>
+              <option label="30030">4</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"/>
+        </setting>
+      </group>
+    </category>
+    <category id="advanced" label="30001">
+      <group id="1">
+        <setting id="advanced.wisps" type="integer" label="30040" >
+          <default>5</default>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+        <setting id="advanced.background" type="integer" label="30041" >
+          <default>0</default>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+        <setting id="advanced.density" type="integer" label="30042" >
+          <default>35</default>
+          <constraints>
+            <minimum>2</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+        <setting id="advanced.speed" type="integer" label="30043" >
+          <default>15</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+        <setting id="advanced.feedback" type="integer" label="30044" >
+          <default>0</default>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+        <setting id="advanced.fspeed" type="integer" label="30045" >
+          <default>1</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+        <setting id="advanced.fsize" type="integer" label="30046" >
+          <default>3</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>10</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+        <setting id="advanced.wireframe" type="boolean" label="30047">
+          <default>false</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+        </setting>
+      </group>
+    </category>
+    <category id="automodes" label="30002">
+      <group id="1" label="30003">
+        <setting id="automodes.PRESET_REGULAR" type="boolean" label="30012">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_GRID" type="boolean" label="30013">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_CUBISM" type="boolean" label="30014">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_BADMATH" type="boolean" label="30015">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_MTHEORY" type="boolean" label="30016">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_UHFTEM" type="boolean" label="30017">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_JACK" type="boolean" label="30018">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_OVERDOSE" type="boolean" label="30019">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_NOWHERE" type="boolean" label="30020">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_ECHO" type="boolean" label="30021">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+        <setting id="automodes.PRESET_KALEIDOSCOPE" type="boolean" label="30022">
+          <default>true</default>
+          <control type="toggle" />
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">0</dependency>
+          </dependencies>
+        </setting>
+      </group>
+    </category>
+  </section>
 </settings>

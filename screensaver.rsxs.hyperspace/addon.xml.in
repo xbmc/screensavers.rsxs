@@ -1,16 +1,25 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.hyperspace"
-  version="2.0.0"
+  version="3.0.0"
   name="Hyperspace"
-  provider-name="mogumbo, Team XBMC">
+  provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
   <extension
     point="xbmc.ui.screensaver"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Probably the second most psychedelic screensaver ever</summary>
-    <description lang="en">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
+    <summary lang="en">Flying through hyper space</summary>
+    <description lang="en">Cruise through the far reaches of space really, really fast. Fly between the stars, across oozing cosmic planes, and through endless shimmering tunnels. ...really fast.</description>
+    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+      <screenshot>resources/screenshot-02.jpg</screenshot>
+      <screenshot>resources/screenshot-03.jpg</screenshot>
+      <screenshot>resources/screenshot-04.jpg</screenshot>
+    </assets>
   </extension>
 </addon>

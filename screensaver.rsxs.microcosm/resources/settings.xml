@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.rsxs.microcosm">
+    <category id="general" label="30000">
+      <group id="1">
+        <setting id="general.type" type="integer" label="30001">
+          <default>0</default>
+          <constraints>
+            <options>
+              <option label="30002">0</option>
+              <option label="30003">1</option>
+              <option label="30004">2</option>
+              <option label="30005">-1</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"/>
+        </setting>
+        <setting id="general.lastType" type="integer">
+          <visible>false</visible>
+          <level>0</level>
+          <default>-2</default>
+          <control type="slider" format="integer"/>
+        </setting>
+      </group>
+    </category>
+    <category id="advanced" label="30010">
+      <group id="1">
+        <setting id="advanced.kaleidoscopetime" type="integer" label="30011">
+          <default>60</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>300</maximum>
+          </constraints>
+          <control type="slider" format="integer">
+            <formatlabel>30021</formatlabel>
+          </control>
+        </setting>
+        <setting id="advanced.singletime" type="integer" label="30012">
+          <default>60</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>300</maximum>
+          </constraints>
+          <control type="slider" format="integer">
+            <formatlabel>30021</formatlabel>
+          </control>
+        </setting>
+        <setting id="advanced.background" type="integer" label="30013">
+          <default>25</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer">
+            <formatlabel>30022</formatlabel>
+          </control>
+        </setting>
+        <setting id="advanced.resolution" type="integer" label="30014">
+          <default>50</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>20</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.depth" type="integer" label="30015">
+          <default>4</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>10</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.fov" type="integer" label="30016">
+          <default>60</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>10</minimum>
+            <step>1</step>
+            <maximum>150</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.gizmospeed" type="integer" label="30017">
+          <default>10</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.colorspeed" type="integer" label="30018">
+          <default>10</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.cameraspeed" type="integer" label="30019">
+          <default>10</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.fog" type="boolean" label="30020">
+          <default>true</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <control type="toggle" />
+        </setting>
+      </group>
+    </category>
+  </section>
+</settings>

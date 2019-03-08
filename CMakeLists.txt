@@ -1,192 +1,94 @@
-project(visualizations.rsxs)
+cmake_minimum_required(VERSION 3.5)
+project(screensavers.rsxs)
 
-cmake_minimum_required(VERSION 2.6)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 
 enable_language(CXX)
 
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
+cmake_policy(SET CMP0054 NEW)
+
+option(OWN_IMAGE_MAGICK "Build own reduced ImageMagick" OFF)
 
 find_package(Kodi REQUIRED)
-find_package(OpenGL REQUIRED)
+find_package(ImageMagick COMPONENTS MagickCore)
+find_package(ImageMagick COMPONENTS MagickWand)
+find_package(glm REQUIRED)
+find_package(gli REQUIRED)
+find_package(JPEG REQUIRED)
+find_package(TIFF REQUIRED)
 find_package(PNG REQUIRED)
-find_package(ZLIB REQUIRED)
-find_package(X REQUIRED)
+find_package(LTDL)
 
-set(rsxs_dir lib/rsxs-1.0)
+# set(APP_RENDER_SYSTEM "gles") # Leaved here for test purpose only
 
-include_directories(${OpenGL_INCLUDE_DIR}
-                    ${PNG_INCLUDE_DIR}
-                    ${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
-                    ${X_INCLUDE_DIRS}
-                    ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/lib
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/cyclone
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/euphoria
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/fieldlines
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flocks
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/flux
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/helios
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/hyperspace
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/lattice
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/plasma
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/skyrocket
-                    ${PROJECT_SOURCE_DIR}/${rsxs_dir}/src/solarwinds)
-                        
-
-get_filename_component( COMPILER_FILENAME "${CMAKE_C_COMPILER}" NAME )
-string( REGEX REPLACE "-[^-]+$" ""
-        TOOLCHAIN_NAME "${COMPILER_FILENAME}" )
-
-include(ExternalProject)
-set(update_command "")
-if(BOOTSTRAP_IN_TREE OR NOT DEFINED BOOTSTRAP_IN_TREE)
-  set(update_command UPDATE_COMMAND autoreconf -vif WORKING_DIRECTORY <SOURCE_DIR>)
+if(APP_RENDER_SYSTEM STREQUAL "gl" OR NOT APP_RENDER_SYSTEM)
+  find_package(OpenGl REQUIRED)
+  set(DEPLIBS ${OPENGL_LIBRARIES})
+  set(includes ${OPENGL_INCLUDE_DIR})
+  add_definitions(${OPENGL_DEFINITIONS})
+elseif(APP_RENDER_SYSTEM STREQUAL "gles")
+  find_package(OpenGLES REQUIRED)
+  set(DEPLIBS ${OPENGLES_LIBRARIES})
+  set(includes ${OPENGLES_INCLUDE_DIR})
+  add_definitions(${OPENGLES_DEFINITIONS})
 endif()
-set(configure_start ${PROJECT_SOURCE_DIR}/${rsxs_dir}/configure)
-if(DEPENDS_PATH)
-  set(PNG_PATH "--with-png=${DEPENDS_PATH}")
-  if(EXISTS ${DEPENDS_PATH}/share/config.site)
-    set(configure_start CONFIG_SITE=${DEPENDS_PATH}/share/config.site ${configure_start})
-  endif()
-endif()
-if(APPLE)
-  set(EXTRA_FLAGS "CFLAGS=${CMAKE_C_FLAGS} -fPIC -isystem${DEPENDS_PATH}/include -isystem${KODI_INCLUDE_DIR}" "CXXFLAGS=${CMAKE_CXX_FLAGS} -fPIC -isystem${DEPENDS_PATH}/include -isystem${KODI_INCLUDE_DIR}")
+
+include_directories(${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
+                    ${GLM_INCLUDE_DIR}
+                    ${GLI_INCLUDE_DIR})
+
+if(ImageMagick_FOUND AND NOT ${OWN_IMAGE_MAGICK})
+  message(STATUS "ImageMagick found in the system and is used")
 else()
-  set(EXTRA_FLAGS "CFLAGS=${CMAKE_C_FLAGS} -fPIC -I${KODI_INCLUDE_DIR}" "CXXFLAGS=${CMAKE_CXX_FLAGS} -fPIC -I${KODI_INCLUDE_DIR}")
+  message(STATUS "ImageMagick not found or forced and add custom created")
+  add_subdirectory(lib/ImageMagick)
 endif()
-externalproject_add(rsxs SOURCE_DIR ${PROJECT_SOURCE_DIR}/${rsxs_dir}
-                    CONFIGURE_COMMAND ${configure_start}
-                                      ac_cv_type__Bool=yes
-                                      gl_cv_func_gettimeofday_clobber=no
-                                      ac_cv_func_malloc_0_nonnull=yes
-                                      --prefix=<INSTALL_DIR>
-                                      --host=${TOOLCHAIN_NAME}
-                                      --without-xscreensaver
-                                      --disable-cyclone
-                                      --disable-euphoria
-                                      --disable-fieldlines
-                                      --disable-flocks
-                                      --disable-flux
-                                      --disable-helios
-                                      --disable-hyperspace
-                                      --disable-lattice
-                                      --disable-plasma
-                                      --disable-skyrocket
-                                      --disable-solarwinds
-                                      --disable-sound
-                                      --x-includes=${X_INCLUDE_DIRS}
-                                      --x-libraries=${X_LIBRARIES}
-                                      ${PNG_PATH}
-                                      ${EXTRA_FLAGS}
-                                      "CPPFLAGS=-Dpng_set_gray_1_2_4_to_8=png_set_expand_gray_1_2_4_to_8"
-                                      "LIBS=${ZLIB_LIBRARIES}"
-                    BUILD_COMMAND ${MAKE}
-                    "${update_command}")
+add_subdirectory(lib/kodi/gui/gl)
+add_subdirectory(lib/Implicit)
+add_subdirectory(lib/Rgbhsl)
+add_subdirectory(lib/rsMath)
 
-add_definitions(-DHAVE_CONFIG_H=1 -DHAVE_X11_XLIB_H=1 -Dpng_set_gray_1_2_4_to_8=png_set_expand_gray_1_2_4_to_8)
-add_options(ALL_LANGUAGES ALL_BUILDS -fPIC)
+list(APPEND DEPENDS glm gli rsMath kodiOpenGL ImageMagick)
+list(APPEND DEPLIBS rsMath kodiOpenGL Implicit Rgbhsl)
 
-add_library(rsxs_common STATIC ${rsxs_dir}/src/color.cc
-                               ${rsxs_dir}/src/common.cc
-                               ${rsxs_dir}/src/implicit.cc
-                               ${rsxs_dir}/src/pngimage.cc)
-add_dependencies(rsxs_common rsxs)
-
-set(SOLARWINDS_SOURCES ${rsxs_dir}/src/solarwinds/solarwinds.cc
-                       ${rsxs_dir}/src/solarwinds/wind.cc
-                       src/solarwinds.cpp
-                       src/addoncommon.h)
-
-set(PLASMA_SOURCES ${rsxs_dir}/src/plasma/plasma.cc
-                   src/plasma.cpp
-                   src/addoncommon.h)
-
-set(EUPHORIA_SOURCES ${rsxs_dir}/src/euphoria/euphoria.cc
-                     ${rsxs_dir}/src/euphoria/wisp.cc
-                     src/euphoria.cpp
-                     src/addoncommon.h)
-
-set(FLOCKS_SOURCES ${rsxs_dir}/src/flocks/bug.cc
-                   ${rsxs_dir}/src/flocks/flocks.cc
-                   src/flocks.cpp
-                   src/addoncommon.h)
-
-set(CYCLONE_SOURCES ${rsxs_dir}/src/cyclone/blend.cc
-                    ${rsxs_dir}/src/cyclone/cyclone.cc
-                    ${rsxs_dir}/src/cyclone/particle.cc
-                    src/cyclone.cpp
-                    src/addoncommon.h)
-
-set(FLUX_SOURCES ${rsxs_dir}/src/flux/flux.cc
-                 ${rsxs_dir}/src/flux/trail.cc
-                 src/flux.cpp
-                 src/addoncommon.h)
-
-set(FIELDLINES_SOURCES ${rsxs_dir}/src/fieldlines/fieldlines.cc
-                       src/fieldlines.cpp
-                       src/addoncommon.h)
-
-set(HELIOS_SOURCES ${rsxs_dir}/src/helios/helios.cc
-                   ${rsxs_dir}/src/helios/particle.cc
-                   src/helios.cpp
-                   src/addoncommon.h)
-
-set(HYPERSPACE_SOURCES ${rsxs_dir}/src/hyperspace/caustic.cc
-                       ${rsxs_dir}/src/hyperspace/cubemaps.cc
-                       ${rsxs_dir}/src/hyperspace/extensions.cc
-                       ${rsxs_dir}/src/hyperspace/flares.cc
-                       ${rsxs_dir}/src/hyperspace/goo.cc
-                       ${rsxs_dir}/src/hyperspace/hyperspace.cc
-                       ${rsxs_dir}/src/hyperspace/nebula.cc
-                       ${rsxs_dir}/src/hyperspace/particle.cc
-                       ${rsxs_dir}/src/hyperspace/shaders.cc
-                       ${rsxs_dir}/src/hyperspace/spline.cc
-                       ${rsxs_dir}/src/hyperspace/starburst.cc
-                       ${rsxs_dir}/src/hyperspace/tunnel.cc
-                       src/hyperspace.cpp
-                       src/addoncommon.h)
-
-set(LATTICE_SOURCES ${rsxs_dir}/src/lattice/lattice.cc
-                    ${rsxs_dir}/src/lattice/resources.cc
-                    src/lattice.cpp
-                    src/addoncommon.h)
-
-set(SKYROCKET_SOURCES ${rsxs_dir}/src/skyrocket/bee.cc
-                      ${rsxs_dir}/src/skyrocket/bigmama.cc
-                      ${rsxs_dir}/src/skyrocket/bomb.cc
-                      ${rsxs_dir}/src/skyrocket/explosion.cc
-                      ${rsxs_dir}/src/skyrocket/flares.cc
-                      ${rsxs_dir}/src/skyrocket/fountain.cc
-                      ${rsxs_dir}/src/skyrocket/meteor.cc
-                      ${rsxs_dir}/src/skyrocket/overlay.cc
-                      ${rsxs_dir}/src/skyrocket/resources.cc
-                      ${rsxs_dir}/src/skyrocket/rocket.cc
-                      ${rsxs_dir}/src/skyrocket/shockwave.cc
-                      ${rsxs_dir}/src/skyrocket/skyrocket.cc
-                      ${rsxs_dir}/src/skyrocket/smoke.cc
-                      ${rsxs_dir}/src/skyrocket/spinner.cc
-                      ${rsxs_dir}/src/skyrocket/star.cc
-                      ${rsxs_dir}/src/skyrocket/streamer.cc
-                      ${rsxs_dir}/src/skyrocket/stretcher.cc
-                      ${rsxs_dir}/src/skyrocket/sucker.cc
-                      ${rsxs_dir}/src/skyrocket/world.cc
-                      src/skyrocket.cpp
-                      src/addoncommon.h)
-
-set(DEPLIBS ${OPENGL_LIBRARIES}
-            ${PNG_LIBRARIES}
-            ${CMAKE_BINARY_DIR}/rsxs-prefix/src/rsxs-build/lib/libmisc.a
-            rsxs_common)
-
-foreach(addon solarwinds plasma euphoria flocks flux cyclone fieldlines helios
-              hyperspace lattice skyrocket)
-  string(TOUPPER ${addon} ADDON)
-  option(BUILD_${ADDON} "Build screensaver.rsxs.${addon}?" ON)
-  if(BUILD_${ADDON})
-    build_addon(screensaver.rsxs.${addon} ${ADDON} DEPLIBS)
-    add_dependencies(screensaver.rsxs.${addon} rsxs_common)
+if(NOT ${CORE_SYSTEM_NAME} STREQUAL "")
+  if(${CORE_SYSTEM_NAME} STREQUAL "osx" OR ${CORE_SYSTEM_NAME} STREQUAL "ios")
+    list(APPEND DEPLIBS "-framework CoreVideo")
   endif()
-endforeach()
+endif()
+
+get_directory_property(BASE_DEFINITIONS COMPILE_DEFINITIONS)
+message(STATUS "Compile definitions: ${BASE_DEFINITIONS}")
+if(CMAKE_BUILD_TYPE)
+  message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+endif()
+
+
+set(DUMMY_SOURCES ${PROJECT_SOURCE_DIR}/src/dummy.cpp)
+
+include(src/biof/CMakeLists.txt)
+include(src/busyspheres/CMakeLists.txt)
+include(src/colorfire/CMakeLists.txt)
+include(src/cyclone/CMakeLists.txt)
+include(src/drempels/CMakeLists.txt)
+include(src/euphoria/CMakeLists.txt)
+include(src/feedback/CMakeLists.txt)
+include(src/fieldlines/CMakeLists.txt)
+include(src/flocks/CMakeLists.txt)
+include(src/flux/CMakeLists.txt)
+include(src/helios/CMakeLists.txt)
+include(src/hufosmoke/CMakeLists.txt)
+include(src/hufotunnel/CMakeLists.txt)
+include(src/hyperspace/CMakeLists.txt)
+include(src/lattice/CMakeLists.txt)
+include(src/lorenz/CMakeLists.txt)
+include(src/matrixview/CMakeLists.txt)
+include(src/microcosm/CMakeLists.txt)
+include(src/plasma/CMakeLists.txt)
+include(src/skyrocket/CMakeLists.txt)
+include(src/solarwinds/CMakeLists.txt)
+include(src/spirographx/CMakeLists.txt)
+include(src/sundancer2/CMakeLists.txt)
 
 include(CPack)
+

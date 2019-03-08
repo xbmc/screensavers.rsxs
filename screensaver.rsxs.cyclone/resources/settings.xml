@@ -1,9 +1,62 @@
-<settings>
-  <setting id="cyclones" label="30000" type="slider" range="1,1,10" option="int" default="1"/>
-  <setting id="complexity" label="30001" type="slider" range="1,1,10" option="int" default="3"/>
-  <setting id="particles" label="30002" type="slider" range="1,10,10000" option="int" default="200"/>
-  <setting id="curves" label="30003" type="bool" default="0"/>
-  <setting id="hemisphere" label="30004" type="enum" lvalues="30005|30006" default="30005"/>
-  <setting id="size" label="30007" type="slider" range="1,1,100" option="int" default="7"/>
-  <setting id="stretch" label="30008" type="bool" default="1"/>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.rsxs.cyclone">
+    <category id="general" label="30000">
+      <group id="1">
+        <setting id="general.cyclones" type="integer" label="30001" help="30002">
+          <default>1</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>10</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="general.particles" type="integer" label="30003" help="30004">
+          <default>400</default>
+          <constraints>
+            <minimum>100</minimum>
+            <step>100</step>
+            <maximum>10000</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="general.size" type="integer" label="30005" help="30006">
+          <default>7</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="general.complexity" type="integer" label="30007" help="30008">
+          <default>3</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>10</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="general.speed" type="integer" label="30009" help="30010">
+          <default>10</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="general.stretch" type="boolean" label="30011" help="30012">
+          <default>true</default>
+          <control type="toggle" />
+        </setting>
+        <setting id="general.showcurves" type="boolean" label="30013" help="30014">
+          <default>false</default>
+          <control type="toggle" />
+        </setting>
+      </group>
+    </category>
+  </section>
 </settings>

@@ -1,0 +1,1 @@
+jpeg-9b http://mirrors.xbmc.org/build-deps/sources/jpegsrc.v9b.tar.gz

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="screensaver.rsxs.matrixview"
+  version="3.0.0"
+  name="Matrix View"
+  provider-name="Team Kodi">
+  <requires>@ADDON_DEPENDS@</requires>
+  <extension
+    point="xbmc.ui.screensaver"
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">The Matrix Screensaver</summary>
+    <description lang="en">This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series.</description>
+    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <platform>@PLATFORM@</platform>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+      <screenshot>resources/screenshot-02.jpg</screenshot>
+      <screenshot>resources/screenshot-03.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>

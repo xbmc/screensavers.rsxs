@@ -9,23 +9,44 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
 %:
-	dh $@ 
+	@for target in `echo $(shell find debian/*.install.in)`; do \
+		sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $${target} > debian/$$(basename "$${target}" .in); \
+	done;
+	dh $@
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=1 -DUSE_LTO=1
+	dh_auto_configure -- \
+	  -DCMAKE_BUILD_TYPE=Release \
+	  -DBUILD_SHARED_LIBS=1 \
+	  -DUSE_LTO=1
 
 override_dh_strip:
+	dh_strip -pkodi-screensaver-rsxs-biof --dbg-package=kodi-screensaver-rsxs-biof-dbg
+	dh_strip -pkodi-screensaver-rsxs-busyspheres --dbg-package=kodi-screensaver-rsxs-busyspheres-dbg
+	dh_strip -pkodi-screensaver-rsxs-colorfire --dbg-package=kodi-screensaver-rsxs-colorfire-dbg
 	dh_strip -pkodi-screensaver-rsxs-cyclone --dbg-package=kodi-screensaver-rsxs-cyclone-dbg
+	dh_strip -pkodi-screensaver-rsxs-drempels --dbg-package=kodi-screensaver-rsxs-drempels-dbg
 	dh_strip -pkodi-screensaver-rsxs-euphoria --dbg-package=kodi-screensaver-rsxs-euphoria-dbg
+	dh_strip -pkodi-screensaver-rsxs-feedback --dbg-package=kodi-screensaver-rsxs-feedback-dbg
 	dh_strip -pkodi-screensaver-rsxs-fieldlines --dbg-package=kodi-screensaver-rsxs-fieldlines-dbg
 	dh_strip -pkodi-screensaver-rsxs-flocks --dbg-package=kodi-screensaver-rsxs-flocks-dbg
 	dh_strip -pkodi-screensaver-rsxs-flux --dbg-package=kodi-screensaver-rsxs-flux-dbg
 	dh_strip -pkodi-screensaver-rsxs-helios --dbg-package=kodi-screensaver-rsxs-helios-dbg
+	dh_strip -pkodi-screensaver-rsxs-hufosmoke --dbg-package=kodi-screensaver-rsxs-hufosmoke-dbg
+	dh_strip -pkodi-screensaver-rsxs-hufotunnel --dbg-package=kodi-screensaver-rsxs-hufotunnel-dbg
 	dh_strip -pkodi-screensaver-rsxs-hyperspace --dbg-package=kodi-screensaver-rsxs-hyperspace-dbg
 	dh_strip -pkodi-screensaver-rsxs-lattice --dbg-package=kodi-screensaver-rsxs-lattice-dbg
+	dh_strip -pkodi-screensaver-rsxs-lorenz --dbg-package=kodi-screensaver-rsxs-lorenz-dbg
+	dh_strip -pkodi-screensaver-rsxs-matrixview --dbg-package=kodi-screensaver-rsxs-matrixview-dbg
+	dh_strip -pkodi-screensaver-rsxs-microcosm --dbg-package=kodi-screensaver-rsxs-microcosm-dbg
 	dh_strip -pkodi-screensaver-rsxs-plasma --dbg-package=kodi-screensaver-rsxs-plasma-dbg
 	dh_strip -pkodi-screensaver-rsxs-skyrocket --dbg-package=kodi-screensaver-rsxs-skyrocket-dbg
 	dh_strip -pkodi-screensaver-rsxs-solarwinds --dbg-package=kodi-screensaver-rsxs-solarwinds-dbg
+	dh_strip -pkodi-screensaver-rsxs-spirographx --dbg-package=kodi-screensaver-rsxs-spirographx-dbg
+	dh_strip -pkodi-screensaver-rsxs-sundancer2 --dbg-package=kodi-screensaver-rsxs-sundancer2-dbg
 
-
+override_dh_makeshlibs:
+	dh_makeshlibs -n

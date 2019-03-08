@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="screensaver.rsxs.feedback"
+  version="3.0.0"
+  name="Feedback"
+  provider-name="Team Kodi">
+  <requires>@ADDON_DEPENDS@</requires>
+  <extension
+    point="xbmc.ui.screensaver"
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Stirring colors with a jiggling warp</summary>
+    <description lang="en">Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter.</description>
+    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <platform>@PLATFORM@</platform>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+      <screenshot>resources/fanart.jpg</screenshot>
+      <screenshot>resources/screenshot-02.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>

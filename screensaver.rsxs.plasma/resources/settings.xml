@@ -1,6 +1,49 @@
-<settings>
-  <setting id="zoom" label="30000" type="slider" range="1,5,100" option="int" default="10"/>
-  <setting id="focus" label="30001" type="slider" range="1,5,100" option="int" default="30"/>
-  <setting id="speed" label="30002" type="slider" range="1,5,100" option="int" default="20"/>
-  <setting id="resolution" label="30003" type="slider" range="1,5,100" option="int" default="20"/>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.rsxs.plasma">
+    <category id="general" label="30000">
+      <group id="1">
+        <setting id="zoom" type="integer" label="30001">
+          <level>0</level>
+          <default>10</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer" range="0,10" />
+        </setting>
+        <setting id="focus" type="integer" label="30002">
+          <level>0</level>
+          <default>30</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer" range="0,10" />
+        </setting>
+        <setting id="speed" type="integer" label="30003">
+          <level>0</level>
+          <default>20</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer" range="0,10" />
+        </setting>
+        <setting id="resolution" type="integer" label="30004">
+          <level>0</level>
+          <default>25</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer" range="0,10" />
+        </setting>
+      </group>
+    </category>
+  </section>
 </settings>
