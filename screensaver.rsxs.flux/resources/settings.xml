@@ -1,13 +1,183 @@
-<settings>
-  <setting id="fluxes" label="30000" type="slider" range="1,1,100" option="int" default="1"/>
-  <setting id="particles" label="30001" type="slider" range="1,10,1000" option="int" default="20"/>
-  <setting id="length" label="30002" type="slider" range="3,10,1000" option="int" default="40"/>
-  <setting id="pgeom" label="30003" type="enum" lvalues="30004|30005|30006" default="30004"/>
-  <setting id="complexity" label="30007" type="slider" range="1,1,10" option="int" default="3"/>
-  <setting id="speed" label="30008" type="slider" range="0,1,100" option="int" default="40"/>
-  <setting id="randomness" label="30009" type="slider" range="0,1,100" option="int" default="0"/>
-  <setting id="rotation" label="30010" type="slider" range="0,1,100" option="int" default="30"/>
-  <setting id="wind" label="30011" type="slider" range="0,1,100" option="int" default="20"/>
-  <setting id="instability" label="30012" type="slider" range="1,1,100" option="int" default="20"/>
-  <setting id="blur" label="30013" type="slider" range="0,1,100" option="int" default="0"/>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.rsxs.flux">
+    <category id="general" label="30000">
+      <group id="1">
+        <setting id="general.type" type="integer" label="30002">
+          <default>1</default>
+          <constraints>
+            <options>
+              <option label="30003">0</option>
+              <option label="30004">1</option>
+              <option label="30005">2</option>
+              <option label="30006">3</option>
+              <option label="30007">4</option>
+              <option label="30008">5</option>
+              <option label="30009">6</option>
+              <option label="30010">-1</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"/>
+        </setting>
+        <setting id="general.lastType" type="integer">
+          <visible>false</visible>
+          <level>0</level>
+          <default>-2</default>
+          <control type="slider" format="integer"/>
+        </setting>
+      </group>
+    </category>
+    <category id="advanced" label="30001">
+      <group id="1">
+        <setting id="advanced.fluxes" type="integer" label="30011">
+          <default>1</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.particles" type="integer" label="30012">
+          <default>20</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>1000</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.trail" type="integer" label="30013">
+          <default>40</default>
+          <constraints>
+            <minimum>3</minimum>
+            <step>1</step>
+            <maximum>10000</maximum>
+          </constraints>
+          <dependencies>
+            <dependency type="enable" setting="general.type">-1</dependency>
+          </dependencies>
+          <control type="edit" format="integer">
+            <heading>30026</heading>
+          </control>
+        </setting>
+        <setting id="advanced.geometry" type="integer" label="30014">
+          <default>2</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <options>
+              <option label="30015">0</option>
+              <option label="30016">1</option>
+              <option label="30017">2</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"/>
+        </setting>
+        <setting id="advanced.size" type="integer" label="30018">
+          <default>15</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.complexity" type="integer" label="30019">
+          <default>3</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.randomize" type="integer" label="30020">
+          <default>0</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.expansion" type="integer" label="30021">
+          <default>40</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.rotation" type="integer" label="30022">
+          <default>30</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.wind" type="integer" label="30023">
+          <default>20</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.instability" type="integer" label="30024">
+          <default>20</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="advanced.blur" type="integer" label="30025">
+          <default>0</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+      </group>
+    </category>
+  </section>
 </settings>

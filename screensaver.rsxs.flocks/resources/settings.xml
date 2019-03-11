@@ -1,11 +1,185 @@
-<settings>
-  <setting id="leaders" label="30000" type="slider" range="1,1,100" option="int" default="4"/>
-  <setting id="followers" label="30001" type="slider" range="0,10,1000" option="int" default="400"/>
-  <setting id="size" label="30002" type="slider" range="1,1,100" option="int" default="10"/>
-  <setting id="stretch" label="30003" type="slider" range="0,1,100" option="int" default="20"/>
-  <setting id="speed" label="30004" type="slider" range="1,1,100" option="int" default="15"/>
-  <setting id="complexity" label="30005" type="slider" range="0,1,10" option="int" default="1"/>
-  <setting id="cspeed" label="30006" type="slider" range="0,1,100" option="int" default="15"/>
-  <setting id="cdepth" label="30007" type="bool" default="0"/>
-  <setting id="connections" label="30008" type="bool" default="0"/>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.rsxs.flocks">
+    <category id="general" label="30000">
+      <group id="1">
+        <setting id="general.type" type="integer" label="30002">
+          <default>1</default>
+          <constraints>
+            <options>
+              <option label="30003">0</option>
+              <option label="30004">1</option>
+              <option label="30005">2</option>
+              <option label="30006">3</option>
+              <option label="30007">4</option>
+              <option label="30008">5</option>
+              <option label="30009">6</option>
+              <option label="30010">-1</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"/>
+        </setting>
+        <setting id="general.lastType" type="integer">
+          <visible>false</visible>
+          <level>0</level>
+          <default>-2</default>
+          <control type="spinner" format="string"/>
+        </setting>
+      </group>
+    </category>
+    <category id="advanced" label="30001">
+      <group id="1">
+        <setting id="advanced.leaders" type="integer" label="30011">
+          <default>4</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.followers" type="integer" label="30012">
+          <default>400</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>100</step>
+            <maximum>10000</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.geometry" type="integer" label="30013">
+          <default>0</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <options>
+              <option label="30024">0</option>
+              <option label="30025">1</option>
+              <option label="30026">2</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"/>
+        </setting>
+        <setting id="advanced.size" type="integer" label="30014">
+          <default>10</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.complexity" type="integer" label="30015">
+          <default>1</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>10</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.speed" type="integer" label="30016">
+          <default>15</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.stretch" type="integer" label="30017">
+          <default>20</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.colorfadespeed" type="integer" label="30018">
+          <default>15</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.chromatek" type="boolean" label="30019">
+          <default>false</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <control type="toggle" />
+        </setting>
+        <setting id="advanced.connections" type="boolean" label="30020">
+          <default>false</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <control type="toggle" />
+        </setting>
+        <setting id="advanced.traillength" type="integer" label="30021">
+          <default>1</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>10</step>
+            <maximum>250</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.blur" type="integer" label="30022">
+          <default>1</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <constraints>
+            <minimum>0</minimum>
+            <step>10</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="spinner" format="string"/>
+        </setting>
+        <setting id="advanced.randomcolors" type="boolean" label="30023">
+          <default>false</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <control type="toggle" />
+        </setting>
+        <setting id="advanced.clearcompletely" type="boolean" label="30027">
+          <default>false</default>
+          <dependencies>
+            <dependency type="enable" setting="general.type" operator="is">-1</dependency>
+          </dependencies>
+          <control type="toggle" />
+        </setting>
+      </group>
+    </category>
+  </section>
 </settings>

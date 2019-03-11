@@ -1,9 +1,71 @@
-<settings>
-  <setting id="stars" label="30000" type="slider" range="0,10,10000" option="int" default="1000"/>
-  <setting id="size" label="30001" type="slider" range="1,1,100" option="int" default="10"/>
-  <setting id="depth" label="30002" type="slider" range="1,1,10" option="int" default="5"/>
-  <setting id="fov" label="30003" type="slider" range="10,1,150" option="int" default="90"/>
-  <setting id="speed" label="30004" type="slider" range="1,1,100" option="int" default="10"/>
-  <setting id="resolution" label="30005" type="slider" range="4,1,20" option="int" default="10"/>
-  <setting id="shaders" label="30006" type="bool" default="on"/>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.rsxs.hyperspace">
+    <category id="general" label="30000">
+      <group id="1">
+        <setting id="stars" type="integer" label="30001">
+          <default>1000</default>
+          <constraints>
+            <minimum>0</minimum>
+            <step>100</step>
+            <maximum>10000</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="starsize" type="integer" label="30002">
+          <default>10</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="depth" type="integer" label="30003">
+          <default>5</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>10</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="fov" type="integer" label="30004">
+          <default>50</default>
+          <constraints>
+            <minimum>10</minimum>
+            <step>1</step>
+            <maximum>150</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="speed" type="integer" label="30005">
+          <default>10</default>
+          <constraints>
+            <minimum>1</minimum>
+            <step>1</step>
+            <maximum>100</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="resolution" type="integer" label="30006">
+          <default>10</default>
+          <constraints>
+            <minimum>4</minimum>
+            <step>1</step>
+            <maximum>20</maximum>
+          </constraints>
+          <control type="slider" format="integer"/>
+        </setting>
+        <setting id="usetunnels" type="boolean" label="30007">
+          <default>true</default>
+          <control type="toggle" />
+        </setting>
+        <setting id="usegoo" type="boolean" label="30008">
+          <default>true</default>
+          <control type="toggle" />
+        </setting>
+      </group>
+    </category>
+  </section>
 </settings>

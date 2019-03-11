@@ -1,0 +1,1 @@
+libtool http://mirrors.xbmc.org/build-deps/sources/libtool-2.4.6.tar.gz

@@ -1,0 +1,22 @@
+From d3ec93a74de12414d207a0a94a7dbaf6fbfc5f13 Mon Sep 17 00:00:00 2001
+From: Max Breev <knuckster@gmail.com>
+Date: Tue, 1 Jan 2019 18:13:01 +0100
+Subject: [PATCH] Compiilation fixes
+
+---
+ test/core/core_convert.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/core/core_convert.cpp b/test/core/core_convert.cpp
+index 7a4366c6..5876382e 100644
+--- a/test/core/core_convert.cpp
++++ b/test/core/core_convert.cpp
+@@ -33,7 +33,7 @@ bool convert_rgb32f_rgb9e5(const char* FilenameSrc, const char* FilenameDst)
+ {
+ 	if(FilenameDst == NULL)
+ 		return false;
+-	if(std::strstr(FilenameDst, ".dds") > 0 || std::strstr(FilenameDst, ".ktx") > 0)
++	if(std::strstr(FilenameDst, ".dds") || std::strstr(FilenameDst, ".ktx"))
+ 		return false;
+ 
+ 	gli::texture2d TextureSource(gli::load(FilenameSrc));
