@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.matrixview"
-  version="3.0.0"
+  version="3.1.0"
   name="Matrix View"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
