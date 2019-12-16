@@ -29,8 +29,8 @@
 #include "main.h"
 #include "gpoly.h"
 
+#include <chrono>
 #include <kodi/Filesystem.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
@@ -48,12 +48,10 @@ struct sDrempelsSettings
 
     if (kodi::GetSettingBoolean("general.images-used"))
     {
-      struct stat fileStat;
       std::string path = kodi::GetSettingString("general.images");
       if (path.empty())
         path = kodi::GetAddonPath("resources/default-pictures");
 
-      STAT_STRUCTURE statFile;
       if (!path.empty())
       {
         if (kodi::vfs::DirectoryExists(path))
@@ -97,10 +95,10 @@ inline uint32_t rgbScale(const uint32_t c, const unsigned char scale)
   return lsb | msb;
 }
 
-inline uint32_t rgbLerp(const uint32_t &c0, const uint32_t &c1, const unsigned char &scale)
+inline uint32_t rgbLerp(const uint32_t &c0, const uint32_t &c1, const uint16_t &scale)
 {
-  uint32_t sc0 = rgbScale(c0, 255 - scale);
-  uint32_t sc1 = rgbScale(c1, scale);
+  uint32_t sc0 = rgbScale(c0, 255 - (scale & 0xFF));
+  uint32_t sc1 = rgbScale(c1, (scale & 0xFF));
 
   return sc0 + sc1;
 }
@@ -113,8 +111,8 @@ bool CScreensaverDrempels::Start()
 {
   gSettings.Load(m_textureManager);
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -122,7 +120,7 @@ bool CScreensaverDrempels::Start()
   glViewport(X(), Y(), Width(), Height());
 
   m_projMat = glm::ortho(0.0f, 1.0f, 0.0f, 1.0f);
-  m_modelMat = glm::mat4(1.0);
+  m_modelMat = glm::mat4(1.0f);
 
   // Keep m_cells * m_cellResolution < resolution of the window
   m_cells = gSettings.dCells;
@@ -189,14 +187,14 @@ bool CScreensaverDrempels::Start()
   unsigned char buf = 0;
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 1, 1, 0, GL_RED, GL_UNSIGNED_BYTE, &buf);
 
-  m_quad[0].coord = sCoord(0.0f, 0.0f);
-  m_quad[0].vertex = sPosition(0.0, 0.0, 0.0);
-  m_quad[1].coord = sCoord(0.0f, 1.0f);
-  m_quad[1].vertex = sPosition(0.0, 1.0, 0.0);
-  m_quad[2].coord = sCoord(1.0f, 1.0f);
-  m_quad[2].vertex = sPosition(1.0, 1.0, 0.0);
-  m_quad[3].coord = sCoord(1.0f, 0.0f);
-  m_quad[3].vertex = sPosition(1.0, 0.0, 0.0);
+  m_quad[0].coord = glm::vec2(0.0f, 0.0f);
+  m_quad[0].vertex = glm::vec3(0.0f, 0.0f, 0.0f);
+  m_quad[1].coord = glm::vec2(0.0f, 1.0f);
+  m_quad[1].vertex = glm::vec3(0.0f, 1.0f, 0.0f);
+  m_quad[2].coord = glm::vec2(1.0f, 1.0f);
+  m_quad[2].vertex = glm::vec3(1.0f, 1.0f, 0.0f);
+  m_quad[3].coord = glm::vec2(1.0f, 0.0f);
+  m_quad[3].vertex = glm::vec3(1.0f, 0.0f, 0.0f);
 
   glGenBuffers(1, &m_vertexVBO);
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
@@ -207,7 +205,7 @@ bool CScreensaverDrempels::Start()
 
   m_textureManager.start();
 
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
 
   return true;
@@ -257,7 +255,7 @@ void CScreensaverDrempels::Render()
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
   glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -269,8 +267,8 @@ void CScreensaverDrempels::Render()
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   const unsigned int UVCELLSX = m_cells + 2;
@@ -300,10 +298,10 @@ void CScreensaverDrempels::Render()
   if (m_textureManager.getPrevTex()
     && (currentTime < m_lastTexChange + gSettings.dTexFadeInterval)
     // Can only fade if the window is large enough to render both textures...
-    && (m_textureManager.getPrevW() < Width())
-    && (m_textureManager.getPrevH() < Height())
-    && (m_textureManager.getCurW() < Width())
-    && (m_textureManager.getCurH() < Height())
+    && (m_textureManager.getPrevW() < static_cast<unsigned int>(Width()))
+    && (m_textureManager.getPrevH() < static_cast<unsigned int>(Height()))
+    && (m_textureManager.getCurW() < static_cast<unsigned int>(Width()))
+    && (m_textureManager.getCurH() < static_cast<unsigned int>(Height()))
     )
   {
     const double blend = (currentTime - m_lastTexChange) / gSettings.dTexFadeInterval;
@@ -313,10 +311,10 @@ void CScreensaverDrempels::Render()
     glEnable(GL_BLEND);
 
     glBindTexture (GL_TEXTURE_2D, m_ptex);
-    DrawQuads(sColor(1.0f, 1.0f, 1.0f, 1.0f));
+    DrawQuads(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 
     glBindTexture (GL_TEXTURE_2D, m_ctex);
-    DrawQuads(sColor(1.0f, 1.0f, 1.0f, blend));
+    DrawQuads(glm::vec4(1.0f, 1.0f, 1.0f, blend));
 
     glDisable (GL_BLEND);
 
@@ -338,7 +336,7 @@ void CScreensaverDrempels::Render()
   if (m_textureManager.getCurTex())
   {
     const float intframe2 = m_animTime*22.5f;
-    const float scale = 0.45f + 0.1f*sin(intframe2*0.01f);
+    const float scale = 0.45f + 0.1f*sinf(intframe2*0.01f);
     const float rot = m_animTime*gSettings.rotational_speed*6.28f;
 
     if (m_cell == NULL)
@@ -351,13 +349,13 @@ void CScreensaverDrempels::Render()
     #define NUM_MODES 7
 
     float t[NUM_MODES];
-    t[0] = pow(0.50f + 0.50f*sin(m_animTime*gSettings.mode_switch_speed_multiplier * 0.1216f + m_fRandStart1), 1.0f);
-    t[1] = pow(0.48f + 0.48f*sin(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0625f + m_fRandStart2), 2.0f);
-    t[2] = pow(0.45f + 0.45f*sin(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0253f + m_fRandStart3), 12.0f);
-    t[3] = pow(0.50f + 0.50f*sin(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0916f + m_fRandStart4), 2.0f);
-    t[4] = pow(0.50f + 0.50f*sin(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0625f + m_fRandStart1), 2.0f);
-    t[5] = pow(0.70f + 0.50f*sin(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0466f + m_fRandStart2), 1.0f);
-    t[6] = pow(0.50f + 0.50f*sin(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0587f + m_fRandStart3), 2.0f);
+    t[0] = pow(0.50f + 0.50f*sinf(m_animTime*gSettings.mode_switch_speed_multiplier * 0.1216f + m_fRandStart1), 1.0f);
+    t[1] = pow(0.48f + 0.48f*sinf(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0625f + m_fRandStart2), 2.0f);
+    t[2] = pow(0.45f + 0.45f*sinf(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0253f + m_fRandStart3), 12.0f);
+    t[3] = pow(0.50f + 0.50f*sinf(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0916f + m_fRandStart4), 2.0f);
+    t[4] = pow(0.50f + 0.50f*sinf(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0625f + m_fRandStart1), 2.0f);
+    t[5] = pow(0.70f + 0.50f*sinf(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0466f + m_fRandStart2), 1.0f);
+    t[6] = pow(0.50f + 0.50f*sinf(m_animTime*gSettings.mode_switch_speed_multiplier * 0.0587f + m_fRandStart3), 2.0f);
     //t[(intframe/120) % NUM_MODES] += 20.0f;
 
     // normalize
@@ -389,22 +387,22 @@ void CScreensaverDrempels::Render()
     }
 
     // orig: 1.0-4.5... now: 1.0 + 1.15*[0.0...3.0]
-    const float fscale1 = 1.0f + 1.15f*(pow(2.0f, 1.0f + 0.5f*sin(m_animTime*0.892f) + 0.5f*sin(m_animTime*0.624f)) - 1.0f);
-    const float fscale2 = 4.0f + 1.0f*sin(m_fRandStart3 + m_animTime*0.517f) + 1.0f*sin(m_fRandStart4 + m_animTime*0.976f);
-    const float fscale3 = 4.0f + 1.0f*sin(m_fRandStart1 + m_animTime*0.654f) + 1.0f*sin(m_fRandStart1 + m_animTime*1.044f);
-    const float fscale4 = 4.0f + 1.0f*sin(m_fRandStart2 + m_animTime*0.517f) + 1.0f*sin(m_fRandStart3 + m_animTime*0.976f);
-    const float fscale5 = 4.0f + 1.0f*sin(m_fRandStart4 + m_animTime*0.654f) + 1.0f*sin(m_fRandStart2 + m_animTime*1.044f);
+    const float fscale1 = 1.0f + 1.15f*(pow(2.0f, 1.0f + 0.5f*sinf(m_animTime*0.892f) + 0.5f*sinf(m_animTime*0.624f)) - 1.0f);
+    const float fscale2 = 4.0f + 1.0f*sinf(m_fRandStart3 + m_animTime*0.517f) + 1.0f*sinf(m_fRandStart4 + m_animTime*0.976f);
+    const float fscale3 = 4.0f + 1.0f*sinf(m_fRandStart1 + m_animTime*0.654f) + 1.0f*sinf(m_fRandStart1 + m_animTime*1.044f);
+    const float fscale4 = 4.0f + 1.0f*sinf(m_fRandStart2 + m_animTime*0.517f) + 1.0f*sinf(m_fRandStart3 + m_animTime*0.976f);
+    const float fscale5 = 4.0f + 1.0f*sinf(m_fRandStart4 + m_animTime*0.654f) + 1.0f*sinf(m_fRandStart2 + m_animTime*1.044f);
 
-    const float t3_uc = 0.3f*sin(0.217f*(m_animTime+m_fRandStart1)) + 0.2f*sin(0.185f*(m_animTime+m_fRandStart2));
-    const float t3_vc = 0.3f*cos(0.249f*(m_animTime+m_fRandStart3)) + 0.2f*cos(0.153f*(m_animTime+m_fRandStart4));
-    const float t3_rot = 3.3f*cos(0.1290f*(m_animTime+m_fRandStart2)) + 2.2f*cos(0.1039f*(m_animTime+m_fRandStart3));
-    const float cos_t3_rot = cos(t3_rot);
-    const float sin_t3_rot = sin(t3_rot);
-    const float t4_uc = 0.2f*sin(0.207f*(m_animTime+m_fRandStart2)) + 0.2f*sin(0.145f*(m_animTime+m_fRandStart4));
-    const float t4_vc = 0.2f*cos(0.219f*(m_animTime+m_fRandStart1)) + 0.2f*cos(0.163f*(m_animTime+m_fRandStart3));
-    const float t4_rot = 0.61f*cos(0.1230f*(m_animTime+m_fRandStart4)) + 0.43f*cos(0.1009f*(m_animTime+m_fRandStart1));
-    const float cos_t4_rot = cos(t4_rot);
-    const float sin_t4_rot = sin(t4_rot);
+    const float t3_uc = 0.3f*sinf(0.217f*(m_animTime+m_fRandStart1)) + 0.2f*sinf(0.185f*(m_animTime+m_fRandStart2));
+    const float t3_vc = 0.3f*cosf(0.249f*(m_animTime+m_fRandStart3)) + 0.2f*cosf(0.153f*(m_animTime+m_fRandStart4));
+    const float t3_rot = 3.3f*cosf(0.1290f*(m_animTime+m_fRandStart2)) + 2.2f*cosf(0.1039f*(m_animTime+m_fRandStart3));
+    const float cos_t3_rot = cosf(t3_rot);
+    const float sin_t3_rot = sinf(t3_rot);
+    const float t4_uc = 0.2f*sinf(0.207f*(m_animTime+m_fRandStart2)) + 0.2f*sinf(0.145f*(m_animTime+m_fRandStart4));
+    const float t4_vc = 0.2f*cosf(0.219f*(m_animTime+m_fRandStart1)) + 0.2f*cosf(0.163f*(m_animTime+m_fRandStart3));
+    const float t4_rot = 0.61f*cosf(0.1230f*(m_animTime+m_fRandStart4)) + 0.43f*cosf(0.1009f*(m_animTime+m_fRandStart1));
+    const float cos_t4_rot = cosf(t4_rot);
+    const float sin_t4_rot = sinf(t4_rot);
 
     const float u_delta = 0.05f;
     const float v_delta = 0.05f;
@@ -431,21 +429,21 @@ void CScreensaverDrempels::Render()
       {
         float u = base_u;
         float v = base_v;
-        u += gSettings.warp_factor*0.65f*sin(intframe2*m_warp_w[0] + (base_u*m_warp_uscale[0] + base_v*m_warp_vscale[0])*6.28f + m_warp_phase[0]);
-        v += gSettings.warp_factor*0.65f*sin(intframe2*m_warp_w[1] + (base_u*m_warp_uscale[1] - base_v*m_warp_vscale[1])*6.28f + m_warp_phase[1]);
-        u += gSettings.warp_factor*0.35f*sin(intframe2*m_warp_w[2] + (base_u*m_warp_uscale[2] - base_v*m_warp_vscale[2])*6.28f + m_warp_phase[2]);
-        v += gSettings.warp_factor*0.35f*sin(intframe2*m_warp_w[3] + (base_u*m_warp_uscale[3] + base_v*m_warp_vscale[3])*6.28f + m_warp_phase[3]);
+        u += gSettings.warp_factor*0.65f*sinf(intframe2*m_warp_w[0] + (base_u*m_warp_uscale[0] + base_v*m_warp_vscale[0])*6.28f + m_warp_phase[0]);
+        v += gSettings.warp_factor*0.65f*sinf(intframe2*m_warp_w[1] + (base_u*m_warp_uscale[1] - base_v*m_warp_vscale[1])*6.28f + m_warp_phase[1]);
+        u += gSettings.warp_factor*0.35f*sinf(intframe2*m_warp_w[2] + (base_u*m_warp_uscale[2] - base_v*m_warp_vscale[2])*6.28f + m_warp_phase[2]);
+        v += gSettings.warp_factor*0.35f*sinf(intframe2*m_warp_w[3] + (base_u*m_warp_uscale[3] + base_v*m_warp_vscale[3])*6.28f + m_warp_phase[3]);
         u /= scale;
         v /= scale;
 
         const float ut = u;
         const float vt = v;
-        u = ut*cos(rot) - vt*sin(rot);
-        v = ut*sin(rot) + vt*cos(rot);
+        u = ut*cosf(rot) - vt*sinf(rot);
+        v = ut*sinf(rot) + vt*cosf(rot);
 
         // NOTE: THIS MULTIPLIER WAS --2.7-- IN THE ORIGINAL DREMPELS 1.0!!!
-        u += 2.0f*sin(intframe2*0.00613f);
-        v += 2.0f*cos(intframe2*0.0138f);
+        u += 2.0f*sinf(intframe2*0.00613f);
+        v += 2.0f*cosf(intframe2*0.0138f);
 
         CELL(i,j).u += u * t[0];
         CELL(i,j).v += v * t[0];
@@ -460,11 +458,11 @@ void CScreensaverDrempels::Render()
         float rad = sqrt(u*u + v*v);
         float ang = atan2(u, v);
 
-        rad *= 1.0f + 0.3f*sin(m_animTime * 0.53f + ang*1.0f + m_fRandStart2);
-        ang += 0.9f*sin(m_animTime * 0.45f + rad*4.2f + m_fRandStart3);
+        rad *= 1.0f + 0.3f*sinf(m_animTime * 0.53f + ang*1.0f + m_fRandStart2);
+        ang += 0.9f*sinf(m_animTime * 0.45f + rad*4.2f + m_fRandStart3);
 
-        u = rad*cos(ang)*1.7f;
-        v = rad*sin(ang)*1.7f;
+        u = rad*cosf(ang)*1.7f;
+        v = rad*sinf(ang)*1.7f;
 
         CELL(i,j).u += u * t[1];
         CELL(i,j).v += v * t[1];
@@ -479,11 +477,11 @@ void CScreensaverDrempels::Render()
         float rad = sqrt(u*u + v*v);
         float ang = atan2(u, v);
 
-        rad *= 1.0f + 0.3f*sin(m_animTime * 1.59f + ang*20.4f + m_fRandStart3);
-        ang += 1.8f*sin(m_animTime * 1.35f + rad*22.1f + m_fRandStart4);
+        rad *= 1.0f + 0.3f*sinf(m_animTime * 1.59f + ang*20.4f + m_fRandStart3);
+        ang += 1.8f*sinf(m_animTime * 1.35f + rad*22.1f + m_fRandStart4);
 
-        u = rad*cos(ang);
-        v = rad*sin(ang);
+        u = rad*cosf(ang);
+        v = rad*sinf(ang);
 
         CELL(i,j).u += u * t[2];
         CELL(i,j).v += v * t[2];
@@ -525,10 +523,10 @@ void CScreensaverDrempels::Render()
         float v = base_v*1.4f;
         float offset = 0;//((u+2.0f)*(v-2.0f) + u*u + v*v)*50.0f;
 
-        float u2 = u + 0.03f*sin(u*(fscale2 + 2.0f) + v*(fscale3 + 2.0f) + m_fRandStart4 + m_animTime*1.13f + 3.0f + offset);
-        float v2 = v + 0.03f*cos(u*(fscale4 + 2.0f) - v*(fscale5 + 2.0f) + m_fRandStart2 + m_animTime*1.03f - 7.0f + offset);
-        u2 += 0.024f*sin(u*(fscale3*-0.1f) + v*(fscale5*0.9f) + m_fRandStart3 + m_animTime*0.53f - 3.0f);
-        v2 += 0.024f*cos(u*(fscale2*0.9f) + v*(fscale4*-0.1f) + m_fRandStart1 + m_animTime*0.58f + 2.0f);
+        float u2 = u + 0.03f*sinf(u*(fscale2 + 2.0f) + v*(fscale3 + 2.0f) + m_fRandStart4 + m_animTime*1.13f + 3.0f + offset);
+        float v2 = v + 0.03f*cosf(u*(fscale4 + 2.0f) - v*(fscale5 + 2.0f) + m_fRandStart2 + m_animTime*1.03f - 7.0f + offset);
+        u2 += 0.024f*sinf(u*(fscale3*-0.1f) + v*(fscale5*0.9f) + m_fRandStart3 + m_animTime*0.53f - 3.0f);
+        v2 += 0.024f*cosf(u*(fscale2*0.9f) + v*(fscale4*-0.1f) + m_fRandStart1 + m_animTime*0.58f + 2.0f);
 
         CELL(i,j).u += u2*1.25f * t[5];
         CELL(i,j).v += v2*1.25f * t[5];
@@ -543,8 +541,8 @@ void CScreensaverDrempels::Render()
         float rad = sqrt(u*u + v*v);
         float ang = atan2(u, v);
 
-        u = rad + 3.0f*sin(m_animTime*0.133f + m_fRandStart1) + t4_vc;
-        v = rad*0.5f * 0.1f*cos(ang + m_animTime*0.079f + m_fRandStart4) + t4_uc;
+        u = rad + 3.0f*sinf(m_animTime*0.133f + m_fRandStart1) + t4_vc;
+        v = rad*0.5f * 0.1f*cosf(ang + m_animTime*0.079f + m_fRandStart4) + t4_uc;
 
         CELL(i,j).u += u * t[6];
         CELL(i,j).v += v * t[6];
@@ -606,7 +604,7 @@ void CScreensaverDrempels::Render()
 
     glBindTexture(GL_TEXTURE_2D, m_btex);
 
-    DrawQuads(sColor(1.0f, 1.0f, 1.0f, 1.0f));
+    DrawQuads(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 
     glEnable(GL_BLEND);
     glBindTexture(GL_TEXTURE_2D, m_tex);
@@ -634,7 +632,7 @@ void CScreensaverDrempels::Render()
 
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, FXW, FXH, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_buf);
 
-    DrawQuads(sColor(1.0f, 1.0f, 1.0f, 1.0f - blurAmount));
+    DrawQuads(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f - blurAmount));
 
     glDisable(GL_BLEND);
     glBindTexture(GL_TEXTURE_2D, m_btex);
@@ -643,7 +641,7 @@ void CScreensaverDrempels::Render()
 
     glViewport(X(), Y(), Width(), Height());
 
-    DrawQuads(sColor(1.0f, 1.0f, 1.0f, 1.0f));
+    DrawQuads(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
   }
 
   glDisableVertexAttribArray(m_hVertex);
@@ -655,34 +653,34 @@ void CScreensaverDrempels::Render()
 
 void CScreensaverDrempels::RandomizeStartValues()
 {
-  m_fRandStart1 = 6.28f * (random() % 4096) / 4096.0f;
-  m_fRandStart2 = 6.28f * (random() % 4096) / 4096.0f;
-  m_fRandStart3 = 6.28f * (random() % 4096) / 4096.0f;
-  m_fRandStart4 = 6.28f * (random() % 4096) / 4096.0f;
+  m_fRandStart1 = 6.28f * (rand() % 4096) / 4096.0f;
+  m_fRandStart2 = 6.28f * (rand() % 4096) / 4096.0f;
+  m_fRandStart3 = 6.28f * (rand() % 4096) / 4096.0f;
+  m_fRandStart4 = 6.28f * (rand() % 4096) / 4096.0f;
 
   // randomomize rotational direction
-  if (random()%2)
+  if (rand()%2)
     gSettings.rotational_speed *= -1.0f;
 
   // randomomize warping parameters
   for (int i = 0; i < 4; i++)
   {
-    m_warp_w[i]      = 0.02f + 0.015f * (random() % 4096) / 4096.0f;
-    m_warp_uscale[i] = 0.23f + 0.120f * (random() % 4096) / 4096.0f;
-    m_warp_vscale[i] = 0.23f + 0.120f * (random() % 4096) / 4096.0f;
-    m_warp_phase[i]  = 6.28f * (random() % 4096) / 4096.0f;
-    if (random() % 2)
+    m_warp_w[i]      = 0.02f + 0.015f * (rand() % 4096) / 4096.0f;
+    m_warp_uscale[i] = 0.23f + 0.120f * (rand() % 4096) / 4096.0f;
+    m_warp_vscale[i] = 0.23f + 0.120f * (rand() % 4096) / 4096.0f;
+    m_warp_phase[i]  = 6.28f * (rand() % 4096) / 4096.0f;
+    if (rand() % 2)
       m_warp_w[i] *= -1;
-    if (random() % 2)
+    if (rand() % 2)
       m_warp_uscale[i] *= -1;
-    if (random() % 2)
+    if (rand() % 2)
       m_warp_vscale[i] *= -1;
-    if (random() % 2)
+    if (rand() % 2)
       m_warp_phase[i] *= -1;
   }
 }
 
-void CScreensaverDrempels::DrawQuads(const sColor& color)
+void CScreensaverDrempels::DrawQuads(const glm::vec4& color)
 {
   m_quad[0].color = m_quad[1].color = m_quad[2].color = m_quad[3].color = color;
   EnableShader();

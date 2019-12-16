@@ -27,8 +27,9 @@
 
 #include "main.h"
 
+#include <algorithm>
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
@@ -56,8 +57,8 @@ struct sFeedbackSettings
   }
 
   bool dGrey = false;
-  float dSaturation = 1.0;
-  float dLightness = 1.0;
+  float dSaturation = 1.0f;
+  float dLightness = 1.0f;
   bool dGrid = false;
   int dPeriod = 5;
   int dTexSize = 8;
@@ -94,21 +95,21 @@ bool CScreensaverFeedback::Start()
       gSettings.dTexSize = newTexSize;
     }
 
-    unsigned char *pixels = new unsigned char[m_width * m_height * 3];
-    for (unsigned int hh = 0, ii = 0; hh < m_height; ++hh)
+    uint8_t *pixels = new uint8_t[m_width * m_height * 3];
+    for (int hh = 0, ii = 0; hh < m_height; ++hh)
     {
-      for (unsigned int ww = 0; ww < m_width; ++ww)
+      for (int ww = 0; ww < m_width; ++ww)
       {
         float r, g, b;
 
         if (gSettings.dGrey)
-          hsl2rgb(0.0, 0.0, hh * ww / float(m_height * m_width), r, g, b);
+          hsl2rgb(0.0f, 0.0f, hh * ww / float(m_height * m_width), r, g, b);
         else
           hsl2rgb(hh / float(m_height), gSettings.dSaturation, gSettings.dLightness, r, g, b);
 
-        pixels[ii++] = r * 255;
-        pixels[ii++] = g * 255;
-        pixels[ii++] = b * 255;
+        pixels[ii++] = static_cast<uint8_t>(r * 255);
+        pixels[ii++] = static_cast<uint8_t>(g * 255);
+        pixels[ii++] = static_cast<uint8_t>(b * 255);
       }
     }
 
@@ -126,14 +127,15 @@ bool CScreensaverFeedback::Start()
   m_displacements = new rsVec[gSettings.cwidth * gSettings.cheight];
   m_velocities = new rsVec[gSettings.cwidth * gSettings.cheight];
   m_accelerations = new rsVec[gSettings.cwidth * gSettings.cheight];
+  m_framedTextures = new sLight[gSettings.cwidth * gSettings.cheight * 10];
 
   for (unsigned int hh = 0, ii = 0; hh < gSettings.cheight; ++hh)
   {
     for (unsigned int ww = 0; ww < gSettings.cwidth; ++ww)
     {
-      m_displacements[ii][0] = rsRandf(0.5) - 0.25;
-      m_displacements[ii][1] = rsRandf(0.5) - 0.25;
-      m_displacements[ii][2] = 0.0;
+      m_displacements[ii][0] = rsRandf(0.5f) - 0.25f;
+      m_displacements[ii][1] = rsRandf(0.5f) - 0.25f;
+      m_displacements[ii][2] = 0.0f;
       m_velocities[ii] = rsVec(0.0f, 0.0f, 0.0f);
       m_accelerations[ii] = rsVec(0.0f, 0.0f, 0.0f);
       ++ii;
@@ -146,20 +148,20 @@ bool CScreensaverFeedback::Start()
   glGenBuffers(1, &m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
 
-  m_rotatingColor[0].color = sColor(1.0f, 1.0f, 1.0f);
-  m_rotatingColor[0].vertex = sPosition(0.0, 1.0);
-  m_rotatingColor[0].coord = sCoord(0.0, 1.0);
-  m_rotatingColor[1].color = sColor(1.0f, 1.0f, 1.0f);
-  m_rotatingColor[1].vertex = sPosition(1.0, 1.0);
-  m_rotatingColor[1].coord = sCoord(1.0, 1.0);
-  m_rotatingColor[2].color = sColor(1.0f, 1.0f, 1.0f);
-  m_rotatingColor[2].vertex = sPosition(1.0, 0.0);
-  m_rotatingColor[2].coord = sCoord(1.0, 0.0);
-  m_rotatingColor[3].color = sColor(1.0f, 1.0f, 1.0f);
-  m_rotatingColor[3].vertex = sPosition(0.0, 0.0);
-  m_rotatingColor[3].coord = sCoord(0.0, 0.0);
+  m_rotatingColor[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
+  m_rotatingColor[0].vertex = glm::vec3(0.0f, 1.0f, 0.0f);
+  m_rotatingColor[0].coord = glm::vec2(0.0f, 1.0f);
+  m_rotatingColor[1].color = glm::vec3(1.0f, 1.0f, 1.0f);
+  m_rotatingColor[1].vertex = glm::vec3(1.0f, 1.0f, 0.0f);
+  m_rotatingColor[1].coord = glm::vec2(1.0f, 1.0f);
+  m_rotatingColor[2].color = glm::vec3(1.0f, 1.0f, 1.0f);
+  m_rotatingColor[2].vertex = glm::vec3(1.0f, 0.0f, 0.0f);
+  m_rotatingColor[2].coord = glm::vec2(1.0f, 0.0f);
+  m_rotatingColor[3].color = glm::vec3(1.0f, 1.0f, 1.0f);
+  m_rotatingColor[3].vertex = glm::vec3(0.0f, 0.0f, 0.0f);
+  m_rotatingColor[3].coord = glm::vec2(0.0f, 0.0f);
 
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -178,9 +180,10 @@ void CScreensaverFeedback::Stop()
   glDeleteTextures(1, &m_texture);
   m_texture = 0;
 
-  delete [] m_displacements;
-  delete [] m_velocities;
-  delete [] m_accelerations;
+  delete[] m_displacements;
+  delete[] m_velocities;
+  delete[] m_accelerations;
+  delete[] m_framedTextures;
 }
 
 void CScreensaverFeedback::Render()
@@ -198,10 +201,10 @@ void CScreensaverFeedback::Render()
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
   BindTexture(GL_TEXTURE_2D, m_texture);
 
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
-  glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
+  glVertexAttribPointer(m_hColor, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
   glEnableVertexAttribArray(m_hColor);
 
   glVertexAttribPointer(m_hCoord, 2, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, coord)));
@@ -211,8 +214,8 @@ void CScreensaverFeedback::Render()
   // ################################################################################
   // Frame texture with a rotating color
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   glViewport(0, 0, m_width, m_height);
@@ -223,18 +226,18 @@ void CScreensaverFeedback::Render()
     float h, s, l;
     if (gSettings.dGrey)
     {
-      h = 0.0;
-      s = 0.0;
-      l = currentTime / gSettings.dPeriod - trunc(currentTime / gSettings.dPeriod);
+      h = 0.0f;
+      s = 0.0f;
+      l = static_cast<float>(currentTime / gSettings.dPeriod - trunc(currentTime / gSettings.dPeriod));
 
-      l = l * 2.0;
+      l = l * 2.0f;
 
-      if (l > 1.0)
-        l = 2.0 - l;
+      if (l > 1.0f)
+        l = 2.0f - l;
     }
     else
     {
-      h = currentTime / gSettings.dPeriod - trunc(currentTime / gSettings.dPeriod);
+      h = static_cast<float>(currentTime / gSettings.dPeriod - trunc(currentTime / gSettings.dPeriod));
       s = gSettings.dSaturation;
       l = gSettings.dLightness;
     }
@@ -259,7 +262,7 @@ void CScreensaverFeedback::Render()
   // ################################################################################
   // Warp framed texture
 
-  glViewport (0, 0, m_width, m_height);
+  glViewport(0, 0, m_width, m_height);
 
   m_projMat = glm::ortho(0.0f, 1.0f, 0.0f, 1.0f);
   m_modelMat = glm::mat4(1.0f);
@@ -269,33 +272,33 @@ void CScreensaverFeedback::Render()
   {
     for (unsigned int dw = 0; dw < gSettings.cwidth; ++dw)
     {
-      const rsVec da = rsVec(dw / float(gSettings.cwidth),       dh / float(gSettings.cheight),       0.0);
-      const rsVec db = rsVec(dw / float(gSettings.cwidth),       (dh + 1) / float(gSettings.cheight), 0.0);
-      const rsVec dc = rsVec((dw + 1) / float(gSettings.cwidth), (dh + 1) / float(gSettings.cheight), 0.0);
-      const rsVec dd = rsVec((dw + 1) / float(gSettings.cwidth), dh / float(gSettings.cheight),       0.0);
+      const rsVec da = rsVec(dw / float(gSettings.cwidth),       dh / float(gSettings.cheight),       0.0f);
+      const rsVec db = rsVec(dw / float(gSettings.cwidth),       (dh + 1) / float(gSettings.cheight), 0.0f);
+      const rsVec dc = rsVec((dw + 1) / float(gSettings.cwidth), (dh + 1) / float(gSettings.cheight), 0.0f);
+      const rsVec dd = rsVec((dw + 1) / float(gSettings.cwidth), dh / float(gSettings.cheight),       0.0f);
 
       const unsigned nh = (dh + 1) & (gSettings.cheight - 1);
       const unsigned nw = (dw + 1) & (gSettings.cwidth - 1);
-      const rsVec sa = m_displacements[dh * gSettings.cwidth + dw] + rsVec(dw,     dh, 0.0);
-      const rsVec sb = m_displacements[nh * gSettings.cwidth + dw] + rsVec(dw,     dh + 1, 0.0);
-      const rsVec sc = m_displacements[nh * gSettings.cwidth + nw] + rsVec(dw + 1, dh + 1, 0.0);
-      const rsVec sd = m_displacements[dh * gSettings.cwidth + nw] + rsVec(dw + 1, dh, 0.0);
+      const rsVec sa = m_displacements[dh * gSettings.cwidth + dw] + rsVec(float(dw),     float(dh), 0.0f);
+      const rsVec sb = m_displacements[nh * gSettings.cwidth + dw] + rsVec(float(dw),     float(dh + 1), 0.0f);
+      const rsVec sc = m_displacements[nh * gSettings.cwidth + nw] + rsVec(float(dw + 1), float(dh + 1), 0.0f);
+      const rsVec sd = m_displacements[dh * gSettings.cwidth + nw] + rsVec(float(dw + 1), float(dh), 0.0f);
 
-      framedTextures[0].color = sColor(1.0f, 1.0f, 1.0f);
-      framedTextures[0].vertex = sPosition(da[0], da[1]);
-      framedTextures[0].coord = sCoord(sa[0] / gSettings.cwidth * 0.8 + 0.1, sa[1] / gSettings.cheight * 0.8 + 0.1);
+      framedTextures[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
+      framedTextures[0].vertex = glm::vec3(da[0], da[1], 0.0f);
+      framedTextures[0].coord = glm::vec2(sa[0] / gSettings.cwidth * 0.8f + 0.1f, sa[1] / gSettings.cheight * 0.8f + 0.1f);
 
-      framedTextures[1].color = sColor(1.0f, 1.0f, 1.0f);
-      framedTextures[1].vertex = sPosition(db[0], db[1]);
-      framedTextures[1].coord = sCoord(sb[0] / gSettings.cwidth * 0.8 + 0.1, sb[1] / gSettings.cheight * 0.8 + 0.1);
+      framedTextures[1].color = glm::vec3(1.0f, 1.0f, 1.0f);
+      framedTextures[1].vertex = glm::vec3(db[0], db[1], 0.0f);
+      framedTextures[1].coord = glm::vec2(sb[0] / gSettings.cwidth * 0.8f + 0.1f, sb[1] / gSettings.cheight * 0.8f + 0.1f);
 
-      framedTextures[2].color = sColor(1.0f, 1.0f, 1.0f);
-      framedTextures[2].vertex = sPosition(dc[0], dc[1]);
-      framedTextures[2].coord = sCoord(sc[0] / gSettings.cwidth * 0.8 + 0.1, sc[1] / gSettings.cheight * 0.8 + 0.1);
+      framedTextures[2].color = glm::vec3(1.0f, 1.0f, 1.0f);
+      framedTextures[2].vertex = glm::vec3(dc[0], dc[1], 0.0f);
+      framedTextures[2].coord = glm::vec2(sc[0] / gSettings.cwidth * 0.8f + 0.1f, sc[1] / gSettings.cheight * 0.8f + 0.1f);
 
-      framedTextures[3].color = sColor(1.0f, 1.0f, 1.0f);
-      framedTextures[3].vertex = sPosition(dd[0], dd[1]);
-      framedTextures[3].coord = sCoord(sd[0] / gSettings.cwidth * 0.8 + 0.1, sd[1] / gSettings.cheight * 0.8 + 0.1);
+      framedTextures[3].color = glm::vec3(1.0f, 1.0f, 1.0f);
+      framedTextures[3].vertex = glm::vec3(dd[0], dd[1], 0.0f);
+      framedTextures[3].coord = glm::vec2(sd[0] / gSettings.cwidth * 0.8f + 0.1f, sd[1] / gSettings.cheight * 0.8f + 0.1f);
 
       EnableShader();
       glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, framedTextures, GL_DYNAMIC_DRAW);
@@ -312,7 +315,7 @@ void CScreensaverFeedback::Render()
 
   glViewport(X(), Y(), Width(), Height());
 
-  glClearColor(0.0, 0.0, 0.0, 1.0);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
 
   EnableShader();
@@ -327,7 +330,6 @@ void CScreensaverFeedback::Render()
   if (gSettings.dGrid)
   {
     int ptr = 0;
-    sLight framedTextures[gSettings.cwidth*gSettings.cheight*10];
 
     BindTexture(GL_TEXTURE_2D, 0);
 
@@ -337,40 +339,40 @@ void CScreensaverFeedback::Render()
       {
         const unsigned nh = (dh + 1) & (gSettings.cheight - 1);
         const unsigned nw = (dw + 1) & (gSettings.cwidth - 1);
-        const rsVec a = m_displacements[dh * gSettings.cwidth + dw] + rsVec(dw,     dh, 0.0);
-        const rsVec b = m_displacements[nh * gSettings.cwidth + dw] + rsVec(dw,     dh + 1, 0.0);
-        const rsVec c = m_displacements[nh * gSettings.cwidth + nw] + rsVec(dw + 1, dh + 1, 0.0);
-        const rsVec d = m_displacements[dh * gSettings.cwidth + nw] + rsVec(dw + 1, dh, 0.0);
+        const rsVec a = m_displacements[dh * gSettings.cwidth + dw] + rsVec(float(dw),     float(dh), 0.0f);
+        const rsVec b = m_displacements[nh * gSettings.cwidth + dw] + rsVec(float(dw),     float(dh + 1), 0.0f);
+        const rsVec c = m_displacements[nh * gSettings.cwidth + nw] + rsVec(float(dw + 1), float(dh + 1), 0.0f);
+        const rsVec d = m_displacements[dh * gSettings.cwidth + nw] + rsVec(float(dw + 1), float(dh), 0.0f);
 
-        framedTextures[ptr  ].color = sColor(0.0f, 1.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(float(dw) / gSettings.cwidth, float(dh) / gSettings.cheight);
-        framedTextures[ptr  ].color = sColor(0.0f, 1.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(a[0] / gSettings.cwidth, a[1] / gSettings.cheight);
+        m_framedTextures[ptr  ].color = glm::vec3(0.0f, 1.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(float(dw) / gSettings.cwidth, float(dh) / gSettings.cheight, 0.0f);
+        m_framedTextures[ptr  ].color = glm::vec3(0.0f, 1.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(a[0] / gSettings.cwidth, a[1] / gSettings.cheight, 0.0f);
 
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(a[0] / gSettings.cwidth, a[1] / gSettings.cheight);
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(b[0] / gSettings.cwidth, b[1] / gSettings.cheight);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(a[0] / gSettings.cwidth, a[1] / gSettings.cheight, 0.0f);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(b[0] / gSettings.cwidth, b[1] / gSettings.cheight, 0.0f);
 
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(b[0] / gSettings.cwidth, b[1] / gSettings.cheight);
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(c[0] / gSettings.cwidth, c[1] / gSettings.cheight);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(b[0] / gSettings.cwidth, b[1] / gSettings.cheight, 0.0f);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(c[0] / gSettings.cwidth, c[1] / gSettings.cheight, 0.0f);
 
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(c[0] / gSettings.cwidth, c[1] / gSettings.cheight);
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(d[0] / gSettings.cwidth, d[1] / gSettings.cheight);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(c[0] / gSettings.cwidth, c[1] / gSettings.cheight, 0.0f);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(d[0] / gSettings.cwidth, d[1] / gSettings.cheight, 0.0f);
 
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(d[0] / gSettings.cwidth, d[1] / gSettings.cheight);
-        framedTextures[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);;
-        framedTextures[ptr++].vertex = sPosition(a[0] / gSettings.cwidth, a[1] / gSettings.cheight);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(d[0] / gSettings.cwidth, d[1] / gSettings.cheight, 0.0f);
+        m_framedTextures[ptr  ].color = glm::vec3(1.0f, 0.0f, 0.0f);;
+        m_framedTextures[ptr++].vertex = glm::vec3(a[0] / gSettings.cwidth, a[1] / gSettings.cheight, 0.0f);
       }
     }
 
     EnableShader();
-    glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*ptr, framedTextures, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*ptr, m_framedTextures, GL_DYNAMIC_DRAW);
     glDrawArrays(GL_LINES, 0, ptr);
     DisableShader();
   }
@@ -396,9 +398,9 @@ void CScreensaverFeedback::Render()
         const int nw = (int)dw + offsets[jj][1];
         const int nii = (nh & (gSettings.cheight - 1)) * gSettings.cwidth + (nw & (gSettings.cwidth - 1));
 
-        rsVec nn = m_displacements[nii] - m_displacements[ii] + rsVec(nh - (int)dh, nw - (int)dw, 0.0);
+        rsVec nn = m_displacements[nii] - m_displacements[ii] + rsVec(float(nh - (int)dh), float(nw - (int)dw), 0.0f);
 
-        const float nominalDisplacements[3] = { 0.0f, 1.0f, M_SQRT2 };
+        const float nominalDisplacements[3] = { 0.0f, 1.0f, float(M_SQRT2) };
         const float nominalDisplacement = nominalDisplacements[abs(offsets[jj][0]) + abs(offsets[jj][1])];
 
         rsVec ff = nn * (nn.length() - nominalDisplacement);
@@ -423,7 +425,7 @@ void CScreensaverFeedback::Render()
       // Don't let things get too fast
       if (totalVScalar > 20.0f)
       {
-        m_velocities[ii] -= m_velocities[ii] / exp(totalVScalar - 20.0);
+        m_velocities[ii] -= m_velocities[ii] / expf(totalVScalar - 20.0f);
       }
 
       newTotalV += rsVec(abs(m_velocities[ii][0]), abs(m_velocities[ii][1]), 0);
@@ -431,7 +433,7 @@ void CScreensaverFeedback::Render()
       m_displacements[ii] += m_velocities[ii] * stepSize * gSettings.dSpeed;
 
       // or displacements too large
-      if (m_displacements[ii].length() > 1.0)
+      if (m_displacements[ii].length() > 1.0f)
       {
         m_displacements[ii] = m_displacements[ii] / m_displacements[ii].length();
       }

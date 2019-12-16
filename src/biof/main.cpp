@@ -27,7 +27,7 @@
 
 #include "main.h"
 
-#include <kodi/tools/Time.h>
+#include <chrono>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
@@ -84,29 +84,17 @@ CScreensaverBiof::CScreensaverBiof()
 
 bool CScreensaverBiof::Start()
 {
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
   glGenBuffers(4, m_vboHandle);
 
-  float glfLightPosition[4] = { 100.0, 100.0, 100.0, 0.0 };
-  float glfFog[4] = { 0.0, 0.0, 0.3, 1.0 };
-  float DiffuseLightColor[4] = { 1, 0.8, 0.4, 1.0 };
-  int i, j;
-  double x, y, r, d;
-  unsigned char texbuf[64][64];
-
-  glEnable(GL_DEPTH_TEST);
-
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  glEnable(GL_BLEND);
-
-  std::vector<sPosition> normal;
-  std::vector<sPosition> vertex;
-  std::vector<sColor> color;
-  std::vector<GLuint> index;
+  m_normal.clear();
+  m_vertex.clear();
+  m_color.clear();
+  m_index.clear();
   if ((m_geometry == SPHERES) || (m_geometry == BIGSPHERES))
   {
     glEnable(GL_CULL_FACE);
@@ -114,70 +102,80 @@ bool CScreensaverBiof::Start()
 
     m_fogEnabled = false;
     m_lightEnabled = true;
+
+    if (m_geometry == BIGSPHERES)
+    {
+      m_cubeSectorCount = 20;
+      m_cubeStackCount = 10;
+    }
+    else
+    {
+      m_cubeSectorCount = 6;
+      m_cubeStackCount = 4;
+    }
+
+    CreateCubeVerticesSmooth();
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboHandle[3]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*m_index.size(), &m_index[0], GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   }
   else if (m_geometry == TRIANGLES)
   {
-    normal.push_back(std::move(sPosition(0.0f, 0.0f, 0.0f)));
-    vertex.push_back(std::move(sPosition(2.0f, 2.0f, 0.0f)));
-    color.push_back(std::move(sColor(0.9f, 0.8f, 0.5f, 1.0f)));
-    index.push_back(0);
+    m_normal.push_back(std::move(glm::vec3(0.0f, 0.0f, 0.0f)));
+    m_vertex.push_back(std::move(glm::vec3(2.0f, 2.0f, 0.0f)));
+    m_color.push_back(std::move(glm::vec4(0.9f, 0.8f, 0.5f, 1.0f)));
+    m_index.push_back(0);
 
-    normal.push_back(std::move(sPosition(0.0f, 0.0f, 0.0f)));
-    vertex.push_back(std::move(sPosition(0.0f, 2.0f, 0.0f)));
-    color.push_back(std::move(sColor(0.9f, 0.8f, 0.5f, 0.0f)));
-    index.push_back(1);
+    m_normal.push_back(std::move(glm::vec3(0.0f, 0.0f, 0.0f)));
+    m_vertex.push_back(std::move(glm::vec3(0.0f, 2.0f, 0.0f)));
+    m_color.push_back(std::move(glm::vec4(0.9f, 0.8f, 0.5f, 0.0f)));
+    m_index.push_back(1);
 
-    normal.push_back(std::move(sPosition(0.0f, 0.0f, 0.0f)));
-    vertex.push_back(std::move(sPosition(2.0f, 0.0f, 0.0f)));
-    color.push_back(std::move(sColor(0.9f, 0.8f, 0.5f, 0.0f)));
-    index.push_back(2);
+    m_normal.push_back(std::move(glm::vec3(0.0f, 0.0f, 0.0f)));
+    m_vertex.push_back(std::move(glm::vec3(2.0f, 0.0f, 0.0f)));
+    m_color.push_back(std::move(glm::vec4(0.9f, 0.8f, 0.5f, 0.0f)));
+    m_index.push_back(2);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboHandle[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*index.size(), &index[0], GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*m_index.size(), &m_index[0], GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-    m_mode = GL_TRIANGLES;
     m_fogEnabled = false;
     m_lightEnabled = false;
   }
   else if (m_geometry == POINTS)
   {
+    m_pointsSize = 3.0f;
 #if !defined(HAS_GLES) && !defined(TARGET_DARWIN)
     // TODO: Bring in a way about in GLES 2.0 and above!
     glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
-    glPointSize(3);
+    glPointSize(m_pointsSize);
     glEnable(GL_POINT_SMOOTH);
 #endif
-    normal.push_back(std::move(sPosition(0.0f, 0.0f, 0.0f)));
-    vertex.push_back(std::move(sPosition(0.0f, 0.0f, 0.0f)));
-    color.push_back(std::move(sColor(0.9f, 0.8f, 0.5f, 1.0f)));
-    index.push_back(0);
+    m_normal.push_back(std::move(glm::vec3(0.0f, 0.0f, 0.0f)));
+    m_vertex.push_back(std::move(glm::vec3(0.0f, 0.0f, 0.0f)));
+    m_color.push_back(std::move(glm::vec4(0.9f, 0.8f, 0.5f, 1.0f)));
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboHandle[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, nullptr, GL_STATIC_DRAW);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-    m_mode = GL_POINTS;
     m_fogEnabled = true;
     m_lightEnabled = false;
   }
-
-  m_nVerts = (GLuint)normal.size();
 
   glViewport(X(), Y(), (GLsizei)Width(), (GLsizei)Height());
   m_projMat = glm::perspective(glm::radians(30.0f), (float)Width() / (float)Height(), 100.0f, 300.0f);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[0]);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sPosition)*normal.size(), &normal[0], GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, m_normal.size() * sizeof(glm::vec3), &m_normal[0], GL_STATIC_DRAW);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[1]);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sPosition)*vertex.size(), &vertex[0], GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, m_vertex.size() * sizeof(glm::vec3), &m_vertex[0], GL_STATIC_DRAW);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[2]);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sColor)*color.size(), &color[0], GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, m_color.size() * sizeof(glm::vec4), &m_color[0], GL_STATIC_DRAW);
 
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+  m_startFrameTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -210,35 +208,36 @@ void CScreensaverBiof::Render()
   glEnable(GL_BLEND);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[0]);
-  glVertexAttribPointer(m_hNormal,  3, GL_FLOAT, GL_TRUE, sizeof(sPosition), ((GLubyte *)nullptr + (0)));
+  glVertexAttribPointer(m_hNormal, 3, GL_FLOAT, GL_TRUE, sizeof(glm::vec3), ((GLubyte *)nullptr + (0)));
   glEnableVertexAttribArray(m_hNormal);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[1]);
-  glVertexAttribPointer(m_hVertex,  3, GL_FLOAT, GL_TRUE, sizeof(sPosition), ((GLubyte *)nullptr + (0)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(glm::vec3), ((GLubyte *)nullptr + (0)));
   glEnableVertexAttribArray(m_hVertex);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[2]);
-  glVertexAttribPointer(m_hColor,  4, GL_FLOAT, GL_TRUE, sizeof(sColor), ((GLubyte *)nullptr + (0)));
+  glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(glm::vec4), ((GLubyte *)nullptr + (0)));
   glEnableVertexAttribArray(m_hColor);
 
-  m_frameTime = kodi::time::GetTimeSec<double>();
+  float frameTime = static_cast<float>(std::chrono::duration<double>(
+                      std::chrono::system_clock::now().time_since_epoch()).count() - m_startFrameTime);
 
   glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
   glm::mat4 modelMat;
   modelMat = glm::lookAt(glm::vec3(200.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
   modelMat = glm::rotate(modelMat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-  modelMat = glm::rotate(modelMat, glm::radians(float(10.0f * m_frameTime)), glm::vec3(0.0f, 0.0f, 1.0f));
+  modelMat = glm::rotate(modelMat, glm::radians(float(10.0f * frameTime)), glm::vec3(0.0f, 0.0f, 1.0f));
   if (m_offAngle)
     modelMat = glm::rotate(modelMat, glm::radians(45.0f), glm::vec3(1.0f, 1.0f, 0.0f));
 
   EnableShader();
 
-  float bend       =       315 * sin(m_frameTime * 0.237);
-  float stack      =   50 + 20 * sin(m_frameTime * 0.133);
-  float twist      =      1500 * sin(m_frameTime * 0.213);
-  float twisttrans = 7.5 + 2.5 * sin(m_frameTime * 0.173);
-  float grow       = 0.6 + 0.1 * sin(m_frameTime * 0.317);
+  float bend       =        315.0f * sinf(frameTime * 0.237f);
+  float stack      = 50.0f + 20.0f * sinf(frameTime * 0.133f);
+  float twist      =       1500.0f * sinf(frameTime * 0.213f);
+  float twisttrans =  7.5f +  2.5f * sinf(frameTime * 0.173f);
+  float grow       =  0.6f +  0.1f * sinf(frameTime * 0.317f);
 
   glm::mat4 entryModelMat;
   for (int i = 0; i < m_linesQty; i++)
@@ -262,18 +261,39 @@ void CScreensaverBiof::Render()
       switch (m_geometry)
       {
         case TRIANGLES:
-        case POINTS:
           glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboHandle[3]);
-          glDrawElements(m_mode, m_nVerts, GL_UNSIGNED_INT, 0);
+          glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_index.size()), GL_UNSIGNED_INT, 0);
           glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
           break;
 
+        case POINTS:
+          glDrawArrays(GL_POINTS, 0, 1);
+          break;
+
         case BIGSPHERES:
-          Sphere(7 * exp (i / m_pointsQty * log (grow)), 20, 10);
+          m_radius = 7 * exp (i / m_pointsQty * log (grow));
+          UpdateCubeRadius();
+
+          glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[1]);
+          glBufferData(GL_ARRAY_BUFFER, m_vertex.size() * sizeof(glm::vec3), &m_vertex[0], GL_STATIC_DRAW);
+          glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+          glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboHandle[3]);
+          glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_index.size()), GL_UNSIGNED_INT, 0);
+          glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
           break;
 
         case SPHERES:
-          Sphere(exp (i / m_pointsQty * log (grow)), 6, 4);
+          m_radius = exp (i / m_pointsQty * log (grow));
+          UpdateCubeRadius();
+
+          glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[1]);
+          glBufferData(GL_ARRAY_BUFFER, m_vertex.size() * sizeof(glm::vec3), &m_vertex[0], GL_STATIC_DRAW);
+          glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+          glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboHandle[3]);
+          glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_index.size()), GL_UNSIGNED_INT, 0);
+          glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
           break;
       }
     }
@@ -292,105 +312,6 @@ void CScreensaverBiof::Render()
   glDisable(GL_DEPTH_TEST);
 }
 
-void CScreensaverBiof::Sphere(GLfloat radius, GLint nSlices, GLint nStacks)
-{
-  int nVerts = (nSlices+1) * (nStacks + 1);
-  int elements = (nSlices * 2 * (nStacks-1) ) * 3;
-
-  // Verts
-  std::vector<GLfloat> p(4 * nVerts);
-  // Normals
-  std::vector<GLfloat> n(4 * nVerts);
-  std::vector<GLfloat> c(4 * nVerts);
-  // Elements
-  std::vector<GLuint> el(elements);
-
-  // Generate positions and normals
-  GLfloat theta, phi;
-  GLfloat thetaFac = glm::two_pi<float>() / nSlices;
-  GLfloat phiFac = glm::pi<float>() / nStacks;
-  GLfloat nx, ny, nz, s, t;
-  GLuint idx = 0;
-  for( GLuint i = 0; i <= nSlices; i++ )
-  {
-    theta = i * thetaFac;
-        s = (GLfloat)i / nSlices;
-    for( GLuint j = 0; j <= nStacks; j++ )
-    {
-      phi = j * phiFac;
-        t = (GLfloat)j / nStacks;
-
-      nx = sinf(phi) * cosf(theta);
-      ny = sinf(phi) * sinf(theta);
-      nz = cosf(phi);
-
-      p[idx] = radius * nx;
-      p[idx+1] = radius * ny;
-      p[idx+2] = radius * nz;
-      p[idx+3] = 1.0f;
-
-      n[idx] = nx;
-      n[idx+1] = ny;
-      n[idx+2] = nz;
-      n[idx+3] = 1.0f;
-
-      c[idx] = 0.9f;
-      c[idx+1] = 0.7f;
-      c[idx+2] = 0.5f;
-      c[idx+3] = 1.0f;
-      idx += 4;
-    }
-  }
-
-  // Generate the element list
-  idx = 0;
-  for( GLuint i = 0; i < nSlices; i++ )
-  {
-    GLuint stackStart = i * (nStacks + 1);
-    GLuint nextStackStart = (i+1) * (nStacks+1);
-    for( GLuint j = 0; j < nStacks; j++ )
-    {
-      if( j == 0 )
-      {
-        el[idx] = stackStart;
-        el[idx+1] = stackStart + 1;
-        el[idx+2] = nextStackStart + 1;
-        idx += 3;
-      }
-      else if( j == nStacks - 1)
-      {
-        el[idx] = stackStart + j;
-        el[idx+1] = stackStart + j + 1;
-        el[idx+2] = nextStackStart + j;
-        idx += 3;
-      }
-      else
-      {
-        el[idx] = stackStart + j;
-        el[idx+1] = stackStart + j + 1;
-        el[idx+2] = nextStackStart + j + 1;
-        el[idx+3] = nextStackStart + j;
-        el[idx+4] = stackStart + j;
-        el[idx+5] = nextStackStart + j + 1;
-        idx += 6;
-      }
-    }
-  }
-
-  glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[0]);
-  glBufferData(GL_ARRAY_BUFFER, n.size() * sizeof(GLfloat), &n[0], GL_DYNAMIC_DRAW);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[1]);
-  glBufferData(GL_ARRAY_BUFFER, p.size() * sizeof(GLfloat), &p[0], GL_DYNAMIC_DRAW);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vboHandle[2]);
-  glBufferData(GL_ARRAY_BUFFER, c.size() * sizeof(GLfloat), &c[0], GL_DYNAMIC_DRAW);
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboHandle[3]);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, el.size() * sizeof(GLuint), &el[0], GL_DYNAMIC_DRAW);
-  glDrawElements(GL_TRIANGLES, el.size(), GL_UNSIGNED_INT, 0);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-}
-
 void CScreensaverBiof::OnCompiledAndLinked()
 {
   // Variables passed directly to the Vertex shader
@@ -403,6 +324,10 @@ void CScreensaverBiof::OnCompiledAndLinked()
   m_light0_diffuseLoc = glGetUniformLocation(ProgramHandle(), "u_light0.diffuse");
   m_light0_specularLoc = glGetUniformLocation(ProgramHandle(), "u_light0.specular");
   m_light0_positionLoc = glGetUniformLocation(ProgramHandle(), "u_light0.position");
+
+#if defined(HAS_GLES)
+  m_pointSizeLoc = glGetUniformLocation(ProgramHandle(), "u_pointSize");
+#endif
 
   m_fogEnabledLoc = glGetUniformLocation(ProgramHandle(), "u_fogEnabled");
   m_fogColorLoc = glGetUniformLocation(ProgramHandle(), "u_fogColor");
@@ -427,12 +352,107 @@ bool CScreensaverBiof::OnEnabled()
   glUniform4f(m_light0_specularLoc, 1.0f, 1.0f, 1.0f, 1.0f); /* default value */
   glUniform4f(m_light0_positionLoc, m_lightPosition[0], m_lightPosition[1], m_lightPosition[2], m_lightPosition[3]); /* NOT default value */
 
+#if defined(HAS_GLES)
+  glUniform1f(m_pointSizeLoc, m_pointsSize);
+#endif
+
   glUniform1f(m_fogEnabledLoc, m_fogEnabled);
   glUniform3f(m_fogColorLoc, m_fogColor[0], m_fogColor[1], m_fogColor[2]);
   glUniform1f(m_fogStartLoc, m_fogStart);
   glUniform1f(m_fogEndLoc, m_fogEnd);
 
   return true;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// update vertex positions only
+///////////////////////////////////////////////////////////////////////////////
+void CScreensaverBiof::UpdateCubeRadius()
+{
+  float scale = sqrtf(m_radius * m_radius / (m_vertex[0].x * m_vertex[0].x +
+                                             m_vertex[0].y * m_vertex[0].y +
+                                             m_vertex[0].z * m_vertex[0].z));
+  for (auto& vtx : m_vertex)
+    vtx *= scale;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// build vertices of sphere with smooth shading using parametric equation
+// x = r * cos(u) * cos(v)
+// y = r * cos(u) * sin(v)
+// z = r * sin(u)
+// where u: stack(latitude) angle (-90 <= u <= 90)
+//       v: sector(longitude) angle (0 <= v <= 360)
+///////////////////////////////////////////////////////////////////////////////
+void CScreensaverBiof::CreateCubeVerticesSmooth()
+{
+  static const float PI = 3.1415926f;
+
+  float xy;                              // vertex position
+  glm::vec3 position;
+  glm::vec3 normal;
+  float lengthInv = 1.0f / m_radius;    // normal
+
+  float sectorStep = 2.0f * PI / float(m_cubeSectorCount);
+  float stackStep = PI / float(m_cubeStackCount);
+  float sectorAngle, stackAngle;
+
+  for(int i = 0; i <= m_cubeStackCount; ++i)
+  {
+    stackAngle = PI / 2 - i * stackStep;        // starting from pi/2 to -pi/2
+    xy = m_radius * cosf(stackAngle);             // r * cos(u)
+    position.z = m_radius * sinf(stackAngle);              // r * sin(u)
+
+    // add (m_cubeSectorCount+1) vertices per stack
+    // the first and last vertices have same position and normal, but different tex coords
+    for(int j = 0; j <= m_cubeSectorCount; ++j)
+    {
+      sectorAngle = j * sectorStep;           // starting from 0 to 2pi
+
+      // vertex position
+      position.x = xy * cosf(sectorAngle);             // r * cos(u) * cos(v)
+      position.y = xy * sinf(sectorAngle);             // r * cos(u) * sin(v)
+      m_vertex.push_back(position);
+
+      // normalized vertex normal
+      normal.x = position.x * lengthInv;
+      normal.y = position.y * lengthInv;
+      normal.z = position.z * lengthInv;
+      m_normal.push_back(normal);
+
+      m_color.push_back(std::move(glm::vec4(0.9f, 0.8f, 0.5f, 1.0f)));
+    }
+  }
+
+  // m_index
+  //  k1--k1+1
+  //  |  / |
+  //  | /  |
+  //  k2--k2+1
+  unsigned int k1, k2;
+  for(int i = 0; i < m_cubeStackCount; ++i)
+  {
+    k1 = i * (m_cubeSectorCount + 1);     // beginning of current stack
+    k2 = k1 + m_cubeSectorCount + 1;      // beginning of next stack
+
+    for(int j = 0; j < m_cubeSectorCount; ++j, ++k1, ++k2)
+    {
+      // 2 triangles per sector excluding 1st and last stacks
+      if(i != 0)
+      {
+        m_index.push_back(k1);
+        m_index.push_back(k2);
+        m_index.push_back(k1+1); // k1---k2---k1+1
+      }
+
+      if(i != (m_cubeStackCount-1))
+      {
+        m_index.push_back(k1+1);
+        m_index.push_back(k2);
+        m_index.push_back(k2+1); // k1+1---k2---k2+1
+      }
+    }
+  }
 }
 
 ADDONCREATOR(CScreensaverBiof);

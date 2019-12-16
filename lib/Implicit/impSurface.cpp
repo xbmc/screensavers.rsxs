@@ -25,13 +25,13 @@
 
 #include <rsMath/rsMath.h>
 
-#ifdef WIN32
+/*#ifdef WIN32
 PFNGLMULTIDRAWELEMENTSPROC impSurface::glMultiDrawElements = NULL;
 PFNGLGENBUFFERSPROC impSurface::glGenBuffers = NULL;
 PFNGLDELETEBUFFERSPROC impSurface::glDeleteBuffers = NULL;
 PFNGLBINDBUFFERPROC impSurface::glBindBuffer = NULL;
 PFNGLBUFFERDATAPROC impSurface::glBufferData = NULL;
-#endif
+#endif*/
 
 impSurface::impSurface()
 {
@@ -86,7 +86,7 @@ impSurface::~impSurface()
 	}*/
 }
 
-#ifdef WIN32
+/*#ifdef WIN32
 int
 impSurface::queryExtension(char* name)
 {
@@ -125,7 +125,7 @@ impSurface::getProcAddr(char* name)
 	//void *addr = (void *)glXGetProcAddressARB((char *)name);
 	//return addr;
 }
-#endif
+#endif*/
 
 void
 impSurface::reset()

@@ -36,21 +36,11 @@
 #define MAXSUBLOOPS 5
 #define MAXDETAIL 100
 
-struct sPosition
-{
-  float x,y,z;
-};
-
-struct sColor
-{
-  float r,g,b,a;
-};
-
 struct renderContent
 {
-  sPosition points[360 * MAXSUBLOOPS * MAXDETAIL];
-  sColor colorsBlur[360 * MAXSUBLOOPS * MAXDETAIL];
-  sColor colorsLine[360 * MAXSUBLOOPS * MAXDETAIL];
+  glm::vec3 points[360 * MAXSUBLOOPS * MAXDETAIL];
+  glm::vec4 colorsBlur[360 * MAXSUBLOOPS * MAXDETAIL];
+  glm::vec4 colorsLine[360 * MAXSUBLOOPS * MAXDETAIL];
   int numberOfPoints;
   int subLoops;
   int blurWidth;
@@ -82,7 +72,7 @@ private:
   const float m_blurAlpha = 0.2f;
   const float m_lineAlpha = 0.4f;
 
-  void DrawAll(renderContent& content, sColor* colors);
+  void DrawAll(renderContent& content, glm::vec4* colors);
   void GetAll(renderContent& content);
   void ChangeSettings();
 

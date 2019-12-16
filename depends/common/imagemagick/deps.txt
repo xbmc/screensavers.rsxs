@@ -1,4 +1,0 @@
-jpeg-9b
-tiff
-png
-libtool

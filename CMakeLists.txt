@@ -3,23 +3,11 @@ project(screensavers.rsxs)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 
-enable_language(CXX)
-
 cmake_policy(SET CMP0054 NEW)
 
-option(OWN_IMAGE_MAGICK "Build own reduced ImageMagick" OFF)
-
 find_package(Kodi REQUIRED)
-find_package(ImageMagick COMPONENTS MagickCore)
-find_package(ImageMagick COMPONENTS MagickWand)
 find_package(glm REQUIRED)
 find_package(gli REQUIRED)
-find_package(JPEG REQUIRED)
-find_package(TIFF REQUIRED)
-find_package(PNG REQUIRED)
-find_package(LTDL)
-
-# set(APP_RENDER_SYSTEM "gles") # Leaved here for test purpose only
 
 if(APP_RENDER_SYSTEM STREQUAL "gl" OR NOT APP_RENDER_SYSTEM)
   find_package(OpenGl REQUIRED)
@@ -35,25 +23,25 @@ endif()
 
 include_directories(${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
                     ${GLM_INCLUDE_DIR}
-                    ${GLI_INCLUDE_DIR})
+                    ${GLI_INCLUDE_DIR}
+                    ${PROJECT_SOURCE_DIR}/lib)
 
-if(ImageMagick_FOUND AND NOT ${OWN_IMAGE_MAGICK})
-  message(STATUS "ImageMagick found in the system and is used")
-else()
-  message(STATUS "ImageMagick not found or forced and add custom created")
-  add_subdirectory(lib/ImageMagick)
-endif()
 add_subdirectory(lib/kodi/gui/gl)
 add_subdirectory(lib/Implicit)
 add_subdirectory(lib/Rgbhsl)
 add_subdirectory(lib/rsMath)
 
-list(APPEND DEPENDS glm gli rsMath kodiOpenGL ImageMagick)
+list(APPEND DEPENDS glm gli rsMath kodiOpenGL)
 list(APPEND DEPLIBS rsMath kodiOpenGL Implicit Rgbhsl)
 
 if(NOT ${CORE_SYSTEM_NAME} STREQUAL "")
-  if(${CORE_SYSTEM_NAME} STREQUAL "osx" OR ${CORE_SYSTEM_NAME} STREQUAL "ios")
+  if(CORE_SYSTEM_NAME STREQUAL osx OR
+     CORE_SYSTEM_NAME STREQUAL ios OR
+     CORE_SYSTEM_NAME STREQUAL darwin_embedded)
     list(APPEND DEPLIBS "-framework CoreVideo")
+  elseif(CORE_SYSTEM_NAME STREQUAL windows)
+    add_definitions(-D_USE_MATH_DEFINES
+                    -DNOMINMAX)
   endif()
 endif()
 
@@ -63,10 +51,9 @@ if(CMAKE_BUILD_TYPE)
   message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 endif()
 
-
 set(DUMMY_SOURCES ${PROJECT_SOURCE_DIR}/src/dummy.cpp)
 
-include(src/biof/CMakeLists.txt)
+#include(src/biof/CMakeLists.txt) Disabled, does not work right
 include(src/busyspheres/CMakeLists.txt)
 include(src/colorfire/CMakeLists.txt)
 include(src/cyclone/CMakeLists.txt)
@@ -91,4 +78,3 @@ include(src/spirographx/CMakeLists.txt)
 include(src/sundancer2/CMakeLists.txt)
 
 include(CPack)
-

@@ -62,16 +62,11 @@ public:
   void Render() override;
 
   void OnCompiledAndLinked() override;
-  bool OnEnabled() override;
+  bool OnEnabled() override { return true; }
 
 private:
   void SetPlasmaSize();
 
-  glm::mat4 m_projMat;
-  glm::mat4 m_modelMat;
-
-  GLint m_hProj = -1;
-  GLint m_hModel = -1;
   GLint m_hPos = -1;
   GLint m_hCord = -1;
 

@@ -33,10 +33,10 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <rsMath/rsMath.h>
 
-#define XSTD (4.0/3.0)
+#define XSTD (4.0f/3.0f)
 
-#define HVCtrX 0.0
-#define HVCtrY 0.0
+#define HVCtrX 0.0f
+#define HVCtrY 0.0f
 #define HoleFocX 2.0f
 #define HoleFocY 2.0f
 
@@ -49,39 +49,11 @@
 #define TUNNELCOLORRND 0.15f
 #define TUNNELCOLORFACT 0.9999f
 
-struct sPosition
-{
-  sPosition() : x(0.0f), y(0.0f), z(0.0f), u(1.0f) {}
-  sPosition(float x, float y, float z = 0.0f) : x(x), y(y), z(z), u(1.0f) {}
-  float x,y,z,u;
-};
-
-struct sCoord
-{
-  sCoord() : s(0.0f), t(0.0f) {}
-  sCoord(float s, float t) : s(s), t(t) {}
-  float s,t;
-};
-
-struct sColor
-{
-  sColor() : r(0.0f), g(0.0f), b(0.0f), a(1.0f) {}
-  sColor(float r, float g, float b, float a = 1.0f) : r(r), g(g), b(b), a(a) {}
-  sColor& operator=(float* rhs)
-  {
-    r = rhs[0];
-    g = rhs[1];
-    b = rhs[2];
-    return *this;
-  }
-  float r,g,b,a;
-};
-
 struct sLight
 {
-  sPosition vertex;
-  sColor color;
-  sCoord coord;
+  glm::vec3 vertex;
+  glm::vec3 color;
+  glm::vec2 coord;
 };
 
 class ATTRIBUTE_HIDDEN CScreensaverHufoTunnel
@@ -154,7 +126,7 @@ private:
   GLubyte m_idx[4] = {0, 1, 3, 2};
 
   int m_uniformColorUsed = 0;
-  sColor m_uniformColor;
+  glm::vec3 m_uniformColor;
 
   glm::mat4 m_modelProjMat;
 

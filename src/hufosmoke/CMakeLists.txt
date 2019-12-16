@@ -1,8 +1,5 @@
+cmake_minimum_required(VERSION 3.5)
 project(screensaver.rsxs.hufosmoke)
-
-cmake_minimum_required(VERSION 3.3)
-
-enable_language(CXX)
 
 message(STATUS "--------------------------------------------------------------------------------")
 message(STATUS "Create \"${CMAKE_PROJECT_NAME}\"")

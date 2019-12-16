@@ -28,8 +28,8 @@
 #include "main.h"
 #include "FMotion.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
@@ -42,7 +42,7 @@ enum ColorType
   ColorManual = 2
 };
 
-double nrnd(double d) // normal distribution randomizer
+float nrnd(double d) // normal distribution randomizer
 {
   double r, v1, v2;
 
@@ -55,7 +55,7 @@ double nrnd(double d) // normal distribution randomizer
 
   r = sqrt (-2.0 * log (r) / r);
 
-  return v1 * d * r;
+  return static_cast<float>(v1 * d * r);
 }
 
 struct sHufoSmokeSettings
@@ -78,13 +78,13 @@ struct sHufoSmokeSettings
     {
       do
       {
-        frontRed = rsRandf(256) / 256;
-        frontGreen = rsRandf(256) / 256;
-        frontBlue = rsRandf(256) / 256;
+        frontRed = rsRandf(256) / 256.0f;
+        frontGreen = rsRandf(256) / 256.0f;
+        frontBlue = rsRandf(256) / 256.0f;
 
-        backRed = rsRandi(256) / 256;
-        backGreen = rsRandi(256) / 256;
-        backBlue = rsRandi(256) / 256;
+        backRed = rsRandi(256) / 256.0f;
+        backGreen = rsRandi(256) / 256.0f;
+        backBlue = rsRandi(256) / 256.0f;
       } while ((frontRed + frontGreen + frontBlue < 1) && (backRed + backGreen + backBlue < 1));
     }
     else if (preset == ColorWhite)
@@ -118,8 +118,8 @@ struct sHufoSmokeSettings
 
 bool CScreensaverHufoSmoke::Start()
 {
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -148,7 +148,7 @@ bool CScreensaverHufoSmoke::Start()
   m_tFire = 0.0;
   FireInit();    // initialise fire
 
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -176,8 +176,8 @@ void CScreensaverHufoSmoke::Render()
   if (!m_startOK)
     return;
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   /*
@@ -187,7 +187,7 @@ void CScreensaverHufoSmoke::Render()
    */
   //@{
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
   glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -227,14 +227,14 @@ void CScreensaverHufoSmoke::FireInit()
 {
   //NoiseInit();
   m_np = 0;
-  m_lastPartTime = 0.0;
+  m_lastPartTime = 0.0f;
   m_fireAnim = true;
   m_fireRotate = true;
-  m_fireRot = M_PI / 5.0;
-  m_fireAng = 0.0;
+  m_fireRot = glm::pi<float>() / 5.0f;
+  m_fireAng = 0.0f;
   m_fireStop = false;
   m_fireRecalc = true;
-  FMotionInit ();
+  FMotionInit();
 /*  np=1;
   TblP[0].p=FireSrc;
   TblP[0].v.Zero();
@@ -251,17 +251,17 @@ void CScreensaverHufoSmoke::AffParticle(float ex, float ey, float dx, float dy, 
   float hdx = 0.5f * dx;
   float s32_dy = fSQRT_3_2 * dy;
 
-  m_light[0].color = sColor(gSettings.frontRed, gSettings.frontGreen, gSettings.frontBlue, a);
-  m_light[0].vertex = sPosition(ex, ey);
+  m_light[0].color = glm::vec4(gSettings.frontRed, gSettings.frontGreen, gSettings.frontBlue, a);
+  m_light[0].vertex = glm::vec3(ex, ey, 0.0f);
   m_light[1].color = m_light[2].color = m_light[3].color = m_light[4].color =
-  m_light[5].color = m_light[6].color = m_light[7].color = sColor(gSettings.backRed, gSettings.backGreen, gSettings.backBlue, 0.0f);
-  m_light[1].vertex = sPosition(ex - dx, ey);
-  m_light[2].vertex = sPosition(ex - hdx, ey + s32_dy);
-  m_light[3].vertex = sPosition(ex + hdx, ey + s32_dy);
-  m_light[4].vertex = sPosition(ex + dx, ey);
-  m_light[5].vertex = sPosition(ex + hdx, ey - s32_dy);
-  m_light[6].vertex = sPosition(ex - hdx, ey - s32_dy);
-  m_light[7].vertex = sPosition(ex - dx, ey);
+  m_light[5].color = m_light[6].color = m_light[7].color = glm::vec4(gSettings.backRed, gSettings.backGreen, gSettings.backBlue, 0.0f);
+  m_light[1].vertex = glm::vec3(ex - dx, ey, 0.0f);
+  m_light[2].vertex = glm::vec3(ex - hdx, ey + s32_dy, 0.0f);
+  m_light[3].vertex = glm::vec3(ex + hdx, ey + s32_dy, 0.0f);
+  m_light[4].vertex = glm::vec3(ex + dx, ey, 0.0f);
+  m_light[5].vertex = glm::vec3(ex + hdx, ey - s32_dy, 0.0f);
+  m_light[6].vertex = glm::vec3(ex - hdx, ey - s32_dy, 0.0f);
+  m_light[7].vertex = glm::vec3(ex - dx, ey, 0.0f);
 
   EnableShader();
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*8, m_light, GL_DYNAMIC_DRAW);
@@ -312,18 +312,18 @@ void CScreensaverHufoSmoke::CalcFire(float t, float dt)
       {
         m_lastPartTime += (float)PARTINTERV;
         p = m_tblP + (m_np++);
-        p->p = m_fireSrc + m_fireDS1 * nrnd (0.25) + m_fireDS2 * nrnd (0.25);
+        p->p = m_fireSrc + m_fireDS1 * nrnd(0.25f) + m_fireDS2 * nrnd(0.25f);
         p->v = m_fireDir;
         FMotionWarp (p->p, (t - m_lastPartTime));
         p->t = PARTLIFE + m_lastPartTime - t;
-        float size = FIRESIZE * (0.5f + nrnd (0.5));
+        float size = FIRESIZE * (0.5f + nrnd(0.5f));
         float alpha = FIREALPHA * (float)pow (size / FIRESIZE, 0.5f);
 
         p->s.v[0] = size;
         p->s.v[1] = size;
         p->s.v[2] = size;
         p->a = alpha * pow (FIREDA, (t - m_lastPartTime));
-        p->s *= 0.5f + nrnd (0.5);
+        p->s *= 0.5f + nrnd (0.5f);
       }
   }
   else

@@ -57,23 +57,23 @@ private:
 	GLuint vbo_array_id;
 	GLuint vbo_index_id;
 	std::vector<GLvoid*> vbo_index_offsets;
-#ifdef WIN32
+/*#ifdef WIN32
 	// extensions necessary for VBOs
 	static PFNGLMULTIDRAWELEMENTSPROC glMultiDrawElements;
 	static PFNGLGENBUFFERSPROC glGenBuffers;
 	static PFNGLDELETEBUFFERSPROC glDeleteBuffers;
 	static PFNGLBINDBUFFERPROC glBindBuffer;
 	static PFNGLBUFFERDATAPROC glBufferData;
-#endif
+#endif*/
 
 public:
 	impSurface();
 	~impSurface();
 
-#ifdef WIN32
+/*#ifdef WIN32
 	int queryExtension(char* name);
 	void* getProcAddr(char* name);
-#endif
+#endif*/
 
 	// Set data counts to 0
 	void reset();

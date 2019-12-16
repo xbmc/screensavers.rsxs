@@ -28,19 +28,19 @@
 
 #include "main.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
 
 bool CScreensaverSpiroGraphX::Start()
 {
-  m_timeInterval = kodi::GetSettingInt("general.interval");
+  m_timeInterval = static_cast<float>(kodi::GetSettingInt("general.interval"));
   m_detail = kodi::GetSettingInt("general.detail");
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -64,7 +64,7 @@ bool CScreensaverSpiroGraphX::Start()
   m_contentOld = m_content;
 
   m_projMat = glm::perspective(glm::radians(kodi::GetSettingBoolean("general.fitwidth") ? 45.0f : 90.0f), (GLfloat) Width() / (GLfloat) Height(), 0.1f, 100.0f);
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -90,8 +90,8 @@ void CScreensaverSpiroGraphX::Render()
   if (!m_startOK)
     return;
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   if (m_lastSettingsChange == -1)
@@ -102,7 +102,7 @@ void CScreensaverSpiroGraphX::Render()
   if (m_contentOldActive)
     GetAll(m_contentOld);
 
-  m_modelMat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -3.0f));
+  m_modelMat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f));
 
   EnableShader();
 
@@ -144,10 +144,10 @@ void CScreensaverSpiroGraphX::Render()
     else
       m_contentOldActive = false;
 
-    m_contentOld.equationBase += m_contentOld.speed * (frameTime / (1.0 / 30.0));
+    m_contentOld.equationBase += m_contentOld.speed * (frameTime / (1.0f / 30.0f));
   }
 
-  m_content.equationBase += m_content.speed * (frameTime / (1.0 / 30.0));
+  m_content.equationBase += m_content.speed * (frameTime / (1.0f / 30.0f));
 
   glFlush();
 }
@@ -158,17 +158,17 @@ void CScreensaverSpiroGraphX::ChangeSettings()
     m_content.equationBase = rsRandf(10) - 5;
   } while (m_content.equationBase <= 2 && m_content.equationBase >= -2); // we don't want between 1 and -1
 
-  m_content.blurColor[0] = rsRandi(100) / 50.0;
-  m_content.blurColor[1] = rsRandi(100) / 50.0;
-  m_content.blurColor[2] = rsRandi(100) / 50.0;
+  m_content.blurColor[0] = rsRandi(100) / 50.0f;
+  m_content.blurColor[1] = rsRandi(100) / 50.0f;
+  m_content.blurColor[2] = rsRandi(100) / 50.0f;
 
-  m_content.lineColor[0] = rsRandi(100) / 50.0;
-  m_content.lineColor[1] = rsRandi(100) / 50.0;
-  m_content.lineColor[2] = rsRandi(100) / 50.0;
+  m_content.lineColor[0] = rsRandi(100) / 50.0f;
+  m_content.lineColor[1] = rsRandi(100) / 50.0f;
+  m_content.lineColor[2] = rsRandi(100) / 50.0f;
 
   m_content.subLoops = rsRandi(3) + 2;
   m_content.graphTo = rsRandi(16) + 15;
-  m_content.speed = (rsRandi(225) + 75) / 1000000.0;
+  m_content.speed = (rsRandi(225) + 75) / 1000000.0f;
 
   if (rsRandi(2) == 1)
     m_content.speed *= -1;
@@ -178,14 +178,14 @@ void CScreensaverSpiroGraphX::GetAll(renderContent& content)
 {
   int m, n;
 
-  float poweranswer[content.subLoops];
+  float poweranswer[5];
   poweranswer[0] = 1;
   for (n = 1; n < content.subLoops; n++)
     poweranswer[n] = poweranswer[n - 1] * content.equationBase;
 
   content.numberOfPoints = 2 * M_PI * content.graphTo * m_detail;
 
-  memset(content.points, 0, content.numberOfPoints * sizeof(sPosition));
+  memset(content.points, 0, content.numberOfPoints * sizeof(glm::vec3));
 
   for (m = 0; m < content.numberOfPoints; m++)
   {
@@ -213,16 +213,16 @@ void CScreensaverSpiroGraphX::GetAll(renderContent& content)
   }
 }
 
-void CScreensaverSpiroGraphX::DrawAll(renderContent& content, sColor* colors)
+void CScreensaverSpiroGraphX::DrawAll(renderContent& content, glm::vec4* colors)
 {
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO[0]);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sPosition)*content.numberOfPoints, content.points, GL_STATIC_DRAW);
-  glVertexAttribPointer(m_hPos,  3, GL_FLOAT, 0, sizeof(sPosition), BUFFER_OFFSET(offsetof(sPosition, x)));
+  glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3)*content.numberOfPoints, content.points, GL_STATIC_DRAW);
+  glVertexAttribPointer(m_hPos,  3, GL_FLOAT, 0, sizeof(glm::vec3), BUFFER_OFFSET(offsetof(glm::vec3, x)));
   glEnableVertexAttribArray(m_hPos);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO[1]);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sPosition)*content.numberOfPoints, colors, GL_STATIC_DRAW);
-  glVertexAttribPointer(m_hCol, 4, GL_FLOAT, 0, sizeof(sColor), BUFFER_OFFSET(offsetof(sColor, r)));
+  glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3)*content.numberOfPoints, colors, GL_STATIC_DRAW);
+  glVertexAttribPointer(m_hCol, 4, GL_FLOAT, 0, sizeof(glm::vec4), BUFFER_OFFSET(offsetof(glm::vec4, r)));
   glEnableVertexAttribArray(m_hCol);
 
   glDrawArrays(GL_LINE_STRIP, 0, content.numberOfPoints);

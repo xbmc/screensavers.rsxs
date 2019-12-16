@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "GL.h"
+#include <kodi/gui/gl/GL.h>
 #include <string>
 
 #if defined(HAS_GL) && !defined(TARGET_DARWIN)

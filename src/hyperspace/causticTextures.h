@@ -28,9 +28,12 @@
 
 #pragma once
 
+#include "light.h"
+
 #include <kodi/gui/gl/GL.h>
 #include <kodi/AddonBase.h>
 #include <glm/gtc/type_ptr.hpp>
+#include <vector>
 
 class CScreensaverHyperspace;
 
@@ -75,5 +78,7 @@ private:
 
   GLubyte** m_bitmap;
 
+  std::vector<sLight> m_lights;
+  
   CScreensaverHyperspace* m_base;
 };

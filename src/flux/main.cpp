@@ -228,9 +228,9 @@ CParticle::CParticle()
   // Offsets are somewhat like default positions for the head of each
   // particle trail.  Offsets spread out the particle trails and keep
   // them from all overlapping.
-  m_offset[0] = cosf(2 * M_PI * float(gWhichparticle) / float(gSettings.dParticles));
+  m_offset[0] = cosf(2 * glm::pi<float>() * float(gWhichparticle) / float(gSettings.dParticles));
   m_offset[1] = float(gWhichparticle) / float(gSettings.dParticles) - 0.5f;
-  m_offset[2] = sinf(2 * M_PI * float(gWhichparticle) / float(gSettings.dParticles));
+  m_offset[2] = sinf(2 * glm::pi<float>() * float(gWhichparticle) / float(gSettings.dParticles));
   gWhichparticle++;
 
   // Initialize memory and set initial positions out of view of the camera
@@ -347,7 +347,7 @@ void CParticle::update(float *c, CScreensaverFlux* base)
     {
       // assign color to particle
       hsl2rgb(m_vertices[p][3], m_vertices[p][4], luminosity, rgb[0], rgb[1], rgb[2]);
-      base->m_uniformColor = sColor(rgb[0], rgb[1], rgb[2]);
+      base->m_uniformColor = glm::vec4(rgb[0], rgb[1], rgb[2], 1.0f);
 
       glm::mat4 modelMatrix = base->m_modelMat;
 
@@ -533,8 +533,8 @@ bool CScreensaverFlux::Start()
 
   gSettings.Load();
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -579,43 +579,43 @@ bool CScreensaverFlux::Start()
     glBindTexture(GL_TEXTURE_2D, m_texture);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LIGHTSIZE, LIGHTSIZE, 0, GL_RED, GL_UNSIGNED_BYTE, m_lightTexture);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, LIGHTSIZE, LIGHTSIZE, 0, GL_RED, GL_UNSIGNED_BYTE, m_lightTexture);
 
     temp = float(gSettings.dSize) * 0.005f;
     if (gSettings.dGeometry == GEOMETRY_POINTS)
     {
-      m_textureTriangles[0].vertex = sPosition(-temp, -temp, 0.0f);
-      m_textureTriangles[0].coord = sCoord(0.0f, 0.0f);
-      m_textureTriangles[1].vertex = sPosition(temp, -temp, 0.0f);
-      m_textureTriangles[1].coord = sCoord(1.0f, 0.0f);
-      m_textureTriangles[2].vertex = sPosition(-temp, temp, 0.0f);
-      m_textureTriangles[2].coord = sCoord(0.0f, 1.0f);
-      m_textureTriangles[3].vertex = sPosition(temp, temp, 0.0f);
-      m_textureTriangles[3].coord = sCoord(1.0f, 1.0f);
+      m_textureTriangles[0].vertex = glm::vec3(-temp, -temp, 0.0f);
+      m_textureTriangles[0].coord = glm::vec2(0.0f, 0.0f);
+      m_textureTriangles[1].vertex = glm::vec3(temp, -temp, 0.0f);
+      m_textureTriangles[1].coord = glm::vec2(1.0f, 0.0f);
+      m_textureTriangles[2].vertex = glm::vec3(-temp, temp, 0.0f);
+      m_textureTriangles[2].coord = glm::vec2(0.0f, 1.0f);
+      m_textureTriangles[3].vertex = glm::vec3(temp, temp, 0.0f);
+      m_textureTriangles[3].coord = glm::vec2(1.0f, 1.0f);
     }
     else
     {
-      m_textureTriangles[0].coord = sCoord(0.0f, 0.0f);
-      m_textureTriangles[0].vertex = sPosition(-temp, -temp, 0.0f);
-      m_textureTriangles[1].coord = sCoord(1.0f, 0.0f);
-      m_textureTriangles[1].vertex = sPosition(temp, -temp, 0.0f);
-      m_textureTriangles[2].coord = sCoord(1.0f, 1.0f);
-      m_textureTriangles[2].vertex = sPosition(temp, temp, 0.0f);
-      m_textureTriangles[3].coord = sCoord(0.0f, 0.0f);
-      m_textureTriangles[3].vertex = sPosition(-temp, -temp, 0.0f);
-      m_textureTriangles[4].coord = sCoord(1.0f, 1.0f);
-      m_textureTriangles[4].vertex = sPosition(temp, temp, 0.0f);
-      m_textureTriangles[5].coord = sCoord(0.0f, 1.0f);
-      m_textureTriangles[5].vertex = sPosition(-temp, temp, 0.0f);
+      m_textureTriangles[0].coord = glm::vec2(0.0f, 0.0f);
+      m_textureTriangles[0].vertex = glm::vec3(-temp, -temp, 0.0f);
+      m_textureTriangles[1].coord = glm::vec2(1.0f, 0.0f);
+      m_textureTriangles[1].vertex = glm::vec3(temp, -temp, 0.0f);
+      m_textureTriangles[2].coord = glm::vec2(1.0f, 1.0f);
+      m_textureTriangles[2].vertex = glm::vec3(temp, temp, 0.0f);
+      m_textureTriangles[3].coord = glm::vec2(0.0f, 0.0f);
+      m_textureTriangles[3].vertex = glm::vec3(-temp, -temp, 0.0f);
+      m_textureTriangles[4].coord = glm::vec2(1.0f, 1.0f);
+      m_textureTriangles[4].vertex = glm::vec3(temp, temp, 0.0f);
+      m_textureTriangles[5].coord = glm::vec2(0.0f, 1.0f);
+      m_textureTriangles[5].vertex = glm::vec3(-temp, temp, 0.0f);
     }
   }
   else
     m_textureUsed = 0;
 
-  m_blur[0].vertex = sPosition(0.0f, 0.0f, 0.0f);
-  m_blur[1].vertex = sPosition(1.0f, 0.0f, 0.0f);
-  m_blur[2].vertex = sPosition(0.0f, 1.0f, 0.0f);
-  m_blur[3].vertex = sPosition(1.0f, 1.0f, 0.0f);
+  m_blur[0].vertex = glm::vec3(0.0f, 0.0f, 0.0f);
+  m_blur[1].vertex = glm::vec3(1.0f, 0.0f, 0.0f);
+  m_blur[2].vertex = glm::vec3(0.0f, 1.0f, 0.0f);
+  m_blur[3].vertex = glm::vec3(1.0f, 1.0f, 0.0f);
 
   // Initialize luminosity difference
   m_lumdiff = 1.0f / float(gSettings.dTrail);
@@ -672,10 +672,10 @@ void CScreensaverFlux::Render()
    */
   //@{
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
-  glVertexAttribPointer(m_hNormal, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
+  glVertexAttribPointer(m_hNormal, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
   glEnableVertexAttribArray(m_hNormal);
 
   glVertexAttribPointer(m_hCoord, 2, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, coord)));
@@ -699,7 +699,7 @@ void CScreensaverFlux::Render()
     glEnable(GL_BLEND);
     glDisable(GL_DEPTH_TEST);
 
-    m_uniformColor = sColor(0.0f, 0.0f, 0.0f, 0.5f - (float(sqrtf(sqrtf(float(gSettings.dBlur)))) * 0.15495f));
+    m_uniformColor = glm::vec4(0.0f, 0.0f, 0.0f, 0.5f - (float(sqrtf(sqrtf(float(gSettings.dBlur)))) * 0.15495f));
     m_modelProjMat = glm::ortho(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, -1.0f) * glm::mat4(1.0f);
     EnableShader();
     glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, m_blur, GL_STATIC_DRAW);
@@ -778,9 +778,9 @@ void CScreensaverFlux::DrawSphere()
   m_normalMat = glm::transpose(glm::inverse(glm::mat3(m_modelMat)));
   EnableShader();
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*m_sphereTriangleFan1.size(), &m_sphereTriangleFan1[0], GL_DYNAMIC_DRAW);
-  glDrawArrays(GL_TRIANGLE_FAN, 0, m_sphereTriangleFan1.size());
+  glDrawArrays(GL_TRIANGLE_FAN, 0, static_cast<GLsizei>(m_sphereTriangleFan1.size()));
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*m_sphereTriangleFan2.size(), &m_sphereTriangleFan2[0], GL_DYNAMIC_DRAW);
-  glDrawArrays(GL_TRIANGLE_FAN, 0, m_sphereTriangleFan2.size());
+  glDrawArrays(GL_TRIANGLE_FAN, 0, static_cast<GLsizei>(m_sphereTriangleFan2.size()));
   DisableShader();
 }
 
@@ -806,7 +806,7 @@ void CScreensaverFlux::Sphere(GLfloat radius, GLint slices, GLint stacks)
 
   for (i = 0; i < slices; i++)
   {
-    angle = 2 * M_PI * i / slices;
+    angle = 2 * glm::pi<float>() * i / slices;
     sinCache1a[i] = sinf(angle);
     cosCache1a[i] = cosf(angle);
     sinCache2a[i] = sinCache1a[i];
@@ -815,7 +815,7 @@ void CScreensaverFlux::Sphere(GLfloat radius, GLint slices, GLint stacks)
 
   for (j = 0; j <= stacks; j++)
   {
-    angle = M_PI * j / stacks;
+    angle = glm::pi<float>() * j / stacks;
     sinCache2b[j] = sinf(angle);
     cosCache2b[j] = cosf(angle);
     sinCache1b[j] = radius * sinf(angle);
@@ -836,13 +836,13 @@ void CScreensaverFlux::Sphere(GLfloat radius, GLint slices, GLint stacks)
   sintemp2 = sinCache2b[1];
   costemp3 = cosCache2b[1];
 
-  light.normal = sPosition(sinCache2a[0] * sinCache2b[0], cosCache2a[0] * sinCache2b[0], cosCache2b[0]);
-  light.vertex = sPosition(0.0, 0.0, radius);
+  light.normal = glm::vec3(sinCache2a[0] * sinCache2b[0], cosCache2a[0] * sinCache2b[0], cosCache2b[0]);
+  light.vertex = glm::vec3(0.0, 0.0, radius);
   m_sphereTriangleFan1.push_back(light);
   for (i = slices; i >= 0; i--)
   {
-    light.normal = sPosition(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
-    light.vertex = sPosition(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
+    light.normal = glm::vec3(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
+    light.vertex = glm::vec3(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
     m_sphereTriangleFan1.push_back(light);
   }
 
@@ -852,13 +852,13 @@ void CScreensaverFlux::Sphere(GLfloat radius, GLint slices, GLint stacks)
   sintemp2 = sinCache2b[stacks-1];
   costemp3 = cosCache2b[stacks-1];
 
-  light.normal = sPosition(sinCache2a[stacks] * sinCache2b[stacks], cosCache2a[stacks] * sinCache2b[stacks], cosCache2b[stacks]);
-  light.vertex = sPosition(0.0, 0.0, -radius);
+  light.normal = glm::vec3(sinCache2a[stacks] * sinCache2b[stacks], cosCache2a[stacks] * sinCache2b[stacks], cosCache2b[stacks]);
+  light.vertex = glm::vec3(0.0, 0.0, -radius);
   m_sphereTriangleFan2.push_back(light);
   for (i = 0; i <= slices; i++)
   {
-    light.normal = sPosition(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
-    light.vertex = sPosition(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
+    light.normal = glm::vec3(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
+    light.vertex = glm::vec3(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
     m_sphereTriangleFan2.push_back(light);
   }
 }

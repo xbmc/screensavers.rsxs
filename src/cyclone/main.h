@@ -33,34 +33,11 @@
 #include <kodi/gui/gl/Shader.h>
 #include <glm/gtc/type_ptr.hpp>
 
-struct sPosition
-{
-  sPosition() : x(0.0f), y(0.0f), z(0.0f), u(1.0f) {}
-  sPosition(float* d) : x(d[0]), y(d[1]), z(d[2]), u(1.0f) {}
-  sPosition(float x, float y, float z = 0.0f) : x(x), y(y), z(z), u(1.0f) {}
-  float x,y,z,u;
-};
-
-struct sColor
-{
-  sColor() : r(0.0f), g(0.0f), b(0.0f), a(1.0f) {}
-  sColor(float r, float g, float b, float a = 1.0f) : r(r), g(g), b(b), a(a) {}
-  sColor(float* c) : r(c[0]), g(c[1]), b(c[2]), a(c[3]) {}
-  sColor& operator=(float* rhs)
-  {
-    r = rhs[0];
-    g = rhs[1];
-    b = rhs[2];
-    return *this;
-  }
-  float r,g,b,a;
-};
-
 struct sLight
 {
-  sPosition vertex;
-  sPosition normal;
-  sColor color;
+  glm::vec3 vertex;
+  glm::vec3 normal;
+  glm::vec4 color;
 };
 
 class CCyclone;
@@ -82,11 +59,11 @@ public:
   bool OnEnabled() override;
 
   void DrawEntry(int primitive, const sLight* data, unsigned int size);
-  void DrawSphere(const sColor& color);
+  void DrawSphere(const glm::vec4& color);
   inline float FrameTime() const { return m_frameTime; }
 
   GLint m_lightingEnabled = 0;
-  sColor m_uniformColor;
+  glm::vec4 m_uniformColor;
   glm::mat4 m_projMat;
   glm::mat4 m_modelMat;
   glm::mat4 m_modelProjMat;

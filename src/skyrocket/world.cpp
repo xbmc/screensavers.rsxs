@@ -67,7 +67,7 @@ void CWorld::Init()
   // initialize star texture
   if (m_base->Settings().dStardensity)
   {
-    unsigned char starmap[STARTEXSIZE][STARTEXSIZE][3];
+    uint8_t (*starmap)[STARTEXSIZE][3] = new uint8_t[STARTEXSIZE][STARTEXSIZE][3];
     for (i = 0; i < STARTEXSIZE; i++)
     {
       for (j = 0; j < STARTEXSIZE; j++)
@@ -75,6 +75,7 @@ void CWorld::Init()
         starmap[i][j][0] = starmap[i][j][1] = starmap[i][j][2] = 0;
       }
     }
+
     int u, v;
     unsigned int rgb[3];
     for (i = 0; i < (m_base->Settings().dStardensity*100); i++)
@@ -106,39 +107,108 @@ void CWorld::Init()
       case 9:
       case 10:
       case 11:
-        starmap[u+1][v][0]=starmap[u-1][v][0]=starmap[u][v+1][0]=starmap[u][v-1][0]=rgb[0]/4;
-        starmap[u+1][v][1]=starmap[u-1][v][1]=starmap[u][v+1][1]=starmap[u][v-1][1]=rgb[1]/4;
-        starmap[u+1][v][2]=starmap[u-1][v][2]=starmap[u][v+1][2]=starmap[u][v-1][2]=rgb[2]/4;
-        starmap[u+1][v+1][0]=starmap[u+1][v-1][0]=starmap[u-1][v+1][0]=starmap[u-1][v-1][0]=rgb[0]/8;
-        starmap[u+1][v+1][1]=starmap[u+1][v-1][1]=starmap[u-1][v+1][1]=starmap[u-1][v-1][1]=rgb[1]/8;
-        starmap[u+1][v+1][2]=starmap[u+1][v-1][2]=starmap[u-1][v+1][2]=starmap[u-1][v-1][2]=rgb[2]/8;
+        starmap[u+1][v][0]=
+        starmap[u-1][v][0]=
+        starmap[u][v+1][0]=
+        starmap[u][v-1][0]=rgb[0]/4;
+
+        starmap[u+1][v][1]=
+        starmap[u-1][v][1]=
+        starmap[u][v+1][1]=
+        starmap[u][v-1][1]=rgb[1]/4;
+
+        starmap[u+1][v][2]=
+        starmap[u-1][v][2]=
+        starmap[u][v+1][2]=
+        starmap[u][v-1][2]=rgb[2]/4;
+
+        starmap[u+1][v+1][0]=
+        starmap[u+1][v-1][0]=
+        starmap[u-1][v+1][0]=
+        starmap[u-1][v-1][0]=rgb[0]/8;
+
+        starmap[u+1][v+1][1]=
+        starmap[u+1][v-1][1]=
+        starmap[u-1][v+1][1]=
+        starmap[u-1][v-1][1]=rgb[1]/8;
+
+        starmap[u+1][v+1][2]=
+        starmap[u+1][v-1][2]=
+        starmap[u-1][v+1][2]=
+        starmap[u-1][v-1][2]=rgb[2]/8;
         break;
       case 12:  // large
       case 13:
-        starmap[u+1][v][0]=starmap[u-1][v][0]=starmap[u][v+1][0]=starmap[u][v-1][0]=rgb[0]/2;
-        starmap[u+1][v][1]=starmap[u-1][v][1]=starmap[u][v+1][1]=starmap[u][v-1][1]=rgb[1]/2;
-        starmap[u+1][v][2]=starmap[u-1][v][2]=starmap[u][v+1][2]=starmap[u][v-1][2]=rgb[2]/2;
-        starmap[u+1][v+1][0]=starmap[u+1][v-1][0]=starmap[u-1][v+1][0]=starmap[u-1][v-1][0]=rgb[0]/4;
-        starmap[u+1][v+1][1]=starmap[u+1][v-1][1]=starmap[u-1][v+1][1]=starmap[u-1][v-1][1]=rgb[1]/4;
-        starmap[u+1][v+1][2]=starmap[u+1][v-1][2]=starmap[u-1][v+1][2]=starmap[u-1][v-1][2]=rgb[2]/4;
+        starmap[u+1][v][0]=
+        starmap[u-1][v][0]=
+        starmap[u][v+1][0]=
+        starmap[u][v-1][0]=rgb[0]/2;
+
+        starmap[u+1][v][1]=
+        starmap[u-1][v][1]=
+        starmap[u][v+1][1]=
+        starmap[u][v-1][1]=rgb[1]/2;
+
+        starmap[u+1][v][2]=
+        starmap[u-1][v][2]=
+        starmap[u][v+1][2]=
+        starmap[u][v-1][2]=rgb[2]/2;
+
+        starmap[u+1][v+1][0]=
+        starmap[u+1][v-1][0]=
+        starmap[u-1][v+1][0]=
+        starmap[u-1][v-1][0]=rgb[0]/4;
+
+        starmap[u+1][v+1][1]=
+        starmap[u+1][v-1][1]=
+        starmap[u-1][v+1][1]=
+        starmap[u-1][v-1][1]=rgb[1]/4;
+
+        starmap[u+1][v+1][2]=
+        starmap[u+1][v-1][2]=
+        starmap[u-1][v+1][2]=
+        starmap[u-1][v-1][2]=rgb[2]/4;
         break;
       case 14:  // X-large
-        starmap[u+1][v][0]=starmap[u-1][v][0]=starmap[u][v+1][0]=starmap[u][v-1][0]=rgb[0];
-        starmap[u+1][v][1]=starmap[u-1][v][1]=starmap[u][v+1][1]=starmap[u][v-1][1]=rgb[1];
-        starmap[u+1][v][2]=starmap[u-1][v][2]=starmap[u][v+1][2]=starmap[u][v-1][2]=rgb[2];
-        starmap[u+1][v+1][0]=starmap[u+1][v-1][0]=starmap[u-1][v+1][0]=starmap[u-1][v-1][0]=rgb[0]/2;
-        starmap[u+1][v+1][1]=starmap[u+1][v-1][1]=starmap[u-1][v+1][1]=starmap[u-1][v-1][1]=rgb[1]/2;
-        starmap[u+1][v+1][2]=starmap[u+1][v-1][2]=starmap[u-1][v+1][2]=starmap[u-1][v-1][2]=rgb[2]/2;
+        starmap[u+1][v][0]=
+        starmap[u-1][v][0]=
+        starmap[u][v+1][0]=
+        starmap[u][v-1][0]=rgb[0];
+
+        starmap[u+1][v][1]=
+        starmap[u-1][v][1]=
+        starmap[u][v+1][1]=
+        starmap[u][v-1][1]=rgb[1];
+
+        starmap[u+1][v][2]=
+        starmap[u-1][v][2]=
+        starmap[u][v+1][2]=
+        starmap[u][v-1][2]=rgb[2];
+
+        starmap[u+1][v+1][0]=
+        starmap[u+1][v-1][0]=
+        starmap[u-1][v+1][0]=
+        starmap[u-1][v-1][0]=rgb[0]/2;
+
+        starmap[u+1][v+1][1]=
+        starmap[u+1][v-1][1]=
+        starmap[u-1][v+1][1]=
+        starmap[u-1][v-1][1]=rgb[1]/2;
+
+        starmap[u+1][v+1][2]=
+        starmap[u+1][v-1][2]=
+        starmap[u-1][v+1][2]=
+        starmap[u-1][v-1][2]=rgb[2]/2;
       }
     }
     /*if (m_base->Settings().dAmbient > 50){  // blue sky replaces stars (like it's daytime)
       const float black(float(100 - m_base->Settings().dAmbient) / 50.0f);
-      const unsigned char blue((unsigned char)(float(m_base->Settings().dAmbient - 50) * 255.0f / 50.0f));
+      const uint8_t blue((uint8_t)(float(m_base->Settings().dAmbient - 50) * 255.0f / 50.0f));
       for (i = 0; i < STARTEXSIZE; i++){
         for (j = 0; j < STARTEXSIZE; j++){
-          starmap[i][j][0] = (unsigned char)(float(starmap[i][j][0]) * black);
-          starmap[i][j][1] = (unsigned char)(float(starmap[i][j][1]) * black);
-          starmap[i][j][2] = (unsigned char)(float(starmap[i][j][2]) * black);
+          starmap[i][j][0] = (uint8_t)(float(starmap[i][j][0]) * black);
+          starmap[i][j][1] = (uint8_t)(float(starmap[i][j][1]) * black);
+          starmap[i][j][2] = (uint8_t)(float(starmap[i][j][2]) * black);
           starmap[i][j][0] += blue / 4;
           starmap[i][j][1] += blue / 4;
           starmap[i][j][2] += blue;
@@ -149,6 +219,7 @@ void CWorld::Init()
     gli::texture Texture(gli::TARGET_2D, gli::FORMAT_RGB8_UNORM_PACK8, gli::texture::extent_type(STARTEXSIZE, STARTEXSIZE, 1), 1, 1, 1);
     std::memcpy(Texture.data(), starmap, Texture.size());
     m_startex = kodi::gui::gl::Load(Texture);
+    delete[] starmap;
   }
 
   //initialize moon texture
@@ -162,7 +233,8 @@ void CWorld::Init()
   //initialize moon glow texture
   if (m_base->Settings().dMoonglow)
   {
-    unsigned char moonglowmap[MOONGLOWTEXSIZE][MOONGLOWTEXSIZE][3];
+    uint8_t (*moonglowmap)[MOONGLOWTEXSIZE][3] = new uint8_t[MOONGLOWTEXSIZE][MOONGLOWTEXSIZE][3];
+
     float temp1, temp2, temp3, u, v;
     for (i = 0; i < MOONGLOWTEXSIZE; i++)
     {
@@ -192,19 +264,21 @@ void CWorld::Init()
         if (temp3 < 0.0f)
           temp3 = 0.0f;
         temp3 = temp3 * temp3 * temp3 * temp3;
-        //moonglowmap[i][j][0] = (unsigned char)(255.0f * (temp1 * 0.4f + temp2 * 0.4f + temp3 * 0.48f));
-        //moonglowmap[i][j][1] = (unsigned char)(255.0f * (temp1 * 0.4f + temp2 * 0.48f + temp3 * 0.38f));
-        //moonglowmap[i][j][2] = (unsigned char)(255.0f * (temp1 * 0.48f + temp2 * 0.4f + temp3 * 0.38f));
-        moonglowmap[i][j][0] = (unsigned char)(255.0f * (temp1 * 0.45f + temp2 * 0.4f + temp3 * 0.6f));
-        moonglowmap[i][j][1] = (unsigned char)(255.0f * (temp1 * 0.45f + temp2 * 0.54f + temp3 * 0.45f));
-        moonglowmap[i][j][2] = (unsigned char)(255.0f * (temp1 * 0.6f + temp2 * 0.4f + temp3 * 0.45f));
-        //moonglowmap[i][j][3] = (unsigned char)(255.0f * (temp1 * 0.48f + temp2 * 0.48f + temp3 * 0.48f));
+        //moonglowmap[i][j][0] = (uint8_t)(255.0f * (temp1 * 0.4f + temp2 * 0.4f + temp3 * 0.48f));
+        //moonglowmap[i][j][1] = (uint8_t)(255.0f * (temp1 * 0.4f + temp2 * 0.48f + temp3 * 0.38f));
+        //moonglowmap[i][j][2] = (uint8_t)(255.0f * (temp1 * 0.48f + temp2 * 0.4f + temp3 * 0.38f));
+        moonglowmap[i][j][0] = (uint8_t)(255.0f * (temp1 * 0.45f + temp2 * 0.4f + temp3 * 0.6f));
+        moonglowmap[i][j][1] = (uint8_t)(255.0f * (temp1 * 0.45f + temp2 * 0.54f + temp3 * 0.45f));
+        moonglowmap[i][j][2] = (uint8_t)(255.0f * (temp1 * 0.6f + temp2 * 0.4f + temp3 * 0.45f));
+        //moonglowmap[i][j][3] = (uint8_t)(255.0f * (temp1 * 0.48f + temp2 * 0.48f + temp3 * 0.48f));
       }
     }
 
     gli::texture Texture(gli::TARGET_2D, gli::FORMAT_RGB8_UNORM_PACK8, gli::texture::extent_type(MOONGLOWTEXSIZE, MOONGLOWTEXSIZE, 1), 1, 1, 1);
     std::memcpy(Texture.data(), moonglowmap, Texture.size());
     m_moonglowtex = kodi::gui::gl::Load(Texture);
+
+    delete[] moonglowmap;
   }
 
   // do a sunset?
@@ -214,8 +288,8 @@ void CWorld::Init()
   // initialize sunset texture
   if (m_doSunset)
   {
-    unsigned char sunsetmap[CLOUDTEXSIZE][CLOUDTEXSIZE][3];
-    unsigned char rgb[3];
+    uint8_t (*sunsetmap)[CLOUDTEXSIZE][3] = new uint8_t[CLOUDTEXSIZE][CLOUDTEXSIZE][3];
+    uint8_t rgb[3];
     float temp;
     if (rsRandi(3))
       rgb[0] = 60 + rsRandi(42);
@@ -250,11 +324,11 @@ void CWorld::Init()
           cloudinf = float(cloudmap[x][y][1]) / 256.0f;
           temp = float(sunsetmap[i][j][0]) / 256.0f;
           temp *= cloudinf;
-          sunsetmap[i][j][0] = (unsigned char)(temp * 256.0f);
+          sunsetmap[i][j][0] = (uint8_t)(temp * 256.0f);
           cloudinf *= float(cloudmap[x][y][0]) / 256.0f;
           temp = float(sunsetmap[i][j][1]) / 256.0f;
           temp *= cloudinf;
-          sunsetmap[i][j][1] = (unsigned char)(temp * 256.0f);
+          sunsetmap[i][j][1] = (uint8_t)(temp * 256.0f);
         }
       }
     }
@@ -276,14 +350,19 @@ void CWorld::Init()
       sunsetmap[i][mountains[i]+2][0] /= 2;
       sunsetmap[i][mountains[i]+2][1] /= 2;
       sunsetmap[i][mountains[i]+2][2] /= 2;
-      sunsetmap[i][mountains[i]+3][0] = (unsigned char)(float(sunsetmap[i][mountains[i]+3][0]) * 0.75f);
-      sunsetmap[i][mountains[i]+3][1] = (unsigned char)(float(sunsetmap[i][mountains[i]+3][1]) * 0.75f);
-      sunsetmap[i][mountains[i]+3][2] = (unsigned char)(float(sunsetmap[i][mountains[i]+3][2]) * 0.75f);
+      sunsetmap[i][mountains[i]+3][0] =
+        (uint8_t)(float(sunsetmap[i][mountains[i]+3][0]) * 0.75f);
+      sunsetmap[i][mountains[i]+3][1] =
+        (uint8_t)(float(sunsetmap[i][mountains[i]+3][1]) * 0.75f);
+      sunsetmap[i][mountains[i]+3][2] =
+        (uint8_t)(float(sunsetmap[i][mountains[i]+3][2]) * 0.75f);
     }
 
     gli::texture Texture(gli::TARGET_2D, gli::FORMAT_RGB8_UNORM_PACK8, gli::texture::extent_type(CLOUDTEXSIZE, CLOUDTEXSIZE, 1), 1, 1, 1);
     std::memcpy(Texture.data(), sunsetmap, Texture.size());
     m_sunsettex = kodi::gui::gl::Load(Texture);
+
+    delete[] sunsetmap;
   }
 
   //initialize earth texture

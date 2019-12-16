@@ -117,15 +117,15 @@ public:
   // Draw a particle
   void draw();
 
-  ATTRIBUTE_FORCEINLINE unsigned int& Type() { return type; }
-  ATTRIBUTE_FORCEINLINE rsVec& XYZ() { return xyz; }
-  ATTRIBUTE_FORCEINLINE rsVec& RGB() { return rgb; }
-  ATTRIBUTE_FORCEINLINE rsVec& VelocityVector() { return vel; }
-  ATTRIBUTE_FORCEINLINE float& TimeTotal() { return t; }
-  ATTRIBUTE_FORCEINLINE float& TimeRemaining() { return tr; }
-  ATTRIBUTE_FORCEINLINE float& LifeRemaining() { return life; }
-  ATTRIBUTE_FORCEINLINE float Bright() const { return bright; }
-  ATTRIBUTE_FORCEINLINE int& ExplosionType() { return explosiontype; };
+  ATTRIBUTE_FORCEINLINE unsigned int& GetType() { return type; }
+  ATTRIBUTE_FORCEINLINE rsVec& GetXYZ() { return xyz; }
+  ATTRIBUTE_FORCEINLINE rsVec& GetRGB() { return rgb; }
+  ATTRIBUTE_FORCEINLINE rsVec& GetVelocityVector() { return vel; }
+  ATTRIBUTE_FORCEINLINE float& GetTimeTotal() { return t; }
+  ATTRIBUTE_FORCEINLINE float& GetTimeRemaining() { return tr; }
+  ATTRIBUTE_FORCEINLINE float& GetLifeRemaining() { return life; }
+  ATTRIBUTE_FORCEINLINE float GetBright() const { return bright; }
+  ATTRIBUTE_FORCEINLINE int& GetExplosionType() { return explosiontype; };
 
   // Return a pointer to this particle
   CParticle* thisParticle(){return this;};

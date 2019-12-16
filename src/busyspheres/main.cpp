@@ -27,8 +27,8 @@
 
 #include "main.h"
 
+#include <chrono>
 #include <math.h>
-#include <kodi/tools/Time.h>
 #include <kodi/gui/gl/Texture.h>
 #include <rsMath/rsMath.h>
 #include <glm/glm.hpp>
@@ -41,8 +41,8 @@ bool CScreensaverBusySpheres::Start()
   kodi::CheckSettingInt("general.points", m_pointsCnt);
   kodi::CheckSettingInt("general.zoom", m_zoom);
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -51,8 +51,8 @@ bool CScreensaverBusySpheres::Start()
 
   for (int i = 0; i < m_pointsCnt; i++)
   {
-    m_points[i][0] = rsRandf(M_PI*2.0f);
-    m_points[i][1] = rsRandf(M_PI) - 0.5 * M_PI;
+    m_points[i][0] = rsRandf(glm::pi<float>() * 2.0f);
+    m_points[i][1] = rsRandf(glm::pi<float>()) - 0.5f * glm::pi<float>();
     m_points[i][2] = m_points[i][0];
     m_points[i][3] = m_points[i][1];
   }
@@ -83,9 +83,10 @@ bool CScreensaverBusySpheres::Start()
 
   glClearColor(0, 0, 0, 0);
   m_projMat = glm::mat4(1.0f);
-  m_modelMat = glm::scale(glm::mat4(1.0f), glm::vec3(1.0 / Width(), 1.0 / Height(), 1.0));
+  m_modelMat = glm::scale(glm::mat4(1.0f), glm::vec3(1.0f / Width(), 1.0f / Height(), 1.0f));
   m_entryMat = glm::lookAt(glm::vec3(10.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 
+  m_startFrameTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -116,7 +117,7 @@ void CScreensaverBusySpheres::Render()
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
   glBindTexture(GL_TEXTURE_2D, m_texture_id);
 
-  glVertexAttribPointer(m_aPosition,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_aPosition,  3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_aPosition);
 
   glVertexAttribPointer(m_aColor,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -125,15 +126,16 @@ void CScreensaverBusySpheres::Render()
   glVertexAttribPointer(m_aCoord, 2, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, coord)));
   glEnableVertexAttribArray(m_aCoord);
 
-  double currentTime = kodi::time::GetTimeSec<double>();
+  float currentTime = static_cast<float>(std::chrono::duration<double>(
+                        std::chrono::system_clock::now().time_since_epoch()).count() - m_startFrameTime);
 
   currentTime = currentTime - (int)currentTime + (int)currentTime % 86400;
 
-  float t = 5 * currentTime + 0.35 * (cos(currentTime * 0.41 + 0.123) +
-                                      cos(currentTime * 0.51 + 0.234) +
-                                      cos(currentTime * 0.61 + 0.623) +
-                                      cos(currentTime * 0.21 + 0.723));
-  float t2 = 0.3 * currentTime;
+  float t = 5.0f * currentTime + 0.35f * (cosf(currentTime * 0.41f + 0.123f) +
+                                          cosf(currentTime * 0.51f + 0.234f) +
+                                          cosf(currentTime * 0.61f + 0.623f) +
+                                          cosf(currentTime * 0.21f + 0.723f));
+  float t2 = 0.3f * currentTime;
 
   if ((currentTime - m_convertTime) > 10)
   {
@@ -152,69 +154,69 @@ void CScreensaverBusySpheres::Render()
   // Generate the points
   for (int i = 0; i < m_pointsCnt; i++)
   {
-    x = sin (m_points[i][0]) * cos (m_points[i][1]);
-    y = cos (m_points[i][0]) * cos (m_points[i][1]);
-    z = sin (m_points[i][1]);
+    x = sinf(m_points[i][0]) * cosf(m_points[i][1]);
+    y = cosf(m_points[i][0]) * cosf(m_points[i][1]);
+    z = sinf(m_points[i][1]);
 
     m_fb_buffer[i*37+0] = glm::vec3(x, y, z);
 
-    x = 0.5 * x;
-    y = 0.5 * y;
-    z = 0.5 * z;
+    x = 0.5f * x;
+    y = 0.5f * y;
+    z = 0.5f * z;
 
-    m_fb_buffer[i*37+1] = glm::vec3(x + 1.5, y, z);
-    m_fb_buffer[i*37+2] = glm::vec3(x - 1.5, y, z);
-    m_fb_buffer[i*37+3] = glm::vec3(x, y + 1.5, z);
-    m_fb_buffer[i*37+4] = glm::vec3(x, y - 1.5, z);
-    m_fb_buffer[i*37+5] = glm::vec3(x, y, z + 1.5);
-    m_fb_buffer[i*37+6] = glm::vec3(x, y, z - 1.5);
+    m_fb_buffer[i*37+1] = glm::vec3(x + 1.5f, y, z);
+    m_fb_buffer[i*37+2] = glm::vec3(x - 1.5f, y, z);
+    m_fb_buffer[i*37+3] = glm::vec3(x, y + 1.5f, z);
+    m_fb_buffer[i*37+4] = glm::vec3(x, y - 1.5f, z);
+    m_fb_buffer[i*37+5] = glm::vec3(x, y, z + 1.5f);
+    m_fb_buffer[i*37+6] = glm::vec3(x, y, z - 1.5f);
 
-    x = 0.5 * x;
-    y = 0.5 * y;
-    z = 0.5 * z;
+    x = 0.5f * x;
+    y = 0.5f * y;
+    z = 0.5f * z;
 
-    m_fb_buffer[i*37+7] = glm::vec3(x + 2.25, y, z);
-    m_fb_buffer[i*37+8] = glm::vec3(x + 1.5, y + 0.75 * st2, z - 0.75 * ct2);
-    m_fb_buffer[i*37+9] = glm::vec3(x + 1.5, y - 0.75 * ct2, z - 0.75 * st2);
-    m_fb_buffer[i*37+10] = glm::vec3(x + 1.5, y - 0.75 * st2, z + 0.75 * ct2);
-    m_fb_buffer[i*37+11] = glm::vec3(x + 1.5, y + 0.75 * ct2, z + 0.75 * st2);
+    m_fb_buffer[i*37+7] = glm::vec3(x + 2.25f, y, z);
+    m_fb_buffer[i*37+8] = glm::vec3(x + 1.5f, y + 0.75f * st2, z - 0.75f * ct2);
+    m_fb_buffer[i*37+9] = glm::vec3(x + 1.5f, y - 0.75f * ct2, z - 0.75f * st2);
+    m_fb_buffer[i*37+10] = glm::vec3(x + 1.5f, y - 0.75f * st2, z + 0.75f * ct2);
+    m_fb_buffer[i*37+11] = glm::vec3(x + 1.5f, y + 0.75f * ct2, z + 0.75f * st2);
 
-    m_fb_buffer[i*37+12] = glm::vec3(x - 2.25, y, z);
-    m_fb_buffer[i*37+13] = glm::vec3(x - 1.5, y - 0.75 * st2, z - 0.75 * ct2);
-    m_fb_buffer[i*37+14] = glm::vec3(x - 1.5, y + 0.75 * ct2, z - 0.75 * st2);
-    m_fb_buffer[i*37+15] = glm::vec3(x - 1.5, y + 0.75 * st2, z + 0.75 * ct2);
-    m_fb_buffer[i*37+16] = glm::vec3(x - 1.5, y - 0.75 * ct2, z + 0.75 * st2);
+    m_fb_buffer[i*37+12] = glm::vec3(x - 2.25f, y, z);
+    m_fb_buffer[i*37+13] = glm::vec3(x - 1.5f, y - 0.75f * st2, z - 0.75f * ct2);
+    m_fb_buffer[i*37+14] = glm::vec3(x - 1.5f, y + 0.75f * ct2, z - 0.75f * st2);
+    m_fb_buffer[i*37+15] = glm::vec3(x - 1.5f, y + 0.75f * st2, z + 0.75f * ct2);
+    m_fb_buffer[i*37+16] = glm::vec3(x - 1.5f, y - 0.75f * ct2, z + 0.75f * st2);
 
-    m_fb_buffer[i*37+17] = glm::vec3(x, y + 2.25, z);
-    m_fb_buffer[i*37+18] = glm::vec3(x + 0.75 * st2, y + 1.5, z - 0.75 * ct2);
-    m_fb_buffer[i*37+19] = glm::vec3(x - 0.75 * ct2, y + 1.5, z - 0.75 * st2);
-    m_fb_buffer[i*37+20] = glm::vec3(x - 0.75 * st2, y + 1.5, z + 0.75 * ct2);
-    m_fb_buffer[i*37+21] = glm::vec3(x + 0.75 * ct2, y + 1.5, z + 0.75 * st2);
+    m_fb_buffer[i*37+17] = glm::vec3(x, y + 2.25f, z);
+    m_fb_buffer[i*37+18] = glm::vec3(x + 0.75f * st2, y + 1.5f, z - 0.75f * ct2);
+    m_fb_buffer[i*37+19] = glm::vec3(x - 0.75f * ct2, y + 1.5f, z - 0.75f * st2);
+    m_fb_buffer[i*37+20] = glm::vec3(x - 0.75f * st2, y + 1.5f, z + 0.75f * ct2);
+    m_fb_buffer[i*37+21] = glm::vec3(x + 0.75f * ct2, y + 1.5f, z + 0.75f * st2);
 
-    m_fb_buffer[i*37+22] = glm::vec3(x, y - 2.25, z);
-    m_fb_buffer[i*37+23] = glm::vec3(x - 0.75 * st2, y - 1.5, z - 0.75 * ct2);
-    m_fb_buffer[i*37+24] = glm::vec3(x + 0.75 * ct2, y - 1.5, z - 0.75 * st2);
-    m_fb_buffer[i*37+25] = glm::vec3(x + 0.75 * st2, y - 1.5, z + 0.75 * ct2);
-    m_fb_buffer[i*37+26] = glm::vec3(x - 0.75 * ct2, y - 1.5, z + 0.75 * st2);
+    m_fb_buffer[i*37+22] = glm::vec3(x, y - 2.25f, z);
+    m_fb_buffer[i*37+23] = glm::vec3(x - 0.75f * st2, y - 1.5f, z - 0.75f * ct2);
+    m_fb_buffer[i*37+24] = glm::vec3(x + 0.75f * ct2, y - 1.5f, z - 0.75f * st2);
+    m_fb_buffer[i*37+25] = glm::vec3(x + 0.75f * st2, y - 1.5f, z + 0.75f * ct2);
+    m_fb_buffer[i*37+26] = glm::vec3(x - 0.75f * ct2, y - 1.5f, z + 0.75f * st2);
 
-    m_fb_buffer[i*37+27] = glm::vec3(x, y, z + 2.25);
-    m_fb_buffer[i*37+28] = glm::vec3(x + 0.75 * st2, y - 0.75 * ct2, z + 1.5);
-    m_fb_buffer[i*37+29] = glm::vec3(x - 0.75 * ct2, y - 0.75 * st2, z + 1.5);
-    m_fb_buffer[i*37+30] = glm::vec3(x - 0.75 * st2, y + 0.75 * ct2, z + 1.5);
-    m_fb_buffer[i*37+31] = glm::vec3(x + 0.75 * ct2, y + 0.75 * st2, z + 1.5);
+    m_fb_buffer[i*37+27] = glm::vec3(x, y, z + 2.25f);
+    m_fb_buffer[i*37+28] = glm::vec3(x + 0.75f * st2, y - 0.75f * ct2, z + 1.5f);
+    m_fb_buffer[i*37+29] = glm::vec3(x - 0.75f * ct2, y - 0.75f * st2, z + 1.5f);
+    m_fb_buffer[i*37+30] = glm::vec3(x - 0.75f * st2, y + 0.75f * ct2, z + 1.5f);
+    m_fb_buffer[i*37+31] = glm::vec3(x + 0.75f * ct2, y + 0.75f * st2, z + 1.5f);
 
-    m_fb_buffer[i*37+32] = glm::vec3(x, y, z - 2.25);
-    m_fb_buffer[i*37+33] = glm::vec3(x - 0.75 * st2, y - 0.75 * ct2, z - 1.5);
-    m_fb_buffer[i*37+34] = glm::vec3(x + 0.75 * ct2, y - 0.75 * st2, z - 1.5);
-    m_fb_buffer[i*37+35] = glm::vec3(x + 0.75 * st2, y + 0.75 * ct2, z - 1.5);
-    m_fb_buffer[i*37+36] = glm::vec3(x - 0.75 * ct2, y + 0.75 * st2, z - 1.5);
+    m_fb_buffer[i*37+32] = glm::vec3(x, y, z - 2.25f);
+    m_fb_buffer[i*37+33] = glm::vec3(x - 0.75f * st2, y - 0.75f * ct2, z - 1.5f);
+    m_fb_buffer[i*37+34] = glm::vec3(x + 0.75f * ct2, y - 0.75f * st2, z - 1.5f);
+    m_fb_buffer[i*37+35] = glm::vec3(x + 0.75f * st2, y + 0.75f * ct2, z - 1.5f);
+    m_fb_buffer[i*37+36] = glm::vec3(x - 0.75f * ct2, y + 0.75f * st2, z - 1.5f);
   }
 
   glm::mat4 entryMat;
   entryMat = glm::rotate(m_entryMat, glm::radians(2.4f * t), glm::vec3(1.0f, 0.0f, 0.0f));
   entryMat = glm::rotate(entryMat, glm::radians(2.5f * t), glm::vec3(0.0f, 1.0f, 0.0f));
   entryMat = glm::rotate(entryMat, glm::radians(2.6f * t), glm::vec3(0.0f, 0.0f, 1.0f));
-  entryMat = glm::scale(entryMat, glm::vec3(float(m_zoom) / Width(), float(m_zoom) / Width(), 1.0));
+  entryMat = glm::scale(entryMat, glm::vec3(float(m_zoom) / Width(), float(m_zoom) / Width(), 1.0f));
 
   EnableShader();
   glBlendFunc(GL_ONE, GL_ONE);
@@ -232,36 +234,36 @@ void CScreensaverBusySpheres::Render()
     y = entry.y;
     z = entry.z;
 
-    w = 1.3 - z;  // diminishing fading
-    ws = 0.002 * Height() * (1 - z);  // Keep Bitmaps same size realive to screensize
+    w = 1.3f - z;  // diminishing fading
+    ws = 0.002f * Height() * (1 - z);  // Keep Bitmaps same size realive to screensize
 
     if (k == 0)  // big sphere
     {
-      lights[0].color = lights[1].color = lights[2].color = lights[3].color = sColor(0.6 * w, 0.5 * w, 0.3 * w);
+      lights[0].color = lights[1].color = lights[2].color = lights[3].color = glm::vec4(0.6f * w, 0.5f * w, 0.3f * w, 1.0f);
       w = 70 * ws;
     }
     else if (k < 7)
     {
-      lights[0].color = lights[1].color = lights[2].color = lights[3].color = sColor(0.3 * w, 0.6 * w, 0.4 * w);
+      lights[0].color = lights[1].color = lights[2].color = lights[3].color = glm::vec4(0.3f * w, 0.6f * w, 0.4f * w, 1.0f);
       w = 30 * ws;
     }
     else
     {
-      lights[0].color = lights[1].color = lights[2].color = lights[3].color = sColor(0.2 * w, 0.3 * w, 0.4 * w);
+      lights[0].color = lights[1].color = lights[2].color = lights[3].color = glm::vec4(0.2f * w, 0.3f * w, 0.4f * w, 1.0f);
       w = 12 * ws;
     }
 
-    lights[0].coord = sCoord(0.0, 0.0);
-    lights[0].vertex = sPosition(x - w, y - w, z);
+    lights[0].coord = glm::vec2(0.0f, 0.0f);
+    lights[0].vertex = glm::vec3(x - w, y - w, z);
 
-    lights[1].coord = sCoord(1.0, 0.0);
-    lights[1].vertex = sPosition(x + w, y - w, z);
+    lights[1].coord = glm::vec2(1.0f, 0.0f);
+    lights[1].vertex = glm::vec3(x + w, y - w, z);
 
-    lights[2].coord = sCoord(1.0, 1.0);
-    lights[2].vertex = sPosition(x + w, y + w, z);
+    lights[2].coord = glm::vec2(1.0f, 1.0f);
+    lights[2].vertex = glm::vec3(x + w, y + w, z);
 
-    lights[3].coord = sCoord(0.0, 1.0);
-    lights[3].vertex = sPosition(x - w, y + w, z);
+    lights[3].coord = glm::vec2(0.0f, 1.0f);
+    lights[3].vertex = glm::vec3(x - w, y + w, z);
 
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLubyte)*4, m_idx, GL_STATIC_DRAW);
     glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, lights, GL_DYNAMIC_DRAW);
@@ -325,28 +327,28 @@ void CScreensaverBusySpheres::CalcPoints(float currentTime)
         break;
 
       case EFFECT_CRESCENT:
-        x1 = (i * 0.2 * (1 + sin (0.3 * currentTime))) / (M_PI*2.0f);
-        x1 = M_PI*2.0f * (x1 - (int)x1);
-        y1 = M_PI * ((float)i / m_pointsCnt - 0.5);
+        x1 = (i * 0.2f * (1 + sinf(0.3f * currentTime))) / (glm::pi<float>() * 2.0f);
+        x1 = glm::pi<float>() * 2.0f * (x1 - (int)x1);
+        y1 = glm::pi<float>() * ((float)i / m_pointsCnt - 0.5f);
 
         break;
 
       case EFFECT_DOT:
         x1 = m_points[i][2];
-        y1 = ((m_points[i][3] > 0) ? 0.5 : -0.5) * M_PI - m_points[i][3] * 0.5 * (1 + sin (0.3 * currentTime));
+        y1 = ((m_points[i][3] > 0) ? 0.5f : -0.5f) * glm::pi<float>() - m_points[i][3] * 0.5f * (1 + sinf(0.3f * currentTime));
 
         break;
 
       case EFFECT_RING:
         x1 = m_points[i][2];
-        y1 = m_points[i][3] * 0.5 * (1 + sin (0.3 * currentTime));
+        y1 = m_points[i][3] * 0.5f * (1 + sinf(0.3f * currentTime));
 
         break;
 
       case EFFECT_LONGITUDE:
         x1 = i / 10.0f;
-        x1 = M_PI*2.0f * (x1 - (int)x1);
-        y1 = 0.9 * M_PI * ((float)i / m_pointsCnt - 0.5);
+        x1 = glm::pi<float>() * 2.0f * (x1 - (int)x1);
+        y1 = 0.9f * glm::pi<float>() * ((float)i / m_pointsCnt - 0.5f);
       }
 
       switch (m_oldMode)
@@ -358,36 +360,35 @@ void CScreensaverBusySpheres::CalcPoints(float currentTime)
         break;
 
       case EFFECT_CRESCENT:
-        x2 = (i * 0.2 * (1 + sin (0.3 * currentTime))) / (M_PI*2.0f);
-        x2 = M_PI*2.0f * (x2 - (int)x2);
-        y2 = M_PI * ((float)i / m_pointsCnt - 0.5);
+        x2 = (i * 0.2f * (1 + sinf(0.3f * currentTime))) / (glm::pi<float>() * 2.0f);
+        x2 = glm::pi<float>() * 2.0f * (x2 - (int)x2);
+        y2 = glm::pi<float>() * ((float)i / m_pointsCnt - 0.5f);
 
         break;
 
       case EFFECT_DOT:
         x2 = m_points[i][2];
-        if (m_points[i][3] > 0) {
-          y2 = 0.5 * M_PI - m_points[i][3] * 0.5 * (1 + sin (0.3 * currentTime));
-        } else {
-          y2 = -0.5 * M_PI - m_points[i][3] * 0.5 * (1 + sin (0.3 * currentTime));
-        }
+        if (m_points[i][3] > 0)
+          y2 = 0.5f * glm::pi<float>() - m_points[i][3] * 0.5f * (1 + sinf(0.3f * currentTime));
+        else
+          y2 = -0.5f * glm::pi<float>() - m_points[i][3] * 0.5f * (1 + sinf(0.3f * currentTime));
 
         break;
 
       case EFFECT_RING:
         x2 = m_points[i][2];
-        y2 = m_points[i][3] * 0.5 * (1 + sin (0.3 * currentTime));
+        y2 = m_points[i][3] * 0.5f * (1 + sinf(0.3f * currentTime));
 
         break;
 
       case EFFECT_LONGITUDE:
         x2 = i / 10.0f;
-        x2 = M_PI*2.0f * (x1 - (int)x2);
-        y2 = 0.9 * M_PI * ((float)i / m_pointsCnt - 0.5);
+        x2 = glm::pi<float>() * 2.0f * (x1 - (int)x2);
+        y2 = 0.9f * glm::pi<float>() * ((float)i / m_pointsCnt - 0.5f);
       }
 
-      m_points[i][0] = 0.2 * (x1 * dt + x2 * (5 - dt));
-      m_points[i][1] = 0.2 * (y1 * dt + y2 * (5 - dt));
+      m_points[i][0] = 0.2f * (x1 * dt + x2 * (5 - dt));
+      m_points[i][1] = 0.2f * (y1 * dt + y2 * (5 - dt));
     }
   }
   else
@@ -406,9 +407,9 @@ void CScreensaverBusySpheres::CalcPoints(float currentTime)
     case EFFECT_CRESCENT:
       for (i = 0; i < m_pointsCnt; i++)
       {
-        m_points[i][0] = (i * 0.2 * (1 + sin (0.3 * currentTime))) / (M_PI*2.0f);
-        m_points[i][0] = M_PI*2.0f * (m_points[i][0] - (int)m_points[i][0]);
-        m_points[i][1] = M_PI * ((float)i / m_pointsCnt - 0.5);
+        m_points[i][0] = (i * 0.2f * (1 + sinf(0.3f * currentTime))) / (glm::pi<float>()*2.0f);
+        m_points[i][0] = glm::pi<float>()*2.0f * (m_points[i][0] - (int)m_points[i][0]);
+        m_points[i][1] = glm::pi<float>() * ((float)i / m_pointsCnt - 0.5f);
       }
 
       break;
@@ -417,7 +418,7 @@ void CScreensaverBusySpheres::CalcPoints(float currentTime)
       for (i = 0; i < m_pointsCnt; i++)
       {
         m_points[i][0] = m_points[i][2];
-        m_points[i][1] = ((m_points[i][3] > 0) ? 0.5 : -0.5) * M_PI - m_points[i][3] * 0.5 * (1 + sin (0.3 * currentTime));
+        m_points[i][1] = ((m_points[i][3] > 0) ? 0.5f : -0.5f) * glm::pi<float>() - m_points[i][3] * 0.5f * (1 + sinf(0.3f * currentTime));
       }
 
       break;
@@ -426,7 +427,7 @@ void CScreensaverBusySpheres::CalcPoints(float currentTime)
       for (i = 0; i < m_pointsCnt; i++)
       {
         m_points[i][0] = m_points[i][2];
-        m_points[i][1] = m_points[i][3] * 0.5 * (1 + sin (0.3 * currentTime));
+        m_points[i][1] = m_points[i][3] * 0.5f * (1 + sinf(0.3f * currentTime));
       }
 
       break;
@@ -435,8 +436,8 @@ void CScreensaverBusySpheres::CalcPoints(float currentTime)
       for (i = 0; i < m_pointsCnt; i++)
       {
         m_points[i][0] = i / 10.0f;
-        m_points[i][0] = M_PI*2.0f * (m_points[i][0] - (int)m_points[i][0]);
-        m_points[i][1] = 0.9 * M_PI * ((float)i / m_pointsCnt - 0.5);
+        m_points[i][0] = glm::pi<float>() * 2.0f * (m_points[i][0] - (int)m_points[i][0]);
+        m_points[i][1] = 0.9f * glm::pi<float>() * ((float)i / m_pointsCnt - 0.5f);
       }
     }
   }

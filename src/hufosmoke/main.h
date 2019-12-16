@@ -34,8 +34,8 @@
 #include <rsMath/rsMath.h>
 #include <glm/gtc/type_ptr.hpp>
 
-#define HVCtrX 0.0
-#define HVCtrY 0.0
+#define HVCtrX 0.0f
+#define HVCtrY 0.0f
 #define FireFoc 2.0f
 
 #define FireFocX FireFoc
@@ -43,44 +43,22 @@
 
 #define ProjEX(p) (HVCtrX+FireFocX*(p).v[0]/(p).v[1])
 #define ProjEY(p) (HVCtrY+FireFocY*(p).v[2]/(p).v[1])
-#define ProjEZ(ez,p) (ez)=-((p).v[1]*(float)(1.0/20.0)-1.0)
+#define ProjEZ(ez,p) (ez)=static_cast<float>(-((p).v[1]*(float)(1.0/20.0)-1.0))
 
 #define NBPARTMAX 2048
-#define PARTLIFE 2.0
+#define PARTLIFE 2.0f
 #define PARTINTERV (PARTLIFE/NBPARTMAX)
 #define FIRESIZE 1.0f
-#define FIREDS 0.7
+#define FIREDS 0.7f
 #define FIREALPHA 0.15f
 #define FIREDA 0.4f
 #define FIRECYLR 0.2f
-#define XSTD (4.0/3.0)
-
-struct sPosition
-{
-  sPosition() : x(0.0f), y(0.0f), z(0.0f), u(1.0f) {}
-  sPosition(float* d) : x(d[0]), y(d[1]), z(d[2]), u(1.0f) {}
-  sPosition(float x, float y, float z = 0.0f) : x(x), y(y), z(z), u(1.0f) {}
-  float x,y,z,u;
-};
-
-struct sColor
-{
-  sColor() : r(0.0f), g(0.0f), b(0.0f), a(1.0f) {}
-  sColor(float r, float g, float b, float a = 1.0f) : r(r), g(g), b(b), a(a) {}
-  sColor& operator=(float* rhs)
-  {
-    r = rhs[0];
-    g = rhs[1];
-    b = rhs[2];
-    return *this;
-  }
-  float r,g,b,a;
-};
+#define XSTD (4.0f/3.0f)
 
 struct sLight
 {
-  sPosition vertex;
-  sColor color;
+  glm::vec3 vertex;
+  glm::vec4 color;
 };
 
 class ATTRIBUTE_HIDDEN CScreensaverHufoSmoke

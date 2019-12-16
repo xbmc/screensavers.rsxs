@@ -93,7 +93,7 @@ private:
   bool m_reverse = false;
   float m_transparencyValue = 0.25f;
   int m_quadCount = 150;
-  #define QUAD_SPEED_MAX_DEFAULT 20.0 / 400.0
+  #define QUAD_SPEED_MAX_DEFAULT 20.0f / 400.0f
   float m_quadSpeedMax = QUAD_SPEED_MAX_DEFAULT;
   float m_quadSpeed = QUAD_SPEED_MAX_DEFAULT;
   int m_backRed = 255, m_backGreen = 0, m_backBlue = 0;

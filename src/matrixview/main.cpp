@@ -40,8 +40,8 @@ bool CScreensaverMatrixView::Start()
 {
   srand(time(nullptr));
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -166,7 +166,7 @@ void CScreensaverMatrixView::Render()
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
 
-  glVertexAttribPointer(m_positionLoc, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_positionLoc, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_positionLoc);
 
   glVertexAttribPointer(m_colorLoc, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -207,21 +207,21 @@ void CScreensaverMatrixView::draw_char(long num, float light, float x, float y, 
   float s = (float)(num%10) / 10;
   float t = 1 - (float)(num/10)/7;
 
-  m_light[0].color = sColor(0.9, 0.4, 0.3, light/255);
-  m_light[0].coord = sCoord(s, t);
-  m_light[0].vertex = sPosition(x, y, z);
+  m_light[0].color = glm::vec4(0.9, 0.4, 0.3, light/255);
+  m_light[0].coord = glm::vec2(s, t);
+  m_light[0].vertex = glm::vec3(x, y, z);
 
-  m_light[1].color = sColor(0.9, 0.4, 0.3, light/255);
-  m_light[1].coord = sCoord(s + 0.1, t);
-  m_light[1].vertex = sPosition(x + 1, y, z);
+  m_light[1].color = glm::vec4(0.9, 0.4, 0.3, light/255);
+  m_light[1].coord = glm::vec2(s + 0.1, t);
+  m_light[1].vertex = glm::vec3(x + 1, y, z);
 
-  m_light[2].color = sColor(0.9, 0.4, 0.3, light/255);
-  m_light[2].coord = sCoord(s + 0.1, t + 0.166);
-  m_light[2].vertex = sPosition(x + 1, y - 1, z);
+  m_light[2].color = glm::vec4(0.9, 0.4, 0.3, light/255);
+  m_light[2].coord = glm::vec2(s + 0.1, t + 0.166);
+  m_light[2].vertex = glm::vec3(x + 1, y - 1, z);
 
-  m_light[3].color = sColor(0.9, 0.4, 0.3, light/255);
-  m_light[3].coord = sCoord(s, t + 0.166);
-  m_light[3].vertex = sPosition(x, y - 1, z);
+  m_light[3].color = glm::vec4(0.9, 0.4, 0.3, light/255);
+  m_light[3].coord = glm::vec2(s, t + 0.166);
+  m_light[3].vertex = glm::vec3(x, y - 1, z);
 
   EnableShader();
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, m_light, GL_DYNAMIC_DRAW);
@@ -233,21 +233,21 @@ void CScreensaverMatrixView::draw_char(long num, float light, float x, float y, 
 /* Draw flare around white characters */
 void CScreensaverMatrixView::draw_flare(float x,float y,float z)
 {
-  m_light[0].color = sColor(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
-  m_light[0].coord = sCoord(0, 0);
-  m_light[0].vertex = sPosition(x - 1, y + 1, z);
+  m_light[0].color = glm::vec4(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
+  m_light[0].coord = glm::vec2(0, 0);
+  m_light[0].vertex = glm::vec3(x - 1, y + 1, z);
 
-  m_light[0].color = sColor(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
-  m_light[1].coord = sCoord(0.75, 0);
-  m_light[1].vertex = sPosition(x + 2, y + 1, z);
+  m_light[0].color = glm::vec4(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
+  m_light[1].coord = glm::vec2(0.75, 0);
+  m_light[1].vertex = glm::vec3(x + 2, y + 1, z);
 
-  m_light[0].color = sColor(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
-  m_light[2].coord = sCoord(0.75, 0.75);
-  m_light[2].vertex = sPosition(x + 2, y - 2, z);
+  m_light[0].color = glm::vec4(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
+  m_light[2].coord = glm::vec2(0.75, 0.75);
+  m_light[2].vertex = glm::vec3(x + 2, y - 2, z);
 
-  m_light[0].color = sColor(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
-  m_light[3].coord = sCoord(0, 0.75);
-  m_light[3].vertex = sPosition(x - 1, y - 2, z);
+  m_light[0].color = glm::vec4(0.9f, 0.4f, 0.3f, 0.75f);  // Basic polygon color
+  m_light[3].coord = glm::vec2(0, 0.75);
+  m_light[3].vertex = glm::vec3(x - 1, y - 2, z);
 
   EnableShader();
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, m_light, GL_DYNAMIC_DRAW);

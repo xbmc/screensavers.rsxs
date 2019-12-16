@@ -29,11 +29,11 @@
 #include "main.h"
 #include "texture.h"
 
+#include <chrono>
 #include <math.h>
 #include <rsMath/rsMath.h>
 #include <Rgbhsl/Rgbhsl.h>
 #include <glm/glm.hpp>
-#include <kodi/tools/Time.h>
 #include <kodi/gui/gl/Texture.h>
 
 #define NUMCONSTS 9
@@ -341,7 +341,7 @@ CWisp::CWisp()
   for (i = 0; i < NUMCONSTS; i++)
   {
     m_c[i] = rsRandf(2.0f) - 1.0f;
-    m_cr[i] = rsRandf(M_PI * 2.0f);
+    m_cr[i] = rsRandf(glm::pi<float>() * 2.0f);
     m_cv[i] = rsRandf(float(g_settings.dSpeed) * 0.03f) + (float(g_settings.dSpeed) * 0.001f);
   }
 
@@ -377,8 +377,8 @@ void CWisp::update(float frameTime)
   for (i = 0; i < NUMCONSTS; i++)
   {
     m_cr[i] += m_cv[i] * frameTime;
-    if (m_cr[i] > M_PI * 2.0f)
-      m_cr[i] -= M_PI * 2.0f;
+    if (m_cr[i] > glm::pi<float>() * 2.0f)
+      m_cr[i] -= glm::pi<float>() * 2.0f;
     m_c[i] = cosf(m_cr[i]);
   }
 
@@ -453,9 +453,9 @@ void CWisp::draw(glm::mat4& modelMat, CScreensaverEuphoria* base)
     {
       for (j = 0; j <= g_settings.dDensity; j++)
       {
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i][j]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i][j][0], m_vertices[i][j][1], m_vertices[i][j][2]);
       }
       base->DrawEntry(GL_LINE_STRIP, data, ptr);
       ptr = 0;
@@ -464,9 +464,9 @@ void CWisp::draw(glm::mat4& modelMat, CScreensaverEuphoria* base)
     {
       for (i = 0; i <= g_settings.dDensity; i++)
       {
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i][j]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i][j][0], m_vertices[i][j][1], m_vertices[i][j][2]);
       }
       base->DrawEntry(GL_LINE_STRIP, data, ptr);
       ptr = 0;
@@ -478,12 +478,12 @@ void CWisp::draw(glm::mat4& modelMat, CScreensaverEuphoria* base)
     {
       for (j = 0; j <= g_settings.dDensity; j++)
       {
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i+1][j][6] - 1.0f, m_rgb[1] + m_vertices[i+1][j][6] - 1.0f, m_rgb[2] + m_vertices[i+1][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i+1][j][3] - m_vertices[i+1][j][0], m_vertices[i+1][j][4] - m_vertices[i+1][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i+1][j]);
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i][j]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i+1][j][6] - 1.0f, m_rgb[1] + m_vertices[i+1][j][6] - 1.0f, m_rgb[2] + m_vertices[i+1][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i+1][j][3] - m_vertices[i+1][j][0], m_vertices[i+1][j][4] - m_vertices[i+1][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i+1][j][0], m_vertices[i+1][j][1], m_vertices[i+1][j][2]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i][j][0], m_vertices[i][j][1], m_vertices[i][j][2]);
       }
       base->DrawEntry(GL_TRIANGLE_STRIP, data, ptr);
       ptr = 0;
@@ -505,9 +505,9 @@ void CWisp::drawAsBackground(glm::mat4& modelMat, CScreensaverEuphoria* base)
     {
       for (j = 0; j <= g_settings.dDensity; j++)
       {
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i][j][3], m_vertices[i][j][4], m_vertices[i][j][6]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i][j][3], m_vertices[i][j][4], m_vertices[i][j][6]);
       }
       base->DrawEntry(GL_LINE_STRIP, data, ptr);
       ptr = 0;
@@ -516,9 +516,9 @@ void CWisp::drawAsBackground(glm::mat4& modelMat, CScreensaverEuphoria* base)
     {
       for (i = 0; i <= g_settings.dDensity; i++)
       {
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i][j][3], m_vertices[i][j][4], m_vertices[i][j][6]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i][j][3], m_vertices[i][j][4], m_vertices[i][j][6]);
       }
       base->DrawEntry(GL_LINE_STRIP, data, ptr);
       ptr = 0;
@@ -530,13 +530,13 @@ void CWisp::drawAsBackground(glm::mat4& modelMat, CScreensaverEuphoria* base)
     {
       for (j = 0; j <= g_settings.dDensity; j++)
       {
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i+1][j][6] - 1.0f, m_rgb[1] + m_vertices[i+1][j][6] - 1.0f, m_rgb[2] + m_vertices[i+1][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i+1][j][3] - m_vertices[i+1][j][0], m_vertices[i+1][j][4] - m_vertices[i+1][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i+1][j][3], m_vertices[i+1][j][4], m_vertices[i+1][j][6]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i+1][j][6] - 1.0f, m_rgb[1] + m_vertices[i+1][j][6] - 1.0f, m_rgb[2] + m_vertices[i+1][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i+1][j][3] - m_vertices[i+1][j][0], m_vertices[i+1][j][4] - m_vertices[i+1][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i+1][j][3], m_vertices[i+1][j][4], m_vertices[i+1][j][6]);
 
-        data[ptr  ].color = sColor(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f);
-        data[ptr  ].coord = sCoord(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
-        data[ptr++].vertex = sPosition(m_vertices[i][j][3], m_vertices[i][j][4], m_vertices[i][j][6]);
+        data[ptr  ].color = glm::vec4(m_rgb[0] + m_vertices[i][j][6] - 1.0f, m_rgb[1] + m_vertices[i][j][6] - 1.0f, m_rgb[2] + m_vertices[i][j][6] - 1.0f, 1.0f);
+        data[ptr  ].coord = glm::vec2(m_vertices[i][j][3] - m_vertices[i][j][0], m_vertices[i][j][4] - m_vertices[i][j][1]);
+        data[ptr++].vertex = glm::vec3(m_vertices[i][j][3], m_vertices[i][j][4], m_vertices[i][j][6]);
       }
       base->DrawEntry(GL_TRIANGLE_STRIP, data, ptr);
       ptr = 0;
@@ -603,13 +603,13 @@ bool CScreensaverEuphoria::Start()
 
   if (g_settings.dFeedback)
   {
-    m_feedbackTexSize = int(powf(2, g_settings.dFeedbacksize));
+    m_feedbackTexSize = int(powf(2, static_cast<float>(g_settings.dFeedbacksize)));
     // Feedback texture can't be bigger than the window using glCopyTexSubImage2D.
     // (This wouldn't be a limitation if we used FBOs.)
     while(m_feedbackTexSize > m_viewport.width || m_feedbackTexSize > m_viewport.height)
     {
       g_settings.dFeedbacksize -= 1;
-      m_feedbackTexSize = int(powf(2, g_settings.dFeedbacksize));
+      m_feedbackTexSize = int(powf(2, static_cast<float>(g_settings.dFeedbacksize)));
     }
 
     // feedback texture setup
@@ -637,7 +637,7 @@ bool CScreensaverEuphoria::Start()
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   m_feedbackIntensity = float(g_settings.dFeedback) / 101.0f;
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
 
   return true;
@@ -689,7 +689,7 @@ void CScreensaverEuphoria::Render()
   glBlendFunc(GL_ONE, GL_ONE);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
   glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -699,8 +699,8 @@ void CScreensaverEuphoria::Render()
   glEnableVertexAttribArray(m_hCoord);
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   int i;
@@ -717,22 +717,22 @@ void CScreensaverEuphoria::Render()
     glm::mat4 modelMat;
 
     sLight data[4];
-    data[0].color = data[1].color = data[2].color = data[3].color = sColor(m_feedbackIntensity, m_feedbackIntensity, m_feedbackIntensity);
-    data[0].coord = sCoord(-0.5f, -0.5f);
-    data[0].vertex = sPosition(-m_aspectRatio*2.0f, -2.0f, 1.25f);
-    data[1].coord = sCoord(1.5f, -0.5f);
-    data[1].vertex = sPosition(m_aspectRatio*2.0f, -2.0f, 1.25f);
-    data[2].coord = sCoord(-0.5f, 1.5f);
-    data[2].vertex = sPosition(-m_aspectRatio*2.0f, 2.0f, 1.25f);
-    data[3].coord = sCoord(1.5f, 1.5f);
-    data[3].vertex = sPosition(m_aspectRatio*2.0f, 2.0f, 1.25f);
+    data[0].color = data[1].color = data[2].color = data[3].color = glm::vec4(m_feedbackIntensity, m_feedbackIntensity, m_feedbackIntensity, 1.0f);
+    data[0].coord = glm::vec2(-0.5f, -0.5f);
+    data[0].vertex = glm::vec3(-m_aspectRatio*2.0f, -2.0f, 1.25f);
+    data[1].coord = glm::vec2(1.5f, -0.5f);
+    data[1].vertex = glm::vec3(m_aspectRatio*2.0f, -2.0f, 1.25f);
+    data[2].coord = glm::vec2(-0.5f, 1.5f);
+    data[2].vertex = glm::vec3(-m_aspectRatio*2.0f, 2.0f, 1.25f);
+    data[3].coord = glm::vec2(1.5f, 1.5f);
+    data[3].vertex = glm::vec3(m_aspectRatio*2.0f, 2.0f, 1.25f);
 
     // update feedback variables
     for (i = 0; i < 4; i++)
     {
       m_fr[i] += frameTime * m_fv[i];
-      if (m_fr[i] > M_PI * 2.0f)
-        m_fr[i] -= M_PI * 2.0f;
+      if (m_fr[i] > glm::pi<float>() * 2.0f)
+        m_fr[i] -= glm::pi<float>() * 2.0f;
     }
     m_f[0] = 30.0f * cosf(m_fr[0]);
     m_f[1] = 0.2f * cosf(m_fr[1]);
@@ -741,8 +741,8 @@ void CScreensaverEuphoria::Render()
     for (i = 0; i < 3; i++)
     {
       m_lr[i] += frameTime * m_lv[i];
-      if (m_lr[i] > M_PI * 2.0f)
-        m_lr[i] -= M_PI * 2.0f;
+      if (m_lr[i] > glm::pi<float>() * 2.0f)
+        m_lr[i] -= glm::pi<float>() * 2.0f;
       m_l[i] = cosf(m_lr[i]);
       m_l[i] = m_l[i] * m_l[i];
     }

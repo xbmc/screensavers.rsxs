@@ -53,7 +53,8 @@
 #include "ufo.h"
 #include "texture1d.h"
 
-#include <kodi/tools/Time.h>
+#include <algorithm>
+#include <chrono>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
@@ -61,6 +62,10 @@
 CScreensaverMicrocosm::CScreensaverMicrocosm()
   : m_camera(this),
     m_mirrorbox(this)
+{
+}
+
+CScreensaverMicrocosm::~CScreensaverMicrocosm()
 {
 }
 
@@ -241,27 +246,26 @@ bool CScreensaverMicrocosm::Start()
   //m_mode = 0;
   //chooseGizmo(0);
 
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
 
   // threading
   if (m_useThreads)
   {
     // Conditional variables require their associated mutexes to start out locked
-    pthread_mutex_lock(&m_t0EndMutex);
-    pthread_mutex_lock(&m_t1EndMutex);
+    m_t0EndMutex.lock();
+    m_t1EndMutex.lock();
 
     // Create threads
-    if (0 != pthread_create(&m_thread0, NULL, threadFunction0, this) ||
-        0 != pthread_create(&m_thread1, NULL, threadFunction1, this))
-      m_useThreads = false;
+    m_thread0 = new std::thread(&CScreensaverMicrocosm::threadFunction0, this);
+    m_thread1 = new std::thread(&CScreensaverMicrocosm::threadFunction1, this);
 
     // Block until signal is received.  Mutex is unlocked while waiting.
     // This tells us that the threads have started successfully and that they have locked
     // the "start" mutexes.  If we don't wait here, the threads might not lock the "start"
     // mutexes in time and we'll get a deadlock in draw().
-    pthread_cond_wait(&m_t0End, &m_t0EndMutex);
-    pthread_cond_wait(&m_t1End, &m_t1EndMutex);
+    m_t0End.wait(m_t0EndMutex);
+    m_t1End.wait(m_t1EndMutex);
   }
 
   return true;
@@ -278,14 +282,22 @@ void CScreensaverMicrocosm::Stop()
   if (m_useThreads)
   {
     // Unblock thread0 to let it end
-    pthread_mutex_lock(&m_t0StartMutex);
-    pthread_mutex_unlock(&m_t0StartMutex);
-    pthread_cond_signal(&m_t0Start);
+    m_t0StartMutex.lock();
+    m_t0StartMutex.unlock();
+    m_t0Start.notify_all();
 
     // Unblock thread1 to let it end
-    pthread_mutex_lock(&m_t1StartMutex);
-    pthread_mutex_unlock(&m_t1StartMutex);
-    pthread_cond_signal(&m_t1Start);
+    m_t1StartMutex.lock();
+    m_t1StartMutex.unlock();
+    m_t1Start.notify_all();
+
+    if (m_thread0->joinable())
+      m_thread0->join();
+    if (m_thread1->joinable())
+      m_thread1->join();
+
+    delete m_thread0;
+    delete m_thread1;
   }
 
   for (const auto& gizmo : m_gizmos)
@@ -377,7 +389,7 @@ void CScreensaverMicrocosm::Render()
   //glEnable(GL_BLEND);
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_frameTime = currentTime - m_lastTime;
   m_lastTime = currentTime;
 
@@ -589,15 +601,15 @@ void CScreensaverMicrocosm::Render()
     m_volume2->setSurface(m_volSurface2[whichsurface]);
 
     // Block until thread0 is ready to be signaled again, then signal it.
-    pthread_mutex_lock(&m_t0StartMutex);
-    pthread_mutex_unlock(&m_t0StartMutex);
-    pthread_cond_signal(&m_t0Start);
+    m_t0StartMutex.lock();
+    m_t0StartMutex.unlock();
+    m_t0Start.notify_all();
     if (m_mode == 1)  // only need low-LOD geometry for kaleidoscope mode
     {
       // Block until thread1 is ready to be signaled again, then signal it.
-      pthread_mutex_lock(&m_t1StartMutex);
-      pthread_mutex_unlock(&m_t1StartMutex);
-      pthread_cond_signal(&m_t1Start);
+      m_t1StartMutex.lock();
+      m_t1StartMutex.unlock();
+      m_t1Start.notify_all();
     }
   }
   else
@@ -749,8 +761,8 @@ void CScreensaverMicrocosm::Render()
   {
     // Block until signal is received.  Mutex is unlocked while waiting.
     if (m_mode == 1)
-      pthread_cond_wait(&m_t1End, &m_t1EndMutex);
-    pthread_cond_wait(&m_t0End, &m_t0EndMutex);
+      m_t1End.wait(m_t1EndMutex);
+    m_t0End.wait(m_t0EndMutex);
   }
 
   // Reset from addon changed GL values for Kodi's work
@@ -775,20 +787,20 @@ void CScreensaverMicrocosm::Draw(const float* vertices, unsigned int vertex_offs
   m_normalMat = glm::transpose(glm::inverse(glm::mat3(m_modelMat)));
 
   int length = vertex_offset/6;
-  sLight surface[length];
+  m_surface.resize(length);
   for (int i = 0; i < length; ++i)
   {
-    surface[i].normal.x = vertices[i*6+0];
-    surface[i].normal.y = vertices[i*6+1];
-    surface[i].normal.z = vertices[i*6+2];
+    m_surface[i].normal.x = vertices[i*6+0];
+    m_surface[i].normal.y = vertices[i*6+1];
+    m_surface[i].normal.z = vertices[i*6+2];
 
-    surface[i].vertex.x = vertices[i*6+3];
-    surface[i].vertex.y = vertices[i*6+4];
-    surface[i].vertex.z = vertices[i*6+5];
+    m_surface[i].vertex.x = vertices[i*6+3];
+    m_surface[i].vertex.y = vertices[i*6+4];
+    m_surface[i].vertex.z = vertices[i*6+5];
   }
 
   EnableShader();
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*length, surface, GL_DYNAMIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*length, m_surface.data(), GL_DYNAMIC_DRAW);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_offset * sizeof(GLuint), &(indices[0]), GL_DYNAMIC_DRAW);
   glDrawElements(GL_TRIANGLES, index_offset, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
@@ -975,64 +987,69 @@ float CScreensaverMicrocosm::surfaceFunctionTransition1(void* main, float* posit
   return value;
 }
 
-void* CScreensaverMicrocosm::threadFunction0(void* arg)
+void CScreensaverMicrocosm::threadFunction0()
 {
-  CScreensaverMicrocosm* base = static_cast<CScreensaverMicrocosm*>(arg);
-
   // Conditional variables require their associated mutexes to start out locked
-  pthread_mutex_lock(&base->m_t0StartMutex);
+  m_t0StartMutex.lock();
 
   // Wait until main loop is signalable, then tell it that this thread has started
-  pthread_mutex_lock(&base->m_t0EndMutex);
-  pthread_mutex_unlock(&base->m_t0EndMutex);
-  pthread_cond_signal(&base->m_t0End);
+  m_t0EndMutex.lock();
+  m_t0EndMutex.unlock();
+  m_t0End.notify_all();
 
-  while (base->m_startOK)
+  while (m_startOK)
   {
     // Block until signal is received.  Mutex is unlocked while waiting.
-    pthread_cond_wait(&base->m_t0Start, &base->m_t0StartMutex);
-    if (!base->m_startOK)
+    m_t0Start.wait(m_t0StartMutex);
+
+    if (!m_startOK)
       break;
 
     // Compute surface
-    base->m_volume0->makeSurface(base->m_crawlpoints);
+    m_volume0->makeSurface(m_crawlpoints);
+
     // Wait until main loop is signalable, then tell it that this computation is complete.
-    pthread_mutex_lock(&base->m_t0EndMutex);
-    pthread_mutex_unlock(&base->m_t0EndMutex);
-    pthread_cond_signal(&base->m_t0End);
+    m_t0EndMutex.lock();
+    m_t0EndMutex.unlock();
+    m_t0End.notify_all();
   }
 
-  return 0;
+  m_t0StartMutex.unlock();
+
+  return;
 }
 
-void* CScreensaverMicrocosm::threadFunction1(void* arg)
+void CScreensaverMicrocosm::threadFunction1()
 {
-  CScreensaverMicrocosm* base = static_cast<CScreensaverMicrocosm*>(arg);
-
   // Conditional variables require their associated mutexes to start out locked
-  pthread_mutex_lock(&base->m_t1StartMutex);
+  m_t1StartMutex.lock();
 
   // Wait until main loop is signalable, then tell it that this thread has started
-  pthread_mutex_lock(&base->m_t1EndMutex);
-  pthread_mutex_unlock(&base->m_t1EndMutex);
-  pthread_cond_signal(&base->m_t1End);
+  m_t1EndMutex.lock();
+  m_t1EndMutex.unlock();
+  m_t1End.notify_all();
 
-  while (base->m_startOK)
+  while (m_startOK)
   {
     // Block until signal is received.  Mutex is unlocked while waiting.
-    pthread_cond_wait(&base->m_t1Start, &base->m_t1StartMutex);
-    if (!base->m_startOK)
+    m_t1Start.wait(m_t1StartMutex);
+
+    if (!m_startOK)
       break;
+
     // Compute surfaces
-    base->m_volume1->makeSurface(base->m_crawlpoints);
-    base->m_volume2->makeSurface(base->m_crawlpoints);
+    m_volume1->makeSurface(m_crawlpoints);
+    m_volume2->makeSurface(m_crawlpoints);
+
     // Wait until main loop is signalable, then tell it that this computation is complete.
-    pthread_mutex_lock(&base->m_t1EndMutex);
-    pthread_mutex_unlock(&base->m_t1EndMutex);
-    pthread_cond_signal(&base->m_t1End);
+    m_t1EndMutex.lock();
+    m_t1EndMutex.unlock();
+    m_t1End.notify_all();
   }
 
-  return 0;
+  m_t1StartMutex.unlock();
+
+  return;
 }
 
 ADDONCREATOR(CScreensaverMicrocosm);

@@ -29,6 +29,7 @@
 #include "flare.h"
 #include "main.h"
 
+#include <algorithm>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>

@@ -28,8 +28,8 @@
 
 #include "main.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <Rgbhsl/Rgbhsl.h>
@@ -248,6 +248,7 @@ class CBug
 {
 public:
   CBug();
+  ~CBug();
 
   void initTrail();
   void initLeader(int width, int height, int depth);
@@ -275,22 +276,36 @@ private:
   int skipTrail;
   int trailEndPtr;
 
-  float *xtrail;
-  float *ytrail;
-  float *ztrail;
+  float *xtrail = nullptr;
+  float *ytrail = nullptr;
+  float *ztrail = nullptr;
 
-  float *rtrail;
-  float *gtrail;
-  float *btrail;
+  float *rtrail = nullptr;
+  float *gtrail = nullptr;
+  float *btrail = nullptr;
 
   float xdrift;
   float ydrift;
   float zdrift;
+
+  sLight* m_trailLight = nullptr;
 };
 
 CBug::CBug()
 {
-  hcount = random();
+  hcount = rand();
+}
+
+CBug::~CBug()
+{
+  delete[] xtrail;
+  delete[] ytrail;
+  delete[] ztrail;
+  delete[] rtrail;
+  delete[] gtrail;
+  delete[] btrail;
+  delete[] m_trailLight;
+
 }
 
 void CBug::initTrail()
@@ -304,6 +319,7 @@ void CBug::initTrail()
   rtrail = new float[gSettings.dTrail];
   gtrail = new float[gSettings.dTrail];
   btrail = new float[gSettings.dTrail];
+  m_trailLight = new sLight[gSettings.dTrail];
 
   for (int i = 0; i < gSettings.dTrail; i++)
   {
@@ -324,7 +340,7 @@ void CBug::initLeader(int width, int height, int depth)
   m_depth = depth;;
 
   type = 0;
-  h = rsRandf(1.0);
+  h = rsRandf(1.0f);
   s = 1.0f;
   l = 1.0f;
   x = rsRandf(float (m_width * 2)) - float (m_width);
@@ -358,7 +374,7 @@ void CBug::initFollower(int width, int height, int depth)
   m_depth = depth;;
 
   type = 1;
-  h = rsRandf (1.0);
+  h = rsRandf (1.0f);
   s = 1.0f;
   l = 1.0f;
   x = rsRandf (float (width * 2)) - float (width);
@@ -554,10 +570,10 @@ void CBug::update(CBug* bugs, float colorFade, float elapsedTime)
 void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
 {
   int i;
-  float scale[4] = { 0.0 };
+  float scale[4] = { 0.0f };
   sLight light[32];
 
-  base->m_uniformColor = sColor(r, g, b);
+  base->m_uniformColor = glm::vec4(r, g, b, 1.0f);
   if (gSettings.dGeometry)   // Draw blobs
   {
     glm::mat4 modelMat = base->m_modelMat;
@@ -607,22 +623,22 @@ void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
       base->m_uniformColorUsed = 1;
 
       if (gSettings.dRandomColors)
-        hsl2rgb (hcount / 360.0, 1.0, 1.0, rr, gg, bb);
+        hsl2rgb(hcount / 360.0f, 1.0f, 1.0f, rr, gg, bb);
 
-      base->m_uniformColor = sColor(rr, gg, bb, 0.1f);
-      light[0].vertex = sPosition(x, y, 0.0f);
+      base->m_uniformColor = glm::vec4(rr, gg, bb, 0.1f);
+      light[0].vertex = glm::vec3(x, y, 0.0f);
       for (int ii = 0; ii <= 30; ++ii)
-        light[ii+1].vertex = sPosition(x + cos(ii / 30.0 * 2 * M_PI) * z / 10.0, y + sin(ii / 30.0 * 2 * M_PI) * z / 10.0, 0.0);
+        light[ii+1].vertex = glm::vec3(x + cosf(ii / 30.0f * 2 * glm::pi<float>()) * z / 10.0f, y + sinf(ii / 30.0f * 2 * glm::pi<float>()) * z / 10.0f, 0.0f);
       base->DrawEntry(GL_TRIANGLE_FAN, light, 32);
 
       if (gSettings.dRandomColors)
-        hsl2rgb(fmod(hcount / 360.0 + 0.5, 1.0), 1.0, 1.0, rr, gg, bb);
+        hsl2rgb(fmod(hcount / 360.0f + 0.5f, 1.0f), 1.0f, 1.0f, rr, gg, bb);
       else
-        hsl2rgb(fmod(h + 0.5, 1.0), 1.0, 1.0, rr, gg, bb);
+        hsl2rgb(fmod(h + 0.5f, 1.0f), 1.0f, 1.0f, rr, gg, bb);
 
-      base->m_uniformColor = sColor(rr, gg, bb, 0.5);
+      base->m_uniformColor = glm::vec4(rr, gg, bb, 0.5f);
       for (int ii = 0; ii <= 30; ++ii)
-        light[ii].vertex = sPosition(x + cos(ii / 30.0 * 2 * M_PI) * z / 10.0, y + sin(ii / 30.0 * 2 * M_PI) * z / 10.0, 0.0);
+        light[ii].vertex = glm::vec3(x + cosf(ii / 30.0f * 2 * glm::pi<float>()) * z / 10.0f, y + sinf(ii / 30.0f * 2 * glm::pi<float>()) * z / 10.0f, 0.0f);
       base->DrawEntry(GL_LINE_STRIP, light, 31);
 
       base->m_uniformColorUsed = 0;
@@ -644,8 +660,8 @@ void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
         scale[2] *= float (gSettings.dStretch);
 
         base->m_uniformColorUsed = 1;
-        light[0].vertex = sPosition(x - scale[0], y - scale[1], z - scale[2]);
-        light[1].vertex = sPosition(x + scale[0], y + scale[1], z + scale[2]);
+        light[0].vertex = glm::vec3(x - scale[0], y - scale[1], z - scale[2]);
+        light[1].vertex = glm::vec3(x + scale[0], y + scale[1], z + scale[2]);
         base->DrawEntry(GL_LINES, light, 2);
       }
     }
@@ -658,7 +674,7 @@ void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
         glPointSize(size);
 #endif
         base->m_uniformColorUsed = 1;
-        light[0].vertex = sPosition(x, y, z);
+        light[0].vertex = glm::vec3(x, y, z);
         base->DrawEntry(GL_POINTS, light, 1);
       }
     }
@@ -670,10 +686,10 @@ void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
 
     base->m_uniformColorUsed = 0;
     base->m_lightingEnabled = 0;
-    light[0].color = sColor(halfr, halfg, halfb);
-    light[0].vertex = sPosition(x, y, z);
-    light[1].color = sColor(bugs[leader].halfr, bugs[leader].halfg, bugs[leader].halfb);
-    light[1].vertex = sPosition(bugs[leader].x, bugs[leader].y, bugs[leader].z);
+    light[0].color = glm::vec4(halfr, halfg, halfb, 1.0f);
+    light[0].vertex = glm::vec3(x, y, z);
+    light[1].color = glm::vec4(bugs[leader].halfr, bugs[leader].halfg, bugs[leader].halfb, 1.0f);
+    light[1].vertex = glm::vec3(bugs[leader].x, bugs[leader].y, bugs[leader].z);
     base->DrawEntry(GL_LINES, light, 2);
     base->m_lightingEnabled = gSettings.dGeometry ? 1 : 0;
   }
@@ -686,15 +702,14 @@ void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
     glDisable(GL_DEPTH_TEST);
 
 #define ELEMENT(x) x[(trailEndPtr + i) % gSettings.dTrail]
-    sLight trailLight[gSettings.dTrail];
     for (i = 0; i < gSettings.dTrail; i++)
     {
-      trailLight[i].color = sColor(ELEMENT(rtrail), ELEMENT(gtrail), ELEMENT(btrail), (float)i / gSettings.dTrail);
-      trailLight[i].vertex = sPosition(ELEMENT(xtrail), ELEMENT(ytrail), ELEMENT(ztrail));
+      m_trailLight[i].color = glm::vec4(ELEMENT(rtrail), ELEMENT(gtrail), ELEMENT(btrail), (float)i / gSettings.dTrail);
+      m_trailLight[i].vertex = glm::vec3(ELEMENT(xtrail), ELEMENT(ytrail), ELEMENT(ztrail));
     }
     base->m_uniformColorUsed = 0;
     base->m_lightingEnabled = 0;
-    base->DrawEntry(GL_LINE_STRIP, trailLight, gSettings.dTrail);
+    base->DrawEntry(GL_LINE_STRIP, m_trailLight, gSettings.dTrail);
     base->m_lightingEnabled = gSettings.dGeometry ? 1 : 0;
 
     for (i = 0; i < gSettings.dTrail; i++)
@@ -715,8 +730,8 @@ bool CScreensaverFlocks::Start()
 {
   gSettings.Load();
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -770,7 +785,7 @@ bool CScreensaverFlocks::Start()
   glGenBuffers(1, &m_indexVBO);
 
   m_colorFade = float(gSettings.dColorfadespeed) * 0.01f;
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   m_startClearCnt = 5;
 
@@ -824,10 +839,10 @@ void CScreensaverFlocks::Render()
    */
   //@{
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
-  glVertexAttribPointer(m_hNormal, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
+  glVertexAttribPointer(m_hNormal, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
   glEnableVertexAttribArray(m_hNormal);
 
   glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -848,8 +863,8 @@ void CScreensaverFlocks::Render()
   }
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   int i;
@@ -871,13 +886,13 @@ void CScreensaverFlocks::Render()
     glEnable(GL_BLEND);
     glDisable(GL_DEPTH_TEST);
 
-    m_uniformColor = sColor(0.0f, 0.0f, 0.0f, 0.5f - (float(sqrt(sqrt(double (gSettings.dBlur * 0.75)))) * 0.15495f));
+    m_uniformColor = glm::vec4(0.0f, 0.0f, 0.0f, 0.5f - (float(sqrt(sqrt(double (gSettings.dBlur * 0.75)))) * 0.15495f));
     m_uniformColorUsed = 1;
     sLight light[4];
-    light[0].vertex = sPosition(-1000.0f, -1000.0f, 0.0f);
-    light[1].vertex = sPosition(1000.0f, -1000.0f, 0.0f);
-    light[2].vertex = sPosition(-1000.0f, 1000.0f, 0.0f);
-    light[3].vertex = sPosition(1000.0f, 1000.0f, 0.0f);
+    light[0].vertex = glm::vec3(-1000.0f, -1000.0f, 0.0f);
+    light[1].vertex = glm::vec3(1000.0f, -1000.0f, 0.0f);
+    light[2].vertex = glm::vec3(-1000.0f, 1000.0f, 0.0f);
+    light[3].vertex = glm::vec3(1000.0f, 1000.0f, 0.0f);
     DrawEntry(GL_TRIANGLE_STRIP, light, 4);
     m_uniformColorUsed = 0;
 
@@ -945,7 +960,7 @@ void CScreensaverFlocks::DrawEntry(int primitive, const sLight* data, unsigned i
   m_modelProjMat = m_projMat * m_modelMat;
   m_normalMat = glm::transpose(glm::inverse(glm::mat3(m_modelMat)));
   EnableShader();
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*size, data, GL_DYNAMIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*size, data, GL_STATIC_DRAW);
   glDrawArrays(primitive, 0, size);
   DisableShader();
 }
@@ -956,9 +971,9 @@ void CScreensaverFlocks::DrawSphere()
   m_normalMat = glm::transpose(glm::inverse(glm::mat3(m_modelMat)));
   EnableShader();
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*m_sphereTriangleFan1.size(), &m_sphereTriangleFan1[0], GL_DYNAMIC_DRAW);
-  glDrawArrays(GL_TRIANGLE_FAN, 0, m_sphereTriangleFan1.size());
+  glDrawArrays(GL_TRIANGLE_FAN, 0, static_cast<GLsizei>(m_sphereTriangleFan1.size()));
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*m_sphereTriangleFan2.size(), &m_sphereTriangleFan2[0], GL_DYNAMIC_DRAW);
-  glDrawArrays(GL_TRIANGLE_FAN, 0, m_sphereTriangleFan2.size());
+  glDrawArrays(GL_TRIANGLE_FAN, 0, static_cast<GLsizei>(m_sphereTriangleFan2.size()));
   DisableShader();
 }
 
@@ -979,12 +994,12 @@ void CScreensaverFlocks::Sphere(GLfloat radius, GLint slices, GLint stacks)
   GLfloat cosCache2b[CACHE_SIZE];
   GLfloat angle;
   GLfloat zHigh;
-  GLfloat sintemp1 = 0.0, sintemp2 = 0.0;
-  GLfloat costemp3 = 0.0;
+  GLfloat sintemp1 = 0.0f, sintemp2 = 0.0f;
+  GLfloat costemp3 = 0.0f;
 
   for (i = 0; i < slices; i++)
   {
-    angle = 2 * M_PI * i / slices;
+    angle = 2 * glm::pi<float>() * i / slices;
     sinCache1a[i] = sinf(angle);
     cosCache1a[i] = cosf(angle);
     sinCache2a[i] = sinCache1a[i];
@@ -993,7 +1008,7 @@ void CScreensaverFlocks::Sphere(GLfloat radius, GLint slices, GLint stacks)
 
   for (j = 0; j <= stacks; j++)
   {
-    angle = M_PI * j / stacks;
+    angle = glm::pi<float>() * j / stacks;
     sinCache2b[j] = sinf(angle);
     cosCache2b[j] = cosf(angle);
     sinCache1b[j] = radius * sinf(angle);
@@ -1014,13 +1029,13 @@ void CScreensaverFlocks::Sphere(GLfloat radius, GLint slices, GLint stacks)
   sintemp2 = sinCache2b[1];
   costemp3 = cosCache2b[1];
 
-  light.normal = sPosition(sinCache2a[0] * sinCache2b[0], cosCache2a[0] * sinCache2b[0], cosCache2b[0]);
-  light.vertex = sPosition(0.0, 0.0, radius);
+  light.normal = glm::vec3(sinCache2a[0] * sinCache2b[0], cosCache2a[0] * sinCache2b[0], cosCache2b[0]);
+  light.vertex = glm::vec3(0.0f, 0.0f, radius);
   m_sphereTriangleFan1.push_back(light);
   for (i = slices; i >= 0; i--)
   {
-    light.normal = sPosition(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
-    light.vertex = sPosition(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
+    light.normal = glm::vec3(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
+    light.vertex = glm::vec3(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
     m_sphereTriangleFan1.push_back(light);
   }
 
@@ -1030,13 +1045,13 @@ void CScreensaverFlocks::Sphere(GLfloat radius, GLint slices, GLint stacks)
   sintemp2 = sinCache2b[stacks-1];
   costemp3 = cosCache2b[stacks-1];
 
-  light.normal = sPosition(sinCache2a[stacks] * sinCache2b[stacks], cosCache2a[stacks] * sinCache2b[stacks], cosCache2b[stacks]);
-  light.vertex = sPosition(0.0, 0.0, -radius);
+  light.normal = glm::vec3(sinCache2a[stacks] * sinCache2b[stacks], cosCache2a[stacks] * sinCache2b[stacks], cosCache2b[stacks]);
+  light.vertex = glm::vec3(0.0f, 0.0f, -radius);
   m_sphereTriangleFan2.push_back(light);
   for (i = 0; i <= slices; i++)
   {
-    light.normal = sPosition(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
-    light.vertex = sPosition(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
+    light.normal = glm::vec3(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
+    light.vertex = glm::vec3(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
     m_sphereTriangleFan2.push_back(light);
   }
 }

@@ -65,32 +65,11 @@ struct sSettings
   int dBlur;
 };
 
-struct sPosition
-{
-  sPosition() : x(0.0f), y(0.0f), z(0.0f), u(1.0f) {}
-  sPosition(float x, float y, float z) : x(x), y(y), z(z), u(1.0f) {}
-  float x,y,z,u;
-};
-
-struct sCoord
-{
-  sCoord() : s(0.0f), t(0.0f) {}
-  sCoord(float s, float t) : s(s), t(t) {}
-  float s,t;
-};
-
-struct sColor
-{
-  sColor() : r(0.0f), g(0.0f), b(0.0f), a(1.0f) {}
-  sColor(float r, float g, float b, float a) : r(r), g(g), b(b), a(a) {}
-  float r,g,b,a;
-};
-
 struct sLight
 {
-  sPosition vertex;
-  sCoord coord;
-  sColor color;
+  glm::vec3 vertex;
+  glm::vec2 coord;
+  glm::vec4 color;
 };
 
 class ATTRIBUTE_HIDDEN CScreensaverSolarWinds
