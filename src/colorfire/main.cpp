@@ -40,6 +40,11 @@
 #define LOAD_TEXTURE(dest, src, compressedSize, size) dest = (unsigned char *)malloc(size); BZ2_bzBuffToBuffDecompress((char *)dest, &size, (char *)src, compressedSize, 0, 0);
 #define FREE_TEXTURE(tex) free(tex);
 
+// Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES
+#ifndef GL_RED
+#define GL_RED GL_LUMINANCE
+#endif
+
 typedef enum
 {
   TYPE_AUTO_SELECTION = -1,

@@ -35,6 +35,11 @@
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
 
+// Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES
+#ifndef GL_RED
+#define GL_RED GL_LUMINANCE
+#endif
+
 namespace {
 struct sDrempelsSettings
 {

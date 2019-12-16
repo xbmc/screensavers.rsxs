@@ -34,6 +34,11 @@
 #include <Rgbhsl/Rgbhsl.h>
 #include <rsMath/rsMath.h>
 
+// Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES
+#ifndef GL_RED
+#define GL_RED GL_LUMINANCE
+#endif
+
 // Parameters edited in the dialog box
 
 #define PRESET_AUTO_SELECTION 0
@@ -654,7 +659,9 @@ void CScreensaverFlux::Stop()
   glDisable(GL_DEPTH_TEST);
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+#if defined(HAS_GL) || (defined(HAS_GLES) && HAS_GLES == 3)
   glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+#endif
 
   // Free memory
   delete[] m_fluxes;

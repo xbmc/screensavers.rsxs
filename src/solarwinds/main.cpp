@@ -38,6 +38,11 @@
 #define PIx2 6.28318530718f
 #define DEG2RAD 0.0174532925f
 
+// Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES
+#ifndef GL_RED
+#define GL_RED GL_LUMINANCE
+#endif
+
 namespace {
   sSettings m_settings;
 }
