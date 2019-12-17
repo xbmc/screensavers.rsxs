@@ -61,14 +61,31 @@ GLuint Load(const gli::texture& Texture)
   case gli::TARGET_1D_ARRAY:
   case gli::TARGET_2D:
   case gli::TARGET_CUBE:
+  {
 #if defined(HAS_GL) || (defined(HAS_GLES) && HAS_GLES == 3)
     glTexStorage2D(
-#else
-    glTexStorage2DEXT(
-#endif
       Target, static_cast<GLint>(Texture.levels()), Format.Internal,
       Extent.x, Texture.target() == gli::TARGET_2D ? Extent.y : FaceTotal);
+#else
+#ifndef glTexStorage2DEXT
+    GLsizei width = Extent.x;
+    GLsizei height = Texture.target() == gli::TARGET_2D ? Extent.y : FaceTotal;
+    for (int i = 0; i < static_cast<int>(Texture.levels()); i++)
+    {
+        glTexImage2D(Target, i, Format.Internal, 
+          width, height,
+          0, Format.External, Format.Type, nullptr);
+        width = std::max(1, (width / 2));
+        height = std::max(1, (height / 2));
+    }
+#else
+    glTexStorage2DEXT(
+      Target, static_cast<GLint>(Texture.levels()), Format.Internal,
+      Extent.x, Texture.target() == gli::TARGET_2D ? Extent.y : FaceTotal);
+#endif
+#endif
     break;
+  }
 #if defined(HAS_GL) || (defined(HAS_GLES) && HAS_GLES == 3)
   case gli::TARGET_2D_ARRAY:
   case gli::TARGET_3D:
