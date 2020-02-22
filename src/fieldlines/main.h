@@ -37,6 +37,12 @@
 
 class CIon;
 
+struct PackedVertex
+{
+  float x, y, z;
+  float r, g, b;
+};
+
 class ATTRIBUTE_HIDDEN CScreensaverFieldLines
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
@@ -52,7 +58,7 @@ public:
   void OnCompiledAndLinked() override;
   bool OnEnabled() override;
 
-  inline float Speed() const { return m_speed; }
+  inline float Speed() const { return static_cast<float>(m_speed); }
   inline float RenderWidth() const { return m_usedWidth; }
   inline float RenderHeight() const { return m_usedHeight; }
   inline float RenderDeep() const { return m_usedDeep; }
@@ -62,6 +68,8 @@ private:
 
   double m_lastTime;
   std::vector<CIon> m_ions;
+
+  PackedVertex* m_packets = nullptr;
 
   unsigned int m_vertexVBO = 0;
 

@@ -1,6 +1,7 @@
 #version 100
 
 precision mediump float;
+precision mediump int;
 
 uniform sampler2D u_texUnit;
 uniform int u_textureId;

@@ -19,7 +19,7 @@
  *
  */
 
-#include "GL.h"
+#include <kodi/gui/gl/GL.h>
 #include <gli/gli.hpp>
 
 #include <string>

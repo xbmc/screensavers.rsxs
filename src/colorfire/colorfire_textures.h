@@ -19,10 +19,10 @@
 #ifndef COLORFIRE_TEXTURES_H
 #define COLORFIRE_TEXTURES_H
 
-extern unsigned char *smokemap;
+extern const char* smokemap;
 extern unsigned int smokemap_size;
 extern unsigned int smokemap_compressedsize;
-extern unsigned char *ripplemap;
+extern const char* ripplemap;
 extern unsigned int ripplemap_size;
 extern unsigned int ripplemap_compressedsize;
 

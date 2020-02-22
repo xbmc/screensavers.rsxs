@@ -39,25 +39,15 @@
 #define num_points_default 100000
 #define line_width_attractor_default 2
 #define line_width_satellites_default 12
-#define camera_speed_default 0.3
-#define linear_cutoff_default 0.2
-#define camera_angle_default 45
-
-struct sPosition
-{
-  float x,y,z;
-};
-
-struct sColor
-{
-  float r,g,b,a;
-};
+#define camera_speed_default 0.3f
+#define linear_cutoff_default 0.2f
+#define camera_angle_default 45.0f
 
 struct sLatticeSegmentEntry
 {
-  sPosition normal;
-  sPosition vertex;
-  sColor color;
+  glm::vec3 normal;
+  glm::vec3 vertex;
+  glm::vec4 color;
 };
 
 // Parameters edited in the dialog box
@@ -104,19 +94,19 @@ private:
   // For hack check, Kodi currently also calls Render() if Start() returned false!
   bool m_startOK = false;
 
-  float m_camera_angle_anim[2] = {5, 179};
-  float m_camera_angle_anim_speed=0.1;
+  float m_camera_angle_anim[2] = {5.0f, 179.0f};
+  float m_camera_angle_anim_speed = 0.1f;
 
-  int m_num_points;
+  int m_num_points = 0;
   int m_num_points_max=-1;
 
   int m_width = 800;
   int m_height = 600;
 
-  float* m_lorenz_coords;
-  float* m_lorenz_path;
-  float* m_satellite_times;
-  float* m_satellite_speeds;
+  float* m_lorenz_coords = nullptr;
+  float* m_lorenz_path = nullptr;
+  float* m_satellite_times = nullptr;
+  float* m_satellite_speeds = nullptr;
 
   glm::mat4 m_projMat;
   glm::mat4 m_modelMat;

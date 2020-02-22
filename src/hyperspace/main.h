@@ -226,6 +226,8 @@ private:
   float m_goo_rgb_speed[3] = {rsRandf(0.02f) + 0.02f, rsRandf(0.02f) + 0.02f, rsRandf(0.02f) + 0.02f};
 
   float m_pathDir[3] = {0.0f, 0.0f, -1.0f};
+  
+  std::vector<sLight> m_surface;
 
   bool m_first = true;
   bool m_doingPreview = false; // Preview unused here

@@ -30,6 +30,7 @@
 #include "main.h"
 #include "splinePath.h"
 
+#include <algorithm>
 #include <kodi/gui/gl/GL.h>
 #include <rsMath/rsMath.h>
 #include <Rgbhsl/Rgbhsl.h>
@@ -206,7 +207,7 @@ void CTunnel::Make(float frameTime)
 void CTunnel::Draw(float lerp)
 {
   unsigned int ptr = 0;
-  sLight lights[(m_resolution+1)*2];
+  m_lights.resize((m_resolution+1)*2);
 
   for (int k = 0; k < m_numSections; k++)
   {
@@ -214,14 +215,14 @@ void CTunnel::Draw(float lerp)
     {
       for (int j = 0; j <= m_resolution; j++)
       {
-        lights[ptr  ].color = sColor(m_c[k][i+1][j][0], m_c[k][i+1][j][1], m_c[k][i+1][j][2], lerp);
-        lights[ptr  ].coord = sCoord(m_t[k][i+1][j]);
-        lights[ptr++].vertex = sPosition(m_v[k][i+1][j]);
-        lights[ptr  ].color = sColor(m_c[k][i][j][0], m_c[k][i][j][1], m_c[k][i][j][2], lerp);
-        lights[ptr  ].coord = sCoord(m_t[k][i][j]);
-        lights[ptr++].vertex = sPosition(m_v[k][i][j]);
+        m_lights[ptr  ].color = sColor(m_c[k][i+1][j][0], m_c[k][i+1][j][1], m_c[k][i+1][j][2], lerp);
+        m_lights[ptr  ].coord = sCoord(m_t[k][i+1][j]);
+        m_lights[ptr++].vertex = sPosition(m_v[k][i+1][j]);
+        m_lights[ptr  ].color = sColor(m_c[k][i][j][0], m_c[k][i][j][1], m_c[k][i][j][2], lerp);
+        m_lights[ptr  ].coord = sCoord(m_t[k][i][j]);
+        m_lights[ptr++].vertex = sPosition(m_v[k][i][j]);
       }
-      m_base->Draw(GL_TRIANGLE_STRIP, lights, ptr);
+      m_base->Draw(GL_TRIANGLE_STRIP, m_lights.data(), ptr);
       ptr = 0;
     }
   }

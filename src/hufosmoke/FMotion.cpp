@@ -316,14 +316,14 @@ void AffFMotion(CScreensaverHufoSmoke* base, const rsVec& fireSrc, const rsMatri
           ex = ProjEX (p1);
           ey = ProjEY (p1);
           ProjEZ (ez, p1);
-          m_motion[ptr  ].color = sColor(1.0f, 1.0f, 1.0f);
-          m_motion[ptr++].vertex = sPosition(ex, ey, ez);
+          m_motion[ptr  ].color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+          m_motion[ptr++].vertex = glm::vec3(ex, ey, ez);
 
           ex = ProjEX (p2);
           ey = ProjEY (p2);
           ProjEZ (ez, p2);
-          m_motion[ptr  ].color = sColor(1.0f, 1.0f, 1.0f);
-          m_motion[ptr++].vertex = sPosition(ex, ey, ez);
+          m_motion[ptr  ].color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+          m_motion[ptr++].vertex = glm::vec3(ex, ey, ez);
         }
       }
     }

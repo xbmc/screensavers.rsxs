@@ -30,14 +30,16 @@
           </constraints>
           <control type="slider" format="integer"/>
         </setting>
-        <setting id="camera-angle" type="integer" label="30004" >
-          <default>45</default>
+        <setting id="camera-angle" type="number" label="30004" >
+          <default>45.0</default>
           <constraints>
-            <minimum>5</minimum>
-            <step>10</step>
-            <maximum>179</maximum>
+            <minimum>5.0</minimum>
+            <step>5.0</step>
+            <maximum>180.0</maximum>
           </constraints>
-          <control type="slider" format="integer"/>
+          <control type="spinner" format="string">
+            <formatlabel>30009</formatlabel>
+          </control>
         </setting>
         <setting id="line-width" type="integer" label="30005" >
           <default>2</default>

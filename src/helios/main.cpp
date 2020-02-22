@@ -29,9 +29,9 @@
 #include "main.h"
 #include "spheremap.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
 #include <kodi/gui/gl/Texture.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <Rgbhsl/Rgbhsl.h>
@@ -78,7 +78,7 @@ class CParticle
 {
 public:
   rsVec pos;
-  rsVec rgb;
+  glm::vec3 rgb;
   float size;
 };
 
@@ -129,8 +129,8 @@ public:
 
   ion();
   ~ion(){};
-  void start(float frameTime, const rsVec& newRgb, emitter* elist);
-  void update(float frameTime, const rsVec& newRgb, emitter* elist, attracter* alist);
+  void start(float frameTime, const glm::vec3& newRgb, emitter* elist);
+  void update(float frameTime, const glm::vec3& newRgb, emitter* elist, attracter* alist);
   void draw(std::function<void(const sLight* surface, rsVec pos, float size)>(cb));
 };
 
@@ -139,13 +139,13 @@ ion::ion()
   float temp;
 
   pos = rsVec(0.0f, 0.0f, 0.0f);
-  rgb = rsVec(0.0f, 0.0f, 0.0f);
+  rgb = glm::vec3(0.0f, 0.0f, 0.0f);
   temp = rsRandf(2.0f) + 0.4f;
   size = float(gHeliosSettings.dSize) * temp;
   speed = float(gHeliosSettings.dSpeed) * 12.0f / temp;
 }
 
-void ion::start(float frameTime, const rsVec& newRgb, emitter* elist)
+void ion::start(float frameTime, const glm::vec3& newRgb, emitter* elist)
 {
   int i = rsRandi(gHeliosSettings.dEmitters);
   pos = elist[i].pos;
@@ -214,7 +214,7 @@ void ion::start(float frameTime, const rsVec& newRgb, emitter* elist)
   rgb = newRgb;
 }
 
-void ion::update(float frameTime, const rsVec& newRgb, emitter* elist, attracter* alist)
+void ion::update(float frameTime, const glm::vec3& newRgb, emitter* elist, attracter* alist)
 {
   int i;
   int startOver = 0;
@@ -262,24 +262,29 @@ void ion::update(float frameTime, const rsVec& newRgb, emitter* elist, attracter
 void ion::draw(std::function<void(const sLight* surface, rsVec pos, float size)>(cb))
 {
   sLight surface[6];
-  surface[0].color = rgb.v;
-  surface[0].coord = sCoord(0.0f, 0.0f);
-  surface[0].vertex = sPosition(-0.5f, -0.5f, 0.0f);
-  surface[1].color = rgb.v;
-  surface[1].coord = sCoord(1.0f, 0.0f);
-  surface[1].vertex = sPosition(0.5f, -0.5f, 0.0f);
-  surface[2].color = rgb.v;
-  surface[2].coord = sCoord(1.0f, 1.0f);
-  surface[2].vertex = sPosition(0.5f, 0.5f, 0.0f);
-  surface[3].color = rgb.v;
-  surface[3].coord = sCoord(0.0f, 0.0f);
-  surface[3].vertex = sPosition(-0.5f, -0.5f, 0.0f);
-  surface[4].color = rgb.v;
-  surface[4].coord = sCoord(1.0f, 1.0f);
-  surface[4].vertex = sPosition(0.5f, 0.5f, 0.0f);
-  surface[5].color = rgb.v;
-  surface[5].coord = sCoord(0.0f, 1.0f);
-  surface[5].vertex = sPosition(-0.5f, 0.5f, 0.0f);
+  surface[0].color = glm::vec4(rgb, 1.0f);
+  surface[0].coord = glm::vec2(0.0f, 0.0f);
+  surface[0].vertex = glm::vec3(-0.5f, -0.5f, 0.0f);
+
+  surface[1].color = glm::vec4(rgb, 1.0f);
+  surface[1].coord = glm::vec2(1.0f, 0.0f);
+  surface[1].vertex = glm::vec3(0.5f, -0.5f, 0.0f);
+
+  surface[2].color = glm::vec4(rgb, 1.0f);
+  surface[2].coord = glm::vec2(1.0f, 1.0f);
+  surface[2].vertex = glm::vec3(0.5f, 0.5f, 0.0f);
+
+  surface[3].color = glm::vec4(rgb, 1.0f);
+  surface[3].coord = glm::vec2(0.0f, 0.0f);
+  surface[3].vertex = glm::vec3(-0.5f, -0.5f, 0.0f);
+
+  surface[4].color = glm::vec4(rgb, 1.0f);
+  surface[4].coord = glm::vec2(1.0f, 1.0f);
+  surface[4].vertex = glm::vec3(0.5f, 0.5f, 0.0f);
+
+  surface[5].color = glm::vec4(rgb, 1.0f);
+  surface[5].coord = glm::vec2(0.0f, 1.0f);
+  surface[5].vertex = glm::vec3(-0.5f, 0.5f, 0.0f);
   cb(surface, pos, size);
 }
 
@@ -300,8 +305,8 @@ bool CScreensaverHelios::Start()
   kodi::CheckSettingBoolean("general.isosurface", gHeliosSettings.dSurface);
   kodi::CheckSettingInt("general.blur", gHeliosSettings.dBlur);
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -371,19 +376,19 @@ bool CScreensaverHelios::Start()
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
 
-  glVertexAttribPointer(m_hNormal,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
+  glVertexAttribPointer(m_hNormal, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
   glEnableVertexAttribArray(m_hNormal);
 
-  glVertexAttribPointer(m_hVertex,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
-  glVertexAttribPointer(m_hColor,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
+  glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
   glEnableVertexAttribArray(m_hColor);
 
   glVertexAttribPointer(m_hCoord, 2, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, coord)));
   glEnableVertexAttribArray(m_hCoord);
 
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -421,10 +426,10 @@ void CScreensaverHelios::Render()
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
-  glVertexAttribPointer(m_hNormal,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
+  glVertexAttribPointer(m_hNormal,  3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
   glEnableVertexAttribArray(m_hNormal);
 
-  glVertexAttribPointer(m_hVertex,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex,  3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
   glVertexAttribPointer(m_hColor,  4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -442,8 +447,8 @@ void CScreensaverHelios::Render()
     glClear(GL_COLOR_BUFFER_BIT);
   }
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  m_frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  m_frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   int i;
@@ -454,7 +459,7 @@ void CScreensaverHelios::Render()
   m_preCameraInterp += float(gHeliosSettings.dCameraspeed) * m_frameTime * 0.01f;
   cameraInterp = 0.5f - (0.5f * cosf(m_preCameraInterp));
   m_cameraDistance = (1.0f - cameraInterp) * m_oldCameraDistance + cameraInterp * m_targetCameraDistance;
-  if (m_preCameraInterp >= M_PI)
+  if (m_preCameraInterp >= glm::pi<float>())
   {
     m_oldCameraDistance = m_targetCameraDistance;
     m_targetCameraDistance = -rsRandf(1300.0f) - 200.0f;
@@ -520,7 +525,7 @@ void CScreensaverHelios::Render()
       m_newHsl[0] += 1.0f;
     if (m_newHsl[0] > 1.0f)
       m_newHsl[0] -= 1.0f;
-    hsl2rgb(m_newHsl[0], m_newHsl[1], 1.0f, m_newRgb[0], m_newRgb[1], m_newRgb[2]);
+    hsl2rgb(m_newHsl[0], m_newHsl[1], 1.0f, m_newRgb.r, m_newRgb.g, m_newRgb.b);
   }
 
   // Release ions
@@ -543,7 +548,7 @@ void CScreensaverHelios::Render()
     m_preinterp += m_frameTime * float(gHeliosSettings.dSpeed) * m_interpconst;
     m_interp = 0.5f - (0.5f * cosf(m_preinterp));
   }
-  if (m_preinterp >= M_PI)
+  if (m_preinterp >= glm::pi<float>())
   {
     // select new taget points (not the same pattern twice in a row)
     m_lastTarget = m_newTarget;
@@ -600,11 +605,11 @@ void CScreensaverHelios::Render()
     m_modelMat = glm::mat4(1.0f);
 
     sLight blur[4];
-    blur[0].color = blur[1].color = blur[2].color = blur[3].color = sColor(0.0f, 0.0f, 0.0f, 0.5f - (float(sqrtf(sqrtf(float(gHeliosSettings.dBlur)))) * 0.15495f));
-    blur[0].vertex = sPosition(0.0f, 0.0f, 0.0f);
-    blur[1].vertex = sPosition(1.0f, 0.0f, 0.0f);
-    blur[2].vertex = sPosition(0.0f, 1.0f, 0.0f);
-    blur[3].vertex = sPosition(1.0f, 1.0f, 0.0f);
+    blur[0].color = blur[1].color = blur[2].color = blur[3].color = glm::vec4(0.0f, 0.0f, 0.0f, 0.5f - (float(sqrtf(sqrtf(float(gHeliosSettings.dBlur)))) * 0.15495f));
+    blur[0].vertex = glm::vec3(0.0f, 0.0f, 0.0f);
+    blur[1].vertex = glm::vec3(1.0f, 0.0f, 0.0f);
+    blur[2].vertex = glm::vec3(0.0f, 1.0f, 0.0f);
+    blur[3].vertex = glm::vec3(1.0f, 1.0f, 0.0f);
 
     EnableShader();
     glUniform1i(m_hType, 1);
@@ -661,29 +666,29 @@ void CScreensaverHelios::Render()
     else
     {
       brightFactor = 400.0f / (float(gHeliosSettings.dBlur + 30) * float(gHeliosSettings.dBlur + 30));
-      surfaceColor[0] = m_newRgb[0] * brightFactor;
-      surfaceColor[1] = m_newRgb[1] * brightFactor;
-      surfaceColor[2] = m_newRgb[2] * brightFactor;
+      surfaceColor[0] = m_newRgb.r * brightFactor;
+      surfaceColor[1] = m_newRgb.g * brightFactor;
+      surfaceColor[2] = m_newRgb.b * brightFactor;
     }
 
     m_surface->draw([&](bool compile, const float* vertices, unsigned int vertex_offset,
                                       const unsigned int* indices, unsigned int index_offset)
     {
       int length = vertex_offset/6;
-      sLight surface[length];
+      m_surfaceData.resize(length);
       for (int i = 0; i < length; ++i)
       {
-        surface[i].color.r = surfaceColor[0];
-        surface[i].color.g = surfaceColor[1];
-        surface[i].color.b = surfaceColor[2];
+        m_surfaceData[i].color.r = surfaceColor[0];
+        m_surfaceData[i].color.g = surfaceColor[1];
+        m_surfaceData[i].color.b = surfaceColor[2];
 
-        surface[i].normal.x = vertices[i*6+0];
-        surface[i].normal.y = vertices[i*6+1];
-        surface[i].normal.z = vertices[i*6+2];
+        m_surfaceData[i].normal.x = vertices[i*6+0];
+        m_surfaceData[i].normal.y = vertices[i*6+1];
+        m_surfaceData[i].normal.z = vertices[i*6+2];
 
-        surface[i].vertex.x = vertices[i*6+3];
-        surface[i].vertex.y = vertices[i*6+4];
-        surface[i].vertex.z = vertices[i*6+5];
+        m_surfaceData[i].vertex.x = vertices[i*6+3];
+        m_surfaceData[i].vertex.y = vertices[i*6+4];
+        m_surfaceData[i].vertex.z = vertices[i*6+5];
       }
 
       // draw the surface
@@ -696,7 +701,7 @@ void CScreensaverHelios::Render()
       EnableShader();
       glUniform1i(m_hType, 3);
       glBindTexture(GL_TEXTURE_2D, m_texture_id[1]);
-      glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*length, surface, GL_DYNAMIC_DRAW);
+      glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*length, m_surfaceData.data(), GL_DYNAMIC_DRAW);
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
       glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_offset * sizeof(GLuint), &(indices[0]), GL_DYNAMIC_DRAW);
       glDrawElements(GL_TRIANGLES, index_offset, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
@@ -746,21 +751,21 @@ void CScreensaverHelios::setTargets(int whichTarget)
   {
   case 0:  // random
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
-      m_elist[i].settargetpos(rsVec(rsVec(rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f)));
+      m_elist[i].settargetpos(rsVec(rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f));
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
-      m_alist[i].settargetpos(rsVec(rsVec(rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f)));
+      m_alist[i].settargetpos(rsVec(rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f, rsRandf(1000.0f) - 500.0f));
     break;
   case 1:  // line (all emitters on one side, all attracters on the other)
   {
     float position = -500.0f, change = 1000.0f / float(gHeliosSettings.dEmitters + gHeliosSettings.dAttracters - 1);
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
     {
-      m_elist[i].settargetpos(rsVec(rsVec(position, position * 0.5f, 0.0f)));
+      m_elist[i].settargetpos(rsVec(position, position * 0.5f, 0.0f));
       position += change;
     }
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
     {
-      m_alist[i].settargetpos(rsVec(rsVec(position, position * 0.5f, 0.0f)));
+      m_alist[i].settargetpos(rsVec(position, position * 0.5f, 0.0f));
       position += change;
     }
     break;
@@ -775,13 +780,13 @@ void CScreensaverHelios::setTargets(int whichTarget)
     float position = -500.0f;
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
     {
-      m_elist[i].settargetpos(rsVec(rsVec(position, position * 0.5f, 0.0f)));
+      m_elist[i].settargetpos(rsVec(position, position * 0.5f, 0.0f));
       position += change * 2.0f;
     }
     position = -500.0f + change;
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
     {
-      m_alist[i].settargetpos(rsVec(rsVec(position, position * 0.5f, 0.0f)));
+      m_alist[i].settargetpos(rsVec(position, position * 0.5f, 0.0f));
       position += change * 2.0f;
     }
     break;
@@ -793,7 +798,7 @@ void CScreensaverHelios::setTargets(int whichTarget)
     float height = -525.0f + float(gHeliosSettings.dEmitters * 25);
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
     {
-      m_elist[i].settargetpos(rsVec(rsVec(position, height, -50.0f)));
+      m_elist[i].settargetpos(rsVec(position, height, -50.0f));
       position += change * 2.0f;
     }
     change = 1000.0f / float(gHeliosSettings.dAttracters * 2 - 1);
@@ -801,7 +806,7 @@ void CScreensaverHelios::setTargets(int whichTarget)
     height = 525.0f - float(gHeliosSettings.dAttracters * 25);
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
     {
-      m_alist[i].settargetpos(rsVec(rsVec(position, height, 50.0f)));
+      m_alist[i].settargetpos(rsVec(position, height, 50.0f));
       position += change * 2.0f;
     }
     break;
@@ -813,7 +818,7 @@ void CScreensaverHelios::setTargets(int whichTarget)
     float height = -525.0f + float(gHeliosSettings.dEmitters * 25);
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
     {
-      m_elist[i].settargetpos(rsVec(rsVec(position, height, 0.0f)));
+      m_elist[i].settargetpos(rsVec(position, height, 0.0f));
       position += change * 2.0f;
     }
     change = 1000.0f / float(gHeliosSettings.dAttracters * 2 - 1);
@@ -821,66 +826,66 @@ void CScreensaverHelios::setTargets(int whichTarget)
     height = 525.0f - float(gHeliosSettings.dAttracters * 25);
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
     {
-      m_alist[i].settargetpos(rsVec(rsVec(10.0f, height, position)));
+      m_alist[i].settargetpos(rsVec(10.0f, height, position));
       position += change * 2.0f;
     }
     break;
   }
   case 5:  // random distribution across a plane
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
-      m_elist[i].settargetpos(rsVec(rsVec(rsRandf(1000.0f) - 500.0f, 0.0f, rsRandf(1000.0f) - 500.0f)));
+      m_elist[i].settargetpos(rsVec(rsRandf(1000.0f) - 500.0f, 0.0f, rsRandf(1000.0f) - 500.0f));
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
-      m_alist[i].settargetpos(rsVec(rsVec(rsRandf(1000.0f) - 500.0f, 0.0f, rsRandf(1000.0f) - 500.0f)));
+      m_alist[i].settargetpos(rsVec(rsRandf(1000.0f) - 500.0f, 0.0f, rsRandf(1000.0f) - 500.0f));
     break;
   case 6:  // random distribution across 2 planes
   {
     float height = -525.0f + float(gHeliosSettings.dEmitters * 25);
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
-      m_elist[i].settargetpos(rsVec(rsVec(rsRandf(1000.0f) - 500.0f, height, rsRandf(1000.0f) - 500.0f)));
+      m_elist[i].settargetpos(rsVec(rsRandf(1000.0f) - 500.0f, height, rsRandf(1000.0f) - 500.0f));
     height = 525.0f - float(gHeliosSettings.dAttracters * 25);
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
-      m_alist[i].settargetpos(rsVec(rsVec(rsRandf(1000.0f) - 500.0f, height, rsRandf(1000.0f) - 500.0f)));
+      m_alist[i].settargetpos(rsVec(rsRandf(1000.0f) - 500.0f, height, rsRandf(1000.0f) - 500.0f));
     break;
   }
   case 7:  // 2 rings (1 inside and 1 outside)
   {
     float angle = 0.5f, cosangle, sinangle;
-    float change = M_PI*2 / float(gHeliosSettings.dEmitters);
+    float change = glm::pi<float>()*2 / float(gHeliosSettings.dEmitters);
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
     {
       angle += change;
       cosangle = cosf(angle) * 200.0f;
       sinangle = sinf(angle) * 200.0f;
-      m_elist[i].settargetpos(rsVec(rsVec(cosangle, sinangle, 0.0f)));
+      m_elist[i].settargetpos(rsVec(cosangle, sinangle, 0.0f));
     }
     angle = 1.5f;
-    change = M_PI*2 / float(gHeliosSettings.dAttracters);
+    change = glm::pi<float>()*2 / float(gHeliosSettings.dAttracters);
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
     {
       angle += change;
       cosangle = cosf(angle) * 500.0f;
       sinangle = sinf(angle) * 500.0f;
-      m_alist[i].settargetpos(rsVec(rsVec(cosangle, sinangle, 0.0f)));
+      m_alist[i].settargetpos(rsVec(cosangle, sinangle, 0.0f));
     }
     break;
   }
   case 8:  // ring (all emitters on one side, all attracters on the other)
   {
     float angle = 0.5f, cosangle, sinangle;
-    float change = M_PI*2 / float(gHeliosSettings.dEmitters + gHeliosSettings.dAttracters);
+    float change = glm::pi<float>()*2 / float(gHeliosSettings.dEmitters + gHeliosSettings.dAttracters);
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
     {
       angle += change;
       cosangle = cosf(angle) * 500.0f;
       sinangle = sinf(angle) * 500.0f;
-      m_elist[i].settargetpos(rsVec(rsVec(cosangle, sinangle, 0.0f)));
+      m_elist[i].settargetpos(rsVec(cosangle, sinangle, 0.0f));
     }
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
     {
       angle += change;
       cosangle = cosf(angle) * 500.0f;
       sinangle = sinf(angle) * 500.0f;
-      m_alist[i].settargetpos(rsVec(rsVec(cosangle, sinangle, 0.0f)));
+      m_alist[i].settargetpos(rsVec(cosangle, sinangle, 0.0f));
     }
     break;
   }
@@ -888,15 +893,15 @@ void CScreensaverHelios::setTargets(int whichTarget)
   {
     float change;
     if (gHeliosSettings.dEmitters > gHeliosSettings.dAttracters)
-      change = M_PI*2 / float(gHeliosSettings.dEmitters * 2);
+      change = glm::pi<float>()*2 / float(gHeliosSettings.dEmitters * 2);
     else
-      change = M_PI*2 / float(gHeliosSettings.dAttracters * 2);
+      change = glm::pi<float>()*2 / float(gHeliosSettings.dAttracters * 2);
     float angle = 0.5f, cosangle, sinangle;
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
     {
       cosangle = cosf(angle) * 500.0f;
       sinangle = sinf(angle) * 500.0f;
-      m_elist[i].settargetpos(rsVec(rsVec(cosangle, sinangle, 0.0f)));
+      m_elist[i].settargetpos(rsVec(cosangle, sinangle, 0.0f));
       angle += change * 2.0f;
     }
     angle = 0.5f + change;
@@ -904,16 +909,16 @@ void CScreensaverHelios::setTargets(int whichTarget)
     {
       cosangle = cosf(angle) * 500.0f;
       sinangle = sinf(angle) * 500.0f;
-      m_alist[i].settargetpos(rsVec(rsVec(cosangle, sinangle, 0.0f)));
+      m_alist[i].settargetpos(rsVec(cosangle, sinangle, 0.0f));
       angle += change * 2.0f;
     }
     break;
   }
   case 10:  // 2 points
     for (i = 0; i < gHeliosSettings.dEmitters; i++)
-      m_elist[i].settargetpos(rsVec(rsVec(500.0f, 100.0f, 50.0f)));
+      m_elist[i].settargetpos(rsVec(500.0f, 100.0f, 50.0f));
     for (i = 0; i < gHeliosSettings.dAttracters; i++)
-      m_alist[i].settargetpos(rsVec(rsVec(-500.0f, -100.0f, -50.0f)));
+      m_alist[i].settargetpos(rsVec(-500.0f, -100.0f, -50.0f));
     break;
   }
 }

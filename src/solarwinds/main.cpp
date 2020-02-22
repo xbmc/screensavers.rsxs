@@ -38,6 +38,11 @@
 #define PIx2 6.28318530718f
 #define DEG2RAD 0.0174532925f
 
+// Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES
+#ifndef GL_RED
+#define GL_RED GL_LUMINANCE
+#endif
+
 namespace {
   sSettings m_settings;
 }
@@ -212,14 +217,14 @@ void CWind::update(CScreensaverSolarWinds* base)
   case 1:  // points
     for (i = 0; i < m_settings.dParticles; i++)
     {
-      light[0].color = light[1].color = light[2].color = light[3].color = sColor(particles[i][3], particles[i][4], particles[i][5], 1.0f);
+      light[0].color = light[1].color = light[2].color = light[3].color = glm::vec4(particles[i][3], particles[i][4], particles[i][5], 1.0f);
 
       glm::mat4 modelMat = base->m_modelMat;
 
       base->m_modelMat = glm::translate(modelMat, glm::vec3(particles[i][0], particles[i][1], particles[i][2]));
 
       base->EnableShader();
-      glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, base->m_light, GL_STATIC_DRAW);
+      glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, base->m_light, GL_DYNAMIC_DRAW);
       glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
       base->DisableShader();
 
@@ -236,19 +241,19 @@ void CWind::update(CScreensaverSolarWinds* base)
         glLineWidth(linesize * temp);
 
         if (linelist[i][0] == -1)
-          light[0].color = sColor(0.0f, 0.0f, 0.0f, 1.0f);
+          light[0].color = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
         else
-          light[0].color = sColor(particles[i][3], particles[i][4], particles[i][5], 1.0f);
-        light[0].vertex = sPosition(particles[i][0], particles[i][1], particles[i][2]);
+          light[0].color = glm::vec4(particles[i][3], particles[i][4], particles[i][5], 1.0f);
+        light[0].vertex = glm::vec3(particles[i][0], particles[i][1], particles[i][2]);
 
         if (linelist[linelist[i][1]][1] == -1)
-          light[1].color = sColor(0.0f, 0.0f, 0.0f, 1.0f);
+          light[1].color = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
         else
-          light[1].color = sColor(particles[linelist[i][1]][3], particles[linelist[i][1]][4], particles[linelist[i][1]][5], 1.0f);
-        light[1].vertex = sPosition(particles[linelist[i][1]][0], particles[linelist[i][1]][1], particles[linelist[i][1]][2]);
+          light[1].color = glm::vec4(particles[linelist[i][1]][3], particles[linelist[i][1]][4], particles[linelist[i][1]][5], 1.0f);
+        light[1].vertex = glm::vec3(particles[linelist[i][1]][0], particles[linelist[i][1]][1], particles[linelist[i][1]][2]);
 
         base->EnableShader();
-        glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*2, base->m_light, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*2, base->m_light, GL_DYNAMIC_DRAW);
         glDrawArrays(GL_LINES, 0, 2);
         base->DisableShader();
       }
@@ -281,7 +286,7 @@ bool CScreensaverSolarWinds::Start()
   glGenBuffers(1, m_vertexVBO);
 
   m_projMat = glm::perspective(glm::radians(90.0f), (float)Width() / (float)Height(), 1.0f, 10000.0f);
-  m_projMat = glm::translate(m_projMat, glm::vec3(0.0, 0.0, -15.0));
+  m_projMat = glm::translate(m_projMat, glm::vec3(0.0f, 0.0f, -15.0f));
 
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
@@ -296,7 +301,7 @@ bool CScreensaverSolarWinds::Start()
   {
     for (i = 0; i < LIGHTSIZE; i++)
     {
-      for (j=0; j<LIGHTSIZE; j++)
+      for (j = 0; j  <LIGHTSIZE; j++)
       {
         x = float(i - LIGHTSIZE / 2) / float(LIGHTSIZE / 2);
         y = float(j - LIGHTSIZE / 2) / float(LIGHTSIZE / 2);
@@ -312,21 +317,21 @@ bool CScreensaverSolarWinds::Start()
     glBindTexture(GL_TEXTURE_2D, m_hwTexture);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LIGHTSIZE, LIGHTSIZE, 0, GL_RED, GL_UNSIGNED_BYTE, m_lightTexture);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, LIGHTSIZE, LIGHTSIZE, 0, GL_RED, GL_UNSIGNED_BYTE, m_lightTexture);
 
     temp = 0.02f * float(m_settings.dSize);
 
-    m_light[0].vertex = sPosition(-temp, -temp, 0.0f);
-    m_light[0].coord = sCoord(0.0f, 0.0f);
+    m_light[0].vertex = glm::vec3(-temp, -temp, 0.0f);
+    m_light[0].coord = glm::vec2(0.0f, 0.0f);
 
-    m_light[1].vertex = sPosition(temp, -temp, 0.0f);
-    m_light[1].coord = sCoord(1.0f, 0.0f);
+    m_light[1].vertex = glm::vec3(temp, -temp, 0.0f);
+    m_light[1].coord = glm::vec2(1.0f, 0.0f);
 
-    m_light[2].vertex = sPosition(-temp, temp, 0.0f);
-    m_light[2].coord = sCoord(0.0f, 1.0f);
+    m_light[2].vertex = glm::vec3(-temp, temp, 0.0f);
+    m_light[2].coord = glm::vec2(0.0f, 1.0f);
 
-    m_light[3].vertex = sPosition(temp, temp, 0.0f);
-    m_light[3].coord = sCoord(1.0f, 1.0f);
+    m_light[3].vertex = glm::vec3(temp, temp, 0.0f);
+    m_light[3].coord = glm::vec2(1.0f, 1.0f);
   }
 
 #if !defined(HAS_GLES)
@@ -364,7 +369,7 @@ void CScreensaverSolarWinds::Render()
     return;
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO[0]);
-  glVertexAttribPointer(m_hPos,  4, GL_FLOAT, 0, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hPos, 3, GL_FLOAT, 0, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hPos);
   glVertexAttribPointer(m_hCol, 4, GL_FLOAT, 0, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
   glEnableVertexAttribArray(m_hCol);
@@ -392,11 +397,11 @@ void CScreensaverSolarWinds::Render()
 
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    m_blur[0].color = m_blur[1].color = m_blur[2].color = m_blur[3].color = sColor(0.0f, 0.0f, 0.0f, 0.5f - (float(m_settings.dBlur) * 0.0049f));
-    m_blur[0].vertex = sPosition(0.0f, 0.0f, 0.0f);
-    m_blur[1].vertex = sPosition(1.0f, 0.0f, 0.0f);
-    m_blur[2].vertex = sPosition(0.0f, 1.0f, 0.0f);
-    m_blur[3].vertex = sPosition(1.0f, 1.0f, 0.0f);
+    m_blur[0].color = m_blur[1].color = m_blur[2].color = m_blur[3].color = glm::vec4(0.0f, 0.0f, 0.0f, 0.5f - (float(m_settings.dBlur) * 0.0049f));
+    m_blur[0].vertex = glm::vec3(0.0f, 0.0f, 0.0f);
+    m_blur[1].vertex = glm::vec3(1.0f, 0.0f, 0.0f);
+    m_blur[2].vertex = glm::vec3(0.0f, 1.0f, 0.0f);
+    m_blur[3].vertex = glm::vec3(1.0f, 1.0f, 0.0f);
 
     EnableShader();
     glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, m_blur, GL_STATIC_DRAW);

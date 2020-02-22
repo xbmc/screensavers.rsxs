@@ -32,6 +32,9 @@
 #include <kodi/gui/gl/Shader.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <Implicit/impCubeVolume.h>
+#include <condition_variable>
+#include <mutex>
+#include <thread>
 
 #include "light.h"
 #include "gizmo.h"
@@ -161,6 +164,7 @@ class ATTRIBUTE_HIDDEN CScreensaverMicrocosm
 {
 public:
   CScreensaverMicrocosm();
+  ~CScreensaverMicrocosm() override;
 
   // kodi::addon::CInstanceScreensaver
   bool Start() override;
@@ -192,8 +196,8 @@ private:
   static float surfaceFunction1(void* main, float* position); // function for mode 1: kaleidoscope
   static float surfaceFunctionTransition1(void* main, float* position); // ... and with transition
 
-  static void* threadFunction0(void* arg);
-  static void* threadFunction1(void* arg);
+  void threadFunction0();
+  void threadFunction1();
 
   glm::mat4 m_projMat;
   glm::mat4 m_modelMat;
@@ -282,6 +286,8 @@ private:
   // easter egg
   // Tennis gizmo is not immediately available
   bool m_tennisAvailable = false;
+  
+  std::vector<sLight> m_surface;
 
   // multi-threading
   // Two worker threads are used to compute frame (n+1)'s surfaces while frame n
@@ -293,17 +299,28 @@ private:
   // That way the main thread does not restart the draw() function and change
   // the surface parameters until the worker threads are done using those parameters.
   bool m_useThreads = true;
-  pthread_t m_thread0;
-  pthread_t m_thread1;
-
+  std::thread* m_thread0 = nullptr;
+  std::thread* m_thread1 = nullptr;
+//   pthread_t m_thread0;
+//   pthread_t m_thread1;
+// 
   // conditional variables
-  pthread_cond_t m_t0Start = PTHREAD_COND_INITIALIZER;  // for signaling thread 0 to start
-  pthread_cond_t m_t0End = PTHREAD_COND_INITIALIZER;  // for thread 0 to signal main thread that it is done
-  pthread_cond_t m_t1Start = PTHREAD_COND_INITIALIZER;
-  pthread_cond_t m_t1End = PTHREAD_COND_INITIALIZER;
+  std::condition_variable_any m_t0Start;
+  std::condition_variable_any m_t0End;
+  std::condition_variable_any m_t1Start;
+  std::condition_variable_any m_t1End;
+//   pthread_cond_t m_t0Start = PTHREAD_COND_INITIALIZER;  // for signaling thread 0 to start
+//   pthread_cond_t m_t0End = PTHREAD_COND_INITIALIZER;  // for thread 0 to signal main thread that it is done
+//   pthread_cond_t m_t1Start = PTHREAD_COND_INITIALIZER;
+//   pthread_cond_t m_t1End = PTHREAD_COND_INITIALIZER;
+
   // each conditional variable requires a mutex
-  pthread_mutex_t m_t0StartMutex = PTHREAD_MUTEX_INITIALIZER;
-  pthread_mutex_t m_t0EndMutex = PTHREAD_MUTEX_INITIALIZER;
-  pthread_mutex_t m_t1StartMutex = PTHREAD_MUTEX_INITIALIZER;
-  pthread_mutex_t m_t1EndMutex = PTHREAD_MUTEX_INITIALIZER;
+//   pthread_mutex_t m_t0StartMutex = PTHREAD_MUTEX_INITIALIZER;
+//   pthread_mutex_t m_t0EndMutex = PTHREAD_MUTEX_INITIALIZER;
+//   pthread_mutex_t m_t1StartMutex = PTHREAD_MUTEX_INITIALIZER;
+//   pthread_mutex_t m_t1EndMutex = PTHREAD_MUTEX_INITIALIZER;
+  std::mutex m_t0StartMutex;
+  std::mutex m_t0EndMutex;
+  std::mutex m_t1StartMutex;
+  std::mutex m_t1EndMutex;
 };

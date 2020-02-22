@@ -26,11 +26,12 @@
  */
 
 #include "main.h"
-#include "hufo_tunnel_textures.h"
+#include "marblemap.h"
+#include "swirlmap.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
 #include <kodi/gui/gl/Texture.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <bzlib.h>
@@ -122,8 +123,8 @@ bool CScreensaverHufoTunnel::Start()
 {
   gSettings.Load();
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -178,7 +179,7 @@ bool CScreensaverHufoTunnel::Start()
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   m_uniformColorUsed = 0;
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
 
   return true;
@@ -222,18 +223,18 @@ void CScreensaverHufoTunnel::Render()
   glBindTexture(GL_TEXTURE_2D, m_texture);
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
-  glVertexAttribPointer(m_positionLoc, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_positionLoc, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_positionLoc);
 
-  glVertexAttribPointer(m_colorLoc, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
+  glVertexAttribPointer(m_colorLoc, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
   glEnableVertexAttribArray(m_colorLoc);
 
   glVertexAttribPointer(m_texCoord0Loc, 2, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, coord)));
   glEnableVertexAttribArray(m_texCoord0Loc);
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   m_tHole += frameTime * m_tVit;
@@ -251,8 +252,8 @@ void CScreensaverHufoTunnel::Render()
 
   for (p = m_holeNbImgA - 2; p >= 0; --p)
   {
-    f1 = std::min (1.0, 1.0 / (0.1 + m_ptDist[p] * (0.15)));
-    f2 = std::min (1.0, 1.0 / (0.1 + m_ptDist[p + 1] * (0.15)));
+    f1 = std::min (1.0f, 1.0f / (0.1f + m_ptDist[p] * (0.15f)));
+    f2 = std::min (1.0f, 1.0f / (0.1f + m_ptDist[p + 1] * (0.15f)));
 
     int primitive;
     if (gSettings.dWireframe)
@@ -269,26 +270,26 @@ void CScreensaverHufoTunnel::Render()
       if (gSettings.dCoarse)
       {
         f = f1 * m_pt[p][i].c1;
-        entries[ptr].color = sColor(f, f, f);
+        entries[ptr].color = glm::vec3(f, f, f);
       }
       else
-        entries[ptr].color = sColor(f1, f1, f1);
+        entries[ptr].color = glm::vec3(f1, f1, f1);
 
-      entries[ptr  ].coord = sCoord(m_pt[p][i].u, m_pt[p][i].v);
-      entries[ptr++].vertex = sPosition(m_pt[p][i].ex, m_pt[p][i].ey);
+      entries[ptr  ].coord = glm::vec2(m_pt[p][i].u, m_pt[p][i].v);
+      entries[ptr++].vertex = glm::vec3(m_pt[p][i].ex, m_pt[p][i].ey, 0.0f);
 
       if (gSettings.dCoarse)
       {
         f = f2 * m_pt[p + 1][i].c1;
-        entries[ptr].color = sColor(f, f, f);
+        entries[ptr].color = glm::vec3(f, f, f);
       }
       else
       {
-        entries[ptr].color = sColor(f2, f2, f2);
+        entries[ptr].color = glm::vec3(f2, f2, f2);
       }
 
-      entries[ptr].coord = sCoord(m_pt[p + 1][i].u, m_pt[p + 1][i].v);
-      entries[ptr++].vertex = sPosition(m_pt[p + 1][i].ex, m_pt[p + 1][i].ey);
+      entries[ptr].coord = glm::vec2(m_pt[p + 1][i].u, m_pt[p + 1][i].v);
+      entries[ptr++].vertex = glm::vec3(m_pt[p + 1][i].ex, m_pt[p + 1][i].ey, 0.0f);
     }
 
     m_uniformColorUsed = 0;
@@ -299,25 +300,25 @@ void CScreensaverHufoTunnel::Render()
       m_uniformColorUsed = 1;
 
       if (BBoxEmpty (&m_bBPlan[p]))
-        m_uniformColor = sColor(1.0f, 0.0f, 0.0f);
+        m_uniformColor = glm::vec3(1.0f, 0.0f, 0.0f);
       else
-        m_uniformColor = sColor(0.0f, 1.0f, 0.0f);
+        m_uniformColor = glm::vec3(0.0f, 1.0f, 0.0f);
 
       sLight line1[5];
-      line1[0].vertex = sPosition(m_bBPlan[p].u0, m_bBPlan[p].v0);
-      line1[1].vertex = sPosition(m_bBPlan[p].u1, m_bBPlan[p].v0);
-      line1[2].vertex = sPosition(m_bBPlan[p].u1, m_bBPlan[p].v1);
-      line1[3].vertex = sPosition(m_bBPlan[p].u0, m_bBPlan[p].v1);
-      line1[4].vertex = sPosition(m_bBPlan[p].u0, m_bBPlan[p].v0);
+      line1[0].vertex = glm::vec3(m_bBPlan[p].u0, m_bBPlan[p].v0, 0.0f);
+      line1[1].vertex = glm::vec3(m_bBPlan[p].u1, m_bBPlan[p].v0, 0.0f);
+      line1[2].vertex = glm::vec3(m_bBPlan[p].u1, m_bBPlan[p].v1, 0.0f);
+      line1[3].vertex = glm::vec3(m_bBPlan[p].u0, m_bBPlan[p].v1, 0.0f);
+      line1[4].vertex = glm::vec3(m_bBPlan[p].u0, m_bBPlan[p].v0, 0.0f);
       DrawEntry(GL_LINE_STRIP, line1, 5);
 
       ptr = 0;
-      m_uniformColor = sColor(f1, f1, f1);
+      m_uniformColor = glm::vec3(f1, f1, f1);
       for (i = 0; i <= HoleNbParImg; i += ((gSettings.dCoarse > 0) ? gSettings.dCoarse : 1))
       {
-        entries[ptr  ].coord = sCoord(m_pt[p][i].u, m_pt[p][i].v);
-        entries[ptr  ].color = sColor(f1, f1, f1);
-        entries[ptr++].vertex = sPosition(m_pt[p][i].ex, m_pt[p][i].ey);
+        entries[ptr  ].coord = glm::vec2(m_pt[p][i].u, m_pt[p][i].v);
+        entries[ptr  ].color = glm::vec3(f1, f1, f1);
+        entries[ptr++].vertex = glm::vec3(m_pt[p][i].ex, m_pt[p][i].ey, 0.0f);
       }
 
       DrawEntry(GL_LINE_STRIP, entries, ptr);
@@ -341,7 +342,7 @@ void CScreensaverHufoTunnel::DrawEntry(int primitive, const sLight* data, unsign
   DisableShader();
 }
 
-void CScreensaverHufoTunnel::HoleInitPlan(int p, int t, float ss/* = 1.0*/)
+void CScreensaverHufoTunnel::HoleInitPlan(int p, int t, float ss/* = 1.0f*/)
 {
   float c1, c2;
   float s = ss;
@@ -417,15 +418,15 @@ void CScreensaverHufoTunnel::HoleInitPlan(int p, int t, float ss/* = 1.0*/)
 
     ax = ax * 2;
 
-    m_holeTraj[p].a[1] = 0;  //(float)(sin(t*M_PI/90)*4*HOLEVIT*M_PI/1500);
-    m_holeTraj[p].a[2] = (az * az * az * 2) * HOLEVIT * M_PI / 2500;  //(float)(sin(t*M_PI/170)*2*HOLEVIT*M_PI/2500);
-    m_holeTraj[p].a[0] = (ax * ax * ax * 2) * HOLEVIT * M_PI / 2500;  //(float)(sin(t*M_PI/170)*2*HOLEVIT*M_PI/2500);
+    m_holeTraj[p].a[1] = 0;  //(float)(sin(t*glm::pi<float>()/90)*4*HOLEVIT*glm::pi<float>()/1500);
+    m_holeTraj[p].a[2] = (az * az * az * 2) * HOLEVIT * glm::pi<float>() / 2500;  //(float)(sin(t*glm::pi<float>()/170)*2*HOLEVIT*glm::pi<float>()/2500);
+    m_holeTraj[p].a[0] = (ax * ax * ax * 2) * HOLEVIT * glm::pi<float>() / 2500;  //(float)(sin(t*glm::pi<float>()/170)*2*HOLEVIT*glm::pi<float>()/2500);
   }
   else
   {
-    m_holeTraj[p].a[0] = (float)(sin (t * M_PI / 40) * HOLEVIT * M_PI / 1500);
-    m_holeTraj[p].a[1] = (float)(sin (t * M_PI / 90) * 4 * HOLEVIT * M_PI / 1500);
-    m_holeTraj[p].a[2] = (float)(sin (t * M_PI / 70) * 2 * HOLEVIT * M_PI / 1500);
+    m_holeTraj[p].a[0] = sinf(t * glm::pi<float>() / 40) * HOLEVIT * glm::pi<float>() / 1500;
+    m_holeTraj[p].a[1] = sinf(t * glm::pi<float>() / 90) * 4 * HOLEVIT * glm::pi<float>() / 1500;
+    m_holeTraj[p].a[2] = sinf(t * glm::pi<float>() / 70) * 2 * HOLEVIT * glm::pi<float>() / 1500;
   }
 }
 
@@ -433,8 +434,8 @@ void CScreensaverHufoTunnel::HoleInit()
 {
   for (int i = 0; i < HoleNbParImg; i++)
   {
-    m_refHole[i].u = (float)(sin (i * (2 * M_PI / HoleNbParImg)) * HOLEGEN);
-    m_refHole[i].v = (float)(cos (i * (2 * M_PI / HoleNbParImg)) * HOLEGEN);
+    m_refHole[i].u = sinf(i * (2 * glm::pi<float>() / HoleNbParImg)) * HOLEGEN;
+    m_refHole[i].v = cosf(i * (2 * glm::pi<float>() / HoleNbParImg)) * HOLEGEN;
     m_refHole[i].c1 = 0;
     m_refHole[i].c2 = 0;
   }
@@ -486,24 +487,24 @@ void CScreensaverHufoTunnel::CalcBBoxPlan(int p, BBox2D * b)
 
 void CScreensaverHufoTunnel::InterLnCircle(double u, double v, double w, float *x1, float *y1, float *x2, float *y2)
 {
-  double d = 1.0 / sqrt (u * u + v * v);
+  double d = 1.0f / sqrt(u * u + v * v);
 
   u *= d;
   v *= d;
   w *= d;
 #ifdef _DEBUG
-  assert (abs (w) < 1.0);
+  assert (abs (w) < 1.0f);
 #endif
-  d = sqrt (1.0 - w * w);
+  d = sqrt (1.0f - w * w);
   *x1 = w * u - d * v;
   *y1 = w * v + d * u;
   *x2 = w * u + d * v;
   *y2 = w * v - d * u;
-#ifdef _DEBUG
+#if defined(_DEBUG) && !defined(_WIN32)
   assert (abs ((*x1) * u + (*y1) * v - w) < 1e-6);
   assert (abs ((*x2) * u + (*y2) * v - w) < 1e-6);
-  assert (abs (sqr (*x1) + sqr (*y1) - 1.0) < 1e-6);
-  assert (abs (sqr (*x2) + sqr (*y2) - 1.0) < 1e-6);
+  assert (abs (sqr (*x1) + sqr (*y1) - 1.0f) < 1e-6);
+  assert (abs (sqr (*x2) + sqr (*y2) - 1.0f) < 1e-6);
 #endif
 }
 
@@ -533,7 +534,7 @@ void CScreensaverHufoTunnel::MkBBoxAll(BBox2D * b)
 
 void CScreensaverHufoTunnel::CalcHole(int T)
 {
-  float ft = (T & ((1 << SHFTHTPS) - 1)) * (1.0 / (1 << SHFTHTPS));
+  float ft = (T & ((1 << SHFTHTPS) - 1)) * (1.0f / (1 << SHFTHTPS));
   int it = T >> SHFTHTPS;
   int i, p, s;
 
@@ -553,7 +554,7 @@ void CScreensaverHufoTunnel::CalcHole(int T)
     {
       if (m_stopHole)
         break;  // on ne calcule plus de plan
-      HoleInitPlan(p, i + it, (gSettings.dSinHole ? (sin ((i + it) * M_PI / 10) + 4.0) / 4 : 1.0));
+      HoleInitPlan(p, i + it, (gSettings.dSinHole ? (sinf((i + it) * glm::pi<float>() / 10) + 4.0f) / 4 : 1.0f));
       m_holeLastP = i + it;
     }
     if (!i)
@@ -591,7 +592,7 @@ void CScreensaverHufoTunnel::CalcHole(int T)
 //      for (i=HoleNbImgA-1;i>=0;i--)
   for (i = 0; i < m_holeNbImgA; ++i)
   {
-    m_ptDist[i] = i + 1.0 - ft;
+    m_ptDist[i] = i + 1.0f - ft;
     p = (i + it) & (HoleNbImg - 1);
     o = m_holeTraj[p].o;
     m = m_holeTraj[p].m;
@@ -611,7 +612,7 @@ void CScreensaverHufoTunnel::CalcHole(int T)
       m_pt[i][s].ey = HVCtrY - HoleFocY * pp[2] / pp[1];
       if (gSettings.dCoarse)
         m_pt[i][s].c1 = 0.25f + 0.75f * m_hole[p][s & (HoleNbParImg - 1)].c1;
-      m_pt[i][s].u = s * (1.0 / HoleNbParImg);
+      m_pt[i][s].u = s * (1.0f / HoleNbParImg);
       m_pt[i][s].v = txtv;
     }
   }
@@ -636,7 +637,7 @@ bool CScreensaverHufoTunnel::OnEnabled()
   glUniformMatrix4fv(m_modelViewProjectionMatrixLoc, 1, GL_FALSE, glm::value_ptr(m_modelProjMat));
   glUniform1i(m_unformColorUsedLoc, m_uniformColorUsed);
   glUniform1i(m_textureUsedLoc, gSettings.dTexture && !gSettings.dWireframe);
-  glUniform4f(m_unformColorLoc, m_uniformColor.r, m_uniformColor.g, m_uniformColor.b, m_uniformColor.a);
+  glUniform4f(m_unformColorLoc, m_uniformColor.r, m_uniformColor.g, m_uniformColor.b, 1.0f);
 
   return true;
 }

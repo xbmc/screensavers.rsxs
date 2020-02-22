@@ -47,8 +47,8 @@ bool CScreensaverPlasma::Start()
   m_resolution = kodi::GetSettingInt("resolution");
   m_aspectRatio = float(Width()) / float(Height());
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -63,9 +63,6 @@ bool CScreensaverPlasma::Start()
     m_ct[i] = rsRandf(PIx2);
     m_cv[i] = rsRandf(0.005f * float(speed)) + 0.0001f;
   }
-
-  m_projMat = glm::mat4(1.0f);
-  m_modelMat = glm::mat4(1.0f);
 
   SetPlasmaSize();
 
@@ -267,19 +264,8 @@ void CScreensaverPlasma::SetPlasmaSize()
 void CScreensaverPlasma::OnCompiledAndLinked()
 {
   // Variables passed directly to the Vertex shader
-  m_hProj = glGetUniformLocation(ProgramHandle(), "m_proj");
-  m_hModel = glGetUniformLocation(ProgramHandle(), "m_model");
   m_hPos = glGetAttribLocation(ProgramHandle(), "m_attrpos");
   m_hCord = glGetAttribLocation(ProgramHandle(), "m_attrcord");
 }
-
-bool CScreensaverPlasma::OnEnabled()
-{
-  // This is called after glUseProgram()
-  glUniformMatrix4fv(m_hProj, 1, GL_FALSE, glm::value_ptr(m_projMat));
-  glUniformMatrix4fv(m_hModel, 1, GL_FALSE, glm::value_ptr(m_modelMat));
-  return true;
-}
-
 
 ADDONCREATOR(CScreensaverPlasma);

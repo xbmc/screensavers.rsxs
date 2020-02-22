@@ -18,10 +18,12 @@
 
 #pragma once
 
-#include <string>
-#include <pthread.h>
+#include <condition_variable>
 #include <dirent.h>
 #include <stdlib.h>
+#include <string>
+#include <thread>
+#include <mutex>
 
 class TexMgr
 {
@@ -29,43 +31,49 @@ class TexMgr
     TexMgr();
     ~TexMgr();
 
-    void setImageDir(const char *newDirName);
-    void setTexSize(const unsigned int &w, const unsigned int &h) { tw = w; th = h; }
-    void setGenTexSize(const unsigned int &w, const unsigned int &h) { gw = w; gh = h; }
+    void setImageDir(const std::string& newDirName);
+    void setTexSize(const unsigned int &w, const unsigned int &h) { m_tw = w; m_th = h; }
+    void setGenTexSize(const unsigned int &w, const unsigned int &h) { m_gw = w; m_gh = h; }
 
     void start();
     void stop();
 
     bool getNext();
-    unsigned int *getCurTex() const { return curTex; }
-    unsigned int getCurW() const { return curW; }
-    unsigned int getCurH() const { return curH; }
-    unsigned int *getPrevTex() const { return prevTex; }
-    unsigned int getPrevW() const { return prevW; }
-    unsigned int getPrevH() const { return prevH; }
+    unsigned int *getCurTex() const { return m_curTex; }
+    unsigned int getCurW() const { return m_curW; }
+    unsigned int getCurH() const { return m_curH; }
+    unsigned int *getPrevTex() const { return m_prevTex; }
+    unsigned int getPrevW() const { return m_prevW; }
+    unsigned int getPrevH() const { return m_prevH; }
 
   private:
-    int tw, th;
-    unsigned int *prevTex;
-    unsigned int prevW, prevH;
-    unsigned int *curTex;
-    unsigned int curW, curH;
-    unsigned int *nextTex;
-    unsigned int nextW, nextH;
-    bool ready;
+    int m_tw = -2;
+    int m_th = -2;
+    unsigned int* m_prevTex = nullptr;
+    unsigned int m_prevW = 0;
+    unsigned int m_prevH = 0;
+    unsigned int* m_curTex = nullptr;
+    unsigned int m_curW = 0;
+    unsigned int m_curH = 0;
+    unsigned int* m_nextTex = nullptr;
+    unsigned int m_nextW = 0;
+    unsigned int m_nextH = 0;
+    bool m_ready = false;
 
-    std::string dirName;
-    DIR *imageDir;
+    std::string m_dirName;
+    DIR* m_imageDir = nullptr;
 
-    pthread_t *imageThread;
-    pthread_mutex_t *nextTexMutex;
-    pthread_cond_t *nextTexCond;
-    volatile bool exiting;
+    std::thread* m_imageThread = nullptr;
+    std::mutex m_nextTexMutex;
+    std::condition_variable m_nextTexCond;
+    volatile bool m_exiting = false;
 
-    unsigned int gw, gh;
+    unsigned int m_gw = 256;
+    unsigned int m_gh = 256;
+
     void genTex();
 
     void loadNextImageFromDisk();
 
-    static void *imageThreadMain(void *vp);
+    void imageThreadMain();
 };

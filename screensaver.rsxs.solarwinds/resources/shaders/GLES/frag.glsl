@@ -1,6 +1,7 @@
 #version 100
 
 precision mediump float;
+precision mediump int;
 
 // Uniforms
 uniform sampler2D u_texture0Sampler;

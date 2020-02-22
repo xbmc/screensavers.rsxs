@@ -29,20 +29,14 @@
 #include "main.h"
 #include "ion.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <string.h>
 #include <math.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_inverse.hpp>
 #include <rsMath/rsMath.h>
-
-struct PackedVertex
-{
-  float x, y, z;
-  float r, g, b;
-};
 
 bool CScreensaverFieldLines::Start()
 {
@@ -55,8 +49,8 @@ bool CScreensaverFieldLines::Start()
   kodi::CheckSettingBoolean("electric", m_electric);
   kodi::CheckSettingFloat("reduction", m_reduction);
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -81,14 +75,16 @@ bool CScreensaverFieldLines::Start()
     m_ionsCnt = 1;
   if (m_ionsCnt > 50)
     m_ionsCnt = 50;
-  for (unsigned int i = 0; i < m_ionsCnt; ++i)
+  for (int i = 0; i < m_ionsCnt; ++i)
     m_ions.push_back(this);
 
   m_projMat = glm::mat4(1.0f);
   m_modelMat = glm::scale(glm::mat4(1.0f), glm::vec3(1.0f/m_usedDeep/m_reduction, 1.0f/m_usedDeep/m_reduction, 1.0f/m_usedDeep/m_reduction));
 
+  m_packets = new PackedVertex[m_maxSteps * 4 + 2];
+
   m_startOK = true;
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   return true;
 }
 
@@ -106,6 +102,8 @@ void CScreensaverFieldLines::Stop()
 
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  delete[] m_packets;
 }
 
 void CScreensaverFieldLines::Render()
@@ -131,8 +129,8 @@ void CScreensaverFieldLines::Render()
   // Use our shader
   EnableShader();
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   glEnable(GL_DEPTH_TEST);
@@ -213,26 +211,25 @@ void CScreensaverFieldLines::drawfieldline(CIon& ion, float x, float y, float z)
   }
 
   unsigned int ptr = 0;
-  PackedVertex packets[m_maxSteps*4+2];
 
-  packets[ptr].x = lastxyz[0];
-  packets[ptr].y = lastxyz[1];
-  packets[ptr].z = lastxyz[2];
-  packets[ptr].r = lastr;
-  packets[ptr].g = lastg;
-  packets[ptr].b = lastb;
+  m_packets[ptr].x = lastxyz[0];
+  m_packets[ptr].y = lastxyz[1];
+  m_packets[ptr].z = lastxyz[2];
+  m_packets[ptr].r = lastr;
+  m_packets[ptr].g = lastg;
+  m_packets[ptr].b = lastb;
   ptr++;
-  packets[ptr].x = xyz[0];
-  packets[ptr].y = xyz[1];
-  packets[ptr].z = xyz[2];
-  packets[ptr].r = r;
-  packets[ptr].g = g;
-  packets[ptr].b = b;
+  m_packets[ptr].x = xyz[0];
+  m_packets[ptr].y = xyz[1];
+  m_packets[ptr].z = xyz[2];
+  m_packets[ptr].r = r;
+  m_packets[ptr].g = g;
+  m_packets[ptr].b = b;
   ptr++;
 
   if (!m_constwidth)
   {
-    glBufferData(GL_ARRAY_BUFFER, sizeof(PackedVertex)*ptr, &packets[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(PackedVertex)*ptr, &m_packets[0], GL_STATIC_DRAW);
     glLineWidth((xyz[2] + 300.0f) * 0.000333f * float(m_width));
     glDrawArrays(GL_LINE_STRIP, 0, ptr);
 //     ptr = 0; // Unused to prevent wrong size in middle
@@ -308,50 +305,50 @@ void CScreensaverFieldLines::drawfieldline(CIon& ion, float x, float y, float z)
     xyz[1] += dir[1];
     xyz[2] += dir[2];
 
-    packets[ptr].r = lastr;
-    packets[ptr].g = lastg;
-    packets[ptr].b = lastb;
-    packets[ptr].x = lastxyz[0];
-    packets[ptr].y = lastxyz[1];
-    packets[ptr].z = lastxyz[2];
+    m_packets[ptr].r = lastr;
+    m_packets[ptr].g = lastg;
+    m_packets[ptr].b = lastb;
+    m_packets[ptr].x = lastxyz[0];
+    m_packets[ptr].y = lastxyz[1];
+    m_packets[ptr].z = lastxyz[2];
     ptr++;
 
     if (i != 10000)
     {
       if (i == (m_maxSteps - 1))
       {
-        packets[ptr].r = 0.0f;
-        packets[ptr].g = 0.0f;
-        packets[ptr].b = 0.0f;
+        m_packets[ptr].r = 0.0f;
+        m_packets[ptr].g = 0.0f;
+        m_packets[ptr].b = 0.0f;
       }
       else
       {
-        packets[ptr].r = r;
-        packets[ptr].g = g;
-        packets[ptr].b = b;
+        m_packets[ptr].r = r;
+        m_packets[ptr].g = g;
+        m_packets[ptr].b = b;
       }
-      packets[ptr].x = lastxyz[0];
-      packets[ptr].y = lastxyz[1];
-      packets[ptr].z = lastxyz[2];
+      m_packets[ptr].x = lastxyz[0];
+      m_packets[ptr].y = lastxyz[1];
+      m_packets[ptr].z = lastxyz[2];
       ptr++;
     }
   }
 
   if (i == 10001)
   {
-    packets[ptr].r = r;
-    packets[ptr].g = g;
-    packets[ptr].b = b;
-    packets[ptr].x = end[0];
-    packets[ptr].y = end[1];
-    packets[ptr].z = end[2];
+    m_packets[ptr].r = r;
+    m_packets[ptr].g = g;
+    m_packets[ptr].b = b;
+    m_packets[ptr].x = end[0];
+    m_packets[ptr].y = end[1];
+    m_packets[ptr].z = end[2];
     ptr++;
   }
 
   if (!m_constwidth)
     glLineWidth((xyz[2] + 300.0f) * 0.000333f * float(m_width));
 
-  glBufferData(GL_ARRAY_BUFFER, sizeof(PackedVertex)*ptr, &packets[0], GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(PackedVertex)*ptr, &m_packets[0], GL_STATIC_DRAW);
   glDrawArrays(GL_LINE_STRIP, 0, ptr);
 }
 

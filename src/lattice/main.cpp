@@ -28,9 +28,9 @@
 
 #include "main.h"
 
+#include <chrono>
 #include <rsMath/rsMath.h>
 #include <kodi/gui/gl/Texture.h>
-#include <kodi/tools/Time.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -81,8 +81,8 @@ bool CScreensaverLattice::Start()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -227,7 +227,7 @@ bool CScreensaverLattice::Start()
   m_segments = 1;
 
   glGenBuffers(1, &m_vertexVBO);
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -272,8 +272,8 @@ void CScreensaverLattice::Render()
   glVertexAttribPointer(m_aCoordLoc, 2, GL_FLOAT, GL_TRUE, sizeof(sLatticeSegmentEntry), BUFFER_OFFSET(offsetof(sLatticeSegmentEntry, coord)));
   glEnableVertexAttribArray(m_aCoordLoc);
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  m_frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  m_frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   if (m_settings.dTexture != 2 && m_settings.dTexture != 6)  // No z-buffering for crystal or ghostly

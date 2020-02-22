@@ -30,8 +30,8 @@
 #include "main.h"
 #include "soundEngine.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
@@ -94,7 +94,7 @@ bool CScreensaverSkyRocket::Start()
   m_superFast = rsRandi(1000);
   m_ambientlight = float(m_settings.dAmbient) * 0.01f;
   m_first = true;
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
 
   return true;
@@ -151,7 +151,7 @@ void CScreensaverSkyRocket::Render()
   glEnableVertexAttribArray(m_hCoord);
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_frameTime = currentTime - m_lastTime;
   m_lastTime = currentTime;
 
@@ -237,12 +237,12 @@ void CScreensaverSkyRocket::Render()
       {
         for (unsigned int i = 0; i < m_lastParticle; ++i)
         {
-          if (m_particles[i].Type() == ROCKET)
+          if (m_particles[i].GetType() == ROCKET)
           {
             m_zoomRocket = i;
-            if (m_particles[m_zoomRocket].TimeRemaining() > 4.0f)
+            if (m_particles[m_zoomRocket].GetTimeRemaining() > 4.0f)
             {
-              m_zoomTime[1] = m_particles[m_zoomRocket].TimeRemaining();
+              m_zoomTime[1] = m_particles[m_zoomRocket].GetTimeRemaining();
               // get out of for loop if a suitable rocket has been found
               i = m_lastParticle;
             }
@@ -260,7 +260,7 @@ void CScreensaverSkyRocket::Render()
           m_zoom = 1.0f;
         m_zoomTime[1] -= m_frameTime;
         float h, p;
-        FindHeadingAndPitch(m_lookFrom[0], m_particles[m_zoomRocket].XYZ(), h, p);
+        FindHeadingAndPitch(m_lookFrom[0], m_particles[m_zoomRocket].GetXYZ(), h, p);
         // Don't wrap around
         while(h - m_headings < -180.0f)
           h += 360.0f;
@@ -392,8 +392,8 @@ void CScreensaverSkyRocket::Render()
     for (unsigned int i = 0; i < m_lastParticle; ++i)
     {
       CParticle* darkener(&(m_particles[i]));
-      if (darkener->Type() == SMOKE)
-        darkener->RGB()[0] = darkener->RGB()[1] = darkener->RGB()[2] = m_ambientlight;
+      if (darkener->GetType() == SMOKE)
+        darkener->GetRGB()[0] = darkener->GetRGB()[1] = darkener->GetRGB()[2] = m_ambientlight;
     }
 
     m_changeRocketTimeConst -= m_frameTime;
@@ -418,15 +418,15 @@ void CScreensaverSkyRocket::Render()
         {
           rock->initRocket();
           if (m_settings.userDefinedExplosion >= 0)
-            rock->ExplosionType() = m_settings.userDefinedExplosion;
+            rock->GetExplosionType() = m_settings.userDefinedExplosion;
           else
           {
             if (!rsRandi(2500))  // big ones!
             {
               if (rsRandi(2))
-                rock->ExplosionType() = 19;  // sucker and shockwave
+                rock->GetExplosionType() = 19;  // sucker and shockwave
               else
-                rock->ExplosionType() = 20;  // stretcher and bigmama
+                rock->GetExplosionType() = 20;  // stretcher and bigmama
             }
             else
             {
@@ -434,29 +434,29 @@ void CScreensaverSkyRocket::Render()
               if (rsRandi(2))  // 0 - 2 (all types of spheres)
               {
                 if (!rsRandi(10))
-                  rock->ExplosionType() = 2;
+                  rock->GetExplosionType() = 2;
                 else
-                  rock->ExplosionType() = rsRandi(2);
+                  rock->GetExplosionType() = rsRandi(2);
               }
               else
               {
                 if (!rsRandi(3))  //  ring, double sphere, sphere and ring
-                  rock->ExplosionType() = rsRandi(3) + 3;
+                  rock->GetExplosionType() = rsRandi(3) + 3;
                 else
                 {
                   if (rsRandi(2))  // 6, 7, 8, 9, 10, 11
                   {
                     if (rsRandi(2))
-                      rock->ExplosionType() = rsRandi(2) + 6;
+                      rock->GetExplosionType() = rsRandi(2) + 6;
                     else
-                      rock->ExplosionType() = rsRandi(4) + 8;
+                      rock->GetExplosionType() = rsRandi(4) + 8;
                   }
                   else
                   {
                     if (rsRandi(2))  // 12, 13, 14
-                      rock->ExplosionType() = rsRandi(3) + 12;
+                      rock->GetExplosionType() = rsRandi(3) + 12;
                     else  // 15 - 18
-                      rock->ExplosionType() = rsRandi(4) + 15;
+                      rock->GetExplosionType() = rsRandi(4) + 15;
                   }
                 }
               }
@@ -492,44 +492,44 @@ void CScreensaverSkyRocket::Render()
     {
       CParticle* curpart(&(m_particles[i]));
       m_particles[i].update();
-      if (curpart->Type() == ROCKET)
+      if (curpart->GetType() == ROCKET)
         m_numRockets++;
         curpart->findDepth();
-      if (curpart->LifeRemaining() <= 0.0f || curpart->XYZ()[1] < 0.0f)
+      if (curpart->GetLifeRemaining() <= 0.0f || curpart->GetXYZ()[1] < 0.0f)
       {
-        switch(curpart->Type())
+        switch(curpart->GetType())
         {
         case ROCKET:
-          if (curpart->XYZ()[1] <= 0.0f)
+          if (curpart->GetXYZ()[1] <= 0.0f)
           {
             // move above ground for explosion so new particles aren't removed
-            curpart->XYZ()[1] = 0.1f;
-            curpart->VelocityVector()[1] *= -0.7f;
+            curpart->GetXYZ()[1] = 0.1f;
+            curpart->GetVelocityVector()[1] *= -0.7f;
           }
-          if (curpart->ExplosionType() == 18)
+          if (curpart->GetExplosionType() == 18)
             curpart->initSpinner();
           else
             curpart->initExplosion();
           break;
         case POPPER:
-          switch(curpart->ExplosionType())
+          switch(curpart->GetExplosionType())
           {
           case STAR:
-            curpart->ExplosionType() = 100;
+            curpart->GetExplosionType() = 100;
             curpart->initExplosion();
             break;
           case STREAMER:
-            curpart->ExplosionType() = 101;
+            curpart->GetExplosionType() = 101;
             curpart->initExplosion();
             break;
           case METEOR:
-            curpart->ExplosionType() = 102;
+            curpart->GetExplosionType() = 102;
             curpart->initExplosion();
             break;
           case POPPER:
-            curpart->Type() = STAR;
-            curpart->RGB().set(1.0f, 0.8f, 0.6f);
-            curpart->TimeTotal() = m_particles[i].TimeRemaining() = m_particles[i].LifeRemaining() = 0.2f;
+            curpart->GetType() = STAR;
+            curpart->GetRGB().set(1.0f, 0.8f, 0.6f);
+            curpart->GetTimeTotal() = m_particles[i].GetTimeRemaining() = m_particles[i].GetLifeRemaining() = 0.2f;
           }
           break;
         case SUCKER:
@@ -545,7 +545,7 @@ void CScreensaverSkyRocket::Render()
     for (unsigned int i = 0; i < m_lastParticle; i++)
     {
       CParticle* curpart(&(m_particles[i]));
-      if (curpart->LifeRemaining() <= 0.0f || curpart->XYZ()[1] < 0.0f)
+      if (curpart->GetLifeRemaining() <= 0.0f || curpart->GetXYZ()[1] < 0.0f)
         RemoveParticle(i);
     }
 
@@ -651,78 +651,78 @@ void CScreensaverSkyRocket::Illuminate(CParticle* ill)
 {
   float temp;
   // desaturate illumination colors
-  rsVec newrgb(ill->RGB()[0] * 0.6f + 0.4f, ill->RGB()[1] * 0.6f + 0.4f, ill->RGB()[2] * 0.6f + 0.4f);
+  glm::vec3 newrgb(ill->GetRGB()[0] * 0.6f + 0.4f, ill->GetRGB()[1] * 0.6f + 0.4f, ill->GetRGB()[2] * 0.6f + 0.4f);
 
   // Smoke illumination
-  if ((ill->Type() == ROCKET) || (ill->Type() == FOUNTAIN))
+  if ((ill->GetType() == ROCKET) || (ill->GetType() == FOUNTAIN))
   {
     float distsquared;
     for (unsigned int i = 0; i < m_lastParticle; ++i)
     {
       CParticle* smk(&(m_particles[i]));
-      if (smk->Type() == SMOKE)
+      if (smk->GetType() == SMOKE)
       {
-        distsquared = (ill->XYZ()[0] - smk->XYZ()[0]) * (ill->XYZ()[0] - smk->XYZ()[0])
-          + (ill->XYZ()[1] - smk->XYZ()[1]) * (ill->XYZ()[1] - smk->XYZ()[1])
-          + (ill->XYZ()[2] - smk->XYZ()[2]) * (ill->XYZ()[2] - smk->XYZ()[2]);
+        distsquared = (ill->GetXYZ()[0] - smk->GetXYZ()[0]) * (ill->GetXYZ()[0] - smk->GetXYZ()[0])
+          + (ill->GetXYZ()[1] - smk->GetXYZ()[1]) * (ill->GetXYZ()[1] - smk->GetXYZ()[1])
+          + (ill->GetXYZ()[2] - smk->GetXYZ()[2]) * (ill->GetXYZ()[2] - smk->GetXYZ()[2]);
         if (distsquared < 40000.0f)
         {
           temp = (40000.0f - distsquared) * 0.000025f;
-          temp = temp * temp * ill->Bright();
-          smk->RGB()[0] += temp * newrgb[0];
-          if (smk->RGB()[0] > 1.0f)
-            smk->RGB()[0] = 1.0f;
-          smk->RGB()[1] += temp * newrgb[1];
-          if (smk->RGB()[1] > 1.0f)
-            smk->RGB()[1] = 1.0f;
-          smk->RGB()[2] += temp * newrgb[2];
-          if (smk->RGB()[2] > 1.0f)
-            smk->RGB()[2] = 1.0f;
+          temp = temp * temp * ill->GetBright();
+          smk->GetRGB()[0] += temp * newrgb.r;
+          if (smk->GetRGB()[0] > 1.0f)
+            smk->GetRGB()[0] = 1.0f;
+          smk->GetRGB()[1] += temp * newrgb.g;
+          if (smk->GetRGB()[1] > 1.0f)
+            smk->GetRGB()[1] = 1.0f;
+          smk->GetRGB()[2] += temp * newrgb.b;
+          if (smk->GetRGB()[2] > 1.0f)
+            smk->GetRGB()[2] = 1.0f;
         }
       }
     }
   }
-  if (ill->Type() == EXPLOSION)
+  if (ill->GetType() == EXPLOSION)
   {
     float distsquared;
     for (unsigned int i = 0; i < m_lastParticle; ++i)
     {
       CParticle* smk(&(m_particles[i]));
-      if (smk->Type() == SMOKE)
+      if (smk->GetType() == SMOKE)
       {
-        distsquared = (ill->XYZ()[0] - smk->XYZ()[0]) * (ill->XYZ()[0] - smk->XYZ()[0])
-          + (ill->XYZ()[1] - smk->XYZ()[1]) * (ill->XYZ()[1] - smk->XYZ()[1])
-          + (ill->XYZ()[2] - smk->XYZ()[2]) * (ill->XYZ()[2] - smk->XYZ()[2]);
+        distsquared = (ill->GetXYZ()[0] - smk->GetXYZ()[0]) * (ill->GetXYZ()[0] - smk->GetXYZ()[0])
+          + (ill->GetXYZ()[1] - smk->GetXYZ()[1]) * (ill->GetXYZ()[1] - smk->GetXYZ()[1])
+          + (ill->GetXYZ()[2] - smk->GetXYZ()[2]) * (ill->GetXYZ()[2] - smk->GetXYZ()[2]);
         if (distsquared < 640000.0f)
         {
           temp = (640000.0f - distsquared) * 0.0000015625f;
-          temp = temp * temp * ill->Bright();
-          smk->RGB()[0] += temp * newrgb[0];
-          if (smk->RGB()[0] > 1.0f)
-            smk->RGB()[0] = 1.0f;
-          smk->RGB()[1] += temp * newrgb[1];
-          if (smk->RGB()[1] > 1.0f)
-            smk->RGB()[1] = 1.0f;
-          smk->RGB()[2] += temp * newrgb[2];
-          if (smk->RGB()[2] > 1.0f)
-            smk->RGB()[2] = 1.0f;
+          temp = temp * temp * ill->GetBright();
+          smk->GetRGB()[0] += temp * newrgb.r;
+          if (smk->GetRGB()[0] > 1.0f)
+            smk->GetRGB()[0] = 1.0f;
+          smk->GetRGB()[1] += temp * newrgb.g;
+          if (smk->GetRGB()[1] > 1.0f)
+            smk->GetRGB()[1] = 1.0f;
+          smk->GetRGB()[2] += temp * newrgb.b;
+          if (smk->GetRGB()[2] > 1.0f)
+            smk->GetRGB()[2] = 1.0f;
         }
       }
     }
   }
 
   // cloud illumination
-  if (ill->Type() == EXPLOSION && m_settings.dClouds)
+  if (ill->GetType() == EXPLOSION && m_settings.dClouds)
   {
     int north, south, west, east;  // limits of cloud indices to inspect
     int halfmesh = CLOUDMESH / 2;
     float distsquared;
     // remember clouds have 20000-foot radius from the World class, hence 0.00005
     // Hardcoded values like this are evil, but oh well
-    south = int((ill->XYZ()[2] - 1600.0f) * 0.00005f * float(halfmesh)) + halfmesh;
-    north = int((ill->XYZ()[2] + 1600.0f) * 0.00005f * float(halfmesh) + 0.5f) + halfmesh;
-    west = int((ill->XYZ()[0] - 1600.0f) * 0.00005f * float(halfmesh)) + halfmesh;
-    east = int((ill->XYZ()[0] + 1600.0f) * 0.00005f * float(halfmesh) + 0.5f) + halfmesh;
+    south = int((ill->GetXYZ()[2] - 1600.0f) * 0.00005f * float(halfmesh)) + halfmesh;
+    north = int((ill->GetXYZ()[2] + 1600.0f) * 0.00005f * float(halfmesh) + 0.5f) + halfmesh;
+    west = int((ill->GetXYZ()[0] - 1600.0f) * 0.00005f * float(halfmesh)) + halfmesh;
+    east = int((ill->GetXYZ()[0] + 1600.0f) * 0.00005f * float(halfmesh) + 0.5f) + halfmesh;
     // bound these values just in case
     if (south < 0) south = 0; if (south > CLOUDMESH-1) south = CLOUDMESH-1;
     if (north < 0) north = 0; if (north > CLOUDMESH-1) north = CLOUDMESH-1;
@@ -733,20 +733,20 @@ void CScreensaverSkyRocket::Illuminate(CParticle* ill)
     {
       for (int j = south; j <= north; j++)
       {
-        distsquared = (m_world.m_clouds[i][j][0] - ill->XYZ()[0]) * (m_world.m_clouds[i][j][0] - ill->XYZ()[0])
-          + (m_world.m_clouds[i][j][1] - ill->XYZ()[1]) * (m_world.m_clouds[i][j][1] - ill->XYZ()[1])
-          + (m_world.m_clouds[i][j][2] - ill->XYZ()[2]) * (m_world.m_clouds[i][j][2] - ill->XYZ()[2]);
+        distsquared = (m_world.m_clouds[i][j][0] - ill->GetXYZ()[0]) * (m_world.m_clouds[i][j][0] - ill->GetXYZ()[0])
+          + (m_world.m_clouds[i][j][1] - ill->GetXYZ()[1]) * (m_world.m_clouds[i][j][1] - ill->GetXYZ()[1])
+          + (m_world.m_clouds[i][j][2] - ill->GetXYZ()[2]) * (m_world.m_clouds[i][j][2] - ill->GetXYZ()[2]);
         if (distsquared < 2560000.0f)
         {
           temp = (2560000.0f - distsquared) * 0.000000390625f;
-          temp = temp * temp * ill->Bright();
-          m_world.m_clouds[i][j][6] += temp * newrgb[0];
+          temp = temp * temp * ill->GetBright();
+          m_world.m_clouds[i][j][6] += temp * newrgb.r;
           if (m_world.m_clouds[i][j][6] > 1.0f)
             m_world.m_clouds[i][j][6] = 1.0f;
-          m_world.m_clouds[i][j][7] += temp * newrgb[1];
+          m_world.m_clouds[i][j][7] += temp * newrgb.g;
           if (m_world.m_clouds[i][j][7] > 1.0f)
             m_world.m_clouds[i][j][7] = 1.0f;
-          m_world.m_clouds[i][j][8] += temp * newrgb[2];
+          m_world.m_clouds[i][j][8] += temp * newrgb.b;
           if (m_world.m_clouds[i][j][8] > 1.0f)
             m_world.m_clouds[i][j][8] = 1.0f;
         }
@@ -760,20 +760,20 @@ void CScreensaverSkyRocket::Pulling(CParticle* suck)
 {
   rsVec diff;
   float pulldistsquared;
-  float pullconst = (1.0f - suck->LifeRemaining()) * 0.01f * m_frameTime;
+  float pullconst = (1.0f - suck->GetLifeRemaining()) * 0.01f * m_frameTime;
 
   for (unsigned int i = 0; i < m_lastParticle; ++i)
   {
     CParticle* puller(&(m_particles[i]));
-    diff = suck->XYZ() - puller->XYZ();
+    diff = suck->GetXYZ() - puller->GetXYZ();
     pulldistsquared = diff[0]*diff[0] + diff[1]*diff[1] + diff[2]*diff[2];
     if (pulldistsquared < 250000.0f && pulldistsquared != 0.0f)
     {
-      if (puller->Type() != SUCKER && puller->Type() != STRETCHER
-        && puller->Type() != SHOCKWAVE && puller->Type() != BIGMAMA)
+      if (puller->GetType() != SUCKER && puller->GetType() != STRETCHER
+        && puller->GetType() != SHOCKWAVE && puller->GetType() != BIGMAMA)
       {
         diff.normalize();
-        puller->VelocityVector() += diff * ((250000.0f - pulldistsquared) * pullconst);
+        puller->GetVelocityVector() += diff * ((250000.0f - pulldistsquared) * pullconst);
       }
     }
   }
@@ -784,20 +784,20 @@ void CScreensaverSkyRocket::Pushing(CParticle* shock)
 {
   rsVec diff;
   float pushdistsquared;
-  float pushconst = (1.0f - shock->LifeRemaining()) * 0.002f * m_frameTime;
+  float pushconst = (1.0f - shock->GetLifeRemaining()) * 0.002f * m_frameTime;
 
   for (unsigned int i = 0; i < m_lastParticle; ++i)
   {
     CParticle* pusher(&(m_particles[i]));
-    diff = pusher->XYZ() - shock->XYZ();
+    diff = pusher->GetXYZ() - shock->GetXYZ();
     pushdistsquared = diff[0]*diff[0] + diff[1]*diff[1] + diff[2]*diff[2];
     if (pushdistsquared < 640000.0f && pushdistsquared != 0.0f)
     {
-      if (pusher->Type() != SUCKER && pusher->Type() != STRETCHER
-        && pusher->Type() != SHOCKWAVE && pusher->Type() != BIGMAMA)
+      if (pusher->GetType() != SUCKER && pusher->GetType() != STRETCHER
+        && pusher->GetType() != SHOCKWAVE && pusher->GetType() != BIGMAMA)
       {
         diff.normalize();
-        pusher->VelocityVector() += diff * ((640000.0f - pushdistsquared) * pushconst);
+        pusher->GetVelocityVector() += diff * ((640000.0f - pushdistsquared) * pushconst);
       }
     }
   }
@@ -808,20 +808,20 @@ void CScreensaverSkyRocket::Stretching(CParticle* stretch)
 {
   rsVec diff;
   float stretchdistsquared, temp;
-  float stretchconst = (1.0f - stretch->LifeRemaining()) * 0.002f * m_frameTime;
+  float stretchconst = (1.0f - stretch->GetLifeRemaining()) * 0.002f * m_frameTime;
 
   for (unsigned int i = 0; i < m_lastParticle; ++i)
   {
     CParticle* stretcher(&(m_particles[i]));
-    diff = stretch->XYZ() - stretcher->XYZ();
+    diff = stretch->GetXYZ() - stretcher->GetXYZ();
     stretchdistsquared = diff[0]*diff[0] + diff[1]*diff[1] + diff[2]*diff[2];
-    if (stretchdistsquared < 640000.0f && stretchdistsquared != 0.0f && stretcher->Type() != STRETCHER)
+    if (stretchdistsquared < 640000.0f && stretchdistsquared != 0.0f && stretcher->GetType() != STRETCHER)
     {
       diff.normalize();
       temp = (640000.0f - stretchdistsquared) * stretchconst;
-      stretcher->VelocityVector()[0] += diff[0] * temp * 5.0f;
-      stretcher->VelocityVector()[1] -= diff[1] * temp;
-      stretcher->VelocityVector()[2] += diff[2] * temp * 5.0f;
+      stretcher->GetVelocityVector()[0] += diff[0] * temp * 5.0f;
+      stretcher->GetVelocityVector()[1] -= diff[1] * temp;
+      stretcher->GetVelocityVector()[2] += diff[2] * temp * 5.0f;
     }
   }
 }
@@ -838,30 +838,30 @@ void CScreensaverSkyRocket::MakeFlareList()
   for (unsigned int i = 0; i < m_lastParticle; ++i)
   {
     CParticle* curlight(&(m_particles[i]));
-    if (curlight->Type() == EXPLOSION || curlight->Type() == SUCKER
-     || curlight->Type() == SHOCKWAVE || curlight->Type() == STRETCHER
-     || curlight->Type() == BIGMAMA)
+    if (curlight->GetType() == EXPLOSION || curlight->GetType() == SUCKER
+     || curlight->GetType() == SHOCKWAVE || curlight->GetType() == STRETCHER
+     || curlight->GetType() == BIGMAMA)
     {
-      glm::vec3 win = glm::project(glm::vec3(curlight->XYZ()[0], curlight->XYZ()[1], curlight->XYZ()[2]), m_modelMat, m_projMat,
+      glm::vec3 win = glm::project(glm::vec3(curlight->GetXYZ()[0], curlight->GetXYZ()[1], curlight->GetXYZ()[2]), m_modelMat, m_projMat,
                                    glm::ivec4(m_viewport[0], m_viewport[1], m_viewport[2], m_viewport[3]));
 
-      partDir = curlight->XYZ() - m_cameraPos;
+      partDir = curlight->GetXYZ() - m_cameraPos;
       if (partDir.dot(cameraDir) > 1.0f)  // is light source in front of camera?
       {
         if (m_numFlares == m_lensFlares.size())
           m_lensFlares.resize(m_lensFlares.size() + 10);
         m_lensFlares[m_numFlares].x = (win.x / float(m_xsize)) * m_aspectRatio;
         m_lensFlares[m_numFlares].y = win.y / float(m_ysize);
-        rsVec vec = curlight->XYZ() - m_cameraPos;  // find distance attenuation factor
-        if (curlight->Type() == EXPLOSION)
+        rsVec vec = curlight->GetXYZ() - m_cameraPos;  // find distance attenuation factor
+        if (curlight->GetType() == EXPLOSION)
         {
-          m_lensFlares[m_numFlares].r = curlight->RGB()[0];
-          m_lensFlares[m_numFlares].g = curlight->RGB()[1];
-          m_lensFlares[m_numFlares].b = curlight->RGB()[2];
+          m_lensFlares[m_numFlares].r = curlight->GetRGB()[0];
+          m_lensFlares[m_numFlares].g = curlight->GetRGB()[1];
+          m_lensFlares[m_numFlares].b = curlight->GetRGB()[2];
           float distatten = (10000.0f - vec.length()) * 0.0001f;
           if (distatten < 0.0f)
             distatten = 0.0f;
-          m_lensFlares[m_numFlares].a = curlight->Bright() * shine * distatten;
+          m_lensFlares[m_numFlares].a = curlight->GetBright() * shine * distatten;
         }
         else
         {
@@ -871,7 +871,7 @@ void CScreensaverSkyRocket::MakeFlareList()
           float distatten = (20000.0f - vec.length()) * 0.00005f;
           if (distatten < 0.0f)
             distatten = 0.0f;
-          m_lensFlares[m_numFlares].a = curlight->Bright() * 2.0f * shine * distatten;
+          m_lensFlares[m_numFlares].a = curlight->GetBright() * 2.0f * shine * distatten;
         }
         m_numFlares++;
       }

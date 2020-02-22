@@ -28,7 +28,10 @@
 
 #pragma once
 
+#include "light.h"
+
 #include <kodi/AddonBase.h>
+#include <vector>
 
 class CSplinePath;
 class CScreensaverHyperspace;
@@ -64,4 +67,6 @@ private:
   float m_huelo, m_huehi;
   float m_satlo, m_sathi;
   float m_lumlo, m_lumhi;
+  
+  std::vector<sLight> m_lights;
 };

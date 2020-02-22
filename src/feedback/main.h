@@ -35,40 +35,11 @@
 
 #include <glm/gtc/type_ptr.hpp>
 
-struct sPosition
-{
-  sPosition() : x(0.0f), y(0.0f), z(0.0f), u(1.0f) {}
-  sPosition(float* d) : x(d[0]), y(d[1]), z(d[2]), u(1.0f) {}
-  sPosition(float x, float y, float z = 0.0f) : x(x), y(y), z(z), u(1.0f) {}
-  float x,y,z,u;
-};
-
-struct sCoord
-{
-  sCoord() : s(0.0f), t(0.0f) {}
-  sCoord(float s, float t) : s(s), t(t) {}
-  float s,t;
-};
-
-struct sColor
-{
-  sColor() : r(0.0f), g(0.0f), b(0.0f), a(1.0f) {}
-  sColor(float r, float g, float b, float a = 1.0f) : r(r), g(g), b(b), a(a) {}
-  sColor& operator=(float* rhs)
-  {
-    r = rhs[0];
-    g = rhs[1];
-    b = rhs[2];
-    return *this;
-  }
-  float r,g,b,a;
-};
-
 struct sLight
 {
-  sPosition vertex;
-  sColor color;
-  sCoord coord;
+  glm::vec3 vertex;
+  glm::vec3 color;
+  glm::vec2 coord;
 };
 
 class ATTRIBUTE_HIDDEN CScreensaverFeedback
@@ -94,7 +65,7 @@ private:
     glBindTexture(GL_TEXTURE_2D, id);
   }
 
-  unsigned int m_width = 256, m_height = 256;
+  int m_width = 256, m_height = 256;
   rsVec *m_displacements, *m_velocities, *m_accelerations;
   rsVec m_totalV;
 
@@ -114,6 +85,7 @@ private:
   GLuint m_texture;
 
   sLight m_rotatingColor[4];
+  sLight* m_framedTextures = nullptr;
   GLubyte m_rotatingColorIdx[4] = {0, 1, 3, 2};
 
   bool m_textureUsed = false;

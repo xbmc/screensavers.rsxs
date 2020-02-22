@@ -1,8 +1,5 @@
+cmake_minimum_required(VERSION 3.5)
 project(screensaver.rsxs.spirographx)
-
-cmake_minimum_required(VERSION 3.0)
-
-enable_language(CXX)
 
 message(STATUS "--------------------------------------------------------------------------------")
 message(STATUS "Create \"${CMAKE_PROJECT_NAME}\"")

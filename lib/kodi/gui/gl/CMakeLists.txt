@@ -8,9 +8,7 @@ set(SOURCES Texture.cpp
             ErrorCheck.cpp)
 
 set(HEADERS Texture.h
-            ErrorCheck.h
-            Shader.h
-            GL.h)
+            ErrorCheck.h)
 
 add_library(kodiOpenGL STATIC ${SOURCES} ${HEADERS})
 if(NOT GLM_FOUND)

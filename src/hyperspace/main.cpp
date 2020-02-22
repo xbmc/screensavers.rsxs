@@ -38,16 +38,16 @@
 #include "starBurst.h"
 #include "nebulamap.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
 
 bool CScreensaverHyperspace::Start()
 {
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -136,7 +136,7 @@ bool CScreensaverHyperspace::Start()
   m_first = true;
   m_textureTime = 0.0f;
   m_starBurstTime = 300.0f;  // burst after 5 minutes
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -183,8 +183,8 @@ void CScreensaverHyperspace::Render()
   if (!m_startOK)
     return;
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  m_frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  m_frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   /*
@@ -459,22 +459,22 @@ void CScreensaverHyperspace::Draw(const sColor& color, int primitive, const sLig
 void CScreensaverHyperspace::Draw(const sColor& color, const float* vertices, unsigned int vertex_offset, const unsigned int* indices, unsigned int index_offset)
 {
   int length = vertex_offset/6;
-  sLight surface[length];
+  m_surface.resize(length);
   for (int i = 0; i < length; ++i)
   {
-    surface[i].normal.x = vertices[i*6+0];
-    surface[i].normal.y = vertices[i*6+1];
-    surface[i].normal.z = vertices[i*6+2];
+    m_surface[i].normal.x = vertices[i*6+0];
+    m_surface[i].normal.y = vertices[i*6+1];
+    m_surface[i].normal.z = vertices[i*6+2];
 
-    surface[i].vertex.x = vertices[i*6+3];
-    surface[i].vertex.y = vertices[i*6+4];
-    surface[i].vertex.z = vertices[i*6+5];
+    m_surface[i].vertex.x = vertices[i*6+3];
+    m_surface[i].vertex.y = vertices[i*6+4];
+    m_surface[i].vertex.z = vertices[i*6+5];
   }
 
   m_uniformColorUsed = 1;
   m_uniformColor = color;
   EnableShader();
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*length, surface, GL_DYNAMIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*length, m_surface.data(), GL_DYNAMIC_DRAW);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_offset * sizeof(GLuint), &(indices[0]), GL_DYNAMIC_DRAW);
   glDrawElements(GL_TRIANGLES, index_offset, GL_UNSIGNED_INT, BUFFER_OFFSET(0));

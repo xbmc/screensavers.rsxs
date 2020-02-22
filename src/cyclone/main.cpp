@@ -28,7 +28,8 @@
 
 #include "main.h"
 
-#include <kodi/tools/Time.h>
+#include <chrono>
+#include <algorithm>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
@@ -121,7 +122,11 @@ public:
   float m_hslChange[2];
 
   CCyclone();
+  ~CCyclone();
   void Update(CScreensaverCyclone* base);
+
+private:
+  sLight* m_curves = nullptr;
 };
 
 CCyclone::CCyclone()
@@ -129,6 +134,8 @@ CCyclone::CCyclone()
   int i;
 
   // Initialize position stuff
+  m_curves = new sLight[std::max(gCycloneSettings.dComplexity + 3, 50)];
+
   m_targetxyz = new float*[gCycloneSettings.dComplexity+3];
   m_xyz = new float*[gCycloneSettings.dComplexity+3];
   m_oldxyz = new float*[gCycloneSettings.dComplexity+3];
@@ -189,6 +196,22 @@ CCyclone::CCyclone()
   m_hslChange[1] = 10.0f;
 }
 
+CCyclone::~CCyclone()
+{
+  for (int i = 0; i < int(gCycloneSettings.dComplexity) + 3; i++)
+  {
+    delete[] m_targetxyz[i];
+    delete[] m_xyz[i];
+    delete[] m_oldxyz[i];
+  }
+
+  delete[] m_targetxyz;
+  delete[] m_xyz;
+  delete[] m_oldxyz;
+
+  delete[] m_curves;
+}
+
 void CCyclone::Update(CScreensaverCyclone* base)
 {
   int i;
@@ -196,7 +219,7 @@ void CCyclone::Update(CScreensaverCyclone* base)
   float between;
   float diff;
   int direction;
-  float point[3];
+  glm::vec3 point;
   float step;
   float blend;
 
@@ -267,7 +290,7 @@ void CCyclone::Update(CScreensaverCyclone* base)
   }
   for (i = 0; i < (gCycloneSettings.dComplexity+3); i++)
   {
-    between = m_xyzChange[i][0] / m_xyzChange[i][1] * (2 * M_PI);
+    between = m_xyzChange[i][0] / m_xyzChange[i][1] * (2 * glm::pi<float>());
     between = (1.0f - float(cos(between))) / 2.0f;
     m_xyz[i][0] = ((m_targetxyz[i][0] - m_oldxyz[i][0]) * between) + m_oldxyz[i][0];
     m_xyz[i][1] = ((m_targetxyz[i][1] - m_oldxyz[i][1]) * between) + m_oldxyz[i][1];
@@ -351,32 +374,31 @@ void CCyclone::Update(CScreensaverCyclone* base)
   if (gCycloneSettings.dShowCurves)
   {
     unsigned int ptr = 0;
-    sLight curves[std::max(gCycloneSettings.dComplexity+3, 50)];
     base->m_lightingEnabled = 0;
     for (step=0.0; step<1.0; step+=0.02f)
     {
-      point[0] = point[1] = point[2] = 0.0f;
+      point = glm::vec3(0.0f);
       for (i = 0; i < (gCycloneSettings.dComplexity+3); i++)
       {
         blend = base->m_fact[gCycloneSettings.dComplexity+2] / (base->m_fact[i]
               * base->m_fact[gCycloneSettings.dComplexity+2-i]) * powf(step, float(i))
               * powf((1.0f - step), float(gCycloneSettings.dComplexity+2-i));
-        point[0] += m_xyz[i][0] * blend;
-        point[1] += m_xyz[i][1] * blend;
-        point[2] += m_xyz[i][2] * blend;
+        point.x += m_xyz[i][0] * blend;
+        point.y += m_xyz[i][1] * blend;
+        point.z += m_xyz[i][2] * blend;
       }
-      curves[ptr  ].color = sColor(0.0f, 1.0f, 0.0f);
-      curves[ptr++].vertex = sPosition(point);
+      m_curves[ptr  ].color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+      m_curves[ptr++].vertex = point;
     }
-    base->DrawEntry(GL_LINE_STRIP, curves, ptr);
+    base->DrawEntry(GL_LINE_STRIP, m_curves, ptr);
     ptr = 0;
 
     for (i = 0; i < (gCycloneSettings.dComplexity+3); i++)
     {
-      curves[ptr  ].color = sColor(1.0f, 0.0f, 0.0f);
-      curves[ptr++].vertex = sPosition(&m_xyz[i][0]);
+      m_curves[ptr  ].color = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+      m_curves[ptr++].vertex = glm::vec3(m_xyz[i][0], m_xyz[i][1], m_xyz[i][2]);
     }
-    base->DrawEntry(GL_LINE_STRIP, curves, ptr);
+    base->DrawEntry(GL_LINE_STRIP, m_curves, ptr);
     base->m_lightingEnabled = 1;
   }
 }
@@ -387,7 +409,7 @@ class CParticle
 {
 public:
   float m_r, m_g, m_b;
-  float m_xyz[3], m_lastxyz[3];
+  glm::vec3 m_xyz, m_lastxyz;
   float m_width;
   float m_step;
   float m_spinAngle;
@@ -420,44 +442,40 @@ void CParticle::Update(CScreensaverCyclone* base)
   float newSpinAngle;
   float cyWidth;
   float between;
-  float dir[3];
+  glm::vec3 dir;
 
   float tiltAngle;
   float blend;
 
-  m_lastxyz[0] = m_xyz[0];
-  m_lastxyz[1] = m_xyz[1];
-  m_lastxyz[2] = m_xyz[2];
+  m_lastxyz = m_xyz;
   if (m_step > 1.0f)
     Init();
-  m_xyz[0] = m_xyz[1] = m_xyz[2] = 0.0f;
+  m_xyz = glm::vec3(0.0f);
   for (i = 0; i < (gCycloneSettings.dComplexity+3); i++)
   {
     blend = base->m_fact[gCycloneSettings.dComplexity+2] / (base->m_fact[i]
       * base->m_fact[gCycloneSettings.dComplexity+2-i]) * powf(m_step, float(i))
       * powf((1.0f - m_step), float(gCycloneSettings.dComplexity+2-i));
-    m_xyz[0] += m_cy->m_xyz[i][0] * blend;
-    m_xyz[1] += m_cy->m_xyz[i][1] * blend;
-    m_xyz[2] += m_cy->m_xyz[i][2] * blend;
+    m_xyz.x += m_cy->m_xyz[i][0] * blend;
+    m_xyz.y += m_cy->m_xyz[i][1] * blend;
+    m_xyz.z += m_cy->m_xyz[i][2] * blend;
   }
-  dir[0] = dir[1] = dir[2] = 0.0f;
+  dir = glm::vec3(0.0f);
   for (i = 0; i < (gCycloneSettings.dComplexity+3); i++)
   {
     blend = base->m_fact[gCycloneSettings.dComplexity+2] / (base->m_fact[i]
           * base->m_fact[gCycloneSettings.dComplexity+2-i]) * powf(m_step - 0.01f, float(i))
           * powf((1.0f - (m_step - 0.01f)), float(gCycloneSettings.dComplexity+2-i));
-    dir[0] += m_cy->m_xyz[i][0] * blend;
-    dir[1] += m_cy->m_xyz[i][1] * blend;
-    dir[2] += m_cy->m_xyz[i][2] * blend;
+    dir.x += m_cy->m_xyz[i][0] * blend;
+    dir.y += m_cy->m_xyz[i][1] * blend;
+    dir.z += m_cy->m_xyz[i][2] * blend;
   }
-  dir[0] = m_xyz[0] - dir[0];
-  dir[1] = m_xyz[1] - dir[1];
-  dir[2] = m_xyz[2] - dir[2];
+  dir = m_xyz - dir;
 
   glm::vec3 up = {0.0f, 1.0f, 0.0f};
   glm::vec3 ret = glm::normalize(glm::vec3(dir[0], dir[1], dir[2]));
   glm::vec3 crossVec = glm::cross(ret, up);
-  tiltAngle = -acosf(glm::dot(ret, up)) * 180.0f / M_PI;
+  tiltAngle = -acosf(glm::dot(ret, up)) * 180.0f / glm::pi<float>();
   i = int(m_step * (float(gCycloneSettings.dComplexity) + 2.0f));
   if (i >= (gCycloneSettings.dComplexity + 2))
     i = gCycloneSettings.dComplexity + 1;
@@ -478,14 +496,14 @@ void CParticle::Update(CScreensaverCyclone* base)
   }
 
   glm::mat4 modelMat = base->m_modelMat;
-  base->m_modelMat = glm::translate(glm::mat4(1.0f), glm::vec3(m_xyz[0], m_xyz[1], m_xyz[2]));
+  base->m_modelMat = glm::translate(glm::mat4(1.0f), m_xyz);
   base->m_modelMat = glm::rotate(base->m_modelMat, glm::radians(tiltAngle), crossVec);
   base->m_modelMat = glm::rotate(base->m_modelMat, glm::radians(m_spinAngle), glm::vec3(0.0f, 1.0f, 0.0f));
   base->m_modelMat = glm::translate(base->m_modelMat, glm::vec3(m_width * cyWidth, 0.0f, 0.0f));
   if (gCycloneSettings.dStretch)
     base->m_modelMat = glm::scale(base->m_modelMat, glm::vec3(1.0f, 1.0f, scale));
 
-  base->DrawSphere(sColor(m_r, m_g, m_b));
+  base->DrawSphere(glm::vec4(m_r, m_g, m_b, 1.0f));
 
   base->m_modelMat = modelMat;
 }
@@ -496,8 +514,8 @@ bool CScreensaverCyclone::Start()
 {
   int i, j;
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -541,7 +559,7 @@ bool CScreensaverCyclone::Start()
   glGenBuffers(1, &m_vertexVBO);
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -579,10 +597,10 @@ void CScreensaverCyclone::Render()
    */
   //@{
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
-  glVertexAttribPointer(m_hNormal, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
+  glVertexAttribPointer(m_hNormal, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
   glEnableVertexAttribArray(m_hNormal);
 
   glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -592,8 +610,8 @@ void CScreensaverCyclone::Render()
   glEnable(GL_CULL_FACE);
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  m_frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  m_frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -622,16 +640,18 @@ void CScreensaverCyclone::DrawEntry(int primitive, const sLight* data, unsigned 
   DisableShader();
 }
 
-void CScreensaverCyclone::DrawSphere(const sColor& color)
+void CScreensaverCyclone::DrawSphere(const glm::vec4& color)
 {
   m_uniformColor = color;
   m_normalMat = glm::transpose(glm::inverse(glm::mat3(m_modelMat)));
   m_modelProjMat = m_projMat * m_modelMat;
   EnableShader();
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*m_sphereTriangleFan1.size(), &m_sphereTriangleFan1[0], GL_DYNAMIC_DRAW);
-  glDrawArrays(GL_TRIANGLE_FAN, 0, m_sphereTriangleFan1.size());
-  glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*m_sphereTriangleFan2.size(), &m_sphereTriangleFan2[0], GL_DYNAMIC_DRAW);
-  glDrawArrays(GL_TRIANGLE_FAN, 0, m_sphereTriangleFan2.size());
+  glBufferData(GL_ARRAY_BUFFER, static_cast<GLsizei>(sizeof(sLight)*m_sphereTriangleFan1.size()),
+               &m_sphereTriangleFan1[0], GL_DYNAMIC_DRAW);
+  glDrawArrays(GL_TRIANGLE_FAN, 0, static_cast<GLsizei>(m_sphereTriangleFan1.size()));
+  glBufferData(GL_ARRAY_BUFFER, static_cast<GLsizei>(sizeof(sLight)*m_sphereTriangleFan2.size()),
+               &m_sphereTriangleFan2[0], GL_DYNAMIC_DRAW);
+  glDrawArrays(GL_TRIANGLE_FAN, 0, static_cast<GLsizei>(m_sphereTriangleFan2.size()));
   DisableShader();
 }
 
@@ -657,7 +677,7 @@ void CScreensaverCyclone::Sphere(GLfloat radius, GLint slices, GLint stacks)
 
   for (i = 0; i < slices; i++)
   {
-    angle = 2 * M_PI * i / slices;
+    angle = 2 * glm::pi<float>() * i / slices;
     sinCache1a[i] = sinf(angle);
     cosCache1a[i] = cosf(angle);
     sinCache2a[i] = sinCache1a[i];
@@ -666,7 +686,7 @@ void CScreensaverCyclone::Sphere(GLfloat radius, GLint slices, GLint stacks)
 
   for (j = 0; j <= stacks; j++)
   {
-    angle = M_PI * j / stacks;
+    angle = glm::pi<float>() * j / stacks;
     sinCache2b[j] = sinf(angle);
     cosCache2b[j] = cosf(angle);
     sinCache1b[j] = radius * sinf(angle);
@@ -687,13 +707,13 @@ void CScreensaverCyclone::Sphere(GLfloat radius, GLint slices, GLint stacks)
   sintemp2 = sinCache2b[1];
   costemp3 = cosCache2b[1];
 
-  light.normal = sPosition(sinCache2a[0] * sinCache2b[0], cosCache2a[0] * sinCache2b[0], cosCache2b[0]);
-  light.vertex = sPosition(0.0, 0.0, radius);
+  light.normal = glm::vec3(sinCache2a[0] * sinCache2b[0], cosCache2a[0] * sinCache2b[0], cosCache2b[0]);
+  light.vertex = glm::vec3(0.0f, 0.0f, radius);
   m_sphereTriangleFan1.push_back(light);
   for (i = slices; i >= 0; i--)
   {
-    light.normal = sPosition(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
-    light.vertex = sPosition(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
+    light.normal = glm::vec3(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
+    light.vertex = glm::vec3(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
     m_sphereTriangleFan1.push_back(light);
   }
 
@@ -703,13 +723,13 @@ void CScreensaverCyclone::Sphere(GLfloat radius, GLint slices, GLint stacks)
   sintemp2 = sinCache2b[stacks-1];
   costemp3 = cosCache2b[stacks-1];
 
-  light.normal = sPosition(sinCache2a[stacks] * sinCache2b[stacks], cosCache2a[stacks] * sinCache2b[stacks], cosCache2b[stacks]);
-  light.vertex = sPosition(0.0, 0.0, -radius);
+  light.normal = glm::vec3(sinCache2a[stacks] * sinCache2b[stacks], cosCache2a[stacks] * sinCache2b[stacks], cosCache2b[stacks]);
+  light.vertex = glm::vec3(0.0f, 0.0f, -radius);
   m_sphereTriangleFan2.push_back(light);
   for (i = 0; i <= slices; i++)
   {
-    light.normal = sPosition(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
-    light.vertex = sPosition(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
+    light.normal = glm::vec3(sinCache2a[i] * sintemp2, cosCache2a[i] * sintemp2, costemp3);
+    light.vertex = glm::vec3(sintemp1 * sinCache1a[i], sintemp1 * cosCache1a[i], zHigh);
     m_sphereTriangleFan2.push_back(light);
   }
 }

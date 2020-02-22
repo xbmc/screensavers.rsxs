@@ -443,7 +443,7 @@ void CCausticTextures::draw(int xlo, int xhi, int zlo, int zhi)
   int i, j;
   float mult;
   unsigned int ptr = 0;
-  sLight lights[(xhi+1)*2];
+  m_lights.resize((xhi+1)*2);
 
   for (j = zlo; j < zhi; j++)
   {
@@ -451,35 +451,35 @@ void CCausticTextures::draw(int xlo, int xhi, int zlo, int zhi)
     mult = 1.0f - m_refractionMult / float(m_geoRes);
     for (i = xlo; i <= xhi; i++)
     {
-      lights[ptr  ].color = sColor(m_intensity[i][j+1], 0.0f, 0.0f);
-      lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j+1][0] * mult, 0.0f, m_z[j+1] + m_xz[i][j+1][1] * mult);
-      lights[ptr  ].color = sColor(m_intensity[i][j], 0.0f, 0.0f);
-      lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j][0] * mult, 0.0f, m_z[j] + m_xz[i][j][1] * mult);
+      m_lights[ptr  ].color = sColor(m_intensity[i][j+1], 0.0f, 0.0f);
+      m_lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j+1][0] * mult, 0.0f, m_z[j+1] + m_xz[i][j+1][1] * mult);
+      m_lights[ptr  ].color = sColor(m_intensity[i][j], 0.0f, 0.0f);
+      m_lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j][0] * mult, 0.0f, m_z[j] + m_xz[i][j][1] * mult);
     }
-    m_base->Draw(GL_TRIANGLE_STRIP, lights, ptr);
+    m_base->Draw(GL_TRIANGLE_STRIP, m_lights.data(), ptr);
     ptr = 0;
 
     // green
     for (i = xlo; i <= xhi; i++)
     {
-      lights[ptr  ].color = sColor(0.0f, m_intensity[i][j+1], 0.0f);
-      lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j+1][0], 0.0f, m_z[j+1] + m_xz[i][j+1][1]);
-      lights[ptr  ].color = sColor(0.0f, m_intensity[i][j], 0.0f);
-      lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j][0], 0.0f, m_z[j] + m_xz[i][j][1]);
+      m_lights[ptr  ].color = sColor(0.0f, m_intensity[i][j+1], 0.0f);
+      m_lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j+1][0], 0.0f, m_z[j+1] + m_xz[i][j+1][1]);
+      m_lights[ptr  ].color = sColor(0.0f, m_intensity[i][j], 0.0f);
+      m_lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j][0], 0.0f, m_z[j] + m_xz[i][j][1]);
     }
-    m_base->Draw(GL_TRIANGLE_STRIP, lights, ptr);
+    m_base->Draw(GL_TRIANGLE_STRIP, m_lights.data(), ptr);
     ptr = 0;
 
     // blue
     mult = 1.0f + m_refractionMult / float(m_geoRes);
     for (i = xlo; i <= xhi; i++)
     {
-      lights[ptr  ].color = sColor(0.0f, 0.0f, m_intensity[i][j+1]);
-      lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j+1][0] * mult, 0.0f, m_z[j+1] + m_xz[i][j+1][1] * mult);
-      lights[ptr  ].color = sColor(0.0f, 0.0f, m_intensity[i][j]);
-      lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j][0] * mult, 0.0f, m_z[j] + m_xz[i][j][1] * mult);
+      m_lights[ptr  ].color = sColor(0.0f, 0.0f, m_intensity[i][j+1]);
+      m_lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j+1][0] * mult, 0.0f, m_z[j+1] + m_xz[i][j+1][1] * mult);
+      m_lights[ptr  ].color = sColor(0.0f, 0.0f, m_intensity[i][j]);
+      m_lights[ptr++].vertex = sPosition(m_x[i] + m_xz[i][j][0] * mult, 0.0f, m_z[j] + m_xz[i][j][1] * mult);
     }
-    m_base->Draw(GL_TRIANGLE_STRIP, lights, ptr);
+    m_base->Draw(GL_TRIANGLE_STRIP, m_lights.data(), ptr);
     ptr = 0;
   }
 }

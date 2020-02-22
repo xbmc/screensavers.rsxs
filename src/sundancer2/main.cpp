@@ -28,8 +28,8 @@
 
 #include "main.h"
 
+#include <chrono>
 #include <kodi/gui/General.h>
-#include <kodi/tools/Time.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <rsMath/rsMath.h>
@@ -97,8 +97,8 @@ bool CScreensaverSunDancer2::Start()
     m_quadSpeedMax = speed / 400.0f;
   m_quadSpeed = m_quadSpeedMax;
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -111,7 +111,7 @@ bool CScreensaverSunDancer2::Start()
   float step_r, step_g, step_b;
   int i;
 
-  glClearColor (0.0, 0.0, 0.0, 0.0);
+  glClearColor(0.0, 0.0, 0.0, 0.0);
 
   if (m_transparencyValue == 1.0f)
   {
@@ -203,20 +203,10 @@ void CScreensaverSunDancer2::Stop()
 
 void CScreensaverSunDancer2::Render()
 {
-  struct sPosition
-  {
-    float x,y,z,w;
-  };
-
-  struct sColor
-  {
-    float r,g,b,a;
-  };
-
   struct sLatticeSegmentEntry
   {
-    sPosition vertex;
-    sColor color;
+    glm::vec4 vertex;
+    glm::vec4 color;
   } segment[4];
 
   if (!m_startOK)
@@ -247,7 +237,7 @@ void CScreensaverSunDancer2::Render()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   }
 
-  double currentTime = kodi::time::GetTimeSec<double>();
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
 
   static int change_direction = 0;
   int i;
@@ -325,9 +315,9 @@ void CScreensaverSunDancer2::Render()
     if ((m_quadSpeed > m_quadSpeedMax) || (m_quadSpeed < -m_quadSpeedMax))
     {
       if (m_quadSpeed > m_quadSpeedMax)
-        m_quadSpeed = m_quadSpeedMax - 0.0001;
+        m_quadSpeed = m_quadSpeedMax - 0.0001f;
       else
-        m_quadSpeed = -m_quadSpeedMax + 0.0001;
+        m_quadSpeed = -m_quadSpeedMax + 0.0001f;
 
       change_direction = 0;
       m_direction_add *= -1;
@@ -353,13 +343,13 @@ void CScreensaverSunDancer2::Render()
   m_zlight += m_zlightmul;
 
   // Update Vertices
-  if ((m_vertexw1 > 2.5) || (m_vertexw1 < 0.7))
+  if ((m_vertexw1 > 2.5f) || (m_vertexw1 < 0.7f))
     m_vertexwmul1 *= -1;
-  if ((m_vertexw2 > 2.5) || (m_vertexw2 < 0.7))
+  if ((m_vertexw2 > 2.5f) || (m_vertexw2 < 0.7f))
     m_vertexwmul2 *= -1;
-  if ((m_vertexw3 > 2.5) || (m_vertexw3 < 0.7))
+  if ((m_vertexw3 > 2.5f) || (m_vertexw3 < 0.7f))
     m_vertexwmul3 *= -1;
-  if ((m_vertexw4 > 2.5) || (m_vertexw4 < 0.7))
+  if ((m_vertexw4 > 2.5f) || (m_vertexw4 < 0.7f))
     m_vertexwmul4 *= -1;
 
   m_vertexw1 += m_vertexwmul1;

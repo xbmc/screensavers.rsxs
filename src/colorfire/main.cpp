@@ -29,8 +29,8 @@
 #include "main.h"
 #include "colorfire_textures.h"
 
+#include <chrono>
 #include <kodi/gui/gl/Texture.h>
-#include <kodi/tools/Time.h>
 #include <rsMath/rsMath.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
@@ -39,6 +39,11 @@
 
 #define LOAD_TEXTURE(dest, src, compressedSize, size) dest = (unsigned char *)malloc(size); BZ2_bzBuffToBuffDecompress((char *)dest, &size, (char *)src, compressedSize, 0, 0);
 #define FREE_TEXTURE(tex) free(tex);
+
+// Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES
+#ifndef GL_RED
+#define GL_RED GL_LUMINANCE
+#endif
 
 typedef enum
 {
@@ -55,8 +60,8 @@ bool CScreensaverColorFire::Start()
   if (m_textureType == TYPE_AUTO_SELECTION)
     m_textureType = rsRandi(3) + 1;
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/vert.glsl");
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -141,19 +146,19 @@ bool CScreensaverColorFire::Start()
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
   glEnable(GL_BLEND);
 
-  m_light[0].coord = sCoord(0.0f, 0.0f);
-  m_light[0].vertex = sPosition(-1.0, -1.0, 0.0);
-  m_light[1].coord = sCoord(1.0f, 0.0f);
-  m_light[1].vertex = sPosition(1.0, -1.0, 0.0);
-  m_light[2].coord = sCoord(1.0f, 1.0f);
-  m_light[2].vertex = sPosition(1.0, 1.0, 0.0);
-  m_light[3].coord = sCoord(0.0f, 1.0f);
-  m_light[3].vertex = sPosition(-1.0, 1.0, 0.0);
+  m_light[0].coord = glm::vec2(0.0f, 0.0f);
+  m_light[0].vertex = glm::vec3(-1.0f, -1.0f, 0.0f);
+  m_light[1].coord = glm::vec2(1.0f, 0.0f);
+  m_light[1].vertex = glm::vec3(1.0f, -1.0f, 0.0f);
+  m_light[2].coord = glm::vec2(1.0f, 1.0f);
+  m_light[2].vertex = glm::vec3(1.0f, 1.0f, 0.0f);
+  m_light[3].coord = glm::vec2(0.0f, 1.0f);
+  m_light[3].vertex = glm::vec3(-1.0f, 1.0f, 0.0f);
 
   glGenBuffers(1, &m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
 
-  m_lastTime = kodi::time::GetTimeSec<double>();
+  m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
 }
@@ -192,7 +197,7 @@ void CScreensaverColorFire::Render()
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
   glBindTexture(GL_TEXTURE_2D, m_texture);
 
-  glVertexAttribPointer(m_hVertex, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
+  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
 
   glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
@@ -202,8 +207,8 @@ void CScreensaverColorFire::Render()
   glEnableVertexAttribArray(m_hCoord);
   //@}
 
-  double currentTime = kodi::time::GetTimeSec<double>();
-  float frameTime = currentTime - m_lastTime;
+  double currentTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
+  float frameTime = static_cast<float>(currentTime - m_lastTime);
   m_lastTime = currentTime;
 
   glClear(GL_COLOR_BUFFER_BIT);
@@ -256,7 +261,7 @@ void CScreensaverColorFire::DrawWave(int nr, float fDeltaTime)
   if (m_wtime[nr] > (m_wmax[nr] - 1.0))
     colMod = m_wmax[nr] - m_wtime[nr];
 
-  m_light[0].color = m_light[1].color = m_light[2].color = m_light[3].color = sColor(colMod * m_wr[nr], colMod * m_wg[nr], colMod * m_wb[nr]);
+  m_light[0].color = m_light[1].color = m_light[2].color = m_light[3].color = glm::vec4(colMod * m_wr[nr], colMod * m_wg[nr], colMod * m_wb[nr], 1.0f);
 
   EnableShader();
   glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*4, m_light, GL_DYNAMIC_DRAW);

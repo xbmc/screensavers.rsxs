@@ -28,119 +28,83 @@
 #endif
 #include <cstdlib>
 
-#include <magick/api.h>
-#include <wand/magick-wand.h>
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <time.h>
-#include <unistd.h>
 #include <kodi/General.h>
+#include <Rgbhsl/Rgbhsl.h>
 
 #include "noise1234.h"
-#include <Rgbhsl/Rgbhsl.h>
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+#define STB_IMAGE_RESIZE_IMPLEMENTATION
+#include "stb_image_resize.h"
 
 using namespace std;
 
 TexMgr::TexMgr()
-  : tw(-2)
-  , th(-2)
-  , prevTex(nullptr)
-  , prevW(0), prevH(0)
-  , curTex(nullptr)
-  , curW(0), curH(0)
-  , nextTex(nullptr)
-  , nextW(0), nextH(0)
-  , ready(false)
-  , dirName()
-  , imageDir(nullptr)
-  , imageThread(nullptr)
-  , nextTexMutex(nullptr)
-  , nextTexCond(nullptr)
-  , exiting(false)
-  , gw(256)
-  , gh(256)
 {
   srand((unsigned)time(nullptr));
 }
 
 TexMgr::~TexMgr()
 {
-  delete [] curTex;
-  delete [] nextTex;
-
-  if (nextTexCond)
-  {
-    pthread_cond_destroy (nextTexCond);
-    free (nextTexCond);
-  }
-
-  if (nextTexMutex)
-  {
-    pthread_mutex_destroy (nextTexMutex);
-    free (nextTexMutex);
-  }
-
-  free (imageThread);
+  delete m_imageThread;
+  delete [] m_curTex;
+  delete [] m_nextTex;
 }
 
-void TexMgr::setImageDir(const char *newDirName)
+void TexMgr::setImageDir(const std::string& newDirName)
 {
-  dirName = newDirName;
+  m_dirName = newDirName;
 }
 
 void TexMgr::start()
 {
-  nextTexMutex = (pthread_mutex_t *)malloc (sizeof(pthread_mutex_t));
-  pthread_mutex_init (nextTexMutex, nullptr);
-
-  nextTexCond = (pthread_cond_t *)malloc (sizeof(pthread_cond_t));
-  pthread_cond_init (nextTexCond, nullptr);
-
-  imageThread = (pthread_t *)malloc (sizeof(pthread_t));
-  pthread_create (imageThread, nullptr, imageThreadMain, (void *)this);
+  m_imageThread = new std::thread(&TexMgr::imageThreadMain, this);
 }
 
 void TexMgr::stop()
 {
-  exiting = true;
+  m_exiting = true;
 
-  pthread_mutex_lock (nextTexMutex);
-  pthread_cond_signal (nextTexCond);
-  pthread_mutex_unlock (nextTexMutex);
+  {
+    std::unique_lock<std::mutex> lck(m_nextTexMutex);
+    m_nextTexCond.notify_one();
+  }
 
-  pthread_join(*imageThread, nullptr);
+  m_imageThread->join();
 }
 
 bool TexMgr::getNext()
 {
   bool ok = false;
 
-  if (pthread_mutex_trylock(nextTexMutex))
+  std::unique_lock<std::mutex> lck(m_nextTexMutex, std::defer_lock);
+  if (lck.try_lock())
   {
-    if (ready)
+    if (m_ready)
     {
-      ready = false;
+      m_ready = false;
       ok = true;
 
       {
-        unsigned int *tmp = prevTex;
-        unsigned int tmpW = prevW, tmpH = prevH;
+        uint32_t *tmp = m_prevTex;
+        uint32_t tmpW = m_prevW, tmpH = m_prevH;
 
-        prevTex = curTex;
-        prevW = curW; prevH = curH;
+        m_prevTex = m_curTex;
+        m_prevW = m_curW; m_prevH = m_curH;
 
-        curTex = nextTex;
-        curW = nextW; curH = nextH;
+        m_curTex = m_nextTex;
+        m_curW = m_nextW; m_curH = m_nextH;
 
-        nextTex = tmp;
-        nextW = tmpW; nextH = tmpH;
+        m_nextTex = tmp;
+        m_nextW = tmpW; m_nextH = tmpH;
       }
 
-      pthread_cond_signal(nextTexCond);
+      m_nextTexCond.notify_one();
     }
-
-    pthread_mutex_unlock(nextTexMutex);
   }
 
   return ok;
@@ -151,12 +115,12 @@ void TexMgr::genTex()
   const int blend_period = (rand() & 0x7) + 1;
   const int aorb_period = (rand() & 0x7) + 1;
 
-  if ((nextTex == nullptr) || (gw > nextW) || (gh > nextH))
+  if ((m_nextTex == nullptr) || (m_gw > m_nextW) || (m_gh > m_nextH))
   {
-    delete [] nextTex;
-    nextTex = new unsigned int[gw * gh];
-    nextW = gw;
-    nextH = gh;
+    delete [] m_nextTex;
+    m_nextTex = new uint32_t[m_gw * m_gh];
+    m_nextW = m_gw;
+    m_nextH = m_gh;
   }
 
   const float gxo = rand() / (float)(RAND_MAX / 256);
@@ -170,11 +134,13 @@ void TexMgr::genTex()
   float ah1 = 0, as1 = 0, al1 = 0;
   float bh1 = 0, bs1 = 0, bl1 = 0;
 
-  do {
+  do
+  {
     ah1 = rand() / (float)RAND_MAX, as1 = rand() / (float)RAND_MAX, al1 = rand() / (float)RAND_MAX;
   } while (fabsf(ah0 - ah1) + fabsf(as0 - as1) + fabsf(al0 - al1) > 1.0);
 
-  do {
+  do 
+  {
     bh1 = rand() / (float)RAND_MAX, bs1 = rand() / (float)RAND_MAX, bl1 = rand() / (float)RAND_MAX;
   } while (fabsf(bh0 - bh1) + fabsf(bs0 - bs1) + fabsf(bl0 - bl1) > 1.0);
 
@@ -182,18 +148,23 @@ void TexMgr::genTex()
   const bool bdir = fabsf(bh1 - bh0) > 0.5 ? 1 : 0;
 
   int uu = 0;
-  for (unsigned int ii = 0; ii < gh; ++ii) {
-    for (unsigned int jj = 0; jj < gw; ++jj) {
-      float blend = pnoise2(gxo + ii * blend_period / (float)gh, gyo + jj * blend_period / (float)gw, blend_period, blend_period);
-      float aorb = pnoise2(sxo + ii * aorb_period / (float)gh, syo + jj * aorb_period / (float)gw, aorb_period, aorb_period);
+  for (unsigned int ii = 0; ii < m_gh; ++ii)
+  {
+    for (unsigned int jj = 0; jj < m_gw; ++jj)
+    {
+      float blend = pnoise2(gxo + ii * blend_period / (float)m_gh, gyo + jj * blend_period / (float)m_gw, blend_period, blend_period);
+      float aorb = pnoise2(sxo + ii * aorb_period / (float)m_gh, syo + jj * aorb_period / (float)m_gw, aorb_period, aorb_period);
 
       // Punch it through cosine to avoid the non-existent bounds guarantee on the noise.
       blend = (cos(blend * 2 * M_PI) + 1.0) / 2.0;
 
       float h, s, l, r, g, b;
-      if (aorb < 0.0) {
+      if (aorb < 0.0) 
+      {
         hslTween(ah0, as0, al0, ah1, as1, al1, blend, adir, h, s, l);
-      } else {
+      }
+      else 
+      {
         hslTween(bh0, bs0, bl0, bh1, bs1, bl1, blend, bdir, h, s, l);
       }
 
@@ -202,11 +173,11 @@ void TexMgr::genTex()
 
       hsl2rgb(h, s, l, r, g, b);
 
-      nextTex[uu++] = 0xff000000 + (unsigned int)(r * 255) + ((unsigned int)(g * 255) << 8) + ((unsigned int)(b * 255) << 16);
+      m_nextTex[uu++] = 0xff000000 + (uint32_t)(r * 255) + ((uint32_t)(g * 255) << 8) + ((uint32_t)(b * 255) << 16);
     }
   }
 
-  ready = true;
+  m_ready = true;
 }
 
 static unsigned int computeDesiredSize(const unsigned int input, const int desired)
@@ -236,99 +207,99 @@ static unsigned int computeDesiredSize(const unsigned int input, const int desir
 // Directory scanning + image loading code in a separate function callable either from loadNextImage or another thread if pthreads is available.
 void TexMgr::loadNextImageFromDisk()
 {
-  MagickWand *magick_wand = NewMagickWand();
-  ExceptionInfo exception;
   int dirLoop = 0;
+  bool imageLoaded = false;
+  int width, height, channels;
+  unsigned char *image = nullptr;
 
-  GetExceptionInfo (&exception);
-
-  int imageLoaded = 0;
-  do {
+  do 
+  {
     struct dirent *file;
 
-    if (!imageDir) {
-      if (dirLoop) {
-        dirName = "";
+    if (!m_imageDir)
+    {
+      if (dirLoop) 
+      {
+        m_dirName = "";
         return;
       }
 
-      imageDir = opendir (dirName.c_str());
+      m_imageDir = opendir (m_dirName.c_str());
       dirLoop = 1;
     }
 
-    file = readdir (imageDir);
-    if (file) {
+    file = readdir (m_imageDir);
+    if (file) 
+    {
       struct stat fileStat;
-      string full_path_and_name = dirName + "/" + file->d_name;
+      string full_path_and_name = m_dirName + "/" + file->d_name;
 
-      if (!stat(full_path_and_name.c_str(), (struct stat *)&fileStat)) {
-        if (S_ISREG(fileStat.st_mode)) {
-          if (MagickReadImage(magick_wand, full_path_and_name.c_str ()) == MagickFalse) {
-            char *description;
-            ExceptionType severity;
+      if (!stat(full_path_and_name.c_str(), (struct stat *)&fileStat)) 
+      {
+        if (S_ISREG(fileStat.st_mode)) 
+        {
+          image = stbi_load(full_path_and_name.c_str(),
+                            &width,
+                            &height,
+                            &channels,
+                            STBI_rgb_alpha);
 
-            description = MagickGetException(magick_wand, &severity);
-            kodi::Log(ADDON_LOG_ERROR, "Error loading %s: %s", full_path_and_name.c_str(), description);
-            description = (char *)MagickRelinquishMemory (description);
-          } else {
-            imageLoaded = 1;
-          }
+          if (!image) 
+            kodi::Log(ADDON_LOG_ERROR, "Error loading %s: %s", full_path_and_name.c_str(), stbi_failure_reason());
+          else 
+            imageLoaded = true;
         }
       }
-    } else {
-      closedir(imageDir);
-      imageDir = nullptr;
+    } 
+    else 
+    {
+      closedir(m_imageDir);
+      m_imageDir = nullptr;
     }
   } while (!imageLoaded);
 
-  const unsigned int iww = MagickGetImageWidth (magick_wand);
-  const unsigned int ihh = MagickGetImageHeight (magick_wand);
-  const unsigned int oww = computeDesiredSize(iww, tw);
-  const unsigned int ohh = computeDesiredSize(ihh, th);
 
-  if ((iww != oww) || (ihh != ohh))
+  if (image)
   {
-    MagickScaleImage (magick_wand, oww, ohh);
+    const uint32_t oww = computeDesiredSize(width, m_tw);
+    const uint32_t ohh = computeDesiredSize(height, m_th);
+  
+    if ((width != oww) || (height != ohh))
+    {
+      stbir_resize_uint8(image, width, height, 0, image, oww, ohh, 0, STBI_rgb_alpha);
+    }
+
+    if ((m_nextTex == nullptr) || (oww > m_nextW) || (ohh > m_nextH))
+    {
+      delete [] m_nextTex;
+      m_nextTex = new uint32_t[oww * ohh];
+      m_nextW = oww;
+      m_nextH = ohh;
+    }
+    
+    memcpy(m_nextTex, image, oww * ohh * sizeof(uint32_t));
+    stbi_image_free(image);
   }
 
-  if ((nextTex == nullptr) || (oww > nextW) || (ohh > nextH))
-  {
-    delete [] nextTex;
-    nextTex = new unsigned int[oww * ohh];
-    nextW = oww;
-    nextH = ohh;
-  }
-
-  ExportImagePixels (GetImageFromMagickWand(magick_wand), 0, 0, oww, ohh, "RGBA", CharPixel, nextTex, &exception);
-
-  magick_wand = DestroyMagickWand (magick_wand);
-
-  ready = true;
+  m_ready = true;
 }
 
-void *TexMgr::imageThreadMain(void *vp)
+void TexMgr::imageThreadMain()
 {
-  TexMgr *t = (TexMgr *)vp;
-
-  pthread_mutex_lock (t->nextTexMutex);
-
-  do {
-    if (t->dirName.length() > 0)
+  do 
+  {
+    std::unique_lock<std::mutex> lck(m_nextTexMutex);
+    if (!m_dirName.empty())
     {
-      t->loadNextImageFromDisk();
+      loadNextImageFromDisk();
     }
     else
     {
-      t->genTex();
+      genTex();
     }
 
-    pthread_cond_wait (t->nextTexCond, t->nextTexMutex);
-  } while (!t->exiting);
+    m_nextTexCond.wait(lck);
+  } while (!m_exiting);
 
-  pthread_mutex_unlock (t->nextTexMutex);
-
-  pthread_exit(nullptr);
-
-  return nullptr;
+  return;
 }
-
