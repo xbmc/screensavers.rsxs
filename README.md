@@ -2,7 +2,7 @@
 
 This is a collection of [Kodi](http://kodi.tv) screensaver addons.
 
-[![Build Status](https://travis-ci.org/xbmc/screensavers.rsxs.svg?branch=master)](https://travis-ci.org/xbmc/screensavers.rsxs)
+[![Build Status](https://travis-ci.org/xbmc/screensavers.rsxs.svg?branch=Matrix)](https://travis-ci.org/xbmc/screensavers.rsxs/branches)
 
 ## Build instructions
 
