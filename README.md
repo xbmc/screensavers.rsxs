@@ -2,6 +2,7 @@
 
 This is a collection of [Kodi](http://kodi.tv) screensaver addons.
 
+[![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL%20v2+-blue.svg)](LICENSE.md)
 [![Build Status](https://travis-ci.org/xbmc/screensavers.rsxs.svg?branch=Matrix)](https://travis-ci.org/xbmc/screensavers.rsxs/branches)
 
 ## Build instructions
