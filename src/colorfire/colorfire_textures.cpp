@@ -1,3 +1,10 @@
+/*
+ *  Copyright (C) 1999  Andreas Gustafsson
+ *  Ported to Linux by Tugrul Galatali <tugrul@galatali.com>
+ *
+ *  SPDX-License-Identifier: GPL-2.0-or-later
+ *  See LICENSE.md for more information.
+ */
 
 /* data from colorfire_textures/ripplemap.bz2 */
 const char *ripplemap = ""
