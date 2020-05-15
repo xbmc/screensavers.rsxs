@@ -9,9 +9,9 @@
     point="xbmc.ui.screensaver"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Stirring colors with a jiggling warp</summary>
-    <description lang="en">Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter.</description>
-    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <summary lang="en_GB">Stirring colors with a jiggling warp</summary>
+    <description lang="en_GB">Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter.</description>
+    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
     <assets>

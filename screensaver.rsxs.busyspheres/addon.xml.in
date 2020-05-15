@@ -9,9 +9,9 @@
     point="xbmc.ui.screensaver"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Particle spheres</summary>
-    <description lang="en">Spheres made of dancing particles.</description>
-    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <summary lang="en_GB">Particle spheres</summary>
+    <description lang="en_GB">Spheres made of dancing particles.</description>
+    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
     <assets>
