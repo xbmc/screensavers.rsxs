@@ -112,6 +112,7 @@
     <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <disclaimer lang="de">Dies ist eine auf "rss-glx" Bildschirmschoner basierende Implementierung.</disclaimer>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0-or-later</license>
     <assets>
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>

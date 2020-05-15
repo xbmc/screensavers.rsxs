@@ -14,6 +14,7 @@
 "A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website."</description>
     <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0-or-later</license>
     <assets>
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>

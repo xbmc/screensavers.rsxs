@@ -15,5 +15,6 @@ These can also be installed individually but with this all will be installed.
 The addon is based on the source code of Really Slick ScreenSavers and the port for GLX.</description>
     <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0-or-later</license>
   </extension>
 </addon>
