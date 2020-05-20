@@ -1,10 +1,8 @@
 # build artifacts
-build*/
-screensaver.rsxs.*/addon.xml
+build/
+screensaver.*/addon.xml
 
 # Debian build files
-debian/debhelper-build-stamp
-debian/kodi-screensaver-*.install
 debian/changelog
 debian/files
 debian/*.log
@@ -36,3 +34,17 @@ obj-x86_64-linux-gnu/
 
 # clion
 .idea/
+
+# to prevent add after a "git format-patch VALUE" and "git add ." call
+/*.patch
+
+# Visual Studio Code
+.vscode
+
+# to prevent add if project code opened by Visual Studio over CMake file
+.vs/
+
+# General MacOS
+.DS_Store
+.AppleDouble
+.LSOverride

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.plasma"
-  version="3.0.0"
+  version="3.1.0"
   name="Plasma"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -69,7 +69,7 @@
     <description lang="da">Formodentlig den anden mest psykedeliske pauseskærm, der eksisterer. Forestil dig alle de farver, der bevæger sig omkring.</description>
     <description lang="de">Wahrscheinlich der zweit-psychodelischste Bildschirmschoner, den es gibt. Versuche doch alle diese Farben, die sich umher bewegen, festzuhalten.</description>
     <description lang="el">Πιθανότατα η δεύτερη πιο ψυχεδελική προφύλαξη οθόνης που υπάρχει. Απλά προσπαθήστε να φανταστείτε όλα αυτά τα χρώματα σε κίνηση.</description>
-    <description lang="en">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
+    <description lang="en_GB">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
     <description lang="en_AU">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
     <description lang="en_NZ">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
     <description lang="en_US">Probably the second most psychedelic screensaver in existence. Just try to picture all those colors moving around.</description>
@@ -109,9 +109,10 @@
     <description lang="vi">Đây có thể là trình bảo vệ màn hình gây ảo giác mạnh thứ hai tại thời điểm này. Hãy thử xem các hình ảnh tạo nên từ các màu sắc di chuyển khắp nơi</description>
     <description lang="zh">或许是排名第二的迷幻效果屏幕保护程序。你将看到所有颜色满处乱飞。</description>
     <description lang="zh_TW">可能是現存第二最夢幻的螢幕保護程式。快來嘗試想像一下所有移動中的色彩變化。</description>
-    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <disclaimer lang="de">Dies ist eine auf "rss-glx" Bildschirmschoner basierende Implementierung.</disclaimer>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0-or-later</license>
     <assets>
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>

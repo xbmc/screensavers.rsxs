@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.lorenz"
-  version="3.0.0"
+  version="3.1.0"
   name="Lorenz Attractor"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -9,10 +9,11 @@
     point="xbmc.ui.screensaver"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Screensaver visualization of the Lorenz Attractor fractal</summary>
-    <description lang="en">This is a 3d realtime visualization of the Lorenz Attractor.</description>
-    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <summary lang="en_GB">Screensaver visualization of the Lorenz Attractor fractal</summary>
+    <description lang="en_GB">This is a 3d realtime visualization of the Lorenz Attractor.</description>
+    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0-or-later</license>
     <assets>
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>

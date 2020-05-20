@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.euphoria"
-  version="3.0.0"
+  version="3.1.0"
   name="Euphoria"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -19,7 +19,7 @@
     <summary lang="da">Omtrent så psykedelisk som en pauseskærm kan blive.</summary>
     <summary lang="de">So psychedelisch wie ein Bildschirmschoner nur sein kann</summary>
     <summary lang="el">Όσο πιο ψυχεδελική μπορεί να είναι μία προφύλαξη οθόνης</summary>
-    <summary lang="en">About as psychedelic as screensavers get</summary>
+    <summary lang="en_GB">About as psychedelic as screensavers get</summary>
     <summary lang="en_AU">About as psychedelic as screensavers get</summary>
     <summary lang="en_NZ">About as psychedelic as screensavers get</summary>
     <summary lang="en_US">About as psychedelic as screensavers get</summary>
@@ -71,7 +71,7 @@
     <description lang="da">Dette er omtrent så psykedelisk som en pauseskærm kan blive. Mogumbo troede hans Plasma-pauseskærm var i toppen af skalaen, men denne er endnu mere kvalmende. Du må hellere finde en papirpose, inden du kigger alt for længe på denne.</description>
     <description lang="de">In etwa so ​​psychedelisch wie ein Bildschirmschoner nur sein kann. mogumbo dachte, sein Plasma-Bildschirmschoner wäre bereits abstoßend, aber dieser hier ist noch verabscheuenswürdiger. Kram' besser schon mal eine Kotztüte hervor, bevor Du diesen Bildschirmschoner zu lange anstarrst.</description>
     <description lang="el">Αυτή είναι η πιο ψυχεδελική προφύλαξη οθόνης που υπάρχει. Ο mogumbo  νόμιζε ότι η Plasma προφ. οθόνης του ήταν η κορυφαία, αλλά αυτή είναι ακόμα πιο μπερδεμένη. Καλύτερα να βρείτε μία από εκείνες τις σακούλες για τη ναυτία προτού την κοιτάξετε για πολλή ώρα.</description>
-    <description lang="en">This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long.</description>
+    <description lang="en_GB">This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long.</description>
     <description lang="en_AU">This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long.</description>
     <description lang="en_NZ">This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long.</description>
     <description lang="en_US">This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long.</description>
@@ -112,8 +112,9 @@
     <description lang="vi">Chú trọng để tạo ra ảo giác mạnh nhất mà trình bảo vệ màn hình có thể có được. Mogumbo từng nghĩ trình bảo vệ Plasma của mình đã đỉnh, nhưng trình này còn kinh khủng hơn. Tốt hơn hết là bạn nên chuẩn bị một túi chống nôn cho mình trước khi bắt đầu nhìn vào nó quá lâu</description>
     <description lang="zh">这大概是最具迷幻效果的屏幕保护程序了。mogumbo 以为他的 Plasma 屏保已经是数一数二了，但这个更令人犯晕。如果你要长时间盯视它最好先准备一个晕机袋。</description>
     <description lang="zh_TW">這大概是最具夢幻效果的屏幕保護程序了。 mogumbo以為他的電漿螢幕保護程式已經是數一數二了，但這個更令人頭昏腦脹。如果你要長時間盯視它最好先準備一個夠用的暈機嘔吐袋。</description>
-    <disclaimer lang="en">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0-or-later</license>
     <assets>
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>
