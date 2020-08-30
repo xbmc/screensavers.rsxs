@@ -2,13 +2,11 @@ Source: kodi-screensavers-rsxs
 Priority: extra
 Maintainer: Nobody <nobody@kodi.tv>
 Build-Depends: debhelper (>= 9.0.0), cmake, kodi-addon-dev,
-               libgl1-mesa-dev, libltdl-dev,
-               libglm-dev, opengl-image-dev,
-               automake, autoconf, libtool,
+               libgles2-mesa-dev [arm64 armhf], libgl1-mesa-dev [i386 amd64],
                libbz2-dev
 Standards-Version: 4.1.2
 Section: libs
-Homepage: http://kodi.org
+Homepage: https://kodi.org
 
 Package: kodi-screensaver-rsxs-biof
 Section: libs
