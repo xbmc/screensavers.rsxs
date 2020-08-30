@@ -8,12 +8,13 @@ Standards-Version: 4.1.2
 Section: libs
 Homepage: https://kodi.org
 
-Package: kodi-screensaver-rsxs-biof
-Section: libs
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Biof screensaver add-on for Kodi
- Biof screensaver add-on for Kodi
+# Not work correct
+#Package: kodi-screensaver-rsxs-biof
+#Section: libs
+#Architecture: any
+#Depends: ${shlibs:Depends}, ${misc:Depends}
+#Description: Biof screensaver add-on for Kodi
+# Biof screensaver add-on for Kodi
 
 Package: kodi-screensaver-rsxs-biof-dbg
 Section: debug
