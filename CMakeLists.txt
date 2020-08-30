@@ -37,7 +37,7 @@ if(NOT ${CORE_SYSTEM_NAME} STREQUAL "")
      CORE_SYSTEM_NAME STREQUAL ios OR
      CORE_SYSTEM_NAME STREQUAL darwin_embedded)
     list(APPEND DEPLIBS "-framework CoreVideo")
-  elseif(CORE_SYSTEM_NAME STREQUAL windows)
+  elseif(CORE_SYSTEM_NAME STREQUAL windows OR CORE_SYSTEM_NAME STREQUAL windowsstore)
     add_definitions(-D_USE_MATH_DEFINES
                     -DNOMINMAX)
   endif()

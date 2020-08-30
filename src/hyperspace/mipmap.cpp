@@ -3353,7 +3353,7 @@ static void closestFit(GLenum target, GLint width, GLint height,
         ) {
       GLint widthPowerOf2= nearestPower(width);
       GLint heightPowerOf2= nearestPower(height);
-      GLint proxyWidth;
+      GLint proxyWidth = 0;
 
       do {
          /* compute level 1 width & height, clamping each at 1 */

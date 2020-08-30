@@ -858,7 +858,7 @@ void CParticle::initExplosion()
 
 void CParticle::popSphere(int numParts, float v0, rsVec color)
 {
-  CParticle* newp;
+  CParticle* newp = nullptr;
 
   for (int i=0; i<numParts; ++i){
     newp = m_base->AddParticle();
@@ -873,13 +873,13 @@ void CParticle::popSphere(int numParts, float v0, rsVec color)
     newp->rgb = color;
   }
 
-  if (!rsRandi(100))
+  if (!rsRandi(100) && newp)
     newp->t = newp->tr = rsRandf(20.0f) + 5.0f;
 }
 
 void CParticle::popSplitSphere(int numParts, float v0, rsVec color1)
 {
-  CParticle* newp;
+  CParticle* newp = nullptr;
   rsVec color2;
   rsVec planeNormal;
 
@@ -904,13 +904,13 @@ void CParticle::popSplitSphere(int numParts, float v0, rsVec color1)
     newp->vel += vel;
   }
 
-  if (!rsRandi(100))
+  if (!rsRandi(100) && newp)
     newp->t = newp->tr = rsRandf(20.0f) + 5.0f;
 }
 
 void CParticle::popMultiColorSphere(int numParts, float v0)
 {
-  CParticle* newp;
+  CParticle* newp = nullptr;
   rsVec color[3];
 
   randomColor(color[0]);
@@ -933,13 +933,13 @@ void CParticle::popMultiColorSphere(int numParts, float v0)
       j = 0;
   }
 
-  if (!rsRandi(100))
+  if (!rsRandi(100) && newp)
     newp->t = newp->tr = rsRandf(20.0f) + 5.0f;
 }
 
 void CParticle::popRing(int numParts, float v0, rsVec color)
 {
-  CParticle* newp;
+  CParticle* newp = nullptr;
 
   float temph = rsRandf(PI);  // heading
   float tempp = rsRandf(PI);  // pitch
@@ -970,7 +970,7 @@ void CParticle::popRing(int numParts, float v0, rsVec color)
     newp->rgb = color;
   }
 
-  if (!rsRandi(100))
+  if (!rsRandi(100) && newp)
     newp->t = newp->tr = rsRandf(20.0f) + 5.0f;
 }
 
