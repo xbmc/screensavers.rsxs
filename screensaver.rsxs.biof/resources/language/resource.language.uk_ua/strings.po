@@ -1,0 +1,121 @@
+# Kodi Media Center language file
+# Addon Name: Biof
+# Addon id: screensaver.rsxs.biof
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: uk_ua\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+#[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+#For example, prefer wording as "This new string" instead of "This New String".
+#[Referencing] If a suitable string already exists, reuse it, making a note of where it's used!
+#[Description / location] For example, "#. Description of some setting" used on "#: xbmc/addons/guidialogaddoninfo.cpp"
+#When writing a description or setting, refer to a setting name in quotes. See existing entries for guidance.
+#For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+# Following strings used for addon settings dialog
+#. First setting on dialog for used type
+msgctxt "#30000"
+msgid "Type"
+msgstr ""
+
+#. For setting 30000 used value in selection dialog list
+msgctxt "#30001"
+msgid "Automatic"
+msgstr ""
+
+#. For setting 30000 used value in selection dialog list
+msgctxt "#30002"
+msgid "Triangles"
+msgstr ""
+
+#. For setting 30000 used value in selection dialog list
+msgctxt "#30003"
+msgid "Spheres"
+msgstr ""
+
+#. For setting 30000 used value in selection dialog list
+msgctxt "#30004"
+msgid "Big spheres"
+msgstr ""
+
+#. For Setting 30000 used value in selection dialog list
+msgctxt "#30005"
+msgid "Points"
+msgstr ""
+
+#. Help text for first setting where type is selected
+msgctxt "#30006"
+msgid "Sets geometry type"
+msgstr ""
+
+#. Second setting in dialog for used geometry
+msgctxt "#30010"
+msgid "Off angle"
+msgstr ""
+
+#. For setting 30010 used value in selection dialog list
+msgctxt "#30011"
+msgid "Auto"
+msgstr ""
+
+#. For setting 30010 used value in selection dialog list
+msgctxt "#30012"
+msgid "Off"
+msgstr ""
+
+#. For setting 30010 used value in selection dialog list
+msgctxt "#30013"
+msgid "On"
+msgstr ""
+
+#. Help text for second setting where off angle is selected
+msgctxt "#30014"
+msgid "Interesting 45 degree view instead of default head on view."
+msgstr ""
+
+#. Setting for selection of used lines for render
+msgctxt "#30020"
+msgid "Lines"
+msgstr ""
+
+#. Help text for setting with line amount
+msgctxt "#30021"
+msgid "Set number of lines (\"arms\").  1 - 1024."
+msgstr ""
+
+#. Name of lowest value in spinner to report random number is automatic generated
+msgctxt "#30022"
+msgid "Auto"
+msgstr ""
+
+#. Setting for selection of used points for render
+msgctxt "#30030"
+msgid "Points"
+msgstr ""
+
+#. Help text for setting with point amount
+msgctxt "#30031"
+msgid "Set number of points per line.  1 - 4096."
+msgstr ""
+
+#. Name of lowest value in spinner to report random number is automatic generated
+msgctxt "#30032"
+msgid "Auto"
+msgstr ""
+
+#. Main category name on addon settings dialog
+msgctxt "#30040"
+msgid "General"
+msgstr ""
