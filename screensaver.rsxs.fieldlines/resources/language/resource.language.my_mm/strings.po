@@ -1,0 +1,110 @@
+# Kodi Media Center language file
+# Addon Name: Fieldlines
+# Addon id: screensaver.rsxs.fieldlines
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: my_mm\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+#[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+#For example, prefer wording as "This new string" instead of "This New String".
+#[Referencing] If a suitable string already exists, reuse it, making a note of where it's used!
+#[Description / location] For example, "#. Description of some setting" used on "#: xbmc/addons/guidialogaddoninfo.cpp"
+#When writing a description or setting, refer to a setting name in quotes. See existing entries for guidance.
+#For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+# Following strings used for addon settings dialog
+#. Main category name on addon settings dialog
+msgctxt "#30000"
+msgid "General"
+msgstr ""
+
+#: Slider to select amount of rendered ions
+msgctxt "#30001"
+msgid "Number of ions"
+msgstr ""
+
+#: Help text for 30001
+msgctxt "#30002"
+msgid "Amount of used ions"
+msgstr ""
+
+#: Slider to select rendering speed
+msgctxt "#30003"
+msgid "Motion speed"
+msgstr ""
+
+#: Help text for 30003
+msgctxt "#30004"
+msgid "Used speed in the presentation"
+msgstr ""
+
+#: Slider to select number
+msgctxt "#30005"
+msgid "Length of a line segment"
+msgstr ""
+
+#: Help text for 30005
+msgctxt "#30006"
+msgid "Step length along lines"
+msgstr ""
+
+#: Slider to select number
+msgctxt "#30007"
+msgid "Max number of steps"
+msgstr ""
+
+#: Help text for 30007
+msgctxt "#30008"
+msgid "Maximum number of fieldline segments"
+msgstr ""
+
+#: To select width of line
+msgctxt "#30009"
+msgid "Line width"
+msgstr ""
+
+#: Help text for 30009
+msgctxt "#30010"
+msgid "Fieldline width factor"
+msgstr ""
+
+#: Boolean to haveLine width constant width
+msgctxt "#30011"
+msgid "Constant width"
+msgstr ""
+
+#: Help text for 30011
+msgctxt "#30012"
+msgid "Constant fieldline width"
+msgstr ""
+
+#: Boolean to select electrical rendering type
+msgctxt "#30013"
+msgid "Electric mode"
+msgstr ""
+
+#: Help text for 30013
+msgctxt "#30014"
+msgid "To select electric rendering"
+msgstr ""
+
+#: Slider to select screen reduction (Zoom values)
+msgctxt "#30015"
+msgid "Reduction"
+msgstr ""
+
+#: Help text for 30015
+msgctxt "#30016"
+msgid "The reduction of the display on the screen"
+msgstr ""
