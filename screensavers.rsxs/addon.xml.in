@@ -8,12 +8,8 @@ debian package build.-->
   provider-name="Team Kodi">
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Collection of 23 screensavers</summary>
-    <description lang="en_GB">This is an addon package with 23 screensavers.
-
-These can also be installed individually but with this all will be installed.
-
-The addon is based on the source code of Really Slick ScreenSavers and the port for GLX.</description>
-    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <description lang="en_GB">This is an addon package with 23 screensavers.[CR][CR]These can also be installed individually but with this all will be installed.[CR][CR]The addon is based on the source code of Really Slick ScreenSavers and the port for GLX.</description>
+    <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
   </extension>
