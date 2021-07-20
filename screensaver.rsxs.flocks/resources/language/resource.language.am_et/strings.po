@@ -1,0 +1,166 @@
+# Kodi Media Center language file
+# Addon Name: Flocks
+# Addon id: screensaver.rsxs.flocks
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-05-20 11:20+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: Amharic (Ethiopia) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/am_et/>\n"
+"Language: am_et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.6.2\n"
+
+#[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+#[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+#For example, prefer wording as "This new string" instead of "This New String".
+#[Referencing] If a suitable string already exists, reuse it, making a note of where it's used!
+#[Description / location] For example, "#. Description of some setting" used on "#: xbmc/addons/guidialogaddoninfo.cpp"
+#When writing a description or setting, refer to a setting name in quotes. See existing entries for guidance.
+#For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+# Following strings used for addon settings dialog
+#. Main category name on addon settings dialog
+msgctxt "#30000"
+msgid "General"
+msgstr "ባጠቃላይ"
+
+#. Advanced category name on addon settings dialog
+msgctxt "#30001"
+msgid "Advanced"
+msgstr ""
+
+#. Setting open selection dialog to select used preset
+msgctxt "#30002"
+msgid "Preset"
+msgstr ""
+
+#. Selection dialog entry to select automatic mode selection
+msgctxt "#30003"
+msgid "Automatic selection"
+msgstr ""
+
+#. Selection dialog entry to select regualr preset
+msgctxt "#30004"
+msgid "Regular"
+msgstr ""
+
+#. Selection dialog entry to select trails preset
+msgctxt "#30005"
+msgid "Trails"
+msgstr ""
+
+#. Selection dialog entry to select blurred trails preset
+msgctxt "#30006"
+msgid "Blurred trails"
+msgstr ""
+
+#. Selection dialog entry to select blurred connections preset
+msgctxt "#30007"
+msgid "Blurred connections"
+msgstr ""
+
+#. Selection dialog entry to select circles preset
+msgctxt "#30008"
+msgid "Circles"
+msgstr ""
+
+#. Selection dialog entry to select random circles preset
+msgctxt "#30009"
+msgid "Random circles"
+msgstr ""
+
+#. Selection dialog entry to select advanced settings mode
+msgctxt "#30010"
+msgid "Use advanced"
+msgstr ""
+
+#. Advanced setting spinner to select leaders value
+msgctxt "#30011"
+msgid "Leaders"
+msgstr ""
+
+#. Advanced setting spinner to select followers value
+msgctxt "#30012"
+msgid "Followers"
+msgstr ""
+
+#. Advanced setting list to select geometry value in selection dialog
+msgctxt "#30013"
+msgid "Geometry"
+msgstr ""
+
+#. Advanced setting spinner to select size
+msgctxt "#30014"
+msgid "Size"
+msgstr ""
+
+#. Advanced setting spinner to select complexity
+msgctxt "#30015"
+msgid "Complexity"
+msgstr ""
+
+#. Advanced setting spinner to select speed
+msgctxt "#30016"
+msgid "Speed"
+msgstr ""
+
+#. Advanced setting spinner to select stretch
+msgctxt "#30017"
+msgid "Stretch"
+msgstr ""
+
+#. Advanced setting spinner to select color fade speed
+msgctxt "#30018"
+msgid "Color fade speed"
+msgstr ""
+
+#. Advanced setting boolean to enable chromatek
+msgctxt "#30019"
+msgid "Chromatek"
+msgstr ""
+
+#. Advanced setting boolean to enable rendering connections
+msgctxt "#30020"
+msgid "Connections"
+msgstr ""
+
+#. Advanced setting spinner to select trail length
+msgctxt "#30021"
+msgid "Trail length"
+msgstr ""
+
+#. Advanced setting spinner to select blur
+msgctxt "#30022"
+msgid "Blur"
+msgstr ""
+
+#. To 30013 related selection dialog entry
+msgctxt "#30023"
+msgid "Random colors"
+msgstr ""
+
+#. To 30013 related selection dialog entry
+msgctxt "#30024"
+msgid "Draw blobs"
+msgstr ""
+
+#. To 30013 related selection dialog entry
+msgctxt "#30025"
+msgid "Draw circle"
+msgstr ""
+
+#. To 30013 related selection dialog entry
+msgctxt "#30026"
+msgid "Draw dots"
+msgstr ""
+
+#. To 30013 related selection dialog entry
+msgctxt "#30027"
+msgid "Render clear completely"
+msgstr ""

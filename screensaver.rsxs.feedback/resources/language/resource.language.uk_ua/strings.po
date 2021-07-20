@@ -1,0 +1,111 @@
+# Kodi Media Center language file
+# Addon Name: Feedback
+# Addon id: screensaver.rsxs.feedback
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: uk_ua\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+#[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+#For example, prefer wording as "This new string" instead of "This New String".
+#[Referencing] If a suitable string already exists, reuse it, making a note of where it's used!
+#[Description / location] For example, "#. Description of some setting" used on "#: xbmc/addons/guidialogaddoninfo.cpp"
+#When writing a description or setting, refer to a setting name in quotes. See existing entries for guidance.
+#For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+# Following strings used for addon settings dialog
+#. Main category name on addon settings dialog
+msgctxt "#30000"
+msgid "General"
+msgstr ""
+
+#. Boolean value selection to render only in grey
+msgctxt "#30001"
+msgid "Grey only"
+msgstr ""
+
+#. Help about boolean value before
+msgctxt "#30002"
+msgid "Use greyscale instead of hue wheel"
+msgstr ""
+
+#. Slider to select saturation
+msgctxt "#30003"
+msgid "Saturation"
+msgstr ""
+
+#. Help about saturation selection
+msgctxt "#30004"
+msgid "Set color saturation"
+msgstr ""
+
+#. Slider to select lightness
+msgctxt "#30005"
+msgid "Lightness"
+msgstr ""
+
+#. Help about tightness selection
+msgctxt "#30006"
+msgid "Set color lightness"
+msgstr ""
+
+#. Spinner to select period time
+msgctxt "#30007"
+msgid "Period"
+msgstr ""
+
+#. Help to period time selection
+msgctxt "#30008"
+msgid "Sets color cycling period in seconds"
+msgstr ""
+
+#. Slider to select rendering speed
+msgctxt "#30009"
+msgid "Speed"
+msgstr ""
+
+#. Help text on speed selection
+msgctxt "#30010"
+msgid "Sets speed of warping grid wobble"
+msgstr ""
+
+#. Spinner to select cells amount as integer
+msgctxt "#30011"
+msgid "Cells"
+msgstr ""
+
+#. Help text for string before with cells
+msgctxt "#30012"
+msgid "Sets height and width of warping grid in powers of 2"
+msgstr ""
+
+#. Spinner to select testure size as integer
+msgctxt "#30013"
+msgid "Texture size"
+msgstr ""
+
+#. Help text of texture size selection
+msgctxt "#30014"
+msgid "Sets height and width of warped texture in powers of 2"
+msgstr ""
+
+#. Boolean value to enable/disable grid rendering
+msgctxt "#30015"
+msgid "Grid"
+msgstr ""
+
+#. Help text of boolean before
+msgctxt "#30016"
+msgid "Turns on rendering of the warping grid"
+msgstr ""
