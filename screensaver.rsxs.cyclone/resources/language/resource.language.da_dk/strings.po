@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-19 13:05+0000\n"
+"PO-Revision-Date: 2021-07-20 18:40+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-cyclone/da_dk/>\n"
 "Language: da_dk\n"
@@ -32,12 +32,12 @@ msgstr "Generel"
 #. To select amount of rendered Cyclones as number
 msgctxt "#30001"
 msgid "Cyclones"
-msgstr ""
+msgstr "Cykloner"
 
 #. Help text for selection of rendered Cyclones
 msgctxt "#30002"
 msgid "Number of cyclones.  1 - 10.  Default: 1"
-msgstr ""
+msgstr "Antal cykoner.  1 - 10.  Standard: 1"
 
 #. Selection of used particles as number
 msgctxt "#30003"
@@ -47,7 +47,7 @@ msgstr "Partikler"
 #. Help text for selection of used particles
 msgctxt "#30004"
 msgid "Particles per cyclone.  1 - 10000.  Default: 400"
-msgstr ""
+msgstr "Partikler pr. cyklon.  1 - 10000.  Standard: 400"
 
 #. Selection of size for particle as number
 msgctxt "#30005"
