@@ -10,9 +10,8 @@
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Tunnel saver</summary>
-    <description lang="en_GB">From Jeremie Allard:
-"A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website."</description>
-    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <description lang="en_GB">From Jeremie Allard:[CR]&quot;A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website.&quot;</description>
+    <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
     <assets>

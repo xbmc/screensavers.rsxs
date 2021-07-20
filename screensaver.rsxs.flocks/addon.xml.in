@@ -11,7 +11,7 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Floating wisps</summary>
     <description lang="en_GB">Here is a 3D variation on swarm savers, a favorite old theme. Try it out with Chromatek's ChromaDepth glasses for a cool 3D effect.</description>
-    <disclaimer lang="en_GB">This is an implementation based on "rss-glx" screensaver</disclaimer>
+    <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
     <assets>
