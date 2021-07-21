@@ -9,9 +9,6 @@
     point="xbmc.ui.screensaver"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">Phantasmagoria of gooey geometric shapes</summary>
-    <description lang="en_GB">A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect.</description>
-    <disclaimer lang="en_GB">This is an implementation based on &quot;reallyslickscreensavers&quot; screensaver</disclaimer>
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
     <assets>
@@ -23,5 +20,8 @@
       <screenshot>resources/screenshot-04.jpg</screenshot>
       <screenshot>resources/screenshot-05.jpg</screenshot>
     </assets>
+    <summary lang="en_GB">Phantasmagoria of gooey geometric shapes</summary>
+    <description lang="en_GB">A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect.</description>
+    <disclaimer lang="en_GB">This is an implementation based on &quot;reallyslickscreensavers&quot; screensaver</disclaimer>
   </extension>
 </addon>

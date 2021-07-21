@@ -17,6 +17,18 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
 
+msgctxt "Addon Summary"
+msgid "A mesmerising particle effects screensaver"
+msgstr "Hipnotizējošs daļiņu efekta ekrānsaudzētājs"
+
+msgctxt "Addon Description"
+msgid "This is a very mesmerizing particle effects saver. Tweak the settings a little and you'll find that you can achieve an amazing number of different animated patterns. You can also connect the particles with lines for a very different effect."
+msgstr "Šis ir ļoti valdzinošs daļiņu efekta ekrānsaudzētājs. Jūs redzēsit, ka tas spēj izveidot neticamu skaitu dažādu musturu."
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr ""
+
 #[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 #[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
 #For example, prefer wording as "This new string" instead of "This New String".

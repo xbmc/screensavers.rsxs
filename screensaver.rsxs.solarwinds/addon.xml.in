@@ -9,6 +9,20 @@
     point="xbmc.ui.screensaver"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
+    <platform>@PLATFORM@</platform>
+    <license>GPL-2.0-or-later</license>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+      <screenshot>resources/screenshot-02.jpg</screenshot>
+      <screenshot>resources/screenshot-03.jpg</screenshot>
+      <screenshot>resources/screenshot-04.jpg</screenshot>
+      <screenshot>resources/screenshot-05.jpg</screenshot>
+      <screenshot>resources/screenshot-06.jpg</screenshot>
+      <screenshot>resources/screenshot-07.jpg</screenshot>
+      <screenshot>resources/screenshot-08.jpg</screenshot>
+    </assets>
     <summary lang="af_ZA">'n Betoverende deeltjie effek sluimerskerm</summary>
     <summary lang="ar_SA">أداة ساحرة تؤثر بشاشة التوقف</summary>
     <summary lang="be_BY">Ахоўнік экрану з зачаравальнымі эфэктамі часьціцаў</summary>
@@ -19,8 +33,8 @@
     <summary lang="da_DK">En tryllebindende pauseskærm med partikeleffekter</summary>
     <summary lang="de_DE">Ein faszinierender Bildschirmschoner mit Partikeleffekten</summary>
     <summary lang="el_GR">Μία μαγευτική σωματιδιακή προφύλαξη οθόνης</summary>
-    <summary lang="en_GB">A mesmerising particle effects screensaver</summary>
     <summary lang="en_AU">A mesmerising particle effects screensaver</summary>
+    <summary lang="en_GB">A mesmerising particle effects screensaver</summary>
     <summary lang="en_NZ">A mesmerising particle effects screensaver</summary>
     <summary lang="en_US">A mesmerizing particle effects screensaver</summary>
     <summary lang="es_AR">Un protector de pantalla con unos efectos de partículas hipnotizantes</summary>
@@ -29,8 +43,8 @@
     <summary lang="es_VE">Un protector de pantalla con efectos de partículas bastante hipnotizante</summary>
     <summary lang="et_EE">Hüpnotiseeriv osakeste efektiga ekraanisäästja</summary>
     <summary lang="fi_FI">Lumoava partikkelitehostenäytönsäästäjä</summary>
-    <summary lang="fr_FR">Un économiseur envoûtant à effets de particules</summary>
     <summary lang="fr_CA">Un économiseur envoûtant à effets de particules</summary>
+    <summary lang="fr_FR">Un économiseur envoûtant à effets de particules</summary>
     <summary lang="gl_ES">Un hipnotizante protector de pantalla con efectos de partículas</summary>
     <summary lang="he_IL">שומר מסך עם אפקט חלקיקים מהפנט</summary>
     <summary lang="hr_HR">Čuvar zaslona - Očaravajuće kretanje čestica.</summary>
@@ -42,11 +56,11 @@
     <summary lang="lt_LT">Itaigus dalelių poveikio ekrano užsklanda</summary>
     <summary lang="lv_LV">Hipnotizējošs daļiņu efekta ekrānsaudzētājs</summary>
     <summary lang="mk_MK">Заштита на екран со смирувачки честички</summary>
-    <summary lang="nl_NL">Een hypnotiserende schermbeveiliging met partikeleffecten</summary>
     <summary lang="nb_NO">En hypnotiserende skjermsparer med partikkeleffekter</summary>
+    <summary lang="nl_NL">Een hypnotiserende schermbeveiliging met partikeleffecten</summary>
     <summary lang="pl_PL">Wygaszacz hipnotyzujący efektami cząsteczek</summary>
-    <summary lang="pt_PT">Protecção de ecrã com um impressionante efeito de partículas</summary>
     <summary lang="pt_BR">Um protetor de tela hipnotizante com efeitos de partículas</summary>
+    <summary lang="pt_PT">Protecção de ecrã com um impressionante efeito de partículas</summary>
     <summary lang="ro_RO">Un srceensaver cu efecte de particule fascinant</summary>
     <summary lang="ru_RU">Завораживающая заставка с эффектами частиц</summary>
     <summary lang="sk_SK">Fascinujúci šetrič s efektom častíc</summary>
@@ -79,8 +93,8 @@
     <description lang="es_VE">Este es un protector de pantalla con efectos de partículas bastante hipnotizante. Te darás cuenta que podrás lograr un gran número de patrones diferentes.</description>
     <description lang="et_EE">See on väga hüpnotiseeriv osakeste efektiga ekraanisäästja. Võimalik on koostada tohutul hulgal erinevaid mustreid.</description>
     <description lang="fi_FI">Erittäin lumoava partikkelitehostenäytönsäästäjä. Tulet huomaamaan uskomattoman määrän erilaisia kuvioita.</description>
-    <description lang="fr_FR">Voici un économiseur d'écran à effets de particules particulièrement envoûtant. Vous trouverez qu'il permet d'obtenir un nombre incroyable de modèles et d'effets différents.</description>
     <description lang="fr_CA">Voici un économiseur d'écran à effets de particules particulièrement envoûtant. Vous trouverez qu'il permet d'obtenir un nombre incroyable de modèles et d'effets différents.</description>
+    <description lang="fr_FR">Voici un économiseur d'écran à effets de particules particulièrement envoûtant. Vous trouverez qu'il permet d'obtenir un nombre incroyable de modèles et d'effets différents.</description>
     <description lang="gl_ES">Este é un protector de pantalla con efectos de partículas moi hipnotizante. Atopará que pode acadar un incrible número de patróns diferentes.</description>
     <description lang="he_IL">זהו שומר מסך עם אפקט חלקיקים מהפנט ביותר. אתה תמצא עצמך מקבל מס' מפתיע של צורות שונות ומרהיבות.</description>
     <description lang="hr_HR">Ovo je zaista očaravajuči čuvar zaslona. Moguće je ostvariti zapanjujući broj različitih uzoraka.</description>
@@ -92,11 +106,11 @@
     <description lang="lt_LT">Tai labai itaigus dalelių poveikio ekrano užsklanda. Jūs galite pasiekti nuostabių ivairių modelių nustatymuose. </description>
     <description lang="lv_LV">Šis ir ļoti valdzinošs daļiņu efekta ekrānsaudzētājs. Jūs redzēsit, ka tas spēj izveidot neticamu skaitu dažādu musturu.</description>
     <description lang="mk_MK">Ова е заштита на екран со смирувачки честички. Ќе откриете дека можете да постигнете зачудувачки шеми.</description>
-    <description lang="nl_NL">Dit is een erg hypnotiserende screensaver. Je kunt ongelooflijk veel verschillende patronen bekomen.</description>
     <description lang="nb_NO">Dette er en veldig hypnotiserende skjermsparer med partikkeleffekter. Du får se at der fins en utrolig mengde forskjellige mønster.</description>
+    <description lang="nl_NL">Dit is een erg hypnotiserende screensaver. Je kunt ongelooflijk veel verschillende patronen bekomen.</description>
     <description lang="pl_PL">Bardzo hipnotyzujący wygaszacz. Przekonaj się, ile niespotykanch wzorów da się osiągnąć.</description>
-    <description lang="pt_PT">Uma fantástica protecção de ecrã com um impressionante efeito de partículas. Experimente e verá que pode obter um número quase infinito de padrões.</description>
     <description lang="pt_BR">Este é um protetor de tela com efeitos de partícula bem hipnotizante. Você verá que pode alcançar um incrível número de diferentes padrões.</description>
+    <description lang="pt_PT">Uma fantástica protecção de ecrã com um impressionante efeito de partículas. Experimente e verá que pode obter um número quase infinito de padrões.</description>
     <description lang="ro_RO">Acesta este un screensaver cu efecte de particule foarte fascinant. O să vedeți că veți putea obține un număr uimitor de modele diferite.</description>
     <description lang="ru_RU">Завораживающая заставка с эффектами частиц. Для этой заставки на выбор доступно огромное количество вариаций эффектов.</description>
     <description lang="sk_SK">Toto je veľmi fascinujúci šetrič s efektom častíc. Zistíte, že môžete dosiahnuť neskutočné číslo rôznych vzorov.</description>
@@ -110,19 +124,5 @@
     <description lang="zh_CN">这是一个非常迷人的粒子效果屏幕保护程序。你会发现你能看到惊人数量的不同图案。</description>
     <description lang="zh_TW">這是一個非常令人著迷的粒子效果螢幕保護程式。您會發現可以達到一個另人驚豔的圖形數。</description>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
-    <platform>@PLATFORM@</platform>
-    <license>GPL-2.0-or-later</license>
-    <assets>
-      <icon>resources/icon.png</icon>
-      <fanart>resources/fanart.jpg</fanart>
-      <screenshot>resources/screenshot-01.jpg</screenshot>
-      <screenshot>resources/screenshot-02.jpg</screenshot>
-      <screenshot>resources/screenshot-03.jpg</screenshot>
-      <screenshot>resources/screenshot-04.jpg</screenshot>
-      <screenshot>resources/screenshot-05.jpg</screenshot>
-      <screenshot>resources/screenshot-06.jpg</screenshot>
-      <screenshot>resources/screenshot-07.jpg</screenshot>
-      <screenshot>resources/screenshot-08.jpg</screenshot>
-    </assets>
   </extension>
 </addon>
