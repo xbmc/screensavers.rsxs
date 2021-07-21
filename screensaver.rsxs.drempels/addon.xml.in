@@ -21,6 +21,7 @@
       <screenshot>resources/screenshot-05.jpg</screenshot>
       <screenshot>resources/screenshot-06.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Hallucinerende desktopforstærker</summary>
     <summary lang="en_GB">Hallucinatory desktop enhancer</summary>
     <description lang="en_GB">A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver.</description>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
