@@ -17,6 +17,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.5.3\n"
 
+msgctxt "Addon Summary"
+msgid "About as psychedelic as screensavers get"
+msgstr "Tan psicodélico como cualquier protector de pantalla debería"
+
+msgctxt "Addon Description"
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Esto es tan psicodélico como un protector de pantalla debe ser, mogumbo pensó que su protector Plasma estaba en la cima del mundo, pero éste es aún más nauseabundo. Deberías conseguir una bolsa para mareos antes de quedarte observando por mucho tiempo."
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr ""
+
 #[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 #[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
 #For example, prefer wording as "This new string" instead of "This New String".

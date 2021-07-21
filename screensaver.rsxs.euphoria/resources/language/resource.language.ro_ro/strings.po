@@ -17,6 +17,18 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 
+msgctxt "Addon Summary"
+msgid "About as psychedelic as screensavers get"
+msgstr "Un protector ecran cât se poate de năucitor"
+
+msgctxt "Addon Description"
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Acesta este un screensaver cât se poate de năucitor. mogumbo credea că screensaverul creat de el, Plasma este pe primul loc, dar acest screensaver este și mai amețitor. Ar trebui să căutați o pungă să nu vi se facă rău înainte de a vă uita la acesta prea mult."
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr ""
+
 #[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 #[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
 #For example, prefer wording as "This new string" instead of "This New String".

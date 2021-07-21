@@ -16,6 +16,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
+msgctxt "Addon Summary"
+msgid "Probably the second most psychedelic screensaver ever"
+msgstr "Probablemente el segundo protector de pantalla más psicodélico jamás creado"
+
+msgctxt "Addon Description"
+msgid "Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around."
+msgstr "Probablemente el segundo protector de pantalla más psicodélico que existe. Solo intente imaginarse todos esos colores moviéndose."
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr ""
+
 #[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 #[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
 #For example, prefer wording as "This new string" instead of "This New String".

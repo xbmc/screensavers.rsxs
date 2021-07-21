@@ -17,6 +17,18 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
+msgctxt "Addon Summary"
+msgid "Attraction/repulsion particle effects and some smooth surfaces"
+msgstr ""
+
+msgctxt "Addon Description"
+msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
+msgstr ""
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr ""
+
 #[Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 #[Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
 #For example, prefer wording as "This new string" instead of "This New String".
