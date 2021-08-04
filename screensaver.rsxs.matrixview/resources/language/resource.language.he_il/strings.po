@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
+"PO-Revision-Date: 2021-08-04 13:29+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew (Israel) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-matrixview/he_il/>\n"
 "Language: he_il\n"
@@ -15,19 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.7.2\n"
 
 msgctxt "Addon Summary"
 msgid "The Matrix Screensaver"
-msgstr ""
+msgstr "שומר מסך המטריקס"
 
 msgctxt "Addon Description"
 msgid "This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series."
-msgstr ""
+msgstr "זה שומר מסך מטריקס תלת־ממדי שמבוסס על סצנות הגשם הדיגיטלי במטריקס רילודד (Reloaded). מופיע בו הטקסט הירוק הנופל (או הגשם הדיגיטלי) שעוטף ייצוגים תלת־ממדיים של דמויות שונות מהסדרה."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "יישום שמבוסס על שומר המסך „rss-glx”"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,27 +42,27 @@ msgstr "כללי"
 
 msgctxt "#30001"
 msgid "Color of the falling text"
-msgstr ""
+msgstr "צבע הטקסט הנופל"
 
 msgctxt "#30002"
 msgid "Set color of the falling text. Can be `green', `red' or `blue'."
-msgstr ""
+msgstr "הגדרת צבע הטקסט הנופל. יכול להיות `green',‏ `red' או `blue' (ירוק, אדום או כחול בהתאמה)."
 
 msgctxt "#30003"
 msgid "Red"
-msgstr ""
+msgstr "אדום"
 
 msgctxt "#30004"
 msgid "Green"
-msgstr ""
+msgstr "ירוק"
 
 msgctxt "#30005"
 msgid "Blue"
-msgstr ""
+msgstr "כחול"
 
 msgctxt "#30006"
 msgid "Intensity of the digital rain"
-msgstr ""
+msgstr "עצמת הגשם הדיגיטלי"
 
 msgctxt "#30007"
 msgid "Set the intensity of the digital rain. The default is 1, and is clamped to the range [1,50]. The intensity effects the number of white nodes, the number of random character changes and the general speed of the rain."

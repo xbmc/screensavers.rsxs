@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
+"PO-Revision-Date: 2021-08-04 13:29+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew (Israel) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-drempels/he_il/>\n"
 "Language: he_il\n"
@@ -15,19 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.7.2\n"
 
 msgctxt "Addon Summary"
 msgid "Hallucinatory desktop enhancer"
-msgstr ""
+msgstr "משפר הזיות בשולחן עבודה"
 
 msgctxt "Addon Description"
 msgid "A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver."
-msgstr ""
+msgstr "משפר הזיות בשולחן העבודה - מעורר את רקע המחשב שלך לחיים עם תמונות יפהפהיות מסתובבות. זמין כרקע מונפש או כשומר מסך."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "יישום שמבוסס על שומר המסך „rss-glx”"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -110,39 +110,39 @@ msgstr "תמונות (כשריק, יוצגו תמונות פנארט של Kodi)"
 #. Help to folder selection
 msgctxt "#30014"
 msgid "Select the folder from which the images will be used"
-msgstr ""
+msgstr "נא לבחור תיקייה שהתמונות שבה ישמשו את המנגנון"
 
 #. Folder selection dialog header
 msgctxt "#30015"
 msgid "Folder from which the images will be used"
-msgstr ""
+msgstr "נא לבחור תיקייה שהתמונות שבה ישמשו את המנגנון"
 
 #. Slider for texture change intervall in seconds
 msgctxt "#30016"
 msgid "Texture interval (s)"
-msgstr ""
+msgstr "הפרש בין מרקמים"
 
 #. Help to texture interval
 msgctxt "#30017"
 msgid "Seconds to dwell on each texture"
-msgstr ""
+msgstr "שניות להשהיה על כל מרקם"
 
 #. Slider for texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30018"
 msgid "Texture fade interval (s)"
-msgstr ""
+msgstr "הפרש בין עמעום מרקמים"
 
 #. Help to texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30019"
 msgid "Fade time between subsequent textures, in tenths of second"
-msgstr ""
+msgstr "זמן העמעום בין מרקמים רציפים בעשיריות השנייה"
 
 #. Spinner to select generated texture size
 msgctxt "#30020"
 msgid "Generated texture size"
-msgstr ""
+msgstr "גודל המרקם שנוצר"
 
 #. Help to generated texture size
 msgctxt "#30021"
 msgid "Resolution of randomly generated textures, in powers of two"
-msgstr ""
+msgstr "רזולוציית המרקמים שנוצרים אוטומטית, בחזקות של שתיים"
