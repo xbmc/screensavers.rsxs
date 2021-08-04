@@ -23,7 +23,12 @@
     </assets>
     <summary lang="da_DK">Hallucinerende desktopforstærker</summary>
     <summary lang="en_GB">Hallucinatory desktop enhancer</summary>
+    <summary lang="he_IL">משפר הזיות בשולחן עבודה</summary>
     <description lang="en_GB">A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver.</description>
+    <description lang="he_IL">משפר הזיות בשולחן העבודה - מעורר את רקע המחשב שלך לחיים עם תמונות יפהפהיות מסתובבות. זמין כרקע מונפש או כשומר מסך.</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>

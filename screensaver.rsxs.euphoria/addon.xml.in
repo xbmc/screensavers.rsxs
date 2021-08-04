@@ -31,7 +31,7 @@
     <summary lang="ca_ES">Quant al més psicodèlic dels estalvis de pantalla</summary>
     <summary lang="cs_CZ">Nejdivočejší šetřič obrazovky všech dob</summary>
     <summary lang="cy_GB">Mor seicadelig ag y mae modd bod</summary>
-    <summary lang="da_DK">Omtrent så psykedelisk som en pauseskærm kan blive.</summary>
+    <summary lang="da_DK">Omtrent så psykedelisk som en pauseskærm kan blive</summary>
     <summary lang="de_DE">So psychedelisch wie ein Bildschirmschoner nur sein kann</summary>
     <summary lang="el_GR">Όσο πιο ψυχεδελική μπορεί να είναι μία προφύλαξη οθόνης</summary>
     <summary lang="en_AU">About as psychedelic as screensavers get</summary>
@@ -122,6 +122,9 @@
     <description lang="vi_VN">Chú trọng để tạo ra ảo giác mạnh nhất mà trình bảo vệ màn hình có thể có được. Mogumbo từng nghĩ trình bảo vệ Plasma của mình đã đỉnh, nhưng trình này còn kinh khủng hơn. Tốt hơn hết là bạn nên chuẩn bị một túi chống nôn cho mình trước khi bắt đầu nhìn vào nó quá lâu</description>
     <description lang="zh_CN">这大概是最具迷幻效果的屏幕保护程序了。mogumbo 以为他的 Plasma 屏保已经是数一数二了，但这个更令人犯晕。如果你要长时间盯视它最好先准备一个晕机袋。</description>
     <description lang="zh_TW">這大概是最具夢幻效果的屏幕保護程序了。 mogumbo以為他的電漿螢幕保護程式已經是數一數二了，但這個更令人頭昏腦脹。如果你要長時間盯視它最好先準備一個夠用的暈機嘔吐袋。</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>

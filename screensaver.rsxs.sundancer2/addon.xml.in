@@ -20,6 +20,9 @@
     </assets>
     <summary lang="en_GB">Rotating stack of quads</summary>
     <description lang="en_GB">Neat rotation effects from rotation and skewing stack of transparent squares.</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>

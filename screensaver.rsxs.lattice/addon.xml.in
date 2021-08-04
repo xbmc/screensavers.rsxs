@@ -24,6 +24,9 @@
     </assets>
     <summary lang="en_GB">Attraction/repulsion particle effects and some smooth surfaces</summary>
     <description lang="en_GB">Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get.</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>

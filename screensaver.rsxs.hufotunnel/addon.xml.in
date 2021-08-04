@@ -20,6 +20,9 @@
     </assets>
     <summary lang="en_GB">Tunnel saver</summary>
     <description lang="en_GB">From Jeremie Allard:[CR]&quot;A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website.&quot;</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>

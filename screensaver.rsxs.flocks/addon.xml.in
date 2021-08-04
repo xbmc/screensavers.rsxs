@@ -22,6 +22,9 @@
     </assets>
     <summary lang="en_GB">Floating wisps</summary>
     <description lang="en_GB">Here is a 3D variation on swarm savers, a favorite old theme. Try it out with Chromatek's ChromaDepth glasses for a cool 3D effect.</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>
