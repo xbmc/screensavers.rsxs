@@ -116,7 +116,10 @@
     <description lang="vi_VN">Đây có thể là trình bảo vệ màn hình gây ảo giác mạnh thứ hai tại thời điểm này. Hãy thử xem các hình ảnh tạo nên từ các màu sắc di chuyển khắp nơi</description>
     <description lang="zh_CN">或许是排名第二的迷幻效果屏幕保护程序。你将看到所有颜色满处乱飞。</description>
     <description lang="zh_TW">可能是現存第二最夢幻的螢幕保護程式。快來嘗試想像一下所有移動中的色彩變化。</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Dies ist eine auf &quot;rss-glx&quot; Bildschirmschoner basierende Implementierung.</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>

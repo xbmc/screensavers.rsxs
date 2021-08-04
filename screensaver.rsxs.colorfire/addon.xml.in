@@ -18,7 +18,11 @@
       <screenshot>resources/screenshot-02.jpg</screenshot>
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Farve-ild-eksplosion-ting-effekt</summary>
     <summary lang="en_GB">Color-fire-explosion-thing-effect</summary>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>

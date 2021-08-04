@@ -21,7 +21,12 @@
       <screenshot>resources/screenshot-05.jpg</screenshot>
     </assets>
     <summary lang="en_GB">Particle spheres</summary>
+    <summary lang="he_IL">כדורי חלקיקים</summary>
     <description lang="en_GB">Spheres made of dancing particles.</description>
+    <description lang="he_IL">כדורים שעשויים מחלקיקים מרקדים.</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
   </extension>
 </addon>
