@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-04 13:29+0000\n"
+"PO-Revision-Date: 2021-08-22 09:29+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-drempels/da_dk/>\n"
 "Language: da_dk\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
 msgid "Hallucinatory desktop enhancer"
@@ -23,7 +23,7 @@ msgstr "Hallucinerende desktopforstærker"
 
 msgctxt "Addon Description"
 msgid "A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver."
-msgstr ""
+msgstr "En hallucinerende desktopforstærker - væk dit tapet til live med yndefulde, hvirvlende billeder. Kører smukt som animeret tapet eller som en pauseskærm."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -45,104 +45,104 @@ msgstr "Generel"
 #. Spinner to select number blurring
 msgctxt "#30001"
 msgid "Blur"
-msgstr ""
+msgstr "Sløring"
 
 #. Help text of number selection for blurring
 msgctxt "#30002"
 msgid "Blurring between frames"
-msgstr ""
+msgstr "Sløring mellem billeder"
 
 #. Spinner to select render speed
 msgctxt "#30003"
 msgid "Speed"
-msgstr ""
+msgstr "Hastighed"
 
 #. Setting help text for select render speed
 msgctxt "#30004"
 msgid "Speed of flow, bigger is faster"
-msgstr ""
+msgstr "Hastighed på flow, større er hurtigere"
 
 #. Spinner to select scale factor
 msgctxt "#30005"
 msgid "Scale"
-msgstr ""
+msgstr "Skala"
 
 #. Help for scale factor selection
 msgctxt "#30006"
 msgid "Scale of flow, bigger is zoomed in"
-msgstr ""
+msgstr "Skala af flow, større er zoomet ind"
 
 #. Spinner to select number of cells
 msgctxt "#30007"
 msgid "Cells"
-msgstr ""
+msgstr "Celler"
 
 #. Help for number of cells selection
 msgctxt "#30008"
 msgid "Number of cells (i.e. control points) in width/height in powers of two"
-msgstr ""
+msgstr "Antal celler (dvs. kontrolpunkter) i bredde/højde ved to ad gangen"
 
 #. Spinner to select cell resolution
 msgctxt "#30009"
 msgid "Cell Resolution"
-msgstr ""
+msgstr "Opløsning på celler"
 
 #. Help for cell resolution selection
 msgctxt "#30010"
 msgid "Resolution of each cell in powers of two.  4 - 8"
-msgstr ""
+msgstr "Opløsning på hver celle ved to ad gangen.  4 - 8"
 
 #. Boolean value to use images instead
 msgctxt "#30011"
 msgid "Use Images"
-msgstr ""
+msgstr "Brug billeder"
 
 #. Help for boolean to allow use of images
 msgctxt "#30012"
 msgid "Cycle through the images"
-msgstr ""
+msgstr "Bladr gennem billederne"
 
 #. To open dialog for folder selection of images
 msgctxt "#30013"
 msgid "Images (when empty, Kodi fanart images are used)"
-msgstr ""
+msgstr "Billeder (ved tomme billeder bruges Kodi fankunst)"
 
 #. Help to folder selection
 msgctxt "#30014"
 msgid "Select the folder from which the images will be used"
-msgstr ""
+msgstr "Vælg den mappe, hvorfra billederne skal bruges"
 
 #. Folder selection dialog header
 msgctxt "#30015"
 msgid "Folder from which the images will be used"
-msgstr ""
+msgstr "Mappe hvorfra billederne skal bruges"
 
 #. Slider for texture change intervall in seconds
 msgctxt "#30016"
 msgid "Texture interval (s)"
-msgstr ""
+msgstr "Interval på struktur (s)"
 
 #. Help to texture interval
 msgctxt "#30017"
 msgid "Seconds to dwell on each texture"
-msgstr ""
+msgstr "Sekunder der hviles ved hver struktur"
 
 #. Slider for texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30018"
 msgid "Texture fade interval (s)"
-msgstr ""
+msgstr "Interval for fade mellem struktur (s)"
 
 #. Help to texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30019"
 msgid "Fade time between subsequent textures, in tenths of second"
-msgstr ""
+msgstr "Tid for fade mellem efterfølgende strukturer, i tiendedele af et sekund"
 
 #. Spinner to select generated texture size
 msgctxt "#30020"
 msgid "Generated texture size"
-msgstr ""
+msgstr "Genereret størrelse på struktur"
 
 #. Help to generated texture size
 msgctxt "#30021"
 msgid "Resolution of randomly generated textures, in powers of two"
-msgstr ""
+msgstr "Opløsning af tilfældigt genererede teksturer, to ad gangen"
