@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-04 13:29+0000\n"
+"PO-Revision-Date: 2021-08-22 09:29+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-cyclone/da_dk/>\n"
 "Language: da_dk\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
 msgid "Tornado screen saver"
-msgstr ""
+msgstr "Tornado pauseskærm"
 
 msgctxt "Addon Description"
 msgid "This screensaver makes tornadoes on your screen.[CR]Was wrote for storm chasing buddy, but you can have it too. Have a look at his weather page if you're interested in meteorology and severe weather."
-msgstr ""
+msgstr "Denne pauseskærm laver tornadoer på din skærm.[CR]Blev skrevet til en stormjagende kammerat, men du kan også få den. Tag et kig på hans vejrside, hvis du er interesseret i meteorologi og vildt vejr."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -69,17 +69,17 @@ msgstr "Størrelse"
 #. Help text for selection of size for particle
 msgctxt "#30006"
 msgid "Particle size.  1 - 100.  Default: 7"
-msgstr ""
+msgstr "Partikelstørrelse.  1 - 100.  Standard: 7"
 
 #. Selection of complexity as number
 msgctxt "#30007"
 msgid "Complexity"
-msgstr ""
+msgstr "Kompleksitet"
 
 #. Help text for selection of complexity
 msgctxt "#30008"
 msgid "Cyclone complexity.  1 - 10.  Default: 3"
-msgstr ""
+msgstr "Cyklon-kompleksitet.  1 - 10.  Standard: 3"
 
 #. Selection of render speed as number
 msgctxt "#30009"
@@ -89,7 +89,7 @@ msgstr "Hastighed"
 #. Help text for selection of speed
 msgctxt "#30010"
 msgid "Speed.  1 - 100.  Default: 10"
-msgstr ""
+msgstr "Hastighed.  1 - 100.  Standard: 10"
 
 #. Boolean selection to enable stretch
 msgctxt "#30011"
@@ -99,14 +99,14 @@ msgstr "Stræk"
 #. Help text for selection boolean for stretch
 msgctxt "#30012"
 msgid "Stretch.  Default: True"
-msgstr ""
+msgstr "Stræk.  Standard: Til"
 
 #. Boolean selection to show of curves
 msgctxt "#30013"
 msgid "Show curves"
-msgstr ""
+msgstr "Vis kurver"
 
 #. Help text for selection boolean for curves
 msgctxt "#30014"
 msgid "Show Curves.  Default: False"
-msgstr ""
+msgstr "Vis kurver.  Standard: Fra"
