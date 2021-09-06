@@ -23,9 +23,11 @@
     <summary lang="da_DK">Partikel-kugle</summary>
     <summary lang="en_GB">Particle spheres</summary>
     <summary lang="he_IL">כדורי חלקיקים</summary>
+    <summary lang="pl_PL">Kule cząsteczek</summary>
     <description lang="da_DK">Kugler lavet af dansende partikler.</description>
     <description lang="en_GB">Spheres made of dancing particles.</description>
     <description lang="he_IL">כדורים שעשויים מחלקיקים מרקדים.</description>
+    <description lang="pl_PL">Kule zbudowane z tańczących cząsteczek.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
