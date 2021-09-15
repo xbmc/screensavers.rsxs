@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-09-15 12:30+0000\n"
+"Last-Translator: Minho Park <parkmino@gmail.com>\n"
+"Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-hyperspace/ko_kr/>\n"
 "Language: ko_kr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
 msgid "Flying through hyper space"
-msgstr ""
+msgstr "하이퍼 스페이스를 통해 비행"
 
 msgctxt "Addon Description"
 msgid "Cruise through the far reaches of space really, really fast. Fly between the stars, across oozing cosmic planes, and through endless shimmering tunnels. ...really fast."
-msgstr ""
+msgstr "우주의 먼 곳을 정말, 정말 빠르게 크루즈하세요. 별 사이, 스며나오는 우주 비행기, 끝없이 반짝이는 터널을 통해 날아보세요. ...정말 빠릅니다."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "이것은 \"rss-glx\" 화면 보호기 기반입니다"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -38,36 +39,36 @@ msgstr ""
 # settings labels
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 msgctxt "#30001"
 msgid "Number of stars"
-msgstr ""
+msgstr "별 개수"
 
 msgctxt "#30002"
 msgid "Star size"
-msgstr ""
+msgstr "별 크기"
 
 msgctxt "#30003"
 msgid "Depth"
-msgstr ""
+msgstr "깊이"
 
 msgctxt "#30004"
 msgid "Field of view"
-msgstr ""
+msgstr "시야"
 
 msgctxt "#30005"
 msgid "Speed"
-msgstr ""
+msgstr "속도"
 
 msgctxt "#30006"
 msgid "Resolution"
-msgstr ""
+msgstr "해상도"
 
 msgctxt "#30007"
 msgid "Use tunnels"
-msgstr ""
+msgstr "터널 사용"
 
 msgctxt "#30008"
 msgid "Use goo"
-msgstr ""
+msgstr "끈적임 사용"

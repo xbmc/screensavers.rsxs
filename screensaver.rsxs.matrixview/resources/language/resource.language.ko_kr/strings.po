@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-09-15 12:30+0000\n"
+"Last-Translator: Minho Park <parkmino@gmail.com>\n"
+"Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-matrixview/ko_kr/>\n"
 "Language: ko_kr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
 msgid "The Matrix Screensaver"
-msgstr ""
+msgstr "Matrix 스크린 세이버"
 
 msgctxt "Addon Description"
 msgid "This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series."
-msgstr ""
+msgstr "이것은 The Matrix Reloaded의 디지털 비 장면을 기반으로 한 3D 매트릭스 화면 보호기입니다. 그것은 시리즈의 다른 캐릭터의 3D 표현을 감싸는 녹색 스크롤 텍스트(또는 디지털 비)를 특징으로 합니다."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "이것은 \"rss-glx\" 화면 보호기 기반입니다"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -37,40 +38,40 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 msgctxt "#30001"
 msgid "Color of the falling text"
-msgstr ""
+msgstr "떨어지는 글자의 색상"
 
 msgctxt "#30002"
 msgid "Set color of the falling text. Can be `green', `red' or `blue'."
-msgstr ""
+msgstr "떨어지는 글자의 색상을 설정합니다. '녹색', '빨간색' 또는 '파란색'일 수 있습니다."
 
 msgctxt "#30003"
 msgid "Red"
-msgstr ""
+msgstr "빨간색"
 
 msgctxt "#30004"
 msgid "Green"
-msgstr ""
+msgstr "녹색"
 
 msgctxt "#30005"
 msgid "Blue"
-msgstr ""
+msgstr "파란색"
 
 msgctxt "#30006"
 msgid "Intensity of the digital rain"
-msgstr ""
+msgstr "디지털 비의 강도"
 
 msgctxt "#30007"
 msgid "Set the intensity of the digital rain. The default is 1, and is clamped to the range [1,50]. The intensity effects the number of white nodes, the number of random character changes and the general speed of the rain."
-msgstr ""
+msgstr "디지털 비의 강도를 설정합니다. 기본값은 1이며 [1,50] 범위로 고정됩니다. 강도는 흰색 노드의 수, 임의의 문자 변경 수 및 비의 일반적인 속도에 영향을 줍니다."
 
 msgctxt "#30008"
 msgid "Classic (no images)"
-msgstr ""
+msgstr "고전 (이미지 없음)"
 
 msgctxt "#30009"
 msgid "Enable static mode, which disables the display of 3D images. This mimics the style of the scrolling text from the original film."
-msgstr ""
+msgstr "3D 이미지 표시를 사용하지 않는 정적 모드를 사용합니다. 이것은 원본 필름의 스크롤 텍스트 스타일을 모방합니다."
