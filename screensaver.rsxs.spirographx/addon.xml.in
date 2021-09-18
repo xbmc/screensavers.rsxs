@@ -22,10 +22,13 @@
       <screenshot>resources/screenshot-06.jpg</screenshot>
     </assets>
     <summary lang="en_GB">Animated spirographs</summary>
+    <summary lang="ko_KR">애니메이션 스피로그래프</summary>
     <description lang="en_GB">Port of SpirographX Screensaver.</description>
+    <description lang="ko_KR">SpirographX 화면 보호기의 포트.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
   </extension>
