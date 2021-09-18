@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-09-15 12:30+0000\n"
+"Last-Translator: Minho Park <parkmino@gmail.com>\n"
+"Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lorenz/ko_kr/>\n"
 "Language: ko_kr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
 msgid "Screensaver visualization of the Lorenz Attractor fractal"
-msgstr ""
+msgstr "Lorenz Attractor 프랙탈의 화면 보호기 시각화"
 
 msgctxt "Addon Description"
 msgid "This is a 3d realtime visualization of the Lorenz Attractor."
-msgstr ""
+msgstr "이것은 Lorenz Attractor의 3D 실시간 시각화입니다."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "이것은 \"rss-glx\" 화면 보호기 기반입니다"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -37,40 +38,40 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 msgctxt "#30001"
 msgid "Points amount"
-msgstr ""
+msgstr "점 총수"
 
 msgctxt "#30002"
 msgid "Satellites amount"
-msgstr ""
+msgstr "위성 총수"
 
 msgctxt "#30003"
 msgid "Camera speed"
-msgstr ""
+msgstr "카메라 속도"
 
 msgctxt "#30004"
 msgid "Camera angle"
-msgstr ""
+msgstr "케메라 각도"
 
 msgctxt "#30005"
 msgid "Line width"
-msgstr ""
+msgstr "선 두께"
 
 msgctxt "#30006"
 msgid "Satellite line width"
-msgstr ""
+msgstr "위성 선 두께"
 
 msgctxt "#30007"
 msgid "Line cutoff"
-msgstr ""
+msgstr "선 잘라냄"
 
 msgctxt "#30008"
 msgid "Speed"
-msgstr ""
+msgstr "속도"
 
 msgctxt "#30009"
 msgid "%.1f°"
-msgstr ""
+msgstr "%.1f°"

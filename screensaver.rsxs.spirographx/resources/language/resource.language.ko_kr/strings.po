@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-09-15 12:30+0000\n"
+"Last-Translator: Minho Park <parkmino@gmail.com>\n"
+"Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-spirographx/ko_kr/>\n"
 "Language: ko_kr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
 msgid "Animated spirographs"
-msgstr ""
+msgstr "애니메이션 스피로그래프"
 
 msgctxt "Addon Description"
 msgid "Port of SpirographX Screensaver."
-msgstr ""
+msgstr "SpirographX 화면 보호기의 포트."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "이것은 \"rss-glx\" 화면 보호기 기반입니다"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -37,24 +38,24 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 msgctxt "#30001"
 msgid "Number of line segments"
-msgstr ""
+msgstr "선분의 수"
 
 msgctxt "#30002"
 msgid "Seconds between random settings change"
-msgstr ""
+msgstr "임의 설정 변경 간격(초)"
 
 msgctxt "#30003"
 msgid "Blur width"
-msgstr ""
+msgstr "흐림 폭"
 
 msgctxt "#30004"
 msgid "%i pixel"
-msgstr ""
+msgstr "%i 픽셀"
 
 msgctxt "#30005"
 msgid "Fit screen width"
-msgstr ""
+msgstr "화면 너비 맞추기"
