@@ -19,10 +19,13 @@
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
     <summary lang="en_GB">Tunnel saver</summary>
+    <summary lang="ko_KR">터널 보호기</summary>
     <description lang="en_GB">From Jeremie Allard:[CR]&quot;A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website.&quot;</description>
+    <description lang="ko_KR">Jeremie Allard:[CR]&quot;제 첫 번째 OpenGL 챌린지 항목의 재작성 버전입니다. 재탄생과 같은 것입니다. :) 이 챌린지에 참여하지 않은 지 오랜 후에, 이 멋진 새 웹사이트에 대해 Otry와 BlackOrb에게 감사하기 위해 이 작은 항목을 작성했습니다.&quot;</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
   </extension>
