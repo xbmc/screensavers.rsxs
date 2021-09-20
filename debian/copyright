@@ -2,7 +2,7 @@ Format: http://dep.debian.net/deps/dep5
 Upstream-Name: screensavers.rsxs
 
 Files: *
-Copyright: 2005-2019 Team Kodi
+Copyright: 2005-2020 Team Kodi
            2002-2006 Michael Chapman
            2002-2010 Terry Welsh
 License: GPL-2+

@@ -6,15 +6,13 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 cmake_policy(SET CMP0054 NEW)
 
 find_package(Kodi REQUIRED)
-find_package(glm REQUIRED)
-find_package(gli REQUIRED)
 
-if(APP_RENDER_SYSTEM STREQUAL "gl" OR NOT APP_RENDER_SYSTEM)
+if(NOT WIN32 AND (APP_RENDER_SYSTEM STREQUAL "gl" OR NOT APP_RENDER_SYSTEM))
   find_package(OpenGl REQUIRED)
   set(DEPLIBS ${OPENGL_LIBRARIES})
   set(includes ${OPENGL_INCLUDE_DIR})
   add_definitions(${OPENGL_DEFINITIONS})
-elseif(APP_RENDER_SYSTEM STREQUAL "gles")
+else()
   find_package(OpenGLES REQUIRED)
   set(DEPLIBS ${OPENGLES_LIBRARIES})
   set(includes ${OPENGLES_INCLUDE_DIR})
@@ -22,16 +20,16 @@ elseif(APP_RENDER_SYSTEM STREQUAL "gles")
 endif()
 
 include_directories(${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
-                    ${GLM_INCLUDE_DIR}
-                    ${GLI_INCLUDE_DIR}
-                    ${PROJECT_SOURCE_DIR}/lib)
+                    ${PROJECT_SOURCE_DIR}/lib
+                    ${PROJECT_SOURCE_DIR}/lib/glm
+                    ${PROJECT_SOURCE_DIR}/lib/gli)
 
 add_subdirectory(lib/kodi/gui/gl)
 add_subdirectory(lib/Implicit)
 add_subdirectory(lib/Rgbhsl)
 add_subdirectory(lib/rsMath)
 
-list(APPEND DEPENDS glm gli rsMath kodiOpenGL)
+list(APPEND DEPENDS rsMath kodiOpenGL)
 list(APPEND DEPLIBS rsMath kodiOpenGL Implicit Rgbhsl)
 
 if(NOT ${CORE_SYSTEM_NAME} STREQUAL "")
@@ -39,7 +37,7 @@ if(NOT ${CORE_SYSTEM_NAME} STREQUAL "")
      CORE_SYSTEM_NAME STREQUAL ios OR
      CORE_SYSTEM_NAME STREQUAL darwin_embedded)
     list(APPEND DEPLIBS "-framework CoreVideo")
-  elseif(CORE_SYSTEM_NAME STREQUAL windows)
+  elseif(CORE_SYSTEM_NAME STREQUAL windows OR CORE_SYSTEM_NAME STREQUAL windowsstore)
     add_definitions(-D_USE_MATH_DEFINES
                     -DNOMINMAX)
   endif()

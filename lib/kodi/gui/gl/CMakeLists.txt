@@ -11,10 +11,3 @@ set(HEADERS Texture.h
             ErrorCheck.h)
 
 add_library(kodiOpenGL STATIC ${SOURCES} ${HEADERS})
-if(NOT GLM_FOUND)
-  add_dependencies(kodiOpenGL glm)
-endif()
-if(NOT GLI_FOUND)
-  add_dependencies(kodiOpenGL gli)
-endif()
-target_include_directories(kodiOpenGL PUBLIC ${GLI_INCLUDE_DIR} ${GLM_INCLUDE_DIR})

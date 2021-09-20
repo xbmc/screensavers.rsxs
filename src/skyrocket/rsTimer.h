@@ -8,14 +8,8 @@
 #ifndef RS_TIMER_H
 #define RS_TIMER_H
 
-#ifdef WIN32
-#include <windows.h>
-#include <mmsystem.h>
-#else
-#include <unistd.h>
-#include <time.h>
-#endif
-
+#include <thread>
+#include <chrono>
 
 class rsTimer{
 public:
@@ -26,62 +20,24 @@ public:
 	// Wait() would take a hair too long, if we didn't keep track of the
 	// extra time it was spending.  That's what wait_overhead is for.
 	double wait_function_overhead;
-#ifdef WIN32
-	BOOL highResCounterSupported;
-	double freq;  // high frequency system counts per second
-	LONGLONG curr, prev;
-	// for low res timer if high res is unavailable
-	DWORD lowResCurr, lowResPrev;
-#else
-	struct timespec curr_ts;
-	struct timespec prev_ts;
-#endif
+	std::chrono::high_resolution_clock::time_point curr_ts;
+	std::chrono::high_resolution_clock::time_point prev_ts;
+
 
 	rsTimer(){
 		elapsed_time = 0.0;
 		waited_time = 0.0;
 		wait_function_overhead = 0.0;
-#ifdef WIN32
-		// init high- and low-res timers
-		LARGE_INTEGER n[1];
-		highResCounterSupported = QueryPerformanceFrequency(n);
-		freq = 1.0 / double(n[0].QuadPart);
-		timeBeginPeriod(1);  // make Sleep() and timeGetTime() more accurate
-		// get first tick for high- and low-res timers
-		QueryPerformanceCounter(n);
-		curr = n[0].QuadPart;
-		lowResCurr = timeGetTime();
-#else
-		clock_gettime(CLOCK_REALTIME, &prev_ts);
-#endif
+		prev_ts = std::chrono::high_resolution_clock::now();
 	}
 
 	~rsTimer(){}
 
 	// return time elapsed since last call to tick()
 	inline double tick(){
-#ifdef WIN32
-		if(highResCounterSupported){
-			prev = curr;
-			LARGE_INTEGER n[1];
-			QueryPerformanceCounter(n);
-			curr = n[0].QuadPart;
-			if(curr >= prev) 
-				elapsed_time = double(curr - prev) * freq;
-			// else use time from last frame
-		}
-		else{
-			lowResPrev = lowResCurr;
-			lowResCurr = timeGetTime();
-			if(lowResCurr >= lowResPrev) 
-				elapsed_time = double(lowResCurr - lowResPrev) * 0.001;
-			// else use time from last frame
-		}
-#else
-		clock_gettime(CLOCK_REALTIME, &curr_ts);
-		elapsed_time = (curr_ts.tv_sec - prev_ts.tv_sec) + ((curr_ts.tv_nsec - prev_ts.tv_nsec) * 0.000000001);
+		curr_ts = std::chrono::high_resolution_clock::now();
+		elapsed_time = std::chrono::duration<double>(curr_ts - prev_ts).count();
 		prev_ts = curr_ts;
-#endif
 		return elapsed_time;
 	}
 
@@ -99,11 +55,7 @@ public:
 		waited_time = tick();
 		const double actual_waited_time(waited_time + wait_function_overhead);
 		if(actual_waited_time < target_time){
-#if WIN32
-			Sleep(long(1000.0 * (target_time - actual_waited_time)));
-#else
-			usleep(long(1000000.0 * (target_time - actual_waited_time)));
-#endif
+			std::this_thread::sleep_for(std::chrono::milliseconds(int(1000.0 * (target_time - actual_waited_time))));
 			waited_time += tick();
 		}
 		wait_function_overhead += waited_time - target_time;
