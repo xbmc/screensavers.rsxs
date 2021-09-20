@@ -113,7 +113,7 @@ CScreensaverLorenz::CScreensaverLorenz()
   m_settings.num_precomputed_points = kodi::GetSettingInt("num-points");
   m_settings.num_satellites = kodi::GetSettingInt("num-satellites");
   m_settings.camera_speed = 0.01f * kodi::GetSettingInt("camera-speed");
-  m_settings.camera_angle = kodi::GetSettingFloat("camera-angle");
+  m_settings.camera_angle = float(kodi::GetSettingInt("camera-angle"));
   m_settings.line_width_attractor = kodi::GetSettingInt("line-width");
   m_settings.line_width_satellites = kodi::GetSettingInt("line-width-sat");
   m_settings.linear_cutoff = 0.01f * kodi::GetSettingInt("line-cutoff");

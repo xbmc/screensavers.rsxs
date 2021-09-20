@@ -73,5 +73,5 @@ msgid "Speed"
 msgstr ""
 
 msgctxt "#30009"
-msgid "%.1f°"
+msgid "{0:d}°"
 msgstr ""
