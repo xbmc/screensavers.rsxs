@@ -124,10 +124,10 @@ msgstr "ערפל"
 
 #. To show with slider value
 msgctxt "#30021"
-msgid "%d seconds"
-msgstr "%d שניות"
+msgid "{0:d} seconds"
+msgstr "{0:d} שניות"
 
 #. To show with slider value
 msgctxt "#30022"
-msgid "%d %%"
-msgstr "%d %%"
+msgid "{0:d} %"
+msgstr "{0:d} %"

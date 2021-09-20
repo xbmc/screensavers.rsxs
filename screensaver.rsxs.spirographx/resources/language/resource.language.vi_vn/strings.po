@@ -52,7 +52,7 @@ msgid "Blur width"
 msgstr ""
 
 msgctxt "#30004"
-msgid "%i pixel"
+msgid "{0:d} pixel"
 msgstr ""
 
 msgctxt "#30005"

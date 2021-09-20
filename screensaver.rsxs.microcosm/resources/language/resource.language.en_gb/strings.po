@@ -125,10 +125,10 @@ msgstr ""
 
 #.To show with slider value
 msgctxt "#30021"
-msgid "%d seconds"
+msgid "{0:d} seconds"
 msgstr ""
 
 #.To show with slider value
 msgctxt "#30022"
-msgid "%d %%"
+msgid "{0:d} %"
 msgstr ""

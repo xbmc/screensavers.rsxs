@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2005-2020 Team Kodi (https://kodi.tv)
+ *  Copyright (C) 2005-2021 Team Kodi (https://kodi.tv)
  *  Copyright (C) 2003 Alexander Zolotov, Eugene Zolotov
  *  Copyright (C) 2008-2014 Vincent Launchbury
  *  Ported to Kodi by Alwin Esch <alwinus@kodi.tv>

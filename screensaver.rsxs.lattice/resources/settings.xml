@@ -22,7 +22,7 @@
       </group>
     </category>
     <category id="advanced" label="30021">
-      <group id="2">
+      <group id="1">
         <setting id="advanced.texture" type="integer" label="30030">
           <level>0</level>
           <default>0</default>
@@ -42,7 +42,7 @@
           </constraints>
           <control type="list" format="string"/>
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.depth" type="integer" label="30001" >
@@ -54,14 +54,14 @@
           </constraints>
           <control type="slider" format="integer"/>
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.fog" type="boolean" label="30002">
           <default>true</default>
           <control type="toggle" />
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.latitude" type="integer" label="30003" >
@@ -73,7 +73,7 @@
           </constraints>
           <control type="slider" format="integer"/>
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.longitude" type="integer" label="30004" >
@@ -85,7 +85,7 @@
           </constraints>
           <control type="slider" format="integer"/>
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.thickness" type="integer" label="30005" >
@@ -97,14 +97,14 @@
           </constraints>
           <control type="slider" format="integer"/>
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.smooth" type="boolean" label="30006">
           <default>false</default>
           <control type="toggle" />
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.speed" type="integer" label="30007" >
@@ -116,7 +116,7 @@
           </constraints>
           <control type="slider" format="integer"/>
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
         <setting id="advanced.density" type="integer" label="30008" >
@@ -128,7 +128,7 @@
           </constraints>
           <control type="slider" format="integer"/>
           <dependencies>
-            <dependency type="visible" setting="general.type" operator="is">6</dependency>
+            <dependency type="enable" setting="general.type" operator="is">6</dependency>
           </dependencies>
         </setting>
       </group>

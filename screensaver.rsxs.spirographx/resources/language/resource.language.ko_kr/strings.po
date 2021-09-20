@@ -53,8 +53,8 @@ msgid "Blur width"
 msgstr "흐림 폭"
 
 msgctxt "#30004"
-msgid "%i pixel"
-msgstr "%i 픽셀"
+msgid "{0:d} pixel"
+msgstr "{0:d} 픽셀"
 
 msgctxt "#30005"
 msgid "Fit screen width"
