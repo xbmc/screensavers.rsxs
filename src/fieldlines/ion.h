@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2005-2019 Team Kodi
+ *  Copyright (C) 2005-2021 Team Kodi
  *  Copyright (C) 1999-2010 Terence M. Welsh
  *  Ported to Kodi by Alwin Esch <alwinus@kodi.tv>
  *

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2005-2020 Team Kodi (Alwin Esch <alwinus@kodi.tv>)
+ *  Copyright (C) 2005-2021 Team Kodi (Alwin Esch <alwinus@kodi.tv>)
  *  This file is part of Kodi - https://kodi.tv
  *
  *  SPDX-License-Identifier: GPL-2.0-or-later

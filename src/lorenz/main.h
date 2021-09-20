@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2005-2020 Team Kodi (https://kodi.tv)
+ *  Copyright (C) 2005-2021 Team Kodi (https://kodi.tv)
  *  Copyright (C) 2002, 2009 Sören Sonnenburg <sonne@debian.org>
  *  Ported to Kodi by Alwin Esch <alwinus@kodi.tv>
  *
