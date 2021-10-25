@@ -24,6 +24,7 @@
     <description lang="en_GB">Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get.</description>
     <description lang="ko_KR">끌어당김/반발 입자 효과와 부드러운 암시적 표면을 함께 던지는 효과를 얻을 수 있습니다.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
