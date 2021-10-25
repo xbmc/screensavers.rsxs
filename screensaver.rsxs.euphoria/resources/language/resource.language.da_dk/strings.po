@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-22 09:29+0000\n"
+"PO-Revision-Date: 2021-10-25 09:32+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/da_dk/>\n"
 "Language: da_dk\n"
@@ -55,7 +55,7 @@ msgstr "Automatisk valg"
 #. Group name in category defined with 30002
 msgctxt "#30003"
 msgid "Types used for automatic selection"
-msgstr ""
+msgstr "Typer brugt til automatisk valg"
 
 #. List selection of used preset (in general options)
 msgctxt "#30010"
@@ -75,7 +75,7 @@ msgstr "Almindelig"
 #. Preset type in selection dialog
 msgctxt "#30013"
 msgid "Grid"
-msgstr ""
+msgstr "Gitter"
 
 #. Preset type in selection dialog
 msgctxt "#30014"
@@ -85,7 +85,7 @@ msgstr "Kubisme"
 #. Preset type in selection dialog
 msgctxt "#30015"
 msgid "Bad math"
-msgstr ""
+msgstr "Dårlig matematik"
 
 #. Preset type in selection dialog
 msgctxt "#30016"
@@ -200,4 +200,4 @@ msgstr ""
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
 msgid "Wireframe"
-msgstr "Wireframe"
+msgstr "Trådgitter"
