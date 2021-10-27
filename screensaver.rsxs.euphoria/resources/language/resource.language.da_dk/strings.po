@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-10-25 09:32+0000\n"
+"PO-Revision-Date: 2021-10-26 07:20+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/da_dk/>\n"
 "Language: da_dk\n"
@@ -95,12 +95,12 @@ msgstr "M-Theory"
 #. Preset type in selection dialog
 msgctxt "#30017"
 msgid "UHF tunneling electron microscope"
-msgstr ""
+msgstr "UHF tunnel elektronmikroskop"
 
 #. Preset type in selection dialog
 msgctxt "#30018"
 msgid "Jack"
-msgstr ""
+msgstr "Jack"
 
 #. Preset type in selection dialog
 msgctxt "#30019"
@@ -110,7 +110,7 @@ msgstr "Overdosis"
 #. Preset type in selection dialog
 msgctxt "#30020"
 msgid "Nowhere"
-msgstr ""
+msgstr "Ingen steder"
 
 #. Preset type in selection dialog
 msgctxt "#30021"
@@ -130,7 +130,7 @@ msgstr "Brugerdefineret"
 #. To open selection dialog with selection of wanted wisp texture and override baseics
 msgctxt "#30024"
 msgid "Wisp texture"
-msgstr ""
+msgstr "Tekstur på wisp"
 
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
@@ -150,7 +150,7 @@ msgstr "Plasma"
 #. Value in selection dialog to use stringy texture
 msgctxt "#30028"
 msgid "Stringy"
-msgstr ""
+msgstr "Trådagtig"
 
 #. Value in selection dialog use lines
 msgctxt "#30029"
@@ -175,7 +175,7 @@ msgstr "Baggrunds-lag"
 #. Slider to number of wisps
 msgctxt "#30042"
 msgid "Wisp mesh density"
-msgstr ""
+msgstr "Densitet af wisp maske"
 
 #. Slider to select render speed
 msgctxt "#30043"
@@ -185,17 +185,17 @@ msgstr "Hastighed"
 #. Slider to select feedback intensity
 msgctxt "#30044"
 msgid "Feedback intensity"
-msgstr ""
+msgstr "Intensitet af feedback"
 
 #. Slider to select feedback speed
 msgctxt "#30045"
 msgid "Feedback speed"
-msgstr ""
+msgstr "Hastighed på feedback"
 
 #. Slider to select feedback size
 msgctxt "#30046"
 msgid "Feedback size"
-msgstr ""
+msgstr "Størrelse på feedback"
 
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
