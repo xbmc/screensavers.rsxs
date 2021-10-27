@@ -19,7 +19,9 @@
       <screenshot>resources/screenshot-03.jpg</screenshot>
       <screenshot>resources/screenshot-04.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Simulering af de elektriske feltlinjer mellem ladede partikler</summary>
     <summary lang="en_GB">Simulation of the electric field lines between charged particles</summary>
+    <description lang="da_DK">Dette er en simulering af de elektriske feltlinjer mellem ladede partikler. Fysik har aldrig set så godt ud.</description>
     <description lang="en_GB">This is a simulation of the electric field lines between charged particles. Physics never looked so good.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>

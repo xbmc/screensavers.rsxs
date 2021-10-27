@@ -19,8 +19,10 @@
       <screenshot>resources/screenshot-03.jpg</screenshot>
       <screenshot>resources/screenshot-04.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Tiltræknings-/afstødnings-partikeleffekter og nogle glatte overflader</summary>
     <summary lang="en_GB">Attraction/repulsion particle effects and some smooth surfaces</summary>
     <summary lang="ko_KR">끌어당김/반발 입자 효과 및 일부 매끄러운 표면</summary>
+    <description lang="da_DK">Smid nogle tiltræknings-/afstødnings-partikeleffekter og nogle glatte implicitte overflader sammen, og dette er resultatet.</description>
     <description lang="en_GB">Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get.</description>
     <description lang="ko_KR">끌어당김/반발 입자 효과와 부드러운 암시적 표면을 함께 던지는 효과를 얻을 수 있습니다.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
