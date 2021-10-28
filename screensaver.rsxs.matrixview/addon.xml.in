@@ -18,9 +18,11 @@
       <screenshot>resources/screenshot-02.jpg</screenshot>
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">The Matrix pauseskærm</summary>
     <summary lang="en_GB">The Matrix Screensaver</summary>
     <summary lang="he_IL">שומר מסך המטריקס</summary>
     <summary lang="ko_KR">Matrix 스크린 세이버</summary>
+    <description lang="da_DK">Dette er en 3D matrix screensaver baseret på de digitale regnscener fra The Matrix Reloaded. Den har den grønne rulletekst (eller digital regn), der omslutter 3D-repræsentationer af forskellige karakterer fra serien.</description>
     <description lang="en_GB">This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series.</description>
     <description lang="he_IL">זה שומר מסך מטריקס תלת־ממדי שמבוסס על סצנות הגשם הדיגיטלי במטריקס רילודד (Reloaded). מופיע בו הטקסט הירוק הנופל (או הגשם הדיגיטלי) שעוטף ייצוגים תלת־ממדיים של דמויות שונות מהסדרה.</description>
     <description lang="ko_KR">이것은 The Matrix Reloaded의 디지털 비 장면을 기반으로 한 3D 매트릭스 화면 보호기입니다. 그것은 시리즈의 다른 캐릭터의 3D 표현을 감싸는 녹색 스크롤 텍스트(또는 디지털 비)를 특징으로 합니다.</description>

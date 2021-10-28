@@ -18,7 +18,9 @@
       <screenshot>resources/screenshot-02.jpg</screenshot>
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Røgeffekt ved partikler</summary>
     <summary lang="en_GB">Particle smoke effect</summary>
+    <description lang="da_DK">Denne lille røgeffekt er kodet med et lille partikelsystem lavet til 'The OpenGL Challenge'.</description>
     <description lang="en_GB">This little smoke effect is coded with a little particle system done for 'The OpenGL Challenge'.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>

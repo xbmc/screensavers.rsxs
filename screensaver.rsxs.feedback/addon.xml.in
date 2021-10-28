@@ -18,6 +18,7 @@
       <screenshot>resources/fanart.jpg</screenshot>
       <screenshot>resources/screenshot-02.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Omrøring af farver med en vibrerende warp</summary>
     <summary lang="en_GB">Stirring colors with a jiggling warp</summary>
     <description lang="en_GB">Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
