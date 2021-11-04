@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-10-25 09:32+0000\n"
-"Last-Translator: taxigps <taxigps@sina.com>\n"
+"PO-Revision-Date: 2021-11-04 01:43+0000\n"
+"Last-Translator: 撷星芒 <mofa2020@qq.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-matrixview/zh_cn/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.8.1\n"
 
 msgctxt "Addon Summary"
 msgid "The Matrix Screensaver"
-msgstr ""
+msgstr "矩阵屏保"
 
 msgctxt "Addon Description"
 msgid "This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series."
-msgstr ""
+msgstr "这是一个基于《黑客帝国重装上阵》中数字雨景的3D黑客帝国屏保。它以绿色滚动文本(或数字雨)为特色，包裹着该系列不同角色的3D表示。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "这是基于“RSS-GLX”屏幕保护程序的应用"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,11 +42,11 @@ msgstr "常规"
 
 msgctxt "#30001"
 msgid "Color of the falling text"
-msgstr ""
+msgstr "落下文本的颜色"
 
 msgctxt "#30002"
 msgid "Set color of the falling text. Can be `green', `red' or `blue'."
-msgstr ""
+msgstr "设置下落文本的颜色。可以是“绿色”、“红色”或“蓝色”。"
 
 msgctxt "#30003"
 msgid "Red"
@@ -54,24 +54,24 @@ msgstr "红色"
 
 msgctxt "#30004"
 msgid "Green"
-msgstr ""
+msgstr "绿"
 
 msgctxt "#30005"
 msgid "Blue"
-msgstr ""
+msgstr "蓝"
 
 msgctxt "#30006"
 msgid "Intensity of the digital rain"
-msgstr ""
+msgstr "数字雨的强度"
 
 msgctxt "#30007"
 msgid "Set the intensity of the digital rain. The default is 1, and is clamped to the range [1,50]. The intensity effects the number of white nodes, the number of random character changes and the general speed of the rain."
-msgstr ""
+msgstr "设置数字雨的强度。默认值为1，并钳制到范围[1，50]。强度影响白色节点的数量、随机特征变化的数量和降雨的总体速度。"
 
 msgctxt "#30008"
 msgid "Classic (no images)"
-msgstr ""
+msgstr "经典（无图像）"
 
 msgctxt "#30009"
 msgid "Enable static mode, which disables the display of 3D images. This mimics the style of the scrolling text from the original film."
-msgstr ""
+msgstr "启用静态模式，禁用3D图像的显示。这模仿原始电影的滚动文本的样式。"
