@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-11-04 02:31+0000\n"
-"Last-Translator: 撷星芒 <mofa2020@qq.com>\n"
+"PO-Revision-Date: 2021-11-04 17:49+0000\n"
+"Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-feedback/zh_cn/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "这是基于“RSS-GLX”屏幕保护程序的应用"
+msgstr "这是一个基于“rss-glx”屏幕保护程序的实现"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
