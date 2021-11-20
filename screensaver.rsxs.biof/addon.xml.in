@@ -19,9 +19,11 @@
       <screenshot>resources/screenshot-03.png</screenshot>
       <screenshot>resources/screenshot-04.png</screenshot>
     </assets>
+    <summary lang="da_DK">Roterende stak af firkanter</summary>
     <summary lang="de_DE">Rotierender Würfelstapel</summary>
     <summary lang="en_GB">Rotating stack of quads</summary>
     <summary lang="zh_CN">四边形旋转堆栈</summary>
+    <description lang="da_DK">Roterende stak med forskellige typer af firkanter.</description>
     <description lang="de_DE">Rotation verschiedener Würfelformen.</description>
     <description lang="en_GB">To rotating stack with various types of quads.</description>
     <description lang="zh_CN">使用各种类型的四边形旋转堆栈。</description>
