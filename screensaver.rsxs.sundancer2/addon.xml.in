@@ -18,6 +18,7 @@
       <screenshot>resources/screenshot-02.jpg</screenshot>
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Roterende stak af firkanter</summary>
     <summary lang="de_DE">Rotierender Würfelstapel</summary>
     <summary lang="en_GB">Rotating stack of quads</summary>
     <summary lang="zh_CN">四边形旋转堆栈</summary>
