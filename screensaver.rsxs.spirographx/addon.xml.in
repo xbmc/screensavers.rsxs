@@ -21,8 +21,10 @@
       <screenshot>resources/screenshot-05.jpg</screenshot>
       <screenshot>resources/screenshot-06.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Animerede spirografer</summary>
     <summary lang="en_GB">Animated spirographs</summary>
     <summary lang="ko_KR">애니메이션 스피로그래프</summary>
+    <description lang="da_DK">Port af SpirographX pauseskærm.</description>
     <description lang="en_GB">Port of SpirographX Screensaver.</description>
     <description lang="ko_KR">SpirographX 화면 보호기의 포트.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
