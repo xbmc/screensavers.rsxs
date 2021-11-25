@@ -20,7 +20,9 @@
       <screenshot>resources/screenshot-04.jpg</screenshot>
       <screenshot>resources/screenshot-05.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Svævende wisper</summary>
     <summary lang="en_GB">Floating wisps</summary>
+    <description lang="da_DK">Her er en 3D-variation af sværm-pauseskærme; et yndet gammelt tema. Prøv det med Chromateks ChromaDepth-briller for en fed 3D-effekt.</description>
     <description lang="en_GB">Here is a 3D variation on swarm savers, a favorite old theme. Try it out with Chromatek's ChromaDepth glasses for a cool 3D effect.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
