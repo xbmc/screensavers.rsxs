@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-22 09:29+0000\n"
+"PO-Revision-Date: 2021-11-23 14:48+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/da_dk/>\n"
 "Language: da_dk\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.9\n"
 
 msgctxt "Addon Summary"
 msgid "Floating wisps"
-msgstr ""
+msgstr "Svævende wisper"
 
 msgctxt "Addon Description"
 msgid "Here is a 3D variation on swarm savers, a favorite old theme. Try it out with Chromatek's ChromaDepth glasses for a cool 3D effect."
-msgstr ""
+msgstr "Her er en 3D-variation af sværm-pauseskærme; et yndet gammelt tema. Prøv det med Chromateks ChromaDepth-briller for en fed 3D-effekt."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -65,114 +65,114 @@ msgstr "Almindelig"
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"
 msgid "Trails"
-msgstr ""
+msgstr "Stier"
 
 #. Selection dialog entry to select blurred trails preset
 msgctxt "#30006"
 msgid "Blurred trails"
-msgstr ""
+msgstr "Slørede stier"
 
 #. Selection dialog entry to select blurred connections preset
 msgctxt "#30007"
 msgid "Blurred connections"
-msgstr ""
+msgstr "Slørede forbindelser"
 
 #. Selection dialog entry to select circles preset
 msgctxt "#30008"
 msgid "Circles"
-msgstr ""
+msgstr "Cirkler"
 
 #. Selection dialog entry to select random circles preset
 msgctxt "#30009"
 msgid "Random circles"
-msgstr ""
+msgstr "Tilfældige cirkler"
 
 #. Selection dialog entry to select advanced settings mode
 msgctxt "#30010"
 msgid "Use advanced"
-msgstr ""
+msgstr "Brug avanceret"
 
 #. Advanced setting spinner to select leaders value
 msgctxt "#30011"
 msgid "Leaders"
-msgstr ""
+msgstr "Ledere"
 
 #. Advanced setting spinner to select followers value
 msgctxt "#30012"
 msgid "Followers"
-msgstr ""
+msgstr "Følgere"
 
 #. Advanced setting list to select geometry value in selection dialog
 msgctxt "#30013"
 msgid "Geometry"
-msgstr ""
+msgstr "Geometri"
 
 #. Advanced setting spinner to select size
 msgctxt "#30014"
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #. Advanced setting spinner to select complexity
 msgctxt "#30015"
 msgid "Complexity"
-msgstr ""
+msgstr "Kompleksitet"
 
 #. Advanced setting spinner to select speed
 msgctxt "#30016"
 msgid "Speed"
-msgstr ""
+msgstr "Hastighed"
 
 #. Advanced setting spinner to select stretch
 msgctxt "#30017"
 msgid "Stretch"
-msgstr ""
+msgstr "Stræk"
 
 #. Advanced setting spinner to select color fade speed
 msgctxt "#30018"
 msgid "Color fade speed"
-msgstr ""
+msgstr "Hastighed på udtoning af farve"
 
 #. Advanced setting boolean to enable chromatek
 msgctxt "#30019"
 msgid "Chromatek"
-msgstr ""
+msgstr "Chromatek"
 
 #. Advanced setting boolean to enable rendering connections
 msgctxt "#30020"
 msgid "Connections"
-msgstr ""
+msgstr "Forbindelser"
 
 #. Advanced setting spinner to select trail length
 msgctxt "#30021"
 msgid "Trail length"
-msgstr ""
+msgstr "Stiens længde"
 
 #. Advanced setting spinner to select blur
 msgctxt "#30022"
 msgid "Blur"
-msgstr ""
+msgstr "Sløring"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30023"
 msgid "Random colors"
-msgstr ""
+msgstr "Tilfældige farver"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30024"
 msgid "Draw blobs"
-msgstr ""
+msgstr "Tegn klatter"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30025"
 msgid "Draw circle"
-msgstr ""
+msgstr "Tegn cirkel"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30026"
 msgid "Draw dots"
-msgstr ""
+msgstr "Tegn prikker"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30027"
 msgid "Render clear completely"
-msgstr ""
+msgstr "Rengør fuldstændigt"
