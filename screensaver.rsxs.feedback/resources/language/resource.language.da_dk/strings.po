@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-10-26 07:20+0000\n"
+"PO-Revision-Date: 2021-11-30 18:13+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-feedback/da_dk/>\n"
 "Language: da_dk\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.9.1\n"
 
 msgctxt "Addon Summary"
 msgid "Stirring colors with a jiggling warp"
@@ -45,42 +45,42 @@ msgstr "Generel"
 #. Boolean value selection to render only in grey
 msgctxt "#30001"
 msgid "Grey only"
-msgstr ""
+msgstr "Kun grå"
 
 #. Help about boolean value before
 msgctxt "#30002"
 msgid "Use greyscale instead of hue wheel"
-msgstr ""
+msgstr "Brug gråtoner i stedet for farver"
 
 #. Slider to select saturation
 msgctxt "#30003"
 msgid "Saturation"
-msgstr ""
+msgstr "Mætning"
 
 #. Help about saturation selection
 msgctxt "#30004"
 msgid "Set color saturation"
-msgstr ""
+msgstr "Indstil farvemætning"
 
 #. Slider to select lightness
 msgctxt "#30005"
 msgid "Lightness"
-msgstr ""
+msgstr "Lysstyrke"
 
 #. Help about tightness selection
 msgctxt "#30006"
 msgid "Set color lightness"
-msgstr ""
+msgstr "Indstil farvelysstyrke"
 
 #. Spinner to select period time
 msgctxt "#30007"
 msgid "Period"
-msgstr ""
+msgstr "Periode"
 
 #. Help to period time selection
 msgctxt "#30008"
 msgid "Sets color cycling period in seconds"
-msgstr ""
+msgstr "Indstiller farvecyklusperiode i sekunder"
 
 #. Slider to select rendering speed
 msgctxt "#30009"
@@ -90,34 +90,34 @@ msgstr "Hastighed"
 #. Help text on speed selection
 msgctxt "#30010"
 msgid "Sets speed of warping grid wobble"
-msgstr ""
+msgstr "Indstiller hastigheden for vridning af gitterets slingren"
 
 #. Spinner to select cells amount as integer
 msgctxt "#30011"
 msgid "Cells"
-msgstr ""
+msgstr "Celler"
 
 #. Help text for string before with cells
 msgctxt "#30012"
 msgid "Sets height and width of warping grid in powers of 2"
-msgstr ""
+msgstr "Indstiller højde og bredde af vridningsgitteret i potenser på 2"
 
 #. Spinner to select testure size as integer
 msgctxt "#30013"
 msgid "Texture size"
-msgstr ""
+msgstr "Strukturens størrelse"
 
 #. Help text of texture size selection
 msgctxt "#30014"
 msgid "Sets height and width of warped texture in powers of 2"
-msgstr ""
+msgstr "Indstiller højde og bredde af skæv struktur i potenser på 2"
 
 #. Boolean value to enable/disable grid rendering
 msgctxt "#30015"
 msgid "Grid"
-msgstr ""
+msgstr "Gitter"
 
 #. Help text of boolean before
 msgctxt "#30016"
 msgid "Turns on rendering of the warping grid"
-msgstr ""
+msgstr "Aktiverer rendering af vridningsgitteret"
