@@ -10,6 +10,7 @@
 # OPENGL_LIBRARIES - the OpenGl libraries
 # OPENGL_DEFINITIONS - the OpenGl definitions
 
+find_package(PkgConfig)
 if(PKG_CONFIG_FOUND)
   pkg_check_modules(PC_OPENGL gl QUIET)
 endif()
