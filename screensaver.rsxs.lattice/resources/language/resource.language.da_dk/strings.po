@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-04 13:29+0000\n"
+"PO-Revision-Date: 2021-11-23 14:48+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lattice/da_dk/>\n"
 "Language: da_dk\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 4.9\n"
 
 msgctxt "Addon Summary"
 msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr ""
+msgstr "Tiltræknings-/afstødnings-partikeleffekter og nogle glatte overflader"
 
 msgctxt "Addon Description"
 msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr ""
+msgstr "Smid nogle tiltræknings-/afstødnings-partikeleffekter og nogle glatte implicitte overflader sammen, og dette er resultatet."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -39,123 +39,123 @@ msgstr "Dette er en implementering baseret på \"rss-glx\" pauseskærm"
 # Advanced
 msgctxt "#30000"
 msgid "Lattice density"
-msgstr ""
+msgstr "Tæthed af gitter"
 
 msgctxt "#30001"
 msgid "Lattice depth"
-msgstr ""
+msgstr "Dybde på gitter"
 
 msgctxt "#30002"
 msgid "Fog"
-msgstr ""
+msgstr "Tåge"
 
 msgctxt "#30003"
 msgid "Latitudinal divisions on each torus"
-msgstr ""
+msgstr "Breddegradsopdelinger på hver torus"
 
 msgctxt "#30004"
 msgid "Longitudinal divisions on each torus"
-msgstr ""
+msgstr "Længdegradsopdelinger på hver torus"
 
 msgctxt "#30005"
 msgid "Torus thinckness"
-msgstr ""
+msgstr "Tykkelse på torus"
 
 msgctxt "#30006"
 msgid "Smooth shading"
-msgstr ""
+msgstr "Jævn skygge"
 
 msgctxt "#30007"
 msgid "Speed"
-msgstr ""
+msgstr "Hastighed"
 
 msgctxt "#30008"
 msgid "Density"
-msgstr ""
+msgstr "Massefylde"
 
 # General
 msgctxt "#30010"
 msgid "Lattice type"
-msgstr ""
+msgstr "Type af gitter"
 
 msgctxt "#30011"
 msgid "Regular"
-msgstr ""
+msgstr "Almindelig"
 
 msgctxt "#30012"
 msgid "Chainmail"
-msgstr ""
+msgstr "Ringbrynje"
 
 msgctxt "#30013"
 msgid "Brass Mesh"
-msgstr ""
+msgstr "Messingnet"
 
 msgctxt "#30014"
 msgid "Computer"
-msgstr ""
+msgstr "Computer"
 
 msgctxt "#30015"
 msgid "Slick"
-msgstr ""
+msgstr "Glat"
 
 msgctxt "#30016"
 msgid "Tasty"
-msgstr ""
+msgstr "Velsmagende"
 
 msgctxt "#30017"
 msgid "Use Advanced Settings"
-msgstr ""
+msgstr "Brug avancerede indstillinger"
 
 # Setting groups
 msgctxt "#30020"
 msgid "General"
-msgstr ""
+msgstr "Generel"
 
 msgctxt "#30021"
 msgid "Advanced"
-msgstr ""
+msgstr "Avanceret"
 
 #
 msgctxt "#30030"
 msgid "Texture"
-msgstr ""
+msgstr "Struktur"
 
 msgctxt "#30031"
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 msgctxt "#30032"
 msgid "Industrial"
-msgstr ""
+msgstr "Industriel"
 
 msgctxt "#30033"
 msgid "Crystal"
-msgstr ""
+msgstr "Krystal"
 
 msgctxt "#30034"
 msgid "Chrome"
-msgstr ""
+msgstr "Krom"
 
 msgctxt "#30035"
 msgid "Brass"
-msgstr ""
+msgstr "Messing"
 
 msgctxt "#30036"
 msgid "Shiny"
-msgstr ""
+msgstr "Skinnende"
 
 msgctxt "#30037"
 msgid "Ghostly"
-msgstr ""
+msgstr "Spøgelsesagtig"
 
 msgctxt "#30038"
 msgid "Circuits"
-msgstr ""
+msgstr "Kredsløb"
 
 msgctxt "#30039"
 msgid "Donuts"
-msgstr ""
+msgstr "Donuts"
 
 msgctxt "#30040"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automatisk valg"

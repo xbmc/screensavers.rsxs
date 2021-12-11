@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-10-03 10:01+0000\n"
+"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
 msgid "Rotating stack of quads"
-msgstr ""
+msgstr "Rotierender Würfelstapel"
 
 msgctxt "Addon Description"
 msgid "To rotating stack with various types of quads."
-msgstr ""
+msgstr "Rotation verschiedener Würfelformen."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,37 +40,37 @@ msgstr ""
 #. First setting on dialog for used type
 msgctxt "#30000"
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30001"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatisch"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30002"
 msgid "Triangles"
-msgstr ""
+msgstr "Dreiecke"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30003"
 msgid "Spheres"
-msgstr ""
+msgstr "Kugeln"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30004"
 msgid "Big spheres"
-msgstr ""
+msgstr "Große Kugeln"
 
 #. For Setting 30000 used value in selection dialog list
 msgctxt "#30005"
 msgid "Points"
-msgstr ""
+msgstr "Punkte"
 
 #. Help text for first setting where type is selected
 msgctxt "#30006"
 msgid "Sets geometry type"
-msgstr ""
+msgstr "Geometrie einstellen"
 
 #. Second setting in dialog for used geometry
 msgctxt "#30010"
