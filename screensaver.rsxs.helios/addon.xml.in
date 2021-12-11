@@ -20,6 +20,7 @@
       <screenshot>resources/screenshot-04.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Tiltræknings-/afstødnings-partikeleffekter og nogle glatte overflader</summary>
+    <summary lang="de_DE">Anziehung- &amp; Abstoßungseffekte von Teilchen und einige angenehme Oberflächen</summary>
     <summary lang="en_GB">Attraction/repulsion particle effects and some smooth surfaces</summary>
     <summary lang="ko_KR">끌어당김/반발 입자 효과 및 일부 매끄러운 표면</summary>
     <description lang="da_DK">Smid nogle tiltræknings-/afstødnings-partikeleffekter og nogle glatte implicitte overflader sammen, og dette er resultatet.</description>

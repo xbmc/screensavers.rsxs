@@ -21,6 +21,7 @@
       <screenshot>resources/screenshot-05.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Pauseskærmsvisualisering af Lorenz Attractor fraktal</summary>
+    <summary lang="de_DE">Bildschirmschonerdarstellung eines Lorenzkraft-Fraktals</summary>
     <summary lang="en_GB">Screensaver visualization of the Lorenz Attractor fractal</summary>
     <summary lang="ko_KR">Lorenz Attractor 프랙탈의 화면 보호기 시각화</summary>
     <description lang="da_DK">Dette er en 3d realtidsvisualisering af Lorenz Attractor.</description>

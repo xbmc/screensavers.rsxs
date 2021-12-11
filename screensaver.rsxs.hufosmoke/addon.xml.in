@@ -19,6 +19,7 @@
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Røgeffekt ved partikler</summary>
+    <summary lang="de_DE">&quot;Rauchende Teilchen&quot;-Effekt</summary>
     <summary lang="en_GB">Particle smoke effect</summary>
     <description lang="da_DK">Denne lille røgeffekt er kodet med et lille partikelsystem lavet til 'The OpenGL Challenge'.</description>
     <description lang="en_GB">This little smoke effect is coded with a little particle system done for 'The OpenGL Challenge'.</description>
