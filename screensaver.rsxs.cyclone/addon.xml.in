@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.cyclone"
-  version="20.0.0"
+  version="20.0.1"
   name="Cyclone"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -19,14 +19,17 @@
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Tornado pauseskærm</summary>
+    <summary lang="de_DE">Tornado Bildschirmschoner</summary>
     <summary lang="en_GB">Tornado screen saver</summary>
     <description lang="da_DK">Denne pauseskærm laver tornadoer på din skærm.[CR]Blev skrevet til en stormjagende kammerat, men du kan også få den. Tag et kig på hans vejrside, hvis du er interesseret i meteorologi og vildt vejr.</description>
     <description lang="en_GB">This screensaver makes tornadoes on your screen.[CR]Was wrote for storm chasing buddy, but you can have it too. Have a look at his weather page if you're interested in meteorology and severe weather.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

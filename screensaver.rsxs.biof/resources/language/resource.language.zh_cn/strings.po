@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-11-04 17:49+0000\n"
+"Last-Translator: taxigps <taxigps@sina.com>\n"
+"Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/zh_cn/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8.1\n"
 
 msgctxt "Addon Summary"
 msgid "Rotating stack of quads"
-msgstr ""
+msgstr "四边形旋转堆栈"
 
 msgctxt "Addon Description"
 msgid "To rotating stack with various types of quads."
-msgstr ""
+msgstr "使用各种类型的四边形旋转堆栈。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "这是一个基于“rss-glx”屏幕保护程序的实现"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,94 +40,94 @@ msgstr ""
 #. First setting on dialog for used type
 msgctxt "#30000"
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30001"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30002"
 msgid "Triangles"
-msgstr ""
+msgstr "三角形"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30003"
 msgid "Spheres"
-msgstr ""
+msgstr "球体"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30004"
 msgid "Big spheres"
-msgstr ""
+msgstr "大球体"
 
 #. For Setting 30000 used value in selection dialog list
 msgctxt "#30005"
 msgid "Points"
-msgstr ""
+msgstr "点"
 
 #. Help text for first setting where type is selected
 msgctxt "#30006"
 msgid "Sets geometry type"
-msgstr ""
+msgstr "设置几何图形类型"
 
 #. Second setting in dialog for used geometry
 msgctxt "#30010"
 msgid "Off angle"
-msgstr ""
+msgstr "偏角"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30011"
 msgid "Auto"
-msgstr ""
+msgstr "自动"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30012"
 msgid "Off"
-msgstr ""
+msgstr "关"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30013"
 msgid "On"
-msgstr ""
+msgstr "开"
 
 #. Help text for second setting where off angle is selected
 msgctxt "#30014"
 msgid "Interesting 45 degree view instead of default head on view."
-msgstr ""
+msgstr "有趣的45度角视图，而不是默认的正面视图。"
 
 #. Setting for selection of used lines for render
 msgctxt "#30020"
 msgid "Lines"
-msgstr ""
+msgstr "线"
 
 #. Help text for setting with line amount
 msgctxt "#30021"
 msgid "Set number of lines (\"arms\").  1 - 1024."
-msgstr ""
+msgstr "设置线数（“臂”）。1 - 1024。"
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30022"
 msgid "Auto"
-msgstr ""
+msgstr "自动"
 
 #. Setting for selection of used points for render
 msgctxt "#30030"
 msgid "Points"
-msgstr ""
+msgstr "点"
 
 #. Help text for setting with point amount
 msgctxt "#30031"
 msgid "Set number of points per line.  1 - 4096."
-msgstr ""
+msgstr "设置每线的点数。1 - 4096。"
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30032"
 msgid "Auto"
-msgstr ""
+msgstr "自动"
 
 #. Main category name on addon settings dialog
 msgctxt "#30040"
 msgid "General"
-msgstr ""
+msgstr "常规"

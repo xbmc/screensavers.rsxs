@@ -27,6 +27,7 @@ else()
       set(_brcmprefix brcm)
   endif()
 
+  find_package(PkgConfig)
   if(PKG_CONFIG_FOUND)
     pkg_check_modules(PC_OPENGLES ${_brcmprefix}glesv2 QUIET)
   endif()

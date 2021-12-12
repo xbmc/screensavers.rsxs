@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.feedback"
-  version="20.0.0"
+  version="20.0.1"
   name="Feedback"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -18,13 +18,16 @@
       <screenshot>resources/fanart.jpg</screenshot>
       <screenshot>resources/screenshot-02.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Omrøring af farver med en vibrerende warp</summary>
     <summary lang="en_GB">Stirring colors with a jiggling warp</summary>
     <description lang="en_GB">Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

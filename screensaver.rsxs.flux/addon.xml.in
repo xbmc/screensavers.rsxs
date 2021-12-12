@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.flux"
-  version="20.0.0"
+  version="20.0.1"
   name="Flux"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -20,13 +20,18 @@
       <screenshot>resources/screenshot-04.jpg</screenshot>
       <screenshot>resources/screenshot-05.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Flux-felter og andet</summary>
+    <summary lang="de_DE">Fluxfelder und anderes</summary>
     <summary lang="en_GB">Flux fields and stuff</summary>
+    <description lang="da_DK">Denne pauseskærm styrer. Hvis du ved noget om mærkelige attraktorer, kan du måske genkende mønstrene skabt af denne pauseskærm.</description>
     <description lang="en_GB">This screensaver rocks. If you know anything about strange attractors, you might recognize the patterns created by this saver.</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

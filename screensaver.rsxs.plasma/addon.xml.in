@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.plasma"
-  version="20.0.0"
+  version="20.0.1"
   name="Plasma"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -25,7 +25,7 @@
     <summary lang="ca_ES">Probablement el segon estalvi de pantalla més psicodèlic mai creat</summary>
     <summary lang="cs_CZ">Pravděpodobně druhý nejdivočejší šetřič obrazovky všech dob</summary>
     <summary lang="cy_GB">Mwy na thebyg yr ail arbedwr sgrin mwyaf seicadelig</summary>
-    <summary lang="da_DK">Formodentlig den anden mest psykedeliske pauseskærm nogensinde</summary>
+    <summary lang="da_DK">Formodentlig den næst mest psykedeliske pauseskærm nogensinde</summary>
     <summary lang="de_DE">Wahrscheinlich der zweit-psychodelischste Bildschirmschoner überhaupt</summary>
     <summary lang="el_GR">Πιθανότατα η δεύτερη πιο ψυχεδελική προφύλαξη οθόνης που έγινε ποτέ</summary>
     <summary lang="en_AU">Probably the second most psychedelic screensaver ever</summary>
@@ -74,7 +74,7 @@
     <description lang="ca_ES">Probablement el segon estalvi de pantalla més psicodèlic que existeix. Intenta imaginar tots aquests colors movent-se.</description>
     <description lang="cs_CZ">Pravděpodobně druhý nejdivočejší šetřič obrazovky všech dob. Zkuste si představit všechny ty poletující barvy.</description>
     <description lang="cy_GB">Mwy na thebyg yr ail arbedwr sgrin mwyaf seicadelig sy'n bod. Ceisiwch ddychmygu'r holl liwiau na'n symud o gwmpas.</description>
-    <description lang="da_DK">Formodentlig den anden mest psykedeliske pauseskærm, der eksisterer. Forestil dig alle de farver, der bevæger sig omkring.</description>
+    <description lang="da_DK">Formodentlig den næst mest psykedeliske pauseskærm, der eksisterer. Forestil dig alle de farver, der bevæger sig omkring.</description>
     <description lang="de_DE">Wahrscheinlich der zweit-psychodelischste Bildschirmschoner, den es gibt. Versuche doch alle diese Farben, die sich umher bewegen, festzuhalten.</description>
     <description lang="el_GR">Πιθανότατα η δεύτερη πιο ψυχεδελική προφύλαξη οθόνης που υπάρχει. Απλά προσπαθήστε να φανταστείτε όλα αυτά τα χρώματα σε κίνηση.</description>
     <description lang="en_AU">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
@@ -117,11 +117,12 @@
     <description lang="zh_CN">或许是排名第二的迷幻效果屏幕保护程序。你将看到所有颜色满处乱飞。</description>
     <description lang="zh_TW">可能是現存第二最夢幻的螢幕保護程式。快來嘗試想像一下所有移動中的色彩變化。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Dies ist eine auf &quot;rss-glx&quot; Bildschirmschoner basierende Implementierung.</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

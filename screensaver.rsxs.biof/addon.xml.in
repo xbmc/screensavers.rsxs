@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.biof"
-  version="20.0.0"
+  version="20.0.1"
   name="Biof"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -19,13 +19,21 @@
       <screenshot>resources/screenshot-03.png</screenshot>
       <screenshot>resources/screenshot-04.png</screenshot>
     </assets>
+    <summary lang="da_DK">Roterende stak af firkanter</summary>
+    <summary lang="de_DE">Rotierender Würfelstapel</summary>
     <summary lang="en_GB">Rotating stack of quads</summary>
+    <summary lang="zh_CN">四边形旋转堆栈</summary>
+    <description lang="da_DK">Roterende stak med forskellige typer af firkanter.</description>
+    <description lang="de_DE">Rotation verschiedener Würfelformen.</description>
     <description lang="en_GB">To rotating stack with various types of quads.</description>
+    <description lang="zh_CN">使用各种类型的四边形旋转堆栈。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

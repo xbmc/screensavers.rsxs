@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.busyspheres"
-  version="20.0.0"
+  version="20.0.1"
   name="BusySpheres"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
@@ -21,20 +21,25 @@
       <screenshot>resources/screenshot-05.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Partikel-kugle</summary>
+    <summary lang="de_DE">Teilchenkugeln</summary>
     <summary lang="en_GB">Particle spheres</summary>
     <summary lang="he_IL">כדורי חלקיקים</summary>
     <summary lang="ko_KR">입자 구</summary>
     <summary lang="pl_PL">Kule cząsteczek</summary>
+    <summary lang="zh_CN">粒子球</summary>
     <description lang="da_DK">Kugler lavet af dansende partikler.</description>
     <description lang="en_GB">Spheres made of dancing particles.</description>
     <description lang="he_IL">כדורים שעשויים מחלקיקים מרקדים.</description>
     <description lang="ko_KR">춤추는 입자로 만들어진 구.</description>
     <description lang="pl_PL">Kule zbudowane z tańczących cząsteczek.</description>
+    <description lang="zh_CN">由舞动的粒子组成的球体。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>
