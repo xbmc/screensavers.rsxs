@@ -24,7 +24,7 @@
 class CSplinePath;
 class CScreensaverHyperspace;
 
-class ATTRIBUTE_HIDDEN CTunnel
+class ATTR_DLL_LOCAL CTunnel
 {
 public:
   CTunnel(CScreensaverHyperspace* base, CSplinePath* sp, int res);

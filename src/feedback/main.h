@@ -29,7 +29,7 @@ struct sLight
   glm::vec2 coord;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverFeedback
+class ATTR_DLL_LOCAL CScreensaverFeedback
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

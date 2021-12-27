@@ -32,17 +32,17 @@ struct sDrempelsSettings
 {
   void Load(TexMgr& textureManager)
   {
-    motion_blur = kodi::GetSettingInt("general.blur");
-    speed_scale = 20 - kodi::GetSettingInt("general.speed");
-    tex_scale = kodi::GetSettingInt("general.scale");
-    dCells = 1 << kodi::GetSettingInt("general.cells");
-    dCellResolution = 1 << kodi::GetSettingInt("general.cellresolution");
+    motion_blur = kodi::addon::GetSettingInt("general.blur");
+    speed_scale = 20 - kodi::addon::GetSettingInt("general.speed");
+    tex_scale = kodi::addon::GetSettingInt("general.scale");
+    dCells = 1 << kodi::addon::GetSettingInt("general.cells");
+    dCellResolution = 1 << kodi::addon::GetSettingInt("general.cellresolution");
 
-    if (kodi::GetSettingBoolean("general.images-used"))
+    if (kodi::addon::GetSettingBoolean("general.images-used"))
     {
-      std::string path = kodi::GetSettingString("general.images");
+      std::string path = kodi::addon::GetSettingString("general.images");
       if (path.empty())
-        path = kodi::GetAddonPath("resources/default-pictures");
+        path = kodi::addon::GetAddonPath("resources/default-pictures");
 
       if (!path.empty())
       {
@@ -53,9 +53,9 @@ struct sDrempelsSettings
       }
     }
 
-    dTexInterval = kodi::GetSettingInt("general.texinterval");
-    dTexFadeInterval = kodi::GetSettingFloat("general.texfadeinterval");
-    dGenTexSize = 1 << kodi::GetSettingInt("general.gentexsize");
+    dTexInterval = kodi::addon::GetSettingInt("general.texinterval");
+    dTexFadeInterval = kodi::addon::GetSettingFloat("general.texfadeinterval");
+    dGenTexSize = 1 << kodi::addon::GetSettingInt("general.gentexsize");
   }
 
   unsigned int dCells = 16;
@@ -103,8 +103,8 @@ bool CScreensaverDrempels::Start()
 {
   gSettings.Load(m_textureManager);
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

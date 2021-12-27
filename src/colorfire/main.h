@@ -30,7 +30,7 @@ struct sLight
   glm::vec2 coord;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverColorFire
+class ATTR_DLL_LOCAL CScreensaverColorFire
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

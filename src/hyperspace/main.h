@@ -54,14 +54,14 @@ struct sHyperSpaceSettings
   void Load()
   {
     SetDefaults();
-    kodi::CheckSettingInt("speed", dSpeed);
-    kodi::CheckSettingInt("stars", dStars);
-    kodi::CheckSettingInt("starsize", dStarSize);
-    kodi::CheckSettingInt("resolution", dResolution);
-    kodi::CheckSettingInt("depth", dDepth);
-    kodi::CheckSettingInt("fov", dFov);
-    kodi::CheckSettingBoolean("usetunnels", dUseTunnels);
-    kodi::CheckSettingBoolean("usegoo", dUseGoo);
+    kodi::addon::CheckSettingInt("speed", dSpeed);
+    kodi::addon::CheckSettingInt("stars", dStars);
+    kodi::addon::CheckSettingInt("starsize", dStarSize);
+    kodi::addon::CheckSettingInt("resolution", dResolution);
+    kodi::addon::CheckSettingInt("depth", dDepth);
+    kodi::addon::CheckSettingInt("fov", dFov);
+    kodi::addon::CheckSettingBoolean("usetunnels", dUseTunnels);
+    kodi::addon::CheckSettingBoolean("usegoo", dUseGoo);
   }
 
   int dSpeed;
@@ -82,7 +82,7 @@ class CTunnel;
 class CGoo;
 class CStretchedParticle;
 
-class ATTRIBUTE_HIDDEN CScreensaverHyperspace
+class ATTR_DLL_LOCAL CScreensaverHyperspace
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram
@@ -97,29 +97,29 @@ public:
   void OnCompiledAndLinked() override;
   bool OnEnabled() override;
 
-  ATTRIBUTE_FORCEINLINE const sHyperSpaceSettings& Settings() const { return m_settings; }
-  ATTRIBUTE_FORCEINLINE float FrameTime() { return m_frameTime; }
-  ATTRIBUTE_FORCEINLINE float AspectRatio() { return m_aspectRatio; }
-  ATTRIBUTE_FORCEINLINE const glm::vec3& CameraPosition() const { return m_camPos; }
-  ATTRIBUTE_FORCEINLINE const glm::ivec4& ViewPort() const { return m_viewport; }
-  ATTRIBUTE_FORCEINLINE int NumAnimTexFrames() { return m_numAnimTexFrames; }
-  ATTRIBUTE_FORCEINLINE float Depth() { return m_depth; }
-  ATTRIBUTE_FORCEINLINE float Unroll() { return m_unroll; }
+  ATTR_FORCEINLINE const sHyperSpaceSettings& Settings() const { return m_settings; }
+  ATTR_FORCEINLINE float FrameTime() { return m_frameTime; }
+  ATTR_FORCEINLINE float AspectRatio() { return m_aspectRatio; }
+  ATTR_FORCEINLINE const glm::vec3& CameraPosition() const { return m_camPos; }
+  ATTR_FORCEINLINE const glm::ivec4& ViewPort() const { return m_viewport; }
+  ATTR_FORCEINLINE int NumAnimTexFrames() { return m_numAnimTexFrames; }
+  ATTR_FORCEINLINE float Depth() { return m_depth; }
+  ATTR_FORCEINLINE float Unroll() { return m_unroll; }
 
-  ATTRIBUTE_FORCEINLINE int WhichTexture() { return m_whichTexture; }
-  ATTRIBUTE_FORCEINLINE GLuint SpeckleTex() { return m_speckletex; }
-  ATTRIBUTE_FORCEINLINE GLuint SphereTex() { return m_spheretex; }
-  ATTRIBUTE_FORCEINLINE GLuint NebulaTex() { return m_nebulatex; }
+  ATTR_FORCEINLINE int WhichTexture() { return m_whichTexture; }
+  ATTR_FORCEINLINE GLuint SpeckleTex() { return m_speckletex; }
+  ATTR_FORCEINLINE GLuint SphereTex() { return m_spheretex; }
+  ATTR_FORCEINLINE GLuint NebulaTex() { return m_nebulatex; }
 
-  ATTRIBUTE_FORCEINLINE glm::mat4& ProjectionMatrix() { return m_projMat; }
-  ATTRIBUTE_FORCEINLINE glm::mat4& ModelMatrix() { return m_modelMat; }
-  ATTRIBUTE_FORCEINLINE glm::mat4& BillboardMatrix() { return m_billboardMat; }
+  ATTR_FORCEINLINE glm::mat4& ProjectionMatrix() { return m_projMat; }
+  ATTR_FORCEINLINE glm::mat4& ModelMatrix() { return m_modelMat; }
+  ATTR_FORCEINLINE glm::mat4& BillboardMatrix() { return m_billboardMat; }
 
-  ATTRIBUTE_FORCEINLINE CFlare& Flare() { return  m_flare; }
-  ATTRIBUTE_FORCEINLINE CWavyNormalCubeMaps& WavyNormalCubeMaps() { return *m_theWNCM; }
-  ATTRIBUTE_FORCEINLINE CCausticTextures& CausticTextures() { return *m_theCausticTextures; }
+  ATTR_FORCEINLINE CFlare& Flare() { return  m_flare; }
+  ATTR_FORCEINLINE CWavyNormalCubeMaps& WavyNormalCubeMaps() { return *m_theWNCM; }
+  ATTR_FORCEINLINE CCausticTextures& CausticTextures() { return *m_theCausticTextures; }
 
-  ATTRIBUTE_FORCEINLINE void ShaderProgram(eShaderProgram program) { m_activeShader = program; }
+  ATTR_FORCEINLINE void ShaderProgram(eShaderProgram program) { m_activeShader = program; }
 
   inline void BindTexture(int type, int id)
   {

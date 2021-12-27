@@ -26,7 +26,7 @@
 
 class CScreensaverHyperspace;
 
-class ATTRIBUTE_HIDDEN CStarBurst
+class ATTR_DLL_LOCAL CStarBurst
 {
 public:
   CStarBurst(CScreensaverHyperspace* base);
@@ -36,7 +36,7 @@ public:
   void DrawStars();
   void Draw(float lerp);  // draw with shaders
 
-  ATTRIBUTE_FORCEINLINE CStretchedParticle** Stars() { return m_stars; }
+  ATTR_FORCEINLINE CStretchedParticle** Stars() { return m_stars; }
 
 private:
   // stars only stay active while they're within viewing range

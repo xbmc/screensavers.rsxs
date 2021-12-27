@@ -28,14 +28,14 @@ bool CScreensaverMatrixView::Start()
 {
   srand(time(nullptr));
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
-  kodi::CheckSettingInt("color", m_color);
-  kodi::CheckSettingInt("intensity", m_rain_intensity);
-  kodi::CheckSettingBoolean("classic", m_classic);
+  kodi::addon::CheckSettingInt("color", m_color);
+  kodi::addon::CheckSettingInt("intensity", m_rain_intensity);
+  kodi::addon::CheckSettingBoolean("classic", m_classic);
 
   /* Allocations for dynamic width */
   m_text_x = ceil(text_y * ((float)Width()/Height()));

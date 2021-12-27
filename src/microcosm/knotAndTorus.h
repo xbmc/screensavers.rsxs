@@ -20,7 +20,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN KnotAndTorus : public Gizmo
+class ATTR_DLL_LOCAL KnotAndTorus : public Gizmo
 {
 public:
   KnotAndTorus(CScreensaverMicrocosm* base, int coils, int twists) : Gizmo(base)

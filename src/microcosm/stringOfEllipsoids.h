@@ -19,7 +19,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN StringOfEllipsoids : public Gizmo
+class ATTR_DLL_LOCAL StringOfEllipsoids : public Gizmo
 {
 public:
   unsigned int numEllipsoids;

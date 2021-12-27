@@ -20,7 +20,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN Grinder : public Gizmo
+class ATTR_DLL_LOCAL Grinder : public Gizmo
 {
 private:
   int mCount;

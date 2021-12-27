@@ -30,11 +30,11 @@ CScreensaverBiof::CScreensaverBiof()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
-  m_geometry = kodi::GetSettingInt("general.type");
+  m_geometry = kodi::addon::GetSettingInt("general.type");
   if (m_geometry == 0)
     m_geometry = rsRandi(4) + 1;
 
-  int offAngle = kodi::GetSettingInt("general.offangle");
+  int offAngle = kodi::addon::GetSettingInt("general.offangle");
   if (offAngle == 0)
     m_offAngle = rsRandi(2);
   else if (offAngle == 1)
@@ -42,8 +42,8 @@ CScreensaverBiof::CScreensaverBiof()
   else
     m_offAngle = true;
 
-  m_linesQty = kodi::GetSettingInt("general.lines");
-  m_pointsQty = kodi::GetSettingInt("general.points");
+  m_linesQty = kodi::addon::GetSettingInt("general.lines");
+  m_pointsQty = kodi::addon::GetSettingInt("general.points");
 
   switch (m_geometry)
   {
@@ -72,8 +72,8 @@ CScreensaverBiof::CScreensaverBiof()
 
 bool CScreensaverBiof::Start()
 {
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

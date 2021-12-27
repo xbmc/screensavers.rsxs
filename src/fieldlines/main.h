@@ -31,7 +31,7 @@ struct PackedVertex
   float r, g, b;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverFieldLines
+class ATTR_DLL_LOCAL CScreensaverFieldLines
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

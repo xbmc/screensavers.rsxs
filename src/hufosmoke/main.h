@@ -49,7 +49,7 @@ struct sLight
   glm::vec4 color;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverHufoSmoke
+class ATTR_DLL_LOCAL CScreensaverHufoSmoke
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

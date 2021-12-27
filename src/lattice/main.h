@@ -76,7 +76,7 @@ struct settings
   bool dFog;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverLattice
+class ATTR_DLL_LOCAL CScreensaverLattice
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

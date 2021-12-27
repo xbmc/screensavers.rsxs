@@ -20,7 +20,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN Rings : public Gizmo
+class ATTR_DLL_LOCAL Rings : public Gizmo
 {
 private:
   int mCount;

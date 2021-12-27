@@ -28,7 +28,7 @@ typedef std::vector <impShape*> ShapeVector;
 
 class CScreensaverMicrocosm;
 
-class ATTRIBUTE_HIDDEN Gizmo
+class ATTR_DLL_LOCAL Gizmo
 {
 protected:
   CScreensaverMicrocosm* m_base;

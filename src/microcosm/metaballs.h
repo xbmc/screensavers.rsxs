@@ -21,7 +21,7 @@
 
 using namespace std;
 
-class ATTRIBUTE_HIDDEN Metaballs : public Gizmo
+class ATTR_DLL_LOCAL Metaballs : public Gizmo
 {
 public:
   Metaballs(CScreensaverMicrocosm* base, unsigned int num) : Gizmo(base)

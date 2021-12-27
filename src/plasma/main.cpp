@@ -27,15 +27,15 @@
 
 bool CScreensaverPlasma::Start()
 {
-  int speed = kodi::GetSettingInt("speed");
-  m_zoom = kodi::GetSettingInt("zoom");
-  m_focus = float(kodi::GetSettingInt("focus")) / 50.0f + 0.3f;
+  int speed = kodi::addon::GetSettingInt("speed");
+  m_zoom = kodi::addon::GetSettingInt("zoom");
+  m_focus = float(kodi::addon::GetSettingInt("focus")) / 50.0f + 0.3f;
   m_maxdiff = 0.004f * float(speed);
-  m_resolution = kodi::GetSettingInt("resolution");
+  m_resolution = kodi::addon::GetSettingInt("resolution");
   m_aspectRatio = float(Width()) / float(Height());
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

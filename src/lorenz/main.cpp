@@ -110,13 +110,13 @@ inline float distance_to_line(float P0x, float P0y, float P0z,
 //
 CScreensaverLorenz::CScreensaverLorenz()
 {
-  m_settings.num_precomputed_points = kodi::GetSettingInt("num-points");
-  m_settings.num_satellites = kodi::GetSettingInt("num-satellites");
-  m_settings.camera_speed = 0.01f * kodi::GetSettingInt("camera-speed");
-  m_settings.camera_angle = float(kodi::GetSettingInt("camera-angle"));
-  m_settings.line_width_attractor = kodi::GetSettingInt("line-width");
-  m_settings.line_width_satellites = kodi::GetSettingInt("line-width-sat");
-  m_settings.linear_cutoff = 0.01f * kodi::GetSettingInt("line-cutoff");
+  m_settings.num_precomputed_points = kodi::addon::GetSettingInt("num-points");
+  m_settings.num_satellites = kodi::addon::GetSettingInt("num-satellites");
+  m_settings.camera_speed = 0.01f * kodi::addon::GetSettingInt("camera-speed");
+  m_settings.camera_angle = float(kodi::addon::GetSettingInt("camera-angle"));
+  m_settings.line_width_attractor = kodi::addon::GetSettingInt("line-width");
+  m_settings.line_width_satellites = kodi::addon::GetSettingInt("line-width-sat");
+  m_settings.linear_cutoff = 0.01f * kodi::addon::GetSettingInt("line-cutoff");
 }
 
 bool CScreensaverLorenz::Start()
@@ -126,8 +126,8 @@ bool CScreensaverLorenz::Start()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

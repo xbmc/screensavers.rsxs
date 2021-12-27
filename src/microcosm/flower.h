@@ -19,7 +19,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN Flower : public Gizmo
+class ATTR_DLL_LOCAL Flower : public Gizmo
 {
 public:
   unsigned int numEllipsoids;

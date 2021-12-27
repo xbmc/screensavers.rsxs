@@ -33,7 +33,7 @@ struct sLight
 
 class CBug;
 
-class ATTRIBUTE_HIDDEN CScreensaverFlocks
+class ATTR_DLL_LOCAL CScreensaverFlocks
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

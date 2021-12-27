@@ -37,7 +37,7 @@ struct sLight
   glm::vec2 coord;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverEuphoria
+class ATTR_DLL_LOCAL CScreensaverEuphoria
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

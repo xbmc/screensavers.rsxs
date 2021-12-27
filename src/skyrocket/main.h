@@ -52,20 +52,20 @@ struct sSkyRocketSettings
     dEarth = true;
     dIllumination = true;
 
-    kodi::CheckSettingInt("general.maxrockets", dMaxrockets);
-    kodi::CheckSettingInt("general.smoke", dSmoke);
-    kodi::CheckSettingInt("general.explosionsmoke", dExplosionsmoke);
-    kodi::CheckSettingInt("general.wind", dWind);
-    kodi::CheckSettingInt("general.ambient", dAmbient);
-    kodi::CheckSettingInt("general.stardensity", dStardensity);
-    kodi::CheckSettingInt("general.flare", dFlare);
-    kodi::CheckSettingInt("general.moonglow", dMoonglow);
-    kodi::CheckSettingBoolean("general.moon", dMoon);
-    kodi::CheckSettingBoolean("general.clouds", dClouds);
-    kodi::CheckSettingBoolean("general.earth", dEarth);
-    kodi::CheckSettingBoolean("general.illumination", dIllumination);
-    kodi::CheckSettingBoolean("general.sound", dSoundEnabled);
-    kodi::CheckSettingInt("general.volume", dSound);
+    kodi::addon::CheckSettingInt("general.maxrockets", dMaxrockets);
+    kodi::addon::CheckSettingInt("general.smoke", dSmoke);
+    kodi::addon::CheckSettingInt("general.explosionsmoke", dExplosionsmoke);
+    kodi::addon::CheckSettingInt("general.wind", dWind);
+    kodi::addon::CheckSettingInt("general.ambient", dAmbient);
+    kodi::addon::CheckSettingInt("general.stardensity", dStardensity);
+    kodi::addon::CheckSettingInt("general.flare", dFlare);
+    kodi::addon::CheckSettingInt("general.moonglow", dMoonglow);
+    kodi::addon::CheckSettingBoolean("general.moon", dMoon);
+    kodi::addon::CheckSettingBoolean("general.clouds", dClouds);
+    kodi::addon::CheckSettingBoolean("general.earth", dEarth);
+    kodi::addon::CheckSettingBoolean("general.illumination", dIllumination);
+    kodi::addon::CheckSettingBoolean("general.sound", dSoundEnabled);
+    kodi::addon::CheckSettingInt("general.volume", dSound);
   }
 
   // Parameters edited in the dialog box
@@ -93,7 +93,7 @@ struct sSkyRocketSettings
 
 class CSoundEngine;
 
-class ATTRIBUTE_HIDDEN CScreensaverSkyRocket
+class ATTR_DLL_LOCAL CScreensaverSkyRocket
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram
@@ -121,32 +121,32 @@ public:
   void Stretching(CParticle* stretch);
 
   void DrawEntry(int primitive, const sLight* data, unsigned int size);
-  ATTRIBUTE_FORCEINLINE void BindTexture(int type, int id)
+  ATTR_FORCEINLINE void BindTexture(int type, int id)
   {
     // Needed to give shader the presence of a texture
     m_textureUsed = id;
     glBindTexture(type, id);
   }
 
-  ATTRIBUTE_FORCEINLINE glm::mat4& ProjMatrix() { return m_projMat; }
-  ATTRIBUTE_FORCEINLINE glm::mat4& ModelMatrix() { return m_modelMat; }
-  ATTRIBUTE_FORCEINLINE glm::mat4& BillboardMatrix() { return m_billboardMat; }
+  ATTR_FORCEINLINE glm::mat4& ProjMatrix() { return m_projMat; }
+  ATTR_FORCEINLINE glm::mat4& ModelMatrix() { return m_modelMat; }
+  ATTR_FORCEINLINE glm::mat4& BillboardMatrix() { return m_billboardMat; }
 
-  ATTRIBUTE_FORCEINLINE CFlare& Flare() { return m_flare; }
-  ATTRIBUTE_FORCEINLINE CShockwave& Shockwave() { return m_shockwave; }
-  ATTRIBUTE_FORCEINLINE CSmoke& Smoke() { return m_smoke; }
-  ATTRIBUTE_FORCEINLINE CWorld& World() { return m_world; }
-  ATTRIBUTE_FORCEINLINE CSoundEngine* SoundEngine() { return m_soundengine; }
+  ATTR_FORCEINLINE CFlare& Flare() { return m_flare; }
+  ATTR_FORCEINLINE CShockwave& Shockwave() { return m_shockwave; }
+  ATTR_FORCEINLINE CSmoke& Smoke() { return m_smoke; }
+  ATTR_FORCEINLINE CWorld& World() { return m_world; }
+  ATTR_FORCEINLINE CSoundEngine* SoundEngine() { return m_soundengine; }
 
-  ATTRIBUTE_FORCEINLINE int XSize() { return m_xsize; }
-  ATTRIBUTE_FORCEINLINE int YSize() { return m_ysize; }
-  ATTRIBUTE_FORCEINLINE int CenterX() { return m_centerx; }
-  ATTRIBUTE_FORCEINLINE int CenterY() { return m_centery; }
-  ATTRIBUTE_FORCEINLINE float AspectRatio() { return m_aspectRatio; }
-  ATTRIBUTE_FORCEINLINE float FrameTime() { return m_frameTime; }
-  ATTRIBUTE_FORCEINLINE rsVec& CameraPos() { return m_cameraPos; }
+  ATTR_FORCEINLINE int XSize() { return m_xsize; }
+  ATTR_FORCEINLINE int YSize() { return m_ysize; }
+  ATTR_FORCEINLINE int CenterX() { return m_centerx; }
+  ATTR_FORCEINLINE int CenterY() { return m_centery; }
+  ATTR_FORCEINLINE float AspectRatio() { return m_aspectRatio; }
+  ATTR_FORCEINLINE float FrameTime() { return m_frameTime; }
+  ATTR_FORCEINLINE rsVec& CameraPos() { return m_cameraPos; }
 
-  ATTRIBUTE_FORCEINLINE sSkyRocketSettings& Settings() { return m_settings; }
+  ATTR_FORCEINLINE sSkyRocketSettings& Settings() { return m_settings; }
 
 private:
   void Reshape();

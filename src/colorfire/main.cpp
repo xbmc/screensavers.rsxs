@@ -43,12 +43,12 @@ typedef enum
 
 bool CScreensaverColorFire::Start()
 {
-  kodi::CheckSettingInt("general.texture", m_textureType);
+  kodi::addon::CheckSettingInt("general.texture", m_textureType);
   if (m_textureType == TYPE_AUTO_SELECTION)
     m_textureType = rsRandi(3) + 1;
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

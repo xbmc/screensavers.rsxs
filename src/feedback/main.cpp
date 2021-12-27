@@ -30,16 +30,16 @@ struct sFeedbackSettings
 {
   void init()
   {
-    kodi::CheckSettingBoolean("general.grey", dGrey);
-    kodi::CheckSettingFloat("general.saturation", dSaturation);
-    kodi::CheckSettingFloat("general.lightness", dLightness);
-    kodi::CheckSettingBoolean("general.grid", dGrid);
-    kodi::CheckSettingInt("general.period", dPeriod);
-    kodi::CheckSettingInt("general.texsize", dTexSize);
-    kodi::CheckSettingFloat("general.speed", dSpeed);
+    kodi::addon::CheckSettingBoolean("general.grey", dGrey);
+    kodi::addon::CheckSettingFloat("general.saturation", dSaturation);
+    kodi::addon::CheckSettingFloat("general.lightness", dLightness);
+    kodi::addon::CheckSettingBoolean("general.grid", dGrid);
+    kodi::addon::CheckSettingInt("general.period", dPeriod);
+    kodi::addon::CheckSettingInt("general.texsize", dTexSize);
+    kodi::addon::CheckSettingFloat("general.speed", dSpeed);
 
     int cells;
-    if (kodi::CheckSettingInt("general.cells", cells))
+    if (kodi::addon::CheckSettingInt("general.cells", cells))
       cwidth = cheight = 1 << cells;
   }
 
@@ -58,8 +58,8 @@ bool CScreensaverFeedback::Start()
 {
   gSettings.init();
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

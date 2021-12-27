@@ -20,7 +20,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN UFO : public Gizmo
+class ATTR_DLL_LOCAL UFO : public Gizmo
 {
 public:
   unsigned int numEllipsoids;

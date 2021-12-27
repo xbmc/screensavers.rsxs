@@ -22,7 +22,7 @@
 
 class CScreensaverHyperspace;
 
-class ATTRIBUTE_HIDDEN CStretchedParticle
+class ATTR_DLL_LOCAL CStretchedParticle
 {
 public:
   CStretchedParticle(CScreensaverHyperspace* base);
@@ -34,11 +34,11 @@ public:
   //void update();
   void Draw(const glm::vec3& eyepoint);
 
-  ATTRIBUTE_FORCEINLINE void SetRadius(float radius) { m_radius = radius; }
-  ATTRIBUTE_FORCEINLINE void SetFov(float fov) { m_fov = fov; }
+  ATTR_FORCEINLINE void SetRadius(float radius) { m_radius = radius; }
+  ATTR_FORCEINLINE void SetFov(float fov) { m_fov = fov; }
 
-  ATTRIBUTE_FORCEINLINE float* Position() { return glm::value_ptr(m_pos); }
-  ATTRIBUTE_FORCEINLINE float* LastPosition() { return glm::value_ptr(m_lastPos); }
+  ATTR_FORCEINLINE float* Position() { return glm::value_ptr(m_pos); }
+  ATTR_FORCEINLINE float* LastPosition() { return glm::value_ptr(m_lastPos); }
 
 private:
   CScreensaverHyperspace* m_base;

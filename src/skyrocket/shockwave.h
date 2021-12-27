@@ -24,7 +24,7 @@
 
 class CScreensaverSkyRocket;
 
-class ATTRIBUTE_HIDDEN CShockwave
+class ATTR_DLL_LOCAL CShockwave
 {
 public:
   CShockwave(CScreensaverSkyRocket* base) : m_base(base) { }

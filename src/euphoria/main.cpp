@@ -61,10 +61,10 @@ struct sEuphoriaSettings
   void init()
   {
     int mode = PRESET_AUTO;
-    kodi::CheckSettingInt("general.type", mode);
+    kodi::addon::CheckSettingInt("general.type", mode);
 
     int texture = TEXTURE_DEFAULT;
-    kodi::CheckSettingInt("general.texture", texture);
+    kodi::addon::CheckSettingInt("general.texture", texture);
 
     if (mode == PRESET_AUTO)
     {
@@ -80,15 +80,15 @@ struct sEuphoriaSettings
     }
     else if (mode == PRESET_ADVANCED)
     {
-      dWisps = kodi::GetSettingInt("advanced.wisps");
-      dBackground = kodi::GetSettingInt("advanced.bgwisps");
-      dDensity = kodi::GetSettingInt("advanced.density");
-      dVisibility = kodi::GetSettingInt("advanced.visibility");
-      dSpeed = kodi::GetSettingInt("advanced.speed");
-      dFeedback = kodi::GetSettingInt("advanced.feedback");
-      dFeedbackspeed = kodi::GetSettingInt("advanced.feedbackspeed");
-      dFeedbacksize = kodi::GetSettingInt("advanced.feedbacksize");
-      dWireframe = kodi::GetSettingBoolean("advanced.wireframe");
+      dWisps = kodi::addon::GetSettingInt("advanced.wisps");
+      dBackground = kodi::addon::GetSettingInt("advanced.bgwisps");
+      dDensity = kodi::addon::GetSettingInt("advanced.density");
+      dVisibility = kodi::addon::GetSettingInt("advanced.visibility");
+      dSpeed = kodi::addon::GetSettingInt("advanced.speed");
+      dFeedback = kodi::addon::GetSettingInt("advanced.feedback");
+      dFeedbackspeed = kodi::addon::GetSettingInt("advanced.feedbackspeed");
+      dFeedbacksize = kodi::addon::GetSettingInt("advanced.feedbacksize");
+      dWireframe = kodi::addon::GetSettingBoolean("advanced.wireframe");
       if (texture == TEXTURE_DEFAULT)
         dTexture = TEXTURE_RANDOM;
     }
@@ -101,27 +101,27 @@ struct sEuphoriaSettings
     switch (mode)
     {
       case PRESET_REGULAR:
-        return kodi::GetSettingBoolean("automodes.PRESET_REGULAR");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_REGULAR");
       case PRESET_GRID:
-        return kodi::GetSettingBoolean("automodes.PRESET_GRID");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_GRID");
       case PRESET_CUBISM:
-        return kodi::GetSettingBoolean("automodes.PRESET_CUBISM");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_CUBISM");
       case PRESET_BADMATH:
-        return kodi::GetSettingBoolean("automodes.PRESET_BADMATH");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_BADMATH");
       case PRESET_MTHEORY:
-        return kodi::GetSettingBoolean("automodes.PRESET_MTHEORY");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_MTHEORY");
       case PRESET_UHFTEM:
-        return kodi::GetSettingBoolean("automodes.PRESET_UHFTEM");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_UHFTEM");
       case PRESET_JACK:
-        return kodi::GetSettingBoolean("automodes.PRESET_JACK");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_JACK");
       case PRESET_OVERDOSE:
-        return kodi::GetSettingBoolean("automodes.PRESET_OVERDOSE");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_OVERDOSE");
       case PRESET_NOWHERE:
-        return kodi::GetSettingBoolean("automodes.PRESET_NOWHERE");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_NOWHERE");
       case PRESET_ECHO:
-        return kodi::GetSettingBoolean("automodes.PRESET_ECHO");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_ECHO");
       case PRESET_KALEIDOSCOPE:
-        return kodi::GetSettingBoolean("automodes.PRESET_KALEIDOSCOPE");
+        return kodi::addon::GetSettingBoolean("automodes.PRESET_KALEIDOSCOPE");
       default:
         return true;
     }
@@ -538,8 +538,8 @@ void CWisp::drawAsBackground(glm::mat4& modelMat, CScreensaverEuphoria* base)
 
 bool CScreensaverEuphoria::Start()
 {
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

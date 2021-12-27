@@ -24,7 +24,7 @@
 
 class CScreensaverMicrocosm;
 
-class ATTRIBUTE_HIDDEN Texture1D
+class ATTR_DLL_LOCAL Texture1D
 {
 private:
   unsigned int mTexId;

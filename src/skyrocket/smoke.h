@@ -25,10 +25,10 @@
 
 class CScreensaverSkyRocket;
 
-#undef ATTRIBUTE_FORCEINLINE
-#define ATTRIBUTE_FORCEINLINE
+#undef ATTR_FORCEINLINE
+#define ATTR_FORCEINLINE
 
-class ATTRIBUTE_HIDDEN CSmoke
+class ATTR_DLL_LOCAL CSmoke
 {
 public:
   CSmoke(CScreensaverSkyRocket* base) : m_base(base) { }
@@ -37,8 +37,8 @@ public:
   void Init();
   void Draw(unsigned int entry, const sColor& color);
 
-  ATTRIBUTE_FORCEINLINE int WhichSmoke(unsigned int which) const { return m_whichSmoke[which]; }
-  ATTRIBUTE_FORCEINLINE int SmokeTime(unsigned int which) const { return m_smokeTime[which]; }
+  ATTR_FORCEINLINE int WhichSmoke(unsigned int which) const { return m_whichSmoke[which]; }
+  ATTR_FORCEINLINE int SmokeTime(unsigned int which) const { return m_smokeTime[which]; }
 
 private:
   // lifespans for smoke particles

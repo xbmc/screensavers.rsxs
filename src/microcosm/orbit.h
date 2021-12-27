@@ -19,7 +19,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN Orbit : public Gizmo
+class ATTR_DLL_LOCAL Orbit : public Gizmo
 {
 public:
   impTorus* torus1;

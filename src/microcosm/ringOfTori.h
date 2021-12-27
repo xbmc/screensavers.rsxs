@@ -19,7 +19,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN RingOfTori : public Gizmo
+class ATTR_DLL_LOCAL RingOfTori : public Gizmo
 {
 public:
   unsigned int numTori;
