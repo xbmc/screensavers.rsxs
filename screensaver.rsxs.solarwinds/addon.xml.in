@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.rsxs.solarwinds"
-  version="19.0.1"
+  version="19.0.2"
   name="Solar Winds"
   provider-name="Team Kodi">
   <requires>@ADDON_DEPENDS@</requires>
