@@ -51,7 +51,7 @@ struct settings
   int num_satellites=num_satellites_default;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverLorenz
+class ATTR_DLL_LOCAL CScreensaverLorenz
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

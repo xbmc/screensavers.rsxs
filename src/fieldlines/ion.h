@@ -20,7 +20,7 @@
 
 class CScreensaverFieldLines;
 
-class ATTRIBUTE_HIDDEN CIon
+class ATTR_DLL_LOCAL CIon
 {
 public:
   float charge;

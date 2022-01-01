@@ -45,36 +45,36 @@ struct sFlocksSettings
   void Load()
   {
     int type = PRESET_NORMAL;
-    kodi::CheckSettingInt("general.type", type);
+    kodi::addon::CheckSettingInt("general.type", type);
     if (type == PRESET_AUTO_SELECTION)
       setDefaults(rsRandi(6) + 1);
     else
       setDefaults(type);
 
     if (type != PRESET_ADVANCED_SETTINGS &&
-        type != kodi::GetSettingInt("general.lastType"))
+        type != kodi::addon::GetSettingInt("general.lastType"))
     {
-      kodi::SetSettingInt("general.lastType", type);
+      kodi::addon::SetSettingInt("general.lastType", type);
 
-      kodi::SetSettingInt("advanced.leaders", dLeaders);
-      kodi::SetSettingInt("advanced.followers", dFollowers);
+      kodi::addon::SetSettingInt("advanced.leaders", dLeaders);
+      kodi::addon::SetSettingInt("advanced.followers", dFollowers);
       if (dGeometry && !dCircles)
-        kodi::SetSettingInt("advanced.geometry", 0);
+        kodi::addon::SetSettingInt("advanced.geometry", 0);
       else if (!dGeometry && dCircles)
-        kodi::SetSettingInt("advanced.geometry", 1);
+        kodi::addon::SetSettingInt("advanced.geometry", 1);
       else
-        kodi::SetSettingInt("advanced.geometry", 2);
-      kodi::SetSettingInt("advanced.size", dSize);
-      kodi::SetSettingInt("advanced.complexity", dComplexity);
-      kodi::SetSettingInt("advanced.speed", dSpeed);
-      kodi::SetSettingInt("advanced.stretch", dStretch);
-      kodi::SetSettingInt("advanced.colorfadespeed", dColorfadespeed);
-      kodi::SetSettingBoolean("advanced.chromatek", dChromatek);
-      kodi::SetSettingBoolean("advanced.connections", dConnections);
-      kodi::SetSettingInt("advanced.traillength", dTrail);
-      kodi::SetSettingInt("advanced.blur", dBlur);
-      kodi::SetSettingBoolean("advanced.randomcolors", dRandomColors);
-      kodi::SetSettingBoolean("advanced.clearcompletely", dClear);
+        kodi::addon::SetSettingInt("advanced.geometry", 2);
+      kodi::addon::SetSettingInt("advanced.size", dSize);
+      kodi::addon::SetSettingInt("advanced.complexity", dComplexity);
+      kodi::addon::SetSettingInt("advanced.speed", dSpeed);
+      kodi::addon::SetSettingInt("advanced.stretch", dStretch);
+      kodi::addon::SetSettingInt("advanced.colorfadespeed", dColorfadespeed);
+      kodi::addon::SetSettingBoolean("advanced.chromatek", dChromatek);
+      kodi::addon::SetSettingBoolean("advanced.connections", dConnections);
+      kodi::addon::SetSettingInt("advanced.traillength", dTrail);
+      kodi::addon::SetSettingInt("advanced.blur", dBlur);
+      kodi::addon::SetSettingBoolean("advanced.randomcolors", dRandomColors);
+      kodi::addon::SetSettingBoolean("advanced.clearcompletely", dClear);
     }
   }
 
@@ -178,10 +178,10 @@ struct sFlocksSettings
         break;
       case PRESET_ADVANCED_SETTINGS:
       {
-        dLeaders = kodi::GetSettingInt("advanced.leaders");
-        dFollowers = kodi::GetSettingInt("advanced.followers");
+        dLeaders = kodi::addon::GetSettingInt("advanced.leaders");
+        dFollowers = kodi::addon::GetSettingInt("advanced.followers");
 
-        switch (kodi::GetSettingInt("advanced.geometry"))
+        switch (kodi::addon::GetSettingInt("advanced.geometry"))
         {
           case 0:
             dGeometry = true;
@@ -197,17 +197,17 @@ struct sFlocksSettings
             break;
         }
 
-        dSize = kodi::GetSettingInt("advanced.size");
-        dComplexity = kodi::GetSettingInt("advanced.complexity");
-        dSpeed = kodi::GetSettingInt("advanced.speed");
-        dStretch = kodi::GetSettingInt("advanced.stretch");
-        dColorfadespeed = kodi::GetSettingInt("advanced.colorfadespeed");
-        dChromatek = kodi::GetSettingBoolean("advanced.chromatek");
-        dConnections = kodi::GetSettingBoolean("advanced.connections");
-        dTrail = kodi::GetSettingInt("advanced.traillength");
-        dBlur = kodi::GetSettingInt("advanced.blur");
-        dRandomColors = kodi::GetSettingBoolean("advanced.randomcolors");
-        dClear = kodi::GetSettingBoolean("advanced.clearcompletely");
+        dSize = kodi::addon::GetSettingInt("advanced.size");
+        dComplexity = kodi::addon::GetSettingInt("advanced.complexity");
+        dSpeed = kodi::addon::GetSettingInt("advanced.speed");
+        dStretch = kodi::addon::GetSettingInt("advanced.stretch");
+        dColorfadespeed = kodi::addon::GetSettingInt("advanced.colorfadespeed");
+        dChromatek = kodi::addon::GetSettingBoolean("advanced.chromatek");
+        dConnections = kodi::addon::GetSettingBoolean("advanced.connections");
+        dTrail = kodi::addon::GetSettingInt("advanced.traillength");
+        dBlur = kodi::addon::GetSettingInt("advanced.blur");
+        dRandomColors = kodi::addon::GetSettingBoolean("advanced.randomcolors");
+        dClear = kodi::addon::GetSettingBoolean("advanced.clearcompletely");
       }
     }
   }
@@ -718,8 +718,8 @@ bool CScreensaverFlocks::Start()
 {
   gSettings.Load();
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

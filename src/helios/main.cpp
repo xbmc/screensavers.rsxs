@@ -284,17 +284,17 @@ bool CScreensaverHelios::Start()
 
   gHeliosSettings.setDefaults();
 
-  kodi::CheckSettingInt("general.ions", gHeliosSettings.dIons);
-  kodi::CheckSettingInt("general.size", gHeliosSettings.dSize);
-  kodi::CheckSettingInt("general.emitters", gHeliosSettings.dEmitters);
-  kodi::CheckSettingInt("general.attractors", gHeliosSettings.dAttracters);
-  kodi::CheckSettingInt("general.speed", gHeliosSettings.dSpeed);
-  kodi::CheckSettingInt("general.cameraspeed", gHeliosSettings.dCameraspeed);
-  kodi::CheckSettingBoolean("general.isosurface", gHeliosSettings.dSurface);
-  kodi::CheckSettingInt("general.blur", gHeliosSettings.dBlur);
+  kodi::addon::CheckSettingInt("general.ions", gHeliosSettings.dIons);
+  kodi::addon::CheckSettingInt("general.size", gHeliosSettings.dSize);
+  kodi::addon::CheckSettingInt("general.emitters", gHeliosSettings.dEmitters);
+  kodi::addon::CheckSettingInt("general.attractors", gHeliosSettings.dAttracters);
+  kodi::addon::CheckSettingInt("general.speed", gHeliosSettings.dSpeed);
+  kodi::addon::CheckSettingInt("general.cameraspeed", gHeliosSettings.dCameraspeed);
+  kodi::addon::CheckSettingBoolean("general.isosurface", gHeliosSettings.dSurface);
+  kodi::addon::CheckSettingInt("general.blur", gHeliosSettings.dBlur);
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

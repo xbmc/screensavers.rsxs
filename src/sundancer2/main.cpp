@@ -26,7 +26,7 @@ bool CScreensaverSunDancer2::Start()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
-  int colorMode = kodi::GetSettingInt("color.type");
+  int colorMode = kodi::addon::GetSettingInt("color.type");
   if (colorMode == 0)
   {
     m_backRed = rsRandi(256);
@@ -49,16 +49,16 @@ bool CScreensaverSunDancer2::Start()
   }
   else if (colorMode == 2)
   {
-    m_backRed = kodi::GetSettingInt("color.background-red");
-    m_backGreen = kodi::GetSettingInt("color.background-green");
-    m_backBlue = kodi::GetSettingInt("color.background-blue");
+    m_backRed = kodi::addon::GetSettingInt("color.background-red");
+    m_backGreen = kodi::addon::GetSettingInt("color.background-green");
+    m_backBlue = kodi::addon::GetSettingInt("color.background-blue");
 
-    m_frontRed = kodi::GetSettingInt("color.foreground-red");
-    m_frontGreen = kodi::GetSettingInt("color.foreground-green");
-    m_frontBlue = kodi::GetSettingInt("color.foreground-blue");
+    m_frontRed = kodi::addon::GetSettingInt("color.foreground-red");
+    m_frontGreen = kodi::addon::GetSettingInt("color.foreground-green");
+    m_frontBlue = kodi::addon::GetSettingInt("color.foreground-blue");
   }
 
-  int reverse = kodi::GetSettingInt("general.reverse");
+  int reverse = kodi::addon::GetSettingInt("general.reverse");
   if (reverse == 0)
     m_reverse = rsRandi(2);
   else if (reverse == 1)
@@ -66,26 +66,26 @@ bool CScreensaverSunDancer2::Start()
   else
     m_reverse = true;
 
-  if (kodi::GetSettingBoolean("general.automatictransparency"))
+  if (kodi::addon::GetSettingBoolean("general.automatictransparency"))
     m_transparencyValue = (rsRandf(100) + 1) / 100.0f;
   else
-    m_transparencyValue = kodi::GetSettingInt("general.transparency") / 100.0f;
+    m_transparencyValue = kodi::addon::GetSettingInt("general.transparency") / 100.0f;
 
-  int quartcnt = kodi::GetSettingInt("general.quartcnt");
+  int quartcnt = kodi::addon::GetSettingInt("general.quartcnt");
   if (quartcnt == 0)
     m_quadCount = rsRandi(296) + 5;
   else
     m_quadCount = quartcnt;
 
-  int speed = kodi::GetSettingInt("general.speed");
+  int speed = kodi::addon::GetSettingInt("general.speed");
   if (speed == 0)
     m_quadSpeedMax = rsRandf(50) / 400.0f;
   else
     m_quadSpeedMax = speed / 400.0f;
   m_quadSpeed = m_quadSpeedMax;
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

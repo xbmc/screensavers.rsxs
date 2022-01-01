@@ -59,7 +59,7 @@ float interpolate(float a, float b, float c, float d, float where){
 //
 CScreensaverLattice::CScreensaverLattice()
 {
-  setDefaults(kodi::GetSettingInt("general.type"));
+  setDefaults(kodi::addon::GetSettingInt("general.type"));
 }
 
 bool CScreensaverLattice::Start()
@@ -69,8 +69,8 @@ bool CScreensaverLattice::Start()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -596,17 +596,17 @@ void CScreensaverLattice::setDefaults(int which)
     m_settings.dFog = true;
     break;
   case 6:  // Advanced settings
-    m_settings.dLongitude = kodi::GetSettingInt("advanced.longitude");
-    m_settings.dLatitude = kodi::GetSettingInt("advanced.latitude");
-    m_settings.dThick = kodi::GetSettingInt("advanced.thickness");
-    m_settings.dDensity = kodi::GetSettingInt("advanced.density");
-    m_settings.dDepth = kodi::GetSettingInt("advanced.depth");
+    m_settings.dLongitude = kodi::addon::GetSettingInt("advanced.longitude");
+    m_settings.dLatitude = kodi::addon::GetSettingInt("advanced.latitude");
+    m_settings.dThick = kodi::addon::GetSettingInt("advanced.thickness");
+    m_settings.dDensity = kodi::addon::GetSettingInt("advanced.density");
+    m_settings.dDepth = kodi::addon::GetSettingInt("advanced.depth");
     m_settings.dFov = 90;
     m_settings.dPathrand = 7;
-    m_settings.dSpeed = kodi::GetSettingInt("advanced.speed");
-    m_settings.dTexture = kodi::GetSettingInt("advanced.texture");
-    m_settings.dSmooth = kodi::GetSettingBoolean("advanced.smooth");
-    m_settings.dFog = kodi::GetSettingBoolean("advanced.fog");
+    m_settings.dSpeed = kodi::addon::GetSettingInt("advanced.speed");
+    m_settings.dTexture = kodi::addon::GetSettingInt("advanced.texture");
+    m_settings.dSmooth = kodi::addon::GetSettingBoolean("advanced.smooth");
+    m_settings.dFog = kodi::addon::GetSettingBoolean("advanced.fog");
   }
 }
 
@@ -615,36 +615,36 @@ void CScreensaverLattice::initTextures()
   switch(m_settings.dTexture)
   {
     case 1:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/industrial1.dds"));
-    m_texture_id[1] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/industrial2.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/industrial1.dds"));
+    m_texture_id[1] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/industrial2.dds"));
     m_textureStyle = TEXTURE_RGB;
     break;
   case 2:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/crystal.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/crystal.dds"));
     m_textureStyle = TEXTURE_RGB;
     break;
   case 3:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/chrome.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/chrome.dds"));
     m_textureStyle = TEXTURE_RGB;
     break;
   case 4:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/brass.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/brass.dds"));
     m_textureStyle = TEXTURE_RGB;
     break;
   case 5:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/shiny.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/shiny.dds"));
     m_textureStyle = TEXTURE_RGBA;
     break;
   case 6:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/ghostly.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/ghostly.dds"));
     m_textureStyle = TEXTURE_ALPHA;
     break;
   case 7:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/circuits.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/circuits.dds"));
     m_textureStyle = TEXTURE_ALPHA;
     break;
   case 8:
-    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::GetAddonPath("/resources/doughnuts.dds"));
+    m_texture_id[0] = kodi::gui::gl::CreateTexture(kodi::addon::GetAddonPath("/resources/doughnuts.dds"));
     m_textureStyle = TEXTURE_RGBA;
     break;
   default:

@@ -20,7 +20,7 @@
 #include <kodi/gui/gl/Shader.h>
 #include <glm/gtc/type_ptr.hpp>
 
-class ATTRIBUTE_HIDDEN CScreensaverSunDancer2
+class ATTR_DLL_LOCAL CScreensaverSunDancer2
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

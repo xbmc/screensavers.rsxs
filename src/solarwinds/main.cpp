@@ -34,7 +34,7 @@ namespace {
   sSettings m_settings;
 }
 
-class ATTRIBUTE_HIDDEN CWind
+class ATTR_DLL_LOCAL CWind
 {
 public:
   float **emitters;
@@ -252,7 +252,7 @@ void CWind::update(CScreensaverSolarWinds* base)
 
 CScreensaverSolarWinds::CScreensaverSolarWinds()
 {
-  int type = kodi::GetSettingInt("general.type");
+  int type = kodi::addon::GetSettingInt("general.type");
   SetDefaults(type);
 }
 
@@ -261,8 +261,8 @@ bool CScreensaverSolarWinds::Start()
   int i, j;
   float x, y, temp;
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -498,31 +498,31 @@ void CScreensaverSolarWinds::SetDefaults(int type)
     m_settings.dBlur = 50;
     break;
   case ADVANCED_MODE:
-    m_settings.dWinds = kodi::GetSettingInt("advanced.winds");
-    m_settings.dEmitters = kodi::GetSettingInt("advanced.emitters");
-    m_settings.dParticles = kodi::GetSettingInt("advanced.particles");
-    m_settings.dGeometry = kodi::GetSettingInt("advanced.geometry");
-    m_settings.dSize = kodi::GetSettingInt("advanced.size");
-    m_settings.dWindspeed = kodi::GetSettingInt("advanced.speed");
-    m_settings.dEmitterspeed = kodi::GetSettingInt("advanced.emitterspeed");
-    m_settings.dParticlespeed = kodi::GetSettingInt("advanced.particlespeed");
-    m_settings.dBlur = kodi::GetSettingInt("advanced.blur");
+    m_settings.dWinds = kodi::addon::GetSettingInt("advanced.winds");
+    m_settings.dEmitters = kodi::addon::GetSettingInt("advanced.emitters");
+    m_settings.dParticles = kodi::addon::GetSettingInt("advanced.particles");
+    m_settings.dGeometry = kodi::addon::GetSettingInt("advanced.geometry");
+    m_settings.dSize = kodi::addon::GetSettingInt("advanced.size");
+    m_settings.dWindspeed = kodi::addon::GetSettingInt("advanced.speed");
+    m_settings.dEmitterspeed = kodi::addon::GetSettingInt("advanced.emitterspeed");
+    m_settings.dParticlespeed = kodi::addon::GetSettingInt("advanced.particlespeed");
+    m_settings.dBlur = kodi::addon::GetSettingInt("advanced.blur");
   }
 
   if (type != ADVANCED_MODE)
   {
-    int lastType = kodi::GetSettingInt("general.lastType");
+    int lastType = kodi::addon::GetSettingInt("general.lastType");
     if (type != lastType)
     {
-      kodi::SetSettingInt("general.lastType", type);
-      kodi::SetSettingInt("advanced.winds", m_settings.dWinds);
-      kodi::SetSettingInt("advanced.particles", m_settings.dParticles);
-      kodi::SetSettingInt("advanced.geometry", m_settings.dGeometry);
-      kodi::SetSettingInt("advanced.size", m_settings.dSize);
-      kodi::SetSettingInt("advanced.speed", m_settings.dWindspeed);
-      kodi::SetSettingInt("advanced.emitterspeed", m_settings.dEmitterspeed);
-      kodi::SetSettingInt("advanced.particlespeed", m_settings.dParticlespeed);
-      kodi::SetSettingInt("advanced.blur", m_settings.dBlur);
+      kodi::addon::SetSettingInt("general.lastType", type);
+      kodi::addon::SetSettingInt("advanced.winds", m_settings.dWinds);
+      kodi::addon::SetSettingInt("advanced.particles", m_settings.dParticles);
+      kodi::addon::SetSettingInt("advanced.geometry", m_settings.dGeometry);
+      kodi::addon::SetSettingInt("advanced.size", m_settings.dSize);
+      kodi::addon::SetSettingInt("advanced.speed", m_settings.dWindspeed);
+      kodi::addon::SetSettingInt("advanced.emitterspeed", m_settings.dEmitterspeed);
+      kodi::addon::SetSettingInt("advanced.particlespeed", m_settings.dParticlespeed);
+      kodi::addon::SetSettingInt("advanced.blur", m_settings.dBlur);
     }
   }
 }

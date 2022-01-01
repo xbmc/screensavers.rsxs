@@ -19,7 +19,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN TriangleOfSpheres : public Gizmo
+class ATTR_DLL_LOCAL TriangleOfSpheres : public Gizmo
 {
 public:
   TriangleOfSpheres(CScreensaverMicrocosm* base, unsigned int num) : Gizmo(base)

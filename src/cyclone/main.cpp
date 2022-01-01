@@ -40,13 +40,13 @@ struct sCycloneSettings
   {
     setDefaults();
 
-    kodi::CheckSettingInt("general.cyclones", dCyclones);
-    kodi::CheckSettingInt("general.particles", dParticles);
-    kodi::CheckSettingInt("general.size", dSize);
-    kodi::CheckSettingInt("general.complexity", dComplexity);
-    kodi::CheckSettingInt("general.speed", dSpeed);
-    kodi::CheckSettingBoolean("general.stretch", dStretch);
-    kodi::CheckSettingBoolean("general.showcurves", dShowCurves);
+    kodi::addon::CheckSettingInt("general.cyclones", dCyclones);
+    kodi::addon::CheckSettingInt("general.particles", dParticles);
+    kodi::addon::CheckSettingInt("general.size", dSize);
+    kodi::addon::CheckSettingInt("general.complexity", dComplexity);
+    kodi::addon::CheckSettingInt("general.speed", dSpeed);
+    kodi::addon::CheckSettingBoolean("general.stretch", dStretch);
+    kodi::addon::CheckSettingBoolean("general.showcurves", dShowCurves);
   }
 
   void setDefaults()
@@ -502,8 +502,8 @@ bool CScreensaverCyclone::Start()
 {
   int i, j;
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

@@ -56,28 +56,28 @@ struct sFluxSettings
   void Load()
   {
     int type = PRESET_REGULAR;
-    kodi::CheckSettingInt("general.type", type);
+    kodi::addon::CheckSettingInt("general.type", type);
     if (type == PRESET_AUTO_SELECTION)
       SetDefaults(rsRandi(6) + 1);
     else
       SetDefaults(type);
 
     if (type != PRESET_ADVANCED_SETTINGS &&
-        type != kodi::GetSettingInt("general.lastType"))
+        type != kodi::addon::GetSettingInt("general.lastType"))
     {
-      kodi::SetSettingInt("general.lastType", type);
+      kodi::addon::SetSettingInt("general.lastType", type);
 
-      kodi::SetSettingInt("advanced.fluxes", dFluxes);
-      kodi::SetSettingInt("advanced.particles", dParticles);
-      kodi::SetSettingInt("advanced.trail", dTrail);
-      kodi::SetSettingInt("advanced.geometry", dGeometry);
-      kodi::SetSettingInt("advanced.size", dSize);
-      kodi::SetSettingInt("advanced.complexity", dRandomize);
-      kodi::SetSettingInt("advanced.randomize", dExpansion);
-      kodi::SetSettingInt("advanced.expansion", dRotation);
-      kodi::SetSettingInt("advanced.rotation", dWind);
-      kodi::SetSettingInt("advanced.instability", dInstability);
-      kodi::SetSettingInt("advanced.blur", dBlur);
+      kodi::addon::SetSettingInt("advanced.fluxes", dFluxes);
+      kodi::addon::SetSettingInt("advanced.particles", dParticles);
+      kodi::addon::SetSettingInt("advanced.trail", dTrail);
+      kodi::addon::SetSettingInt("advanced.geometry", dGeometry);
+      kodi::addon::SetSettingInt("advanced.size", dSize);
+      kodi::addon::SetSettingInt("advanced.complexity", dRandomize);
+      kodi::addon::SetSettingInt("advanced.randomize", dExpansion);
+      kodi::addon::SetSettingInt("advanced.expansion", dRotation);
+      kodi::addon::SetSettingInt("advanced.rotation", dWind);
+      kodi::addon::SetSettingInt("advanced.instability", dInstability);
+      kodi::addon::SetSettingInt("advanced.blur", dBlur);
     }
   }
 
@@ -166,17 +166,17 @@ struct sFluxSettings
       dBlur = 0;
       break;
     case PRESET_ADVANCED_SETTINGS:  // Galactic
-      dFluxes = kodi::GetSettingInt("advanced.fluxes");
-      dParticles = kodi::GetSettingInt("advanced.particles");
-      dTrail = kodi::GetSettingInt("advanced.trail");
-      dGeometry = kodi::GetSettingInt("advanced.geometry");
-      dSize = kodi::GetSettingInt("advanced.size");
-      dRandomize = kodi::GetSettingInt("advanced.complexity");
-      dExpansion = kodi::GetSettingInt("advanced.randomize");
-      dRotation = kodi::GetSettingInt("advanced.expansion");
-      dWind = kodi::GetSettingInt("advanced.rotation");
-      dInstability = kodi::GetSettingInt("advanced.instability");
-      dBlur = kodi::GetSettingInt("advanced.blur");
+      dFluxes = kodi::addon::GetSettingInt("advanced.fluxes");
+      dParticles = kodi::addon::GetSettingInt("advanced.particles");
+      dTrail = kodi::addon::GetSettingInt("advanced.trail");
+      dGeometry = kodi::addon::GetSettingInt("advanced.geometry");
+      dSize = kodi::addon::GetSettingInt("advanced.size");
+      dRandomize = kodi::addon::GetSettingInt("advanced.complexity");
+      dExpansion = kodi::addon::GetSettingInt("advanced.randomize");
+      dRotation = kodi::addon::GetSettingInt("advanced.expansion");
+      dWind = kodi::addon::GetSettingInt("advanced.rotation");
+      dInstability = kodi::addon::GetSettingInt("advanced.instability");
+      dBlur = kodi::addon::GetSettingInt("advanced.blur");
     }
   }
 
@@ -526,8 +526,8 @@ bool CScreensaverFlux::Start()
 
   gSettings.Load();
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

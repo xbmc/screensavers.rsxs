@@ -20,7 +20,7 @@
 #include <kodi/gui/gl/GL.h>
 #include <glm/gtc/type_ptr.hpp>
 
-class ATTRIBUTE_HIDDEN CWavyNormalCubeMaps
+class ATTR_DLL_LOCAL CWavyNormalCubeMaps
 {
 public:
   CWavyNormalCubeMaps(int frames, int size);
@@ -30,7 +30,7 @@ public:
   // normal at that point on the sphere
   void WavyFunc(const glm::vec3& point, glm::vec3& normal);
 
-  ATTRIBUTE_FORCEINLINE const GLuint* Texture() const { return m_texture; }
+  ATTR_FORCEINLINE const GLuint* Texture() const { return m_texture; }
 
 private:
   int m_numFrames;

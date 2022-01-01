@@ -19,7 +19,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN TorusBox : public Gizmo
+class ATTR_DLL_LOCAL TorusBox : public Gizmo
 {
 public:
   impTorus* torus1;

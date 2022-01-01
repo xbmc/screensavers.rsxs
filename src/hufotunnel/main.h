@@ -44,7 +44,7 @@ struct sLight
   glm::vec2 coord;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverHufoTunnel
+class ATTR_DLL_LOCAL CScreensaverHufoTunnel
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

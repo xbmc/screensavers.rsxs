@@ -32,7 +32,7 @@ struct sHufoTunnelSettings
 {
   void Load()
   {
-    kodi::CheckSettingBoolean("general.autoselection", dAutoSelection);
+    kodi::addon::CheckSettingBoolean("general.autoselection", dAutoSelection);
     if (dAutoSelection)
     {
       dTexture = rsRandi(2) + 1;
@@ -46,10 +46,10 @@ struct sHufoTunnelSettings
     }
     else
     {
-      dTexture = kodi::GetSettingInt("general.type");
-      dWireframe = kodi::GetSettingBoolean("general.wireframe");
-      dSinHole = kodi::GetSettingBoolean("general.sinusoide");
-      dCoarse = 1 << (3 - kodi::GetSettingInt("general.coarseness"));
+      dTexture = kodi::addon::GetSettingInt("general.type");
+      dWireframe = kodi::addon::GetSettingBoolean("general.wireframe");
+      dSinHole = kodi::addon::GetSettingBoolean("general.sinusoide");
+      dCoarse = 1 << (3 - kodi::addon::GetSettingInt("general.coarseness"));
       if (dCoarse == 8)
         dCoarse = 0;
     }
@@ -111,8 +111,8 @@ bool CScreensaverHufoTunnel::Start()
 {
   gSettings.Load();
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

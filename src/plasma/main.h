@@ -36,7 +36,7 @@ inline float fabstrunc(float f)
 
 class CGUIShader;
 
-class ATTRIBUTE_HIDDEN CScreensaverPlasma
+class ATTR_DLL_LOCAL CScreensaverPlasma
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

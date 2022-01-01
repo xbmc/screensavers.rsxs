@@ -26,12 +26,12 @@
 #define MOONGLOWTEXSIZE 128
 #define CLOUDMESH 70
 
-#undef ATTRIBUTE_FORCEINLINE
-#define ATTRIBUTE_FORCEINLINE
+#undef ATTR_FORCEINLINE
+#define ATTR_FORCEINLINE
 
 class CScreensaverSkyRocket;
 
-class ATTRIBUTE_HIDDEN CWorld
+class ATTR_DLL_LOCAL CWorld
 {
 public:
   CWorld(CScreensaverSkyRocket* base) : m_base(base) { }
@@ -44,7 +44,7 @@ public:
   void update(float frameTime);
   void draw();
 
-  ATTRIBUTE_FORCEINLINE unsigned int CloudTex() { return m_cloudtex; }
+  ATTR_FORCEINLINE unsigned int CloudTex() { return m_cloudtex; }
   float m_clouds[CLOUDMESH+1][CLOUDMESH+1][9];  // 9 = x,y,z,u,v,std bright,r,g,b
 
 private:

@@ -27,7 +27,7 @@
 
 class CScreensaverHyperspace;
 
-class ATTRIBUTE_HIDDEN CGoo
+class ATTR_DLL_LOCAL CGoo
 {
 public:
   CGoo(CScreensaverHyperspace* base, int res, float rad);

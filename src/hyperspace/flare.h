@@ -26,7 +26,7 @@
 
 class CScreensaverHyperspace;
 
-class ATTRIBUTE_HIDDEN CFlare
+class ATTR_DLL_LOCAL CFlare
 {
 public:
   CFlare() = default;

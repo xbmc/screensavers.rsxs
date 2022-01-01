@@ -23,7 +23,7 @@
 
 #define CYL_RAD 0.36f
 
-class ATTRIBUTE_HIDDEN Cylinder : public Gizmo
+class ATTR_DLL_LOCAL Cylinder : public Gizmo
 {
 public:
   Cylinder(CScreensaverMicrocosm* base) : Gizmo(base)

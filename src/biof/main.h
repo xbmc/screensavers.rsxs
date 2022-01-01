@@ -20,7 +20,7 @@
 #include <kodi/gui/gl/Shader.h>
 #include <glm/gtc/type_ptr.hpp>
 
-class ATTRIBUTE_HIDDEN CScreensaverBiof
+class ATTR_DLL_LOCAL CScreensaverBiof
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

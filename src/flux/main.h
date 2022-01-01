@@ -35,7 +35,7 @@ struct sLight
 class CFlux;
 class CParticle;
 
-class ATTRIBUTE_HIDDEN CScreensaverFlux
+class ATTR_DLL_LOCAL CScreensaverFlux
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

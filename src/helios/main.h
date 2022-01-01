@@ -38,7 +38,7 @@ struct sLight
   glm::vec4 color;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverHelios
+class ATTR_DLL_LOCAL CScreensaverHelios
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

@@ -31,7 +31,7 @@ struct sLight
 class CCyclone;
 class CParticle;
 
-class ATTRIBUTE_HIDDEN CScreensaverCyclone
+class ATTR_DLL_LOCAL CScreensaverCyclone
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

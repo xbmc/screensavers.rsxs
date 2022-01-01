@@ -36,7 +36,7 @@ typedef enum
   MATRIX_COLOR_BLUE = 2
 } MATRIX_COLOR;
 
-class ATTRIBUTE_HIDDEN CScreensaverMatrixView
+class ATTR_DLL_LOCAL CScreensaverMatrixView
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

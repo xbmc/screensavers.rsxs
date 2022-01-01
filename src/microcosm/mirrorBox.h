@@ -25,7 +25,7 @@ class CScreensaverMicrocosm;
 // MirrorBox renders the same unit cube 8 times, reflecting it about the x, y, and z axes.
 // So the whole MirrorBox has extents {(-1,-1,-1), (1,1,1)}.
 
-class ATTRIBUTE_HIDDEN MirrorBox
+class ATTR_DLL_LOCAL MirrorBox
 {
 private:
   double plane0[4];

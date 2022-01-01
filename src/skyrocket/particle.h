@@ -47,12 +47,12 @@
 #define STRETCHER 12
 #define BIGMAMA 13
 
-#undef ATTRIBUTE_FORCEINLINE
-#define ATTRIBUTE_FORCEINLINE
+#undef ATTR_FORCEINLINE
+#define ATTR_FORCEINLINE
 
 class CScreensaverSkyRocket;
 
-class ATTRIBUTE_HIDDEN CParticle
+class ATTR_DLL_LOCAL CParticle
 {
 public:
   // Constructor initializes particles to be stars because that's what most of them are
@@ -104,15 +104,15 @@ public:
   // Draw a particle
   void draw();
 
-  ATTRIBUTE_FORCEINLINE unsigned int& GetType() { return type; }
-  ATTRIBUTE_FORCEINLINE rsVec& GetXYZ() { return xyz; }
-  ATTRIBUTE_FORCEINLINE rsVec& GetRGB() { return rgb; }
-  ATTRIBUTE_FORCEINLINE rsVec& GetVelocityVector() { return vel; }
-  ATTRIBUTE_FORCEINLINE float& GetTimeTotal() { return t; }
-  ATTRIBUTE_FORCEINLINE float& GetTimeRemaining() { return tr; }
-  ATTRIBUTE_FORCEINLINE float& GetLifeRemaining() { return life; }
-  ATTRIBUTE_FORCEINLINE float GetBright() const { return bright; }
-  ATTRIBUTE_FORCEINLINE int& GetExplosionType() { return explosiontype; };
+  ATTR_FORCEINLINE unsigned int& GetType() { return type; }
+  ATTR_FORCEINLINE rsVec& GetXYZ() { return xyz; }
+  ATTR_FORCEINLINE rsVec& GetRGB() { return rgb; }
+  ATTR_FORCEINLINE rsVec& GetVelocityVector() { return vel; }
+  ATTR_FORCEINLINE float& GetTimeTotal() { return t; }
+  ATTR_FORCEINLINE float& GetTimeRemaining() { return tr; }
+  ATTR_FORCEINLINE float& GetLifeRemaining() { return life; }
+  ATTR_FORCEINLINE float GetBright() const { return bright; }
+  ATTR_FORCEINLINE int& GetExplosionType() { return explosiontype; };
 
   // Return a pointer to this particle
   CParticle* thisParticle(){return this;};

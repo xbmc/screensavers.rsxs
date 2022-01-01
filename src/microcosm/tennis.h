@@ -22,7 +22,7 @@
 #include "gizmo.h"
 #include "main.h"
 
-class ATTRIBUTE_HIDDEN Tennis : public Gizmo
+class ATTR_DLL_LOCAL Tennis : public Gizmo
 {
 private:
   rsVec pos;

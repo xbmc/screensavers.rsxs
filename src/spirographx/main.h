@@ -39,7 +39,7 @@ struct renderContent
   float fade = 1.0f;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverSpiroGraphX
+class ATTR_DLL_LOCAL CScreensaverSpiroGraphX
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

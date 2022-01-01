@@ -20,7 +20,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN Octahedron : public Gizmo
+class ATTR_DLL_LOCAL Octahedron : public Gizmo
 {
 public:
   Octahedron(CScreensaverMicrocosm* base) : Gizmo(base)

@@ -23,11 +23,11 @@
 
 bool CScreensaverSpiroGraphX::Start()
 {
-  m_timeInterval = static_cast<float>(kodi::GetSettingInt("general.interval"));
-  m_detail = kodi::GetSettingInt("general.detail");
+  m_timeInterval = static_cast<float>(kodi::addon::GetSettingInt("general.interval"));
+  m_detail = kodi::addon::GetSettingInt("general.detail");
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
@@ -36,7 +36,7 @@ bool CScreensaverSpiroGraphX::Start()
 
   glGenBuffers(2, m_vertexVBO);
 
-  m_content.blurWidth = kodi::GetSettingInt("general.blurwidth");
+  m_content.blurWidth = kodi::addon::GetSettingInt("general.blurwidth");
 
   glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
   glClearDepthf(1.0f);
@@ -50,7 +50,7 @@ bool CScreensaverSpiroGraphX::Start()
   ChangeSettings();
   m_contentOld = m_content;
 
-  m_projMat = glm::perspective(glm::radians(kodi::GetSettingBoolean("general.fitwidth") ? 45.0f : 90.0f), (GLfloat) Width() / (GLfloat) Height(), 0.1f, 100.0f);
+  m_projMat = glm::perspective(glm::radians(kodi::addon::GetSettingBoolean("general.fitwidth") ? 45.0f : 90.0f), (GLfloat) Width() / (GLfloat) Height(), 0.1f, 100.0f);
   m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;

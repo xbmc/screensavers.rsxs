@@ -21,7 +21,7 @@
 
 class CScreensaverMicrocosm;
 
-class ATTRIBUTE_HIDDEN rsCamera
+class ATTR_DLL_LOCAL rsCamera
 {
 public:
   rsMatrix mProjMat;

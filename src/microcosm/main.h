@@ -50,16 +50,16 @@ struct sMicrocosmSettings
     switch(which)
     {
     case TYPE_ADVANCED:
-      kodi::CheckSettingInt("advanced.kaleidoscopetime", dKaleidoscopeTime);
-      kodi::CheckSettingInt("advanced.singletime", dSingleTime);
-      kodi::CheckSettingInt("advanced.background", dBackground);
-      kodi::CheckSettingInt("advanced.resolution", dResolution);
-      kodi::CheckSettingInt("advanced.depth", dDepth);
-      kodi::CheckSettingInt("advanced.fov", dFov);
-      kodi::CheckSettingInt("advanced.gizmospeed", dGizmoSpeed);
-      kodi::CheckSettingInt("advanced.colorspeed", dColorSpeed);
-      kodi::CheckSettingInt("advanced.cameraspeed", dCameraSpeed);
-      kodi::CheckSettingBoolean("advanced.fog", dFog);
+      kodi::addon::CheckSettingInt("advanced.kaleidoscopetime", dKaleidoscopeTime);
+      kodi::addon::CheckSettingInt("advanced.singletime", dSingleTime);
+      kodi::addon::CheckSettingInt("advanced.background", dBackground);
+      kodi::addon::CheckSettingInt("advanced.resolution", dResolution);
+      kodi::addon::CheckSettingInt("advanced.depth", dDepth);
+      kodi::addon::CheckSettingInt("advanced.fov", dFov);
+      kodi::addon::CheckSettingInt("advanced.gizmospeed", dGizmoSpeed);
+      kodi::addon::CheckSettingInt("advanced.colorspeed", dColorSpeed);
+      kodi::addon::CheckSettingInt("advanced.cameraspeed", dCameraSpeed);
+      kodi::addon::CheckSettingBoolean("advanced.fog", dFog);
       break;
     case TYPE_SIMPLE:  // Simple
       dSingleTime = 60;
@@ -107,24 +107,24 @@ struct sMicrocosmSettings
   void Load()
   {
     int type = TYPE_REGULAR;
-    kodi::CheckSettingInt("general.type", type);
+    kodi::addon::CheckSettingInt("general.type", type);
     SetDefaults(type);
 
     if (type != TYPE_ADVANCED &&
-        type != kodi::GetSettingInt("general.lastType"))
+        type != kodi::addon::GetSettingInt("general.lastType"))
     {
-      kodi::SetSettingInt("general.lastType", type);
+      kodi::addon::SetSettingInt("general.lastType", type);
 
-      kodi::SetSettingInt("advanced.kaleidoscopetime", dKaleidoscopeTime);
-      kodi::SetSettingInt("advanced.singletime", dSingleTime);
-      kodi::SetSettingInt("advanced.background", dBackground);
-      kodi::SetSettingInt("advanced.resolution", dResolution);
-      kodi::SetSettingInt("advanced.depth", dDepth);
-      kodi::SetSettingInt("advanced.fov", dFov);
-      kodi::SetSettingInt("advanced.gizmospeed", dGizmoSpeed);
-      kodi::SetSettingInt("advanced.colorspeed", dColorSpeed);
-      kodi::SetSettingInt("advanced.cameraspeed", dCameraSpeed);
-      kodi::SetSettingBoolean("advanced.fog", dFog);
+      kodi::addon::SetSettingInt("advanced.kaleidoscopetime", dKaleidoscopeTime);
+      kodi::addon::SetSettingInt("advanced.singletime", dSingleTime);
+      kodi::addon::SetSettingInt("advanced.background", dBackground);
+      kodi::addon::SetSettingInt("advanced.resolution", dResolution);
+      kodi::addon::SetSettingInt("advanced.depth", dDepth);
+      kodi::addon::SetSettingInt("advanced.fov", dFov);
+      kodi::addon::SetSettingInt("advanced.gizmospeed", dGizmoSpeed);
+      kodi::addon::SetSettingInt("advanced.colorspeed", dColorSpeed);
+      kodi::addon::SetSettingInt("advanced.cameraspeed", dCameraSpeed);
+      kodi::addon::SetSettingBoolean("advanced.fog", dFog);
     }
   }
 
@@ -145,7 +145,7 @@ class Texture1D;
 class impCubeVolume;
 class impSurface;
 
-class ATTRIBUTE_HIDDEN CScreensaverMicrocosm
+class ATTR_DLL_LOCAL CScreensaverMicrocosm
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram
@@ -163,16 +163,16 @@ public:
   void OnCompiledAndLinked() override;
   bool OnEnabled() override;
 
-  ATTRIBUTE_FORCEINLINE sMicrocosmSettings& Settings() { return m_settings; }
-  ATTRIBUTE_FORCEINLINE int Mode() { return m_mode; }
-  ATTRIBUTE_FORCEINLINE float FrameTime() { return m_frameTime; }
-  ATTRIBUTE_FORCEINLINE rsCamera& Camera() { return m_camera; }
-  ATTRIBUTE_FORCEINLINE impSurface* DrawSurface0() { return m_drawSurface0; }
-  ATTRIBUTE_FORCEINLINE impSurface* DrawSurface1() { return m_drawSurface1; }
-  ATTRIBUTE_FORCEINLINE impSurface* DrawSurface2() { return m_drawSurface2; }
+  ATTR_FORCEINLINE sMicrocosmSettings& Settings() { return m_settings; }
+  ATTR_FORCEINLINE int Mode() { return m_mode; }
+  ATTR_FORCEINLINE float FrameTime() { return m_frameTime; }
+  ATTR_FORCEINLINE rsCamera& Camera() { return m_camera; }
+  ATTR_FORCEINLINE impSurface* DrawSurface0() { return m_drawSurface0; }
+  ATTR_FORCEINLINE impSurface* DrawSurface1() { return m_drawSurface1; }
+  ATTR_FORCEINLINE impSurface* DrawSurface2() { return m_drawSurface2; }
 
-  ATTRIBUTE_FORCEINLINE glm::mat4& ProjMatrix() { return m_projMat; }
-  ATTRIBUTE_FORCEINLINE glm::mat4& ModelMatrix() { return m_modelMat; }
+  ATTR_FORCEINLINE glm::mat4& ProjMatrix() { return m_projMat; }
+  ATTR_FORCEINLINE glm::mat4& ModelMatrix() { return m_modelMat; }
 
   void Draw(const float* vertices, unsigned int vertex_offset, const unsigned int* indices, unsigned int index_offset);
 

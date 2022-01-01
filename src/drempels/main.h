@@ -31,7 +31,7 @@ struct sLight
 
 class td_cellcornerinfo;
 
-class ATTRIBUTE_HIDDEN CScreensaverDrempels
+class ATTR_DLL_LOCAL CScreensaverDrempels
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

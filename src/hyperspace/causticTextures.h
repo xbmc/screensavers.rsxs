@@ -25,7 +25,7 @@
 
 class CScreensaverHyperspace;
 
-class ATTRIBUTE_HIDDEN CCausticTextures
+class ATTR_DLL_LOCAL CCausticTextures
 {
 public:
   // constructor takes the following parameters:
@@ -35,7 +35,7 @@ public:
   CCausticTextures(CScreensaverHyperspace* base, int keys, int frames, int res, int size, float depth, float wa, float rm);
   ~CCausticTextures();
 
-  ATTRIBUTE_FORCEINLINE GLuint* CausticTex() { return m_caustictex; }
+  ATTR_FORCEINLINE GLuint* CausticTex() { return m_caustictex; }
 
 private:
   void makeFractalAltitudes();

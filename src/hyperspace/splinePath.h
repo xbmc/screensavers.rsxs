@@ -18,7 +18,7 @@
 #include <kodi/AddonBase.h>
 #include <glm/gtc/type_ptr.hpp>
 
-class ATTRIBUTE_HIDDEN CSplinePath
+class ATTR_DLL_LOCAL CSplinePath
 {
 public:
   CSplinePath(int length);
@@ -30,8 +30,8 @@ public:
   void GetBaseDirection(int section, float where, float* direction);
   void Update(float multiplier);
 
-  ATTRIBUTE_FORCEINLINE float Step() { return m_step; }
-  ATTRIBUTE_FORCEINLINE int NumPoints() { return m_numPoints; }
+  ATTR_FORCEINLINE float Step() { return m_step; }
+  ATTR_FORCEINLINE int NumPoints() { return m_numPoints; }
 
 private:
   void MakeNewPoint();

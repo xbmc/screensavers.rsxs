@@ -56,7 +56,7 @@ struct sHufoSmokeSettings
   void Load()
   {
     int type = ColorAuto;
-    kodi::CheckSettingInt("color.type", type);
+    kodi::addon::CheckSettingInt("color.type", type);
     setDefaults(type);
   }
 
@@ -82,13 +82,13 @@ struct sHufoSmokeSettings
     }
     else
     {
-      frontRed = kodi::GetSettingInt("color.foreground-red") / 256.0f;
-      frontGreen = kodi::GetSettingInt("color.foreground-green") / 256.0f;
-      frontBlue = kodi::GetSettingInt("color.foreground-blue") / 256.0f;
+      frontRed = kodi::addon::GetSettingInt("color.foreground-red") / 256.0f;
+      frontGreen = kodi::addon::GetSettingInt("color.foreground-green") / 256.0f;
+      frontBlue = kodi::addon::GetSettingInt("color.foreground-blue") / 256.0f;
 
-      backRed = kodi::GetSettingInt("color.background-red") / 256.0f;
-      backGreen = kodi::GetSettingInt("color.background-green") / 256.0f;
-      backBlue = kodi::GetSettingInt("color.background-blue") / 256.0f;
+      backRed = kodi::addon::GetSettingInt("color.background-red") / 256.0f;
+      backGreen = kodi::addon::GetSettingInt("color.background-green") / 256.0f;
+      backBlue = kodi::addon::GetSettingInt("color.background-blue") / 256.0f;
     }
   }
 
@@ -106,8 +106,8 @@ struct sHufoSmokeSettings
 
 bool CScreensaverHufoSmoke::Start()
 {
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

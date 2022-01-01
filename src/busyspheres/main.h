@@ -36,7 +36,7 @@ struct sLight
   glm::vec2 coord;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverBusySpheres
+class ATTR_DLL_LOCAL CScreensaverBusySpheres
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

@@ -28,17 +28,17 @@
 
 bool CScreensaverFieldLines::Start()
 {
-  kodi::CheckSettingInt("ions", m_ionsCnt);
-  kodi::CheckSettingInt("seqsize", m_stepSize);
-  kodi::CheckSettingInt("numlines", m_maxSteps);
-  kodi::CheckSettingInt("width", m_width);
-  kodi::CheckSettingInt("speed", m_speed);
-  kodi::CheckSettingBoolean("constant", m_constwidth);
-  kodi::CheckSettingBoolean("electric", m_electric);
-  kodi::CheckSettingFloat("reduction", m_reduction);
+  kodi::addon::CheckSettingInt("ions", m_ionsCnt);
+  kodi::addon::CheckSettingInt("seqsize", m_stepSize);
+  kodi::addon::CheckSettingInt("numlines", m_maxSteps);
+  kodi::addon::CheckSettingInt("width", m_width);
+  kodi::addon::CheckSettingInt("speed", m_speed);
+  kodi::addon::CheckSettingBoolean("constant", m_constwidth);
+  kodi::addon::CheckSettingBoolean("electric", m_electric);
+  kodi::addon::CheckSettingFloat("reduction", m_reduction);
 
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 

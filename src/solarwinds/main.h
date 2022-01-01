@@ -59,7 +59,7 @@ struct sLight
   glm::vec4 color;
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverSolarWinds
+class ATTR_DLL_LOCAL CScreensaverSolarWinds
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceScreensaver,
     public kodi::gui::gl::CShaderProgram

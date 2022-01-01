@@ -19,7 +19,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN Brain : public Gizmo
+class ATTR_DLL_LOCAL Brain : public Gizmo
 {
 public:
   unsigned int numEllipsoids;

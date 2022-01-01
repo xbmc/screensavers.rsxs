@@ -20,7 +20,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN Kube2 : public Gizmo
+class ATTR_DLL_LOCAL Kube2 : public Gizmo
 {
 public:
   Kube2(CScreensaverMicrocosm* base) : Gizmo(base)

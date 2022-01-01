@@ -20,7 +20,7 @@
 
 #include "gizmo.h"
 
-class ATTRIBUTE_HIDDEN SpheresAndCapsules : public Gizmo
+class ATTR_DLL_LOCAL SpheresAndCapsules : public Gizmo
 {
 private:
   int mCount;
