@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-11-04 17:49+0000\n"
+"PO-Revision-Date: 2022-01-09 02:13+0000\n"
 "Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-drempels/zh_cn/>\n"
 "Language: zh_cn\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgctxt "Addon Summary"
 msgid "Hallucinatory desktop enhancer"
-msgstr ""
+msgstr "幻觉桌面增强器"
 
 msgctxt "Addon Description"
 msgid "A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver."
-msgstr ""
+msgstr "幻觉桌面增强器 - 以优雅、旋转的图像将您的壁纸带入生活。作为动画墙纸或屏幕保护程序运行良好。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -45,12 +45,12 @@ msgstr "常规"
 #. Spinner to select number blurring
 msgctxt "#30001"
 msgid "Blur"
-msgstr ""
+msgstr "模糊"
 
 #. Help text of number selection for blurring
 msgctxt "#30002"
 msgid "Blurring between frames"
-msgstr ""
+msgstr "帧间模糊"
 
 #. Spinner to select render speed
 msgctxt "#30003"
@@ -60,17 +60,17 @@ msgstr "速度"
 #. Setting help text for select render speed
 msgctxt "#30004"
 msgid "Speed of flow, bigger is faster"
-msgstr ""
+msgstr "流动速度，数越大就越快"
 
 #. Spinner to select scale factor
 msgctxt "#30005"
 msgid "Scale"
-msgstr ""
+msgstr "比例"
 
 #. Help for scale factor selection
 msgctxt "#30006"
 msgid "Scale of flow, bigger is zoomed in"
-msgstr ""
+msgstr "流动的比例，数越大就越放大"
 
 #. Spinner to select number of cells
 msgctxt "#30007"
