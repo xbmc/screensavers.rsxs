@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-10 19:13+0000\n"
-"Last-Translator: Dino Sardelic <dino.sardelic@live.com>\n"
+"PO-Revision-Date: 2022-02-27 09:13+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Croatian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/hr_hr/>\n"
 "Language: hr_hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -60,7 +60,7 @@ msgstr ""
 #. List selection of used preset (in general options)
 msgctxt "#30010"
 msgid "Preset"
-msgstr ""
+msgstr "Predlošci"
 
 #. Preset type in selection dialog
 msgctxt "#30011"
@@ -135,12 +135,12 @@ msgstr ""
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
 msgid "Default"
-msgstr ""
+msgstr "Zadano"
 
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
 msgid "None"
-msgstr ""
+msgstr "Nijedno"
 
 #. Value in selection dialog to use plasma texture
 msgctxt "#30027"
@@ -155,12 +155,12 @@ msgstr ""
 #. Value in selection dialog use lines
 msgctxt "#30029"
 msgid "Lines"
-msgstr ""
+msgstr "Linije"
 
 #. Value in selection dialog to use random selected type of texture
 msgctxt "#30030"
 msgid "Random"
-msgstr ""
+msgstr "Naizmjenično"
 
 #. Slider to select number of wisps
 msgctxt "#30040"
@@ -180,7 +180,7 @@ msgstr ""
 #. Slider to select render speed
 msgctxt "#30043"
 msgid "Speed"
-msgstr ""
+msgstr "Brzina"
 
 #. Slider to select feedback intensity
 msgctxt "#30044"
@@ -200,4 +200,4 @@ msgstr ""
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
 msgid "Wireframe"
-msgstr ""
+msgstr "Žičani okvir"
