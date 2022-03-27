@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-09-15 12:30+0000\n"
+"PO-Revision-Date: 2022-03-27 01:16+0000\n"
 "Last-Translator: Minho Park <parkmino@gmail.com>\n"
 "Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/ko_kr/>\n"
 "Language: ko_kr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.11.2\n"
 
 msgctxt "Addon Summary"
 msgid "Phantasmagoria of gooey geometric shapes"
@@ -90,17 +90,17 @@ msgstr ""
 #. Advanced settings slider
 msgctxt "#30014"
 msgid "Resolution"
-msgstr ""
+msgstr "해상도"
 
 #. Advanced settings slider
 msgctxt "#30015"
 msgid "Depth"
-msgstr ""
+msgstr "깊이"
 
 #. Advanced settings slider
 msgctxt "#30016"
 msgid "Field of view"
-msgstr ""
+msgstr "시야"
 
 #. Advanced settings slider
 msgctxt "#30017"
@@ -115,7 +115,7 @@ msgstr ""
 #. Advanced settings slider
 msgctxt "#30019"
 msgid "Camera speed"
-msgstr ""
+msgstr "카메라 속도"
 
 #. Boolean setting value to enable fog mode
 msgctxt "#30020"
@@ -130,4 +130,4 @@ msgstr ""
 #. To show with slider value
 msgctxt "#30022"
 msgid "{0:d} %"
-msgstr ""
+msgstr "{0:d} %"
