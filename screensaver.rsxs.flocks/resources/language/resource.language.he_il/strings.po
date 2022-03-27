@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-04 13:29+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2022-03-27 01:16+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Hebrew (Israel) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/he_il/>\n"
 "Language: he_il\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 4.11.2\n"
 
 msgctxt "Addon Summary"
 msgid "Floating wisps"
@@ -50,17 +50,17 @@ msgstr "מתקדם"
 #. Setting open selection dialog to select used preset
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "ערכה מוגדרת"
 
 #. Selection dialog entry to select automatic mode selection
 msgctxt "#30003"
 msgid "Automatic selection"
-msgstr ""
+msgstr "בחירה אוטומטית"
 
 #. Selection dialog entry to select regualr preset
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "רגילה"
 
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"
@@ -110,22 +110,22 @@ msgstr ""
 #. Advanced setting spinner to select size
 msgctxt "#30014"
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #. Advanced setting spinner to select complexity
 msgctxt "#30015"
 msgid "Complexity"
-msgstr ""
+msgstr "מורכבות"
 
 #. Advanced setting spinner to select speed
 msgctxt "#30016"
 msgid "Speed"
-msgstr ""
+msgstr "מהירות"
 
 #. Advanced setting spinner to select stretch
 msgctxt "#30017"
 msgid "Stretch"
-msgstr ""
+msgstr "מתיחה"
 
 #. Advanced setting spinner to select color fade speed
 msgctxt "#30018"
@@ -150,7 +150,7 @@ msgstr ""
 #. Advanced setting spinner to select blur
 msgctxt "#30022"
 msgid "Blur"
-msgstr ""
+msgstr "טשטוש"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30023"
