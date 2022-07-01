@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-06-01 21:14+0000\n"
-"Last-Translator: skypichat <skypichat@hotmail.fr>\n"
+"PO-Revision-Date: 2022-07-01 07:49+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: French (France) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/fr_fr/>\n"
 "Language: fr_fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.12.2\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Phantasmagoria of gooey geometric shapes"
@@ -65,12 +65,12 @@ msgstr ""
 #. Main type selction list entry
 msgctxt "#30005"
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 #. Advanced category name on addon settings dialog
 msgctxt "#30010"
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30011"
