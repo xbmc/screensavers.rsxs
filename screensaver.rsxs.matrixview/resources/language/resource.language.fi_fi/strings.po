@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
+"Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-matrixview/fi_fi/>\n"
 "Language: fi_fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "The Matrix Screensaver"
-msgstr ""
+msgstr "The Matrix -näytönsäästäjä"
 
 msgctxt "Addon Description"
 msgid "This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series."
-msgstr ""
+msgstr "Tämä on kolmiulotteinen Matrix-näytönsäästäjä, joka perustuu The Matrix Reloaded -elokuvan kohtauksiin, joissa esiintyy ns. digitaalista sadetta. Se näyttää vihreän vierivän tekstin (tai digitaalisen sateen), joka kuvastaa sarjan eri hahmojen 3D-malleja."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Tämä on \"rss-glx\" -näytönsäästäjään pohjautuva toteutus"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -37,40 +38,40 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 msgctxt "#30001"
 msgid "Color of the falling text"
-msgstr ""
+msgstr "Putoavan tekstin väri"
 
 msgctxt "#30002"
 msgid "Set color of the falling text. Can be `green', `red' or `blue'."
-msgstr ""
+msgstr "Määritä putoavan tekstin väri. Vaihtoehdot ovat \"vihreä\", \"punainen\" tai \"sininen\"."
 
 msgctxt "#30003"
 msgid "Red"
-msgstr ""
+msgstr "Punainen"
 
 msgctxt "#30004"
 msgid "Green"
-msgstr ""
+msgstr "Vihreä"
 
 msgctxt "#30005"
 msgid "Blue"
-msgstr ""
+msgstr "Sininen"
 
 msgctxt "#30006"
 msgid "Intensity of the digital rain"
-msgstr ""
+msgstr "Digitaalisen sateen voimakkuus"
 
 msgctxt "#30007"
 msgid "Set the intensity of the digital rain. The default is 1, and is clamped to the range [1,50]. The intensity effects the number of white nodes, the number of random character changes and the general speed of the rain."
-msgstr ""
+msgstr "Määritä digitaalisen sateen voimakkuus. Oletusarvo on 1 ja se on kiinnitetty alueelle [1,50]. Voimakkuus vaikuttaa valkoisten solmujen määrään, satunnaisten merkkimuutosten määrään ja sateen yleiseen nopeuteen."
 
 msgctxt "#30008"
 msgid "Classic (no images)"
-msgstr ""
+msgstr "Klassinen (ei kuvia)"
 
 msgctxt "#30009"
 msgid "Enable static mode, which disables the display of 3D images. This mimics the style of the scrolling text from the original film."
-msgstr ""
+msgstr "Käytä staattista tilaa, joka poistaa 3D-kuvien näytön käytöstä. Tämä jäljittelee alkuperäisen elokuvan vierivän tekstin tyyliä."

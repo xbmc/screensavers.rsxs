@@ -7,23 +7,23 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-27 09:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/zh_cn/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Floating wisps"
-msgstr ""
+msgstr "漂浮的小束"
 
 msgctxt "Addon Description"
 msgid "Here is a 3D variation on swarm savers, a favorite old theme. Try it out with Chromatek's ChromaDepth glasses for a cool 3D effect."
-msgstr ""
+msgstr "这是蜂群屏保的3D变体，这是一个最受欢迎的老主题。用 Chromatek 的 ChromaDepth 眼镜试试，可以获得酷炫的3D效果。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -45,67 +45,67 @@ msgstr "常规"
 #. Advanced category name on addon settings dialog
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 #. Setting open selection dialog to select used preset
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "预设"
 
 #. Selection dialog entry to select automatic mode selection
 msgctxt "#30003"
 msgid "Automatic selection"
-msgstr ""
+msgstr "自动选择"
 
 #. Selection dialog entry to select regualr preset
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "常规"
 
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"
 msgid "Trails"
-msgstr ""
+msgstr "轨迹"
 
 #. Selection dialog entry to select blurred trails preset
 msgctxt "#30006"
 msgid "Blurred trails"
-msgstr ""
+msgstr "模糊轨迹"
 
 #. Selection dialog entry to select blurred connections preset
 msgctxt "#30007"
 msgid "Blurred connections"
-msgstr ""
+msgstr "模糊连接"
 
 #. Selection dialog entry to select circles preset
 msgctxt "#30008"
 msgid "Circles"
-msgstr ""
+msgstr "圆圈"
 
 #. Selection dialog entry to select random circles preset
 msgctxt "#30009"
 msgid "Random circles"
-msgstr ""
+msgstr "随机圆圈"
 
 #. Selection dialog entry to select advanced settings mode
 msgctxt "#30010"
 msgid "Use advanced"
-msgstr ""
+msgstr "使用高级"
 
 #. Advanced setting spinner to select leaders value
 msgctxt "#30011"
 msgid "Leaders"
-msgstr ""
+msgstr "领头者"
 
 #. Advanced setting spinner to select followers value
 msgctxt "#30012"
 msgid "Followers"
-msgstr ""
+msgstr "跟随者"
 
 #. Advanced setting list to select geometry value in selection dialog
 msgctxt "#30013"
 msgid "Geometry"
-msgstr ""
+msgstr "几何图形"
 
 #. Advanced setting spinner to select size
 msgctxt "#30014"
@@ -130,22 +130,22 @@ msgstr "拉伸"
 #. Advanced setting spinner to select color fade speed
 msgctxt "#30018"
 msgid "Color fade speed"
-msgstr ""
+msgstr "褪色速度"
 
 #. Advanced setting boolean to enable chromatek
 msgctxt "#30019"
 msgid "Chromatek"
-msgstr ""
+msgstr "Chromatek"
 
 #. Advanced setting boolean to enable rendering connections
 msgctxt "#30020"
 msgid "Connections"
-msgstr ""
+msgstr "连接"
 
 #. Advanced setting spinner to select trail length
 msgctxt "#30021"
 msgid "Trail length"
-msgstr ""
+msgstr "轨迹长度"
 
 #. Advanced setting spinner to select blur
 msgctxt "#30022"
@@ -155,24 +155,24 @@ msgstr "模糊"
 #. To 30013 related selection dialog entry
 msgctxt "#30023"
 msgid "Random colors"
-msgstr ""
+msgstr "随机颜色"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30024"
 msgid "Draw blobs"
-msgstr ""
+msgstr "绘制斑点"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30025"
 msgid "Draw circle"
-msgstr ""
+msgstr "绘制圆圈"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30026"
 msgid "Draw dots"
-msgstr ""
+msgstr "绘制圆点"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30027"
 msgid "Render clear completely"
-msgstr ""
+msgstr "渲染清晰完全"

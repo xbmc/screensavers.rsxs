@@ -7,23 +7,23 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-27 09:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lattice/zh_cn/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr ""
+msgstr "吸引/排斥粒子效应和一些光滑表面"
 
 msgctxt "Addon Description"
 msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr ""
+msgstr "结合一些吸引/排斥粒子效果和一些平滑的隐式曲面，这就是你得到的。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -39,31 +39,31 @@ msgstr "这是一个基于“rss-glx”屏幕保护程序的实现"
 # Advanced
 msgctxt "#30000"
 msgid "Lattice density"
-msgstr ""
+msgstr "晶格密度"
 
 msgctxt "#30001"
 msgid "Lattice depth"
-msgstr ""
+msgstr "晶格深度"
 
 msgctxt "#30002"
 msgid "Fog"
-msgstr ""
+msgstr "雾"
 
 msgctxt "#30003"
 msgid "Latitudinal divisions on each torus"
-msgstr ""
+msgstr "每个圆环体上的横向分割"
 
 msgctxt "#30004"
 msgid "Longitudinal divisions on each torus"
-msgstr ""
+msgstr "每个圆环体上的纵向分割"
 
 msgctxt "#30005"
 msgid "Torus thinckness"
-msgstr ""
+msgstr "圆环体厚度"
 
 msgctxt "#30006"
 msgid "Smooth shading"
-msgstr ""
+msgstr "平滑着色"
 
 msgctxt "#30007"
 msgid "Speed"
@@ -71,40 +71,40 @@ msgstr "速度"
 
 msgctxt "#30008"
 msgid "Density"
-msgstr ""
+msgstr "密度"
 
 # General
 msgctxt "#30010"
 msgid "Lattice type"
-msgstr ""
+msgstr "晶格类型"
 
 msgctxt "#30011"
 msgid "Regular"
-msgstr ""
+msgstr "常规"
 
 msgctxt "#30012"
 msgid "Chainmail"
-msgstr ""
+msgstr "链甲"
 
 msgctxt "#30013"
 msgid "Brass Mesh"
-msgstr ""
+msgstr "黄铜网"
 
 msgctxt "#30014"
 msgid "Computer"
-msgstr ""
+msgstr "计算机"
 
 msgctxt "#30015"
 msgid "Slick"
-msgstr ""
+msgstr "滑溜的"
 
 msgctxt "#30016"
 msgid "Tasty"
-msgstr ""
+msgstr "美味的"
 
 msgctxt "#30017"
 msgid "Use Advanced Settings"
-msgstr ""
+msgstr "使用高级设置"
 
 # Setting groups
 msgctxt "#30020"
@@ -113,7 +113,7 @@ msgstr "常规"
 
 msgctxt "#30021"
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 #
 msgctxt "#30030"
@@ -126,36 +126,36 @@ msgstr "无"
 
 msgctxt "#30032"
 msgid "Industrial"
-msgstr ""
+msgstr "工业的"
 
 msgctxt "#30033"
 msgid "Crystal"
-msgstr ""
+msgstr "晶体"
 
 msgctxt "#30034"
 msgid "Chrome"
-msgstr ""
+msgstr "铬合金"
 
 msgctxt "#30035"
 msgid "Brass"
-msgstr ""
+msgstr "黄铜"
 
 msgctxt "#30036"
 msgid "Shiny"
-msgstr ""
+msgstr "反光的"
 
 msgctxt "#30037"
 msgid "Ghostly"
-msgstr ""
+msgstr "幽灵的"
 
 msgctxt "#30038"
 msgid "Circuits"
-msgstr ""
+msgstr "电路"
 
 msgctxt "#30039"
 msgid "Donuts"
-msgstr ""
+msgstr "甜甜圈"
 
 msgctxt "#30040"
 msgid "Automatic selection"
-msgstr ""
+msgstr "自动选择"

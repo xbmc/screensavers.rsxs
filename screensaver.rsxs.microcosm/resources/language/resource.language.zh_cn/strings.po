@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-27 09:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/zh_cn/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Phantasmagoria of gooey geometric shapes"
-msgstr ""
+msgstr "粘性几何形状的幻影"
 
 msgctxt "Addon Description"
 msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
-msgstr ""
+msgstr "这是一个由粘性几何形状组成的幻影，这个屏幕保护程序将在你的电脑屏幕上为你呈现一个飞溅、扭曲的3D图案和鲜艳色彩的奇观。如果你不想让电脑过热，可以观看一个蠕动的小玩意，或者观看万花筒模式以获得完整效果。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
-msgstr ""
+msgstr "这是一个基于“reallyslickscreensavers”屏幕保护程序的实现"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -50,37 +50,37 @@ msgstr "类型"
 #. Main type selction list entry
 msgctxt "#30002"
 msgid "Regular"
-msgstr ""
+msgstr "常规"
 
 #. Main type selction list entry
 msgctxt "#30003"
 msgid "Simple"
-msgstr ""
+msgstr "简单"
 
 #. Main type selction list entry
 msgctxt "#30004"
 msgid "Hyperspace"
-msgstr ""
+msgstr "超空间"
 
 #. Main type selction list entry
 msgctxt "#30005"
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 #. Advanced category name on addon settings dialog
 msgctxt "#30010"
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30011"
 msgid "Kaleidoscope time"
-msgstr ""
+msgstr "万花筒时间"
 
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30012"
 msgid "Single time"
-msgstr ""
+msgstr "单体时间"
 
 #. Advanced settings slider
 msgctxt "#30013"
@@ -95,37 +95,37 @@ msgstr "分辨率"
 #. Advanced settings slider
 msgctxt "#30015"
 msgid "Depth"
-msgstr ""
+msgstr "深度"
 
 #. Advanced settings slider
 msgctxt "#30016"
 msgid "Field of view"
-msgstr ""
+msgstr "视野"
 
 #. Advanced settings slider
 msgctxt "#30017"
 msgid "Gizmo speed"
-msgstr ""
+msgstr "显示变换速度"
 
 #. Advanced settings slider
 msgctxt "#30018"
 msgid "Color speed"
-msgstr ""
+msgstr "颜色速度"
 
 #. Advanced settings slider
 msgctxt "#30019"
 msgid "Camera speed"
-msgstr ""
+msgstr "摄像机速度"
 
 #. Boolean setting value to enable fog mode
 msgctxt "#30020"
 msgid "Fog"
-msgstr ""
+msgstr "雾"
 
 #. To show with slider value
 msgctxt "#30021"
 msgid "{0:d} seconds"
-msgstr ""
+msgstr "{0:d} 秒"
 
 #. To show with slider value
 msgctxt "#30022"
