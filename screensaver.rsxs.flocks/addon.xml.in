@@ -23,11 +23,14 @@
     <summary lang="da_DK">Svævende wisper</summary>
     <summary lang="de_DE">Schwebende Rauchfähnchen</summary>
     <summary lang="en_GB">Floating wisps</summary>
+    <summary lang="zh_CN">漂浮的小束</summary>
     <description lang="da_DK">Her er en 3D-variation af sværm-pauseskærme; et yndet gammelt tema. Prøv det med Chromateks ChromaDepth-briller for en fed 3D-effekt.</description>
     <description lang="en_GB">Here is a 3D variation on swarm savers, a favorite old theme. Try it out with Chromatek&apos;s ChromaDepth glasses for a cool 3D effect.</description>
+    <description lang="zh_CN">这是蜂群屏保的3D变体，这是一个最受欢迎的老主题。用 Chromatek 的 ChromaDepth 眼镜试试，可以获得酷炫的3D效果。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="fi_FI">Tämä on &quot;rss-glx&quot; -näytönsäästäjään pohjautuva toteutus</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>

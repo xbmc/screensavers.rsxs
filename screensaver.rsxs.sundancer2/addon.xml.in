@@ -24,9 +24,11 @@
     <summary lang="zh_CN">四边形旋转堆栈</summary>
     <description lang="da_DK">Pæne rotationseffekter fra rotations- og skæve stabler af gennemsigtige kvadrater.</description>
     <description lang="en_GB">Neat rotation effects from rotation and skewing stack of transparent squares.</description>
+    <description lang="zh_CN">透明正方形的旋转和倾斜堆栈产生的整齐旋转效果。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="fi_FI">Tämä on &quot;rss-glx&quot; -näytönsäästäjään pohjautuva toteutus</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>

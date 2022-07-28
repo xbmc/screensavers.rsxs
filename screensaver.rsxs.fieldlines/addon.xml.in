@@ -22,11 +22,14 @@
     <summary lang="da_DK">Simulering af de elektriske feltlinjer mellem ladede partikler</summary>
     <summary lang="de_DE">Simulation elektrischer Feldlinien zwischen geladenen Teilchen</summary>
     <summary lang="en_GB">Simulation of the electric field lines between charged particles</summary>
+    <summary lang="zh_CN">带电粒子间电场线的模拟</summary>
     <description lang="da_DK">Dette er en simulering af de elektriske feltlinjer mellem ladede partikler. Fysik har aldrig set så godt ud.</description>
     <description lang="en_GB">This is a simulation of the electric field lines between charged particles. Physics never looked so good.</description>
+    <description lang="zh_CN">这是带电粒子之间电场线的模拟。物理学看起来从来没有这么好。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="fi_FI">Tämä on &quot;rss-glx&quot; -näytönsäästäjään pohjautuva toteutus</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>

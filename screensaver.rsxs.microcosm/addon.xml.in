@@ -23,9 +23,12 @@
     <summary lang="da_DK">Fantasmagoria af klæbrige geometriske former</summary>
     <summary lang="de_DE">Trugbild zähflüssiger geometrischer Formen</summary>
     <summary lang="en_GB">Phantasmagoria of gooey geometric shapes</summary>
+    <summary lang="zh_CN">粘性几何形状的幻影</summary>
     <description lang="da_DK">En fantasmagoria af klæbrige geometriske former. Denne pauseskærm vil give dig et sprøjtende, vridende skue af 3D-mønstre og livlige farver på din computerskærm. Se en enkelt vridende gizmo, hvis du ikke vil have din computer bliver for varm, eller se kalejdoskoptilstand for den fulde effekt.</description>
     <description lang="en_GB">A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don&apos;t want your computer to heat up too much, or watch kaleidoscope mode for the full effect.</description>
+    <description lang="zh_CN">这是一个由粘性几何形状组成的幻影，这个屏幕保护程序将在你的电脑屏幕上为你呈现一个飞溅、扭曲的3D图案和鲜艳色彩的奇观。如果你不想让电脑过热，可以观看一个蠕动的小玩意，或者观看万花筒模式以获得完整效果。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;reallyslickscreensavers&quot; pauseskærm</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;reallyslickscreensavers&quot; screensaver</disclaimer>
+    <disclaimer lang="zh_CN">这是一个基于“reallyslickscreensavers”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

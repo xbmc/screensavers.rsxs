@@ -20,10 +20,13 @@
     </assets>
     <summary lang="da_DK">Omrøring af farver med en vibrerende warp</summary>
     <summary lang="en_GB">Stirring colors with a jiggling warp</summary>
+    <summary lang="zh_CN">用抖动的纱线搅动色彩</summary>
     <description lang="en_GB">Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter.</description>
+    <description lang="zh_CN">通过反复将突然出现的网格映射到统一的网格来旋转颜色，从循环周长中引入颜色。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="fi_FI">Tämä on &quot;rss-glx&quot; -näytönsäästäjään pohjautuva toteutus</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
