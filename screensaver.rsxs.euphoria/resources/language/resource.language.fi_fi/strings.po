@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-07-08 10:14+0000\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -27,7 +27,7 @@ msgstr "Tämä on mahdollisesti niin psykedeelinen kuin vain näytönsäästäj�
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Tämä on \"rss-glx\" -näytönsäästäjään pohjautuva toteutus"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -40,7 +40,7 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 #. Advanced settings category name on addon settings dialog (need user defined mode selected to have enabled)
 msgctxt "#30001"
