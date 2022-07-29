@@ -23,11 +23,14 @@
     <summary lang="da_DK">Flux-felter og andet</summary>
     <summary lang="de_DE">Fluxfelder und anderes</summary>
     <summary lang="en_GB">Flux fields and stuff</summary>
+    <summary lang="zh_CN">通量场和物质</summary>
     <description lang="da_DK">Denne pauseskærm styrer. Hvis du ved noget om mærkelige attraktorer, kan du måske genkende mønstrene skabt af denne pauseskærm.</description>
     <description lang="en_GB">This screensaver rocks. If you know anything about strange attractors, you might recognize the patterns created by this saver.</description>
+    <description lang="zh_CN">这个屏幕保护程序棒极了。如果您知道任何关于奇怪吸引子的知识，您可能会识别出这个保护程序创建的模式。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="fi_FI">Tämä on &quot;rss-glx&quot; -näytönsäästäjään pohjautuva toteutus</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>

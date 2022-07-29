@@ -24,12 +24,15 @@
     <summary lang="de_DE">Bildschirmschonerdarstellung eines Lorenzkraft-Fraktals</summary>
     <summary lang="en_GB">Screensaver visualization of the Lorenz Attractor fractal</summary>
     <summary lang="ko_KR">Lorenz Attractor 프랙탈의 화면 보호기 시각화</summary>
+    <summary lang="zh_CN">洛伦兹吸引子分形的可视化屏幕保护程序</summary>
     <description lang="da_DK">Dette er en 3d realtidsvisualisering af Lorenz Attractor.</description>
     <description lang="en_GB">This is a 3d realtime visualization of the Lorenz Attractor.</description>
     <description lang="ko_KR">이것은 Lorenz Attractor의 3D 실시간 시각화입니다.</description>
+    <description lang="zh_CN">这是洛伦兹吸引子的三维实时可视化。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="fi_FI">Tämä on &quot;rss-glx&quot; -näytönsäästäjään pohjautuva toteutus</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>

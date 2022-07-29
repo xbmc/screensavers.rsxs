@@ -26,12 +26,15 @@
     <summary lang="de_DE">Anziehung- &amp; Abstoßungseffekte von Teilchen und einige angenehme Oberflächen</summary>
     <summary lang="en_GB">Attraction/repulsion particle effects and some smooth surfaces</summary>
     <summary lang="ko_KR">끌어당김/반발 입자 효과 및 일부 매끄러운 표면</summary>
+    <summary lang="zh_CN">吸引/排斥粒子效应和一些光滑表面</summary>
     <description lang="da_DK">Smid nogle tiltræknings-/afstødnings-partikeleffekter og nogle glatte implicitte overflader sammen, og dette er resultatet.</description>
     <description lang="en_GB">Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get.</description>
     <description lang="ko_KR">끌어당김/반발 입자 효과와 부드러운 암시적 표면을 함께 던지는 효과를 얻을 수 있습니다.</description>
+    <description lang="zh_CN">结合一些吸引/排斥粒子效果和一些平滑的隐式曲面，这就是你得到的。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="fi_FI">Tämä on &quot;rss-glx&quot; -näytönsäästäjään pohjautuva toteutus</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
