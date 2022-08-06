@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"PO-Revision-Date: 2022-08-04 05:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -45,22 +45,22 @@ msgstr "Yleiset"
 #. Advanced category name on addon settings dialog
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #. Setting open selection dialog to select used preset
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "Esiasetus"
 
 #. Selection dialog entry to select automatic mode selection
 msgctxt "#30003"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automaattinen"
 
 #. Selection dialog entry to select regualr preset
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "Tavallinen"
 
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"PO-Revision-Date: 2022-08-04 05:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -45,7 +45,7 @@ msgstr "Yleiset"
 #. Advanced settings category name on addon settings dialog (need user defined mode selected to have enabled)
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #. Category name on addon settings dialog to enable modes in auto selection
 msgctxt "#30002"
@@ -65,12 +65,12 @@ msgstr ""
 #. Preset type in selection dialog
 msgctxt "#30011"
 msgid "Automatic"
-msgstr ""
+msgstr "Automaattinen"
 
 #. Preset type in selection dialog
 msgctxt "#30012"
 msgid "Regular"
-msgstr ""
+msgstr "Tavallinen"
 
 #. Preset type in selection dialog
 msgctxt "#30013"

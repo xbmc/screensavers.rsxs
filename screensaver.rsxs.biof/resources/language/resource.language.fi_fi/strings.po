@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"PO-Revision-Date: 2022-08-04 05:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -45,7 +45,7 @@ msgstr ""
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30001"
 msgid "Automatic"
-msgstr ""
+msgstr "Automaattinen"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30002"
@@ -130,4 +130,4 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30040"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
