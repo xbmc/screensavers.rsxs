@@ -24,10 +24,12 @@
     <summary lang="da_DK">Animerede spirografer</summary>
     <summary lang="de_DE">Animierte Spirographen®</summary>
     <summary lang="en_GB">Animated spirographs</summary>
+    <summary lang="fi_FI">Animoituja spirografioita</summary>
     <summary lang="ko_KR">애니메이션 스피로그래프</summary>
     <summary lang="zh_CN">动画呼吸记录仪</summary>
     <description lang="da_DK">Port af SpirographX pauseskærm.</description>
     <description lang="en_GB">Port of SpirographX Screensaver.</description>
+    <description lang="fi_FI">Käännös SpirographX-näytönsäästäjästä.</description>
     <description lang="ko_KR">SpirographX 화면 보호기의 포트.</description>
     <description lang="zh_CN">SpirographX 屏幕保护程序的移植。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
