@@ -23,12 +23,14 @@
     <summary lang="da_DK">Partikel-kugle</summary>
     <summary lang="de_DE">Teilchenkugeln</summary>
     <summary lang="en_GB">Particle spheres</summary>
+    <summary lang="fi_FI">Hiukkaspallot</summary>
     <summary lang="he_IL">כדורי חלקיקים</summary>
     <summary lang="ko_KR">입자 구</summary>
     <summary lang="pl_PL">Kule cząsteczek</summary>
     <summary lang="zh_CN">粒子球</summary>
     <description lang="da_DK">Kugler lavet af dansende partikler.</description>
     <description lang="en_GB">Spheres made of dancing particles.</description>
+    <description lang="fi_FI">Tanssivista hiukkasista koostuvia palloja.</description>
     <description lang="he_IL">כדורים שעשויים מחלקיקים מרקדים.</description>
     <description lang="ko_KR">춤추는 입자로 만들어진 구.</description>
     <description lang="pl_PL">Kule zbudowane z tańczących cząsteczek.</description>
