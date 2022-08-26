@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-08-17 16:14+0000\n"
+"PO-Revision-Date: 2022-08-26 11:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -27,7 +27,7 @@ msgstr "Tämä on mahdollisesti niin psykedeelinen kuin vain näytönsäästäj�
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Tämä on \"rss-glx\" -näytönsäästäjään pohjautuva toteutus"
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -60,7 +60,7 @@ msgstr ""
 #. List selection of used preset (in general options)
 msgctxt "#30010"
 msgid "Preset"
-msgstr ""
+msgstr "Esiasetus"
 
 #. Preset type in selection dialog
 msgctxt "#30011"
@@ -140,7 +140,7 @@ msgstr "Oletus"
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #. Value in selection dialog to use plasma texture
 msgctxt "#30027"
@@ -155,7 +155,7 @@ msgstr ""
 #. Value in selection dialog use lines
 msgctxt "#30029"
 msgid "Lines"
-msgstr ""
+msgstr "Viivat"
 
 #. Value in selection dialog to use random selected type of texture
 msgctxt "#30030"
