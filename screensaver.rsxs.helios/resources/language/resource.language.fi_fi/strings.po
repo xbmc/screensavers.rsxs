@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"PO-Revision-Date: 2022-08-26 11:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-helios/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -19,15 +19,15 @@ msgstr ""
 
 msgctxt "Addon Summary"
 msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr ""
+msgstr "Huokutus-/hylkimispartikkelitehosteita ja sileitä epäsuoria pintoja"
 
 msgctxt "Addon Description"
 msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr ""
+msgstr "Kun niputetaan huokutus-/hylkimispartikkelitehosteita ja sileitä epäsuoria pintoja, on tässä tulos."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Tämä on \"rss-glx\" -näytönsäästäjään pohjautuva toteutus"
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,31 +42,31 @@ msgstr "Yleiset"
 
 msgctxt "#30010"
 msgid "Number of ions"
-msgstr ""
+msgstr "Ionien määrä"
 
 msgctxt "#30011"
 msgid "Number of ion emitters"
-msgstr ""
+msgstr "Ionisäteilijöiden määrä"
 
 msgctxt "#30012"
 msgid "Number of ion attractors"
-msgstr ""
+msgstr "Ionihoukuttimien määrä"
 
 msgctxt "#30013"
 msgid "Ion size"
-msgstr ""
+msgstr "Ionien koko"
 
 msgctxt "#30014"
 msgid "Ion speed"
-msgstr ""
+msgstr "Ionien nopeus"
 
 msgctxt "#30015"
 msgid "Enable iso surface"
-msgstr ""
+msgstr "Käytä iso-pintaa"
 
 msgctxt "#30016"
 msgid "Camera speed"
-msgstr ""
+msgstr "Kameran nopeus"
 
 msgctxt "#30017"
 msgid "Motion blur"

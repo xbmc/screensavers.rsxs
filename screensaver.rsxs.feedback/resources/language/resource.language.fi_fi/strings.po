@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-07-28 10:14+0000\n"
+"PO-Revision-Date: 2022-08-26 11:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-feedback/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Tämä on \"rss-glx\" -näytönsäästäjään pohjautuva toteutus"
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,42 +45,42 @@ msgstr "Yleiset"
 #. Boolean value selection to render only in grey
 msgctxt "#30001"
 msgid "Grey only"
-msgstr ""
+msgstr "Vain harmaa"
 
 #. Help about boolean value before
 msgctxt "#30002"
 msgid "Use greyscale instead of hue wheel"
-msgstr "Käytä Hue-rullan sijaan harmaasävyä"
+msgstr "Käytä värisävyrullan sijaan harmaasävyjä"
 
 #. Slider to select saturation
 msgctxt "#30003"
 msgid "Saturation"
-msgstr ""
+msgstr "Kylläisyys"
 
 #. Help about saturation selection
 msgctxt "#30004"
 msgid "Set color saturation"
-msgstr ""
+msgstr "Määritä värien kylläisyys"
 
 #. Slider to select lightness
 msgctxt "#30005"
 msgid "Lightness"
-msgstr ""
+msgstr "Valoisuus"
 
 #. Help about tightness selection
 msgctxt "#30006"
 msgid "Set color lightness"
-msgstr ""
+msgstr "Määritä värien valoisuus"
 
 #. Spinner to select period time
 msgctxt "#30007"
 msgid "Period"
-msgstr ""
+msgstr "Aikajakso"
 
 #. Help to period time selection
 msgctxt "#30008"
 msgid "Sets color cycling period in seconds"
-msgstr ""
+msgstr "Määritä värien kierrätystiheys sekunteina"
 
 #. Slider to select rendering speed
 msgctxt "#30009"
@@ -95,7 +95,7 @@ msgstr ""
 #. Spinner to select cells amount as integer
 msgctxt "#30011"
 msgid "Cells"
-msgstr ""
+msgstr "Solut"
 
 #. Help text for string before with cells
 msgctxt "#30012"
@@ -105,7 +105,7 @@ msgstr ""
 #. Spinner to select testure size as integer
 msgctxt "#30013"
 msgid "Texture size"
-msgstr ""
+msgstr "Tekstuurin koko"
 
 #. Help text of texture size selection
 msgctxt "#30014"
@@ -115,7 +115,7 @@ msgstr ""
 #. Boolean value to enable/disable grid rendering
 msgctxt "#30015"
 msgid "Grid"
-msgstr ""
+msgstr "Ruudukko"
 
 #. Help text of boolean before
 msgctxt "#30016"

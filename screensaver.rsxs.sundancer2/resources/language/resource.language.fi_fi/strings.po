@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-08-17 16:14+0000\n"
+"PO-Revision-Date: 2022-08-26 11:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-sundancer2/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -19,15 +19,15 @@ msgstr ""
 
 msgctxt "Addon Summary"
 msgid "Rotating stack of quads"
-msgstr "Pyörivä pino nelikulmioita"
+msgstr "Kiertyvä neliönippu"
 
 msgctxt "Addon Description"
 msgid "Neat rotation effects from rotation and skewing stack of transparent squares."
-msgstr ""
+msgstr "Siistejä kiertotehosteita pyörivästä ja vääntyilevästä läpikuultavasta neliönipusta."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Tämä on \"rss-glx\" -näytönsäästäjään pohjautuva toteutus"
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -46,7 +46,7 @@ msgstr "Automaattinen"
 
 msgctxt "#30002"
 msgid "Sun"
-msgstr ""
+msgstr "Aurinko"
 
 msgctxt "#30003"
 msgid "Manual"
@@ -74,7 +74,7 @@ msgstr "Sininen"
 
 msgctxt "#30010"
 msgid "Reverse"
-msgstr ""
+msgstr "Käänteinen"
 
 msgctxt "#30011"
 msgid "Auto"
@@ -90,19 +90,19 @@ msgstr "Päällä"
 
 msgctxt "#30020"
 msgid "Automatic transparency"
-msgstr ""
+msgstr "Automaattinen läpinäkyvyys"
 
 msgctxt "#30021"
 msgid "Transparency value"
-msgstr ""
+msgstr "Läpinäkyvyyden arvo"
 
 msgctxt "#30022"
 msgid "Number of squares"
-msgstr ""
+msgstr "Neliöiden määrä"
 
 msgctxt "#30023"
 msgid "Auto"
-msgstr ""
+msgstr "Automaattinen"
 
 msgctxt "#30024"
 msgid "Speed"
@@ -110,7 +110,7 @@ msgstr "Nopeus"
 
 msgctxt "#30025"
 msgid "Auto"
-msgstr ""
+msgstr "Automaattinen"
 
 msgctxt "#30030"
 msgid "Points"
@@ -118,7 +118,7 @@ msgstr "Pisteet"
 
 msgctxt "#30031"
 msgid "Auto"
-msgstr ""
+msgstr "Automaattinen"
 
 msgctxt "#30040"
 msgid "General"

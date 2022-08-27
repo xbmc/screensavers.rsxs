@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-08-04 05:14+0000\n"
-"Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
+"PO-Revision-Date: 2022-08-26 11:14+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/fi_fi/>\n"
 "Language: fi_fi\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,15 @@ msgstr ""
 
 msgctxt "Addon Summary"
 msgid "Phantasmagoria of gooey geometric shapes"
-msgstr ""
+msgstr "Tahmaisten geometristen muotojen fantasmagoria"
 
 msgctxt "Addon Description"
 msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
-msgstr ""
+msgstr "Tämä näytönsäästäjä on tahmaisten geometristen muotojen fantasmagoria, joka näyttää roiskuvan ja kiemurtelevan 3D-kuvioiden ja eloisien värien spektaakkelin. Katsele vain yksittäistä kiemurtelevaa vempainta, jos et halua tietokoneesi lämpenevän liikaa tai kaleidoskooppitilaa nähdäksesi kaikki tehosteet."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
-msgstr ""
+msgstr "Toteutettu \"reallyslickscreensavers\" -näytönsäästäjän pohjalta"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -63,7 +63,6 @@ msgid "Hyperspace"
 msgstr "Hyperavaruus"
 
 #. Main type selction list entry
-#, fuzzy
 msgctxt "#30005"
 msgid "Advanced"
 msgstr "Edistynyt"
@@ -76,7 +75,7 @@ msgstr "Lisäasetukset"
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30011"
 msgid "Kaleidoscope time"
-msgstr "Kaleidoskoopin ajoitus"
+msgstr "Kaleidoskoopin aika"
 
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30012"
@@ -106,7 +105,7 @@ msgstr "Näkökenttä"
 #. Advanced settings slider
 msgctxt "#30017"
 msgid "Gizmo speed"
-msgstr "Gizmon nopeus"
+msgstr "Vempaimen nopeus"
 
 #. Advanced settings slider
 msgctxt "#30018"
