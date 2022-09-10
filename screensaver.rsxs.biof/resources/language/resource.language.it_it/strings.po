@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-09-03 20:14+0000\n"
+"PO-Revision-Date: 2022-09-10 10:14+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/it_it/>\n"
 "Language: it_it\n"
@@ -65,7 +65,7 @@ msgstr ""
 #. For Setting 30000 used value in selection dialog list
 msgctxt "#30005"
 msgid "Points"
-msgstr "A punti"
+msgstr "Punti"
 
 #. Help text for first setting where type is selected
 msgctxt "#30006"
@@ -130,4 +130,4 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30040"
 msgid "General"
-msgstr ""
+msgstr "Generale"
