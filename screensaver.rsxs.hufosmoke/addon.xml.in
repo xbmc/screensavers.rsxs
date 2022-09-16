@@ -22,10 +22,12 @@
     <summary lang="de_DE">&quot;Rauchende Teilchen&quot;-Effekt</summary>
     <summary lang="en_GB">Particle smoke effect</summary>
     <summary lang="fi_FI">Savumainen partikkelitehoste</summary>
+    <summary lang="it_IT">Effetto fumo di particelle</summary>
     <summary lang="zh_CN">粒子烟雾效应</summary>
     <description lang="da_DK">Denne lille røgeffekt er kodet med et lille partikelsystem lavet til &apos;The OpenGL Challenge&apos;.</description>
     <description lang="en_GB">This little smoke effect is coded with a little particle system done for &apos;The OpenGL Challenge&apos;.</description>
     <description lang="fi_FI">Tämä pieni savutehoste on koodattu hyödyntäen pientä &quot;The OpenGL Challenge&quot; -tapahtumaa varten kehitettyä partikkelijärjestelmää.</description>
+    <description lang="it_IT">Questo piccolo effetto fumo è codificato con un piccolo sistema di particelle creato per &quot;The OpenGL Challenge&quot;.</description>
     <description lang="zh_CN">这个小烟雾效果是用一个为“OpenGL 挑战”设计的小粒子系统编码的。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
