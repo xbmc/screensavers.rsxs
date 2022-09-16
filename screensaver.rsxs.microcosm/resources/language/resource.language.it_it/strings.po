@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-09-03 20:14+0000\n"
+"PO-Revision-Date: 2022-09-16 18:14+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/it_it/>\n"
 "Language: it_it\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 msgctxt "Addon Summary"
 msgid "Phantasmagoria of gooey geometric shapes"
-msgstr ""
+msgstr "Fantasmagoria di forme geometriche appiccicose"
 
 msgctxt "Addon Description"
 msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
@@ -85,7 +85,7 @@ msgstr ""
 #. Advanced settings slider
 msgctxt "#30013"
 msgid "Background"
-msgstr "Sfond"
+msgstr "Sfondo"
 
 #. Advanced settings slider
 msgctxt "#30014"
