@@ -23,12 +23,14 @@
     <summary lang="en_GB">The Matrix Screensaver</summary>
     <summary lang="fi_FI">The Matrix -näytönsäästäjä</summary>
     <summary lang="he_IL">שומר מסך המטריקס</summary>
+    <summary lang="it_IT">Il salvaschermo Matrix</summary>
     <summary lang="ko_KR">Matrix 스크린 세이버</summary>
     <summary lang="zh_CN">矩阵屏保</summary>
     <description lang="da_DK">Dette er en 3D matrix screensaver baseret på de digitale regnscener fra The Matrix Reloaded. Den har den grønne rulletekst (eller digital regn), der omslutter 3D-repræsentationer af forskellige karakterer fra serien.</description>
     <description lang="en_GB">This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series.</description>
     <description lang="fi_FI">Tämä on kolmiulotteinen Matrix-näytönsäästäjä, joka perustuu The Matrix Reloaded -elokuvan kohtauksiin, joissa esiintyy ns. digitaalista sadetta. Se näyttää vihreän vierivän tekstin (tai digitaalisen sateen), joka kuvastaa sarjan eri hahmojen 3D-malleja.</description>
     <description lang="he_IL">זה שומר מסך מטריקס תלת־ממדי שמבוסס על סצנות הגשם הדיגיטלי במטריקס רילודד (Reloaded). מופיע בו הטקסט הירוק הנופל (או הגשם הדיגיטלי) שעוטף ייצוגים תלת־ממדיים של דמויות שונות מהסדרה.</description>
+    <description lang="it_IT">Questo è uno screensaver a matrice 3D basato sulle scene di pioggia digitale di The Matrix Reloaded. Presenta il testo a scorrimento verde (o pioggia digitale) che avvolge le rappresentazioni 3D di diversi personaggi della serie.</description>
     <description lang="ko_KR">이것은 The Matrix Reloaded의 디지털 비 장면을 기반으로 한 3D 매트릭스 화면 보호기입니다. 그것은 시리즈의 다른 캐릭터의 3D 표현을 감싸는 녹색 스크롤 텍스트(또는 디지털 비)를 특징으로 합니다.</description>
     <description lang="zh_CN">这是一个基于《黑客帝国重装上阵》中数字雨景的3D黑客帝国屏保。它以绿色滚动文本(或数字雨)为特色，包裹着该系列不同角色的3D表示。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
