@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-08-26 11:14+0000\n"
+"PO-Revision-Date: 2022-09-17 11:45+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13\n"
+"X-Generator: Weblate 4.14\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr "Mahdollisesti kaikkein psykedeelisin näytönsäästäjä"
+msgstr "Jotakuinkin psykedeelisin mahdollinen näytönsäästäjä"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr "Tämä on mahdollisesti niin psykedeelinen kuin vain näytönsäästäjä voi olla. mogumbo luuli, että hänen Plasma-näytönäästäjänsä oli asteikon huipulla, mutta tämä ohittaa senkin. Oksennuspussin hakeminen on suositeltavaa ennen pitkäaikaista tuijottamista."
+msgstr "Tämä on jokseenkin niin psykedeelinen kuin vain näytönsäästäjä voi olla. mogumbo kuvitteli hänen Plasma-näytönäästäjänsä olevan asteikon huipulla, mutta tämä on sitäkin kuvottavampi. Oksennuspussi on suositeltavaa pitää valmiina ennen pitkäaikaista tuijotusta."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -55,7 +55,7 @@ msgstr "Automaattivalinta"
 #. Group name in category defined with 30002
 msgctxt "#30003"
 msgid "Types used for automatic selection"
-msgstr ""
+msgstr "Automaattivalinnassa käyttettävät tyypit"
 
 #. List selection of used preset (in general options)
 msgctxt "#30010"
@@ -75,62 +75,62 @@ msgstr "Tavallinen"
 #. Preset type in selection dialog
 msgctxt "#30013"
 msgid "Grid"
-msgstr ""
+msgstr "Ruudukko"
 
 #. Preset type in selection dialog
 msgctxt "#30014"
 msgid "Cubism"
-msgstr ""
+msgstr "Kubismi"
 
 #. Preset type in selection dialog
 msgctxt "#30015"
 msgid "Bad math"
-msgstr ""
+msgstr "Huonoa matematiikkaa"
 
 #. Preset type in selection dialog
 msgctxt "#30016"
 msgid "M-Theory"
-msgstr ""
+msgstr "M-teoria"
 
 #. Preset type in selection dialog
 msgctxt "#30017"
 msgid "UHF tunneling electron microscope"
-msgstr ""
+msgstr "UHF-tunnelointielektronimikroskooppi"
 
 #. Preset type in selection dialog
 msgctxt "#30018"
 msgid "Jack"
-msgstr ""
+msgstr "Jack"
 
 #. Preset type in selection dialog
 msgctxt "#30019"
 msgid "Overdose"
-msgstr ""
+msgstr "Yliannostus"
 
 #. Preset type in selection dialog
 msgctxt "#30020"
 msgid "Nowhere"
-msgstr ""
+msgstr "Ei missään"
 
 #. Preset type in selection dialog
 msgctxt "#30021"
 msgid "Echo"
-msgstr ""
+msgstr "Kaiku"
 
 #. Preset type in selection dialog
 msgctxt "#30022"
 msgid "Kaleidoscope"
-msgstr ""
+msgstr "Kaleidoskooppi"
 
 #. Preset type in selection dialog, if used user defined settings becomes used and advanced settings enabled
 msgctxt "#30023"
 msgid "User defined"
-msgstr ""
+msgstr "Käyttäjän määrittämä"
 
 #. To open selection dialog with selection of wanted wisp texture and override baseics
 msgctxt "#30024"
 msgid "Wisp texture"
-msgstr ""
+msgstr "Wisp-tekstuuri"
 
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
@@ -145,12 +145,12 @@ msgstr "Ei mitään"
 #. Value in selection dialog to use plasma texture
 msgctxt "#30027"
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #. Value in selection dialog to use stringy texture
 msgctxt "#30028"
 msgid "Stringy"
-msgstr ""
+msgstr "Sitkeä"
 
 #. Value in selection dialog use lines
 msgctxt "#30029"
@@ -160,22 +160,22 @@ msgstr "Viivat"
 #. Value in selection dialog to use random selected type of texture
 msgctxt "#30030"
 msgid "Random"
-msgstr ""
+msgstr "Satunnainen"
 
 #. Slider to select number of wisps
 msgctxt "#30040"
 msgid "Wisps"
-msgstr ""
+msgstr "Wisp-määrä"
 
 #. Slider to number of background layers
 msgctxt "#30041"
 msgid "Background layers"
-msgstr ""
+msgstr "Taustan kerroksien määrä"
 
 #. Slider to number of wisps
 msgctxt "#30042"
 msgid "Wisp mesh density"
-msgstr ""
+msgstr "Wisp-verkon tiheys"
 
 #. Slider to select render speed
 msgctxt "#30043"
@@ -185,17 +185,17 @@ msgstr "Nopeus"
 #. Slider to select feedback intensity
 msgctxt "#30044"
 msgid "Feedback intensity"
-msgstr ""
+msgstr "Vasteen voimakkuus"
 
 #. Slider to select feedback speed
 msgctxt "#30045"
 msgid "Feedback speed"
-msgstr ""
+msgstr "Vasteen nopeus"
 
 #. Slider to select feedback size
 msgctxt "#30046"
 msgid "Feedback size"
-msgstr ""
+msgstr "Vasteen koko"
 
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
