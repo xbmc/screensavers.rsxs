@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-12-10 20:48+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-skyrocket/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Fireworks show"
@@ -23,11 +23,11 @@ msgstr "Feuerwerk"
 
 msgctxt "Addon Description"
 msgid "The most full-blown fireworks screensaver ever. It has bright lights, smoke trails, clouds that are illuminated by the explosions, sound effects, and plenty of other eye candy."
-msgstr ""
+msgstr "Der umfangreichste Feuerwerk-Bildschirmschoner überhaupt. Er hat helle Lichter, Rauchspuren, Wolken, die von den Explosionen beleuchtet werden, Soundeffekte und viele andere Hingucker."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,60 +42,60 @@ msgstr "Allgemein"
 
 msgctxt "#30001"
 msgid "Max rockets"
-msgstr ""
+msgstr "Raketen maximal"
 
 msgctxt "#30002"
 msgid "Smoke"
-msgstr ""
+msgstr "Rauch"
 
 msgctxt "#30003"
 msgid "Explosion smoke"
-msgstr ""
+msgstr "Explosionsrauch"
 
 msgctxt "#30004"
 msgid "Wind"
-msgstr ""
+msgstr "Wind"
 
 msgctxt "#30005"
 msgid "Ambient"
-msgstr ""
+msgstr "Umgebung"
 
 msgctxt "#30006"
 msgid "Star density"
-msgstr ""
+msgstr "Sternendichte"
 
 msgctxt "#30007"
 msgid "Flare"
-msgstr ""
+msgstr "Flackern"
 
 msgctxt "#30008"
 msgid "Moon"
-msgstr ""
+msgstr "Mond"
 
 msgctxt "#30009"
 msgid "Moon glow"
-msgstr ""
+msgstr "Mondschein"
 
 msgctxt "#30010"
 msgid "Clouds"
-msgstr ""
+msgstr "Wolken"
 
 msgctxt "#30011"
 msgid "Earth"
-msgstr ""
+msgstr "Erde"
 
 msgctxt "#30012"
 msgid "Illumination"
-msgstr ""
+msgstr "Ausleuchtung"
 
 msgctxt "#30013"
 msgid "Sound"
-msgstr ""
+msgstr "Sound"
 
 msgctxt "#30014"
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 msgctxt "#30015"
 msgid "Volume"
-msgstr ""
+msgstr "Lautstärke"

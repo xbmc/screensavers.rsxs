@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-06-01 21:14+0000\n"
-"Last-Translator: Kai Sommerfeld <kai.sommerfeld@gmx.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lattice/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.2\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr "Anziehung- & Abstoßungseffekte von Teilchen und einige angenehme Oberflächen"
+msgstr "Anziehung- und Abstoßungseffekte von Teilchen und einige glatte Oberflächen"
 
 msgctxt "Addon Description"
 msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr ""
+msgstr "Ein paar Anziehungs-/Abstoßungspartikeleffekte und ein paar glatte, schwebende Oberflächen – und das ist das Ergebnis."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,23 +39,23 @@ msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
 # Advanced
 msgctxt "#30000"
 msgid "Lattice density"
-msgstr ""
+msgstr "Gitterdichte"
 
 msgctxt "#30001"
 msgid "Lattice depth"
-msgstr ""
+msgstr "Gittertiefe"
 
 msgctxt "#30002"
 msgid "Fog"
-msgstr ""
+msgstr "Nebel"
 
 msgctxt "#30003"
 msgid "Latitudinal divisions on each torus"
-msgstr ""
+msgstr "Breitenunterteilung auf jedem Torus"
 
 msgctxt "#30004"
 msgid "Longitudinal divisions on each torus"
-msgstr ""
+msgstr "Längsunterteilungen auf jedem Torus"
 
 msgctxt "#30005"
 msgid "Torus thinckness"
@@ -63,7 +63,7 @@ msgstr ""
 
 msgctxt "#30006"
 msgid "Smooth shading"
-msgstr ""
+msgstr "Sanfte Schattierung"
 
 msgctxt "#30007"
 msgid "Speed"
@@ -71,40 +71,40 @@ msgstr "Geschwindigkeit"
 
 msgctxt "#30008"
 msgid "Density"
-msgstr ""
+msgstr "Dichte"
 
 # General
 msgctxt "#30010"
 msgid "Lattice type"
-msgstr ""
+msgstr "Gitterart"
 
 msgctxt "#30011"
 msgid "Regular"
-msgstr ""
+msgstr "Normal"
 
 msgctxt "#30012"
 msgid "Chainmail"
-msgstr ""
+msgstr "Kettenhemd"
 
 msgctxt "#30013"
 msgid "Brass Mesh"
-msgstr ""
+msgstr "Messinggitter"
 
 msgctxt "#30014"
 msgid "Computer"
-msgstr ""
+msgstr "Computer"
 
 msgctxt "#30015"
 msgid "Slick"
-msgstr ""
+msgstr "Glatt"
 
 msgctxt "#30016"
 msgid "Tasty"
-msgstr ""
+msgstr "Schmackhaft"
 
 msgctxt "#30017"
 msgid "Use Advanced Settings"
-msgstr ""
+msgstr "Erweiterte Einstellungen verwenden"
 
 # Setting groups
 msgctxt "#30020"
@@ -113,40 +113,40 @@ msgstr "Allgemein"
 
 msgctxt "#30021"
 msgid "Advanced"
-msgstr ""
+msgstr "Erweitert"
 
 #
 msgctxt "#30030"
 msgid "Texture"
-msgstr ""
+msgstr "Beschaffenheit"
 
 msgctxt "#30031"
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 msgctxt "#30032"
 msgid "Industrial"
-msgstr ""
+msgstr "Industriell"
 
 msgctxt "#30033"
 msgid "Crystal"
-msgstr ""
+msgstr "Kristall"
 
 msgctxt "#30034"
 msgid "Chrome"
-msgstr ""
+msgstr "Chrom"
 
 msgctxt "#30035"
 msgid "Brass"
-msgstr ""
+msgstr "Messing"
 
 msgctxt "#30036"
 msgid "Shiny"
-msgstr ""
+msgstr "Glänzend"
 
 msgctxt "#30037"
 msgid "Ghostly"
-msgstr ""
+msgstr "Geisterhaft"
 
 msgctxt "#30038"
 msgid "Circuits"
@@ -154,8 +154,8 @@ msgstr ""
 
 msgctxt "#30039"
 msgid "Donuts"
-msgstr ""
+msgstr "Donuts"
 
 msgctxt "#30040"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automatische Auswahl"

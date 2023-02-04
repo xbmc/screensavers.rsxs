@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-12-10 20:48+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-cyclone/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Tornado screen saver"
-msgstr "Tornado Bildschirmschoner"
+msgstr "Bildschirmschoner Tornado"
 
 msgctxt "Addon Description"
 msgid "This screensaver makes tornadoes on your screen.[CR]Was wrote for storm chasing buddy, but you can have it too. Have a look at his weather page if you're interested in meteorology and severe weather."
-msgstr ""
+msgstr "Dieser Bildschirmschoner bringt Tornados auf den Bildschirm. Er wurde für einen Freund, einem Sturmjäger, geschrieben, aber jeder kann ihn haben. Einfach einen Blick auf seine Wetterseite werfen, wenn man an Meteorologie und Unwettern interessiert ist."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -44,22 +44,22 @@ msgstr "Allgemein"
 #. To select amount of rendered Cyclones as number
 msgctxt "#30001"
 msgid "Cyclones"
-msgstr ""
+msgstr "Wirbelstürme"
 
 #. Help text for selection of rendered Cyclones
 msgctxt "#30002"
 msgid "Number of cyclones.  1 - 10.  Default: 1"
-msgstr ""
+msgstr "Anzahl Wirbelstürme.  1–10.  Standard: 1"
 
 #. Selection of used particles as number
 msgctxt "#30003"
 msgid "Particles"
-msgstr ""
+msgstr "Partikel"
 
 #. Help text for selection of used particles
 msgctxt "#30004"
 msgid "Particles per cyclone.  1 - 10000.  Default: 400"
-msgstr ""
+msgstr "Partikel pro Wirbelsturm.  1–10000.  Standard: 400"
 
 #. Selection of size for particle as number
 msgctxt "#30005"
@@ -69,17 +69,17 @@ msgstr "Größe"
 #. Help text for selection of size for particle
 msgctxt "#30006"
 msgid "Particle size.  1 - 100.  Default: 7"
-msgstr ""
+msgstr "Partikelgröße.  1–100.  Standard: 7"
 
 #. Selection of complexity as number
 msgctxt "#30007"
 msgid "Complexity"
-msgstr ""
+msgstr "Komplexität"
 
 #. Help text for selection of complexity
 msgctxt "#30008"
 msgid "Cyclone complexity.  1 - 10.  Default: 3"
-msgstr ""
+msgstr "Wirbelsturmkomplexität.  1–10.  Standard: 3"
 
 #. Selection of render speed as number
 msgctxt "#30009"
@@ -89,24 +89,24 @@ msgstr "Geschwindigkeit"
 #. Help text for selection of speed
 msgctxt "#30010"
 msgid "Speed.  1 - 100.  Default: 10"
-msgstr ""
+msgstr "Geschwindigkeit.  1–100.  Standard: 10"
 
 #. Boolean selection to enable stretch
 msgctxt "#30011"
 msgid "Stretch"
-msgstr ""
+msgstr "Strecken"
 
 #. Help text for selection boolean for stretch
 msgctxt "#30012"
 msgid "Stretch.  Default: True"
-msgstr ""
+msgstr "Strecken.  Standard: Wahr"
 
 #. Boolean selection to show of curves
 msgctxt "#30013"
 msgid "Show curves"
-msgstr ""
+msgstr "Kurven anzeigen"
 
 #. Help text for selection boolean for curves
 msgctxt "#30014"
 msgid "Show Curves.  Default: False"
-msgstr ""
+msgstr "Kurven anzeigen.  Standard: Falsch"
