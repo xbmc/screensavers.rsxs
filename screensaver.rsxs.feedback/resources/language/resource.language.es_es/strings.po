@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
-"Last-Translator: Alfonso Cachero <alfonso.cachero@gmail.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-feedback/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Stirring colors with a jiggling warp"
-msgstr ""
+msgstr "Colores que se mueven con una urdimbre ondulante"
 
 msgctxt "Addon Description"
 msgid "Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter."
-msgstr ""
+msgstr "Los colores se arremolinan mapeando repetidamente una rejilla con resortes en una rejilla uniforme, sacando colores del perímetro cíclico."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,42 +45,42 @@ msgstr "General"
 #. Boolean value selection to render only in grey
 msgctxt "#30001"
 msgid "Grey only"
-msgstr ""
+msgstr "Sólo gris"
 
 #. Help about boolean value before
 msgctxt "#30002"
 msgid "Use greyscale instead of hue wheel"
-msgstr ""
+msgstr "Utilizar la escala de grises en lugar de la rueda de tonos"
 
 #. Slider to select saturation
 msgctxt "#30003"
 msgid "Saturation"
-msgstr ""
+msgstr "Saturación"
 
 #. Help about saturation selection
 msgctxt "#30004"
 msgid "Set color saturation"
-msgstr ""
+msgstr "Ajustar la saturación del color"
 
 #. Slider to select lightness
 msgctxt "#30005"
 msgid "Lightness"
-msgstr ""
+msgstr "Luminosidad"
 
 #. Help about tightness selection
 msgctxt "#30006"
 msgid "Set color lightness"
-msgstr ""
+msgstr "Establecer la luminosidad del color"
 
 #. Spinner to select period time
 msgctxt "#30007"
 msgid "Period"
-msgstr ""
+msgstr "Periodo"
 
 #. Help to period time selection
 msgctxt "#30008"
 msgid "Sets color cycling period in seconds"
-msgstr ""
+msgstr "Establece el periodo de color por ciclo en segundos"
 
 #. Slider to select rendering speed
 msgctxt "#30009"
@@ -90,34 +90,34 @@ msgstr "Velocidad"
 #. Help text on speed selection
 msgctxt "#30010"
 msgid "Sets speed of warping grid wobble"
-msgstr ""
+msgstr "Establece la velocidad de oscilación de la rejilla de deformación"
 
 #. Spinner to select cells amount as integer
 msgctxt "#30011"
 msgid "Cells"
-msgstr ""
+msgstr "Células"
 
 #. Help text for string before with cells
 msgctxt "#30012"
 msgid "Sets height and width of warping grid in powers of 2"
-msgstr ""
+msgstr "Establece el alto y ancho de la rejilla de deformación en potencias de 2"
 
 #. Spinner to select testure size as integer
 msgctxt "#30013"
 msgid "Texture size"
-msgstr ""
+msgstr "Tamaño de textura"
 
 #. Help text of texture size selection
 msgctxt "#30014"
 msgid "Sets height and width of warped texture in powers of 2"
-msgstr ""
+msgstr "Establece el alto y ancho de la textura deformada en potencias de 2"
 
 #. Boolean value to enable/disable grid rendering
 msgctxt "#30015"
 msgid "Grid"
-msgstr ""
+msgstr "Cuadrícula"
 
 #. Help text of boolean before
 msgctxt "#30016"
 msgid "Turns on rendering of the warping grid"
-msgstr ""
+msgstr "Activa el renderizado de la rejilla de deformación"

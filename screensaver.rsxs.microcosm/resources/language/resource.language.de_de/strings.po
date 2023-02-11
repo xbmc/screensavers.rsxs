@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-12-10 20:48+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Phantasmagoria of gooey geometric shapes"
@@ -23,11 +23,11 @@ msgstr "Trugbild zähflüssiger geometrischer Formen"
 
 msgctxt "Addon Description"
 msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
-msgstr ""
+msgstr "Als Trugbild aus klebrigen geometrischen Formen bietet dieser Bildschirmschoner ein spritzendes, sich windendes Spektakel aus 3D-Mustern und leuchtenden Farben auf dem Computerbildschirm. Ein einzelnes zappelndes Dingsbums, wenn man nicht will, dass sich der Computer zu sehr aufheizt oder der Kaleidoskopmodus für den maximalen Effekt."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
-msgstr ""
+msgstr "Dies ist eine Implementierung, die auf dem Bildschirmschoner „reallyslickscreensavers“ basiert"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,89 +45,89 @@ msgstr "Allgemein"
 #. Main type selction
 msgctxt "#30001"
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #. Main type selction list entry
 msgctxt "#30002"
 msgid "Regular"
-msgstr ""
+msgstr "Normal"
 
 #. Main type selction list entry
 msgctxt "#30003"
 msgid "Simple"
-msgstr ""
+msgstr "Einfach"
 
 #. Main type selction list entry
 msgctxt "#30004"
 msgid "Hyperspace"
-msgstr ""
+msgstr "Hyperspace"
 
 #. Main type selction list entry
 msgctxt "#30005"
 msgid "Advanced"
-msgstr ""
+msgstr "Erweitert"
 
 #. Advanced category name on addon settings dialog
 msgctxt "#30010"
 msgid "Advanced"
-msgstr ""
+msgstr "Erweitert"
 
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30011"
 msgid "Kaleidoscope time"
-msgstr ""
+msgstr "Kaleidoskop"
 
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30012"
 msgid "Single time"
-msgstr ""
+msgstr "Einzeln"
 
 #. Advanced settings slider
 msgctxt "#30013"
 msgid "Background"
-msgstr ""
+msgstr "Hintergrund"
 
 #. Advanced settings slider
 msgctxt "#30014"
 msgid "Resolution"
-msgstr ""
+msgstr "Auflösung"
 
 #. Advanced settings slider
 msgctxt "#30015"
 msgid "Depth"
-msgstr ""
+msgstr "Tiefe"
 
 #. Advanced settings slider
 msgctxt "#30016"
 msgid "Field of view"
-msgstr ""
+msgstr "Sichtfeld"
 
 #. Advanced settings slider
 msgctxt "#30017"
 msgid "Gizmo speed"
-msgstr ""
+msgstr "Geschwindigkeit Dingsbums"
 
 #. Advanced settings slider
 msgctxt "#30018"
 msgid "Color speed"
-msgstr ""
+msgstr "Geschwindigkeit Farbe"
 
 #. Advanced settings slider
 msgctxt "#30019"
 msgid "Camera speed"
-msgstr ""
+msgstr "Geschwindigkeit Kamera"
 
 #. Boolean setting value to enable fog mode
 msgctxt "#30020"
 msgid "Fog"
-msgstr ""
+msgstr "Nebel"
 
 #. To show with slider value
 msgctxt "#30021"
 msgid "{0:d} seconds"
-msgstr ""
+msgstr "{0:d} Sekunden"
 
 #. To show with slider value
 msgctxt "#30022"
 msgid "{0:d} %"
-msgstr ""
+msgstr "{0:d} %"

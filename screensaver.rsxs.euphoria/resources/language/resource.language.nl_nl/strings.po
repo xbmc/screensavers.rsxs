@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-09-20 07:41+0000\n"
-"Last-Translator: Klojum <klojum@kodi.tv>\n"
+"PO-Revision-Date: 2022-06-11 11:14+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Dutch <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/nl_nl/>\n"
 "Language: nl_nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.12.2\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -40,7 +40,7 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #. Advanced settings category name on addon settings dialog (need user defined mode selected to have enabled)
 msgctxt "#30001"
@@ -135,7 +135,7 @@ msgstr ""
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
@@ -180,7 +180,7 @@ msgstr ""
 #. Slider to select render speed
 msgctxt "#30043"
 msgid "Speed"
-msgstr ""
+msgstr "Snelheid"
 
 #. Slider to select feedback intensity
 msgctxt "#30044"
@@ -200,4 +200,4 @@ msgstr ""
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
 msgid "Wireframe"
-msgstr ""
+msgstr "Draden"

@@ -5,16 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-02-27 09:14+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: Chinese (Taiwan) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/zh_tw/>\n"
 "Language: zh_tw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -134,7 +135,7 @@ msgstr ""
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
 msgid "Default"
-msgstr ""
+msgstr "預設"
 
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
@@ -179,7 +180,7 @@ msgstr ""
 #. Slider to select render speed
 msgctxt "#30043"
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #. Slider to select feedback intensity
 msgctxt "#30044"
@@ -199,4 +200,4 @@ msgstr ""
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
 msgid "Wireframe"
-msgstr ""
+msgstr "線框"

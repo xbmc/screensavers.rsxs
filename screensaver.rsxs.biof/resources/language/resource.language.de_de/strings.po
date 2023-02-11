@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-10-03 10:01+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Rotating stack of quads"
@@ -23,11 +23,11 @@ msgstr "Rotierender Würfelstapel"
 
 msgctxt "Addon Description"
 msgid "To rotating stack with various types of quads."
-msgstr "Rotation verschiedener Würfelformen."
+msgstr "Zum Drehen von Stapeln mit verschiedenen Arten von Quadern."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -70,64 +70,64 @@ msgstr "Punkte"
 #. Help text for first setting where type is selected
 msgctxt "#30006"
 msgid "Sets geometry type"
-msgstr "Geometrie einstellen"
+msgstr "Geometrietyp einstellen"
 
 #. Second setting in dialog for used geometry
 msgctxt "#30010"
 msgid "Off angle"
-msgstr ""
+msgstr "Abwinkelung"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30011"
 msgid "Auto"
-msgstr ""
+msgstr "Automatisch"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30012"
 msgid "Off"
-msgstr ""
+msgstr "Aus"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30013"
 msgid "On"
-msgstr ""
+msgstr "Ein"
 
 #. Help text for second setting where off angle is selected
 msgctxt "#30014"
 msgid "Interesting 45 degree view instead of default head on view."
-msgstr ""
+msgstr "Interessante 45-Grad-Ansicht anstelle der Standardansicht mit dem Kopf."
 
 #. Setting for selection of used lines for render
 msgctxt "#30020"
 msgid "Lines"
-msgstr ""
+msgstr "Linien"
 
 #. Help text for setting with line amount
 msgctxt "#30021"
 msgid "Set number of lines (\"arms\").  1 - 1024."
-msgstr ""
+msgstr "Anzahl der Linien („Arme“) einstellen.  1–1024."
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30022"
 msgid "Auto"
-msgstr ""
+msgstr "Automatisch"
 
 #. Setting for selection of used points for render
 msgctxt "#30030"
 msgid "Points"
-msgstr ""
+msgstr "Punkte"
 
 #. Help text for setting with point amount
 msgctxt "#30031"
 msgid "Set number of points per line.  1 - 4096."
-msgstr ""
+msgstr "Anzahl der Punkte pro Linie einstellen.  1–4096."
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30032"
 msgid "Auto"
-msgstr ""
+msgstr "Automatisch"
 
 #. Main category name on addon settings dialog
 msgctxt "#30040"
 msgid "General"
-msgstr ""
+msgstr "Allgemein"

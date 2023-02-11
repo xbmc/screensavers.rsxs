@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-08-26 11:14+0000\n"
+"Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
+"Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-helios/fi_fi/>\n"
 "Language: fi_fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr ""
+msgstr "Huokutus-/hylkimispartikkelitehosteita ja sileitä epäsuoria pintoja"
 
 msgctxt "Addon Description"
 msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr ""
+msgstr "Kun niputetaan huokutus-/hylkimispartikkelitehosteita ja sileitä epäsuoria pintoja, on tässä tulos."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -37,36 +38,36 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 msgctxt "#30010"
 msgid "Number of ions"
-msgstr ""
+msgstr "Ionien määrä"
 
 msgctxt "#30011"
 msgid "Number of ion emitters"
-msgstr ""
+msgstr "Ionisäteilijöiden määrä"
 
 msgctxt "#30012"
 msgid "Number of ion attractors"
-msgstr ""
+msgstr "Ionihoukuttimien määrä"
 
 msgctxt "#30013"
 msgid "Ion size"
-msgstr ""
+msgstr "Ionien koko"
 
 msgctxt "#30014"
 msgid "Ion speed"
-msgstr ""
+msgstr "Ionien nopeus"
 
 msgctxt "#30015"
 msgid "Enable iso surface"
-msgstr ""
+msgstr "Käytä iso-pintaa"
 
 msgctxt "#30016"
 msgid "Camera speed"
-msgstr ""
+msgstr "Kameran nopeus"
 
 msgctxt "#30017"
 msgid "Motion blur"
-msgstr ""
+msgstr "Liikesumennus"
