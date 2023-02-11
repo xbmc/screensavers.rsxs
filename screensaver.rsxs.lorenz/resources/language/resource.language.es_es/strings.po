@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
-"Last-Translator: Alfonso Cachero <alfonso.cachero@gmail.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lorenz/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Screensaver visualization of the Lorenz Attractor fractal"
-msgstr ""
+msgstr "Salvapantallas de visualización del fractal Lorenz Attractor"
 
 msgctxt "Addon Description"
 msgid "This is a 3d realtime visualization of the Lorenz Attractor."
-msgstr ""
+msgstr "Esta es una visualización 3d en tiempo real del Lorenz Attractor."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,36 +42,36 @@ msgstr "General"
 
 msgctxt "#30001"
 msgid "Points amount"
-msgstr ""
+msgstr "Cantidad de puntos"
 
 msgctxt "#30002"
 msgid "Satellites amount"
-msgstr ""
+msgstr "Cantidad de satélites"
 
 msgctxt "#30003"
 msgid "Camera speed"
-msgstr ""
+msgstr "Velocidad de la cámara"
 
 msgctxt "#30004"
 msgid "Camera angle"
-msgstr ""
+msgstr "Ángulo de la cámara"
 
 msgctxt "#30005"
 msgid "Line width"
-msgstr ""
+msgstr "Ancho de línea"
 
 msgctxt "#30006"
 msgid "Satellite line width"
-msgstr ""
+msgstr "Anchura de la línea de satélite"
 
 msgctxt "#30007"
 msgid "Line cutoff"
-msgstr ""
+msgstr "Corte de línea"
 
 msgctxt "#30008"
 msgid "Speed"
-msgstr ""
+msgstr "Velocidad"
 
 msgctxt "#30009"
 msgid "{0:d}°"
-msgstr ""
+msgstr "{0:d}°"

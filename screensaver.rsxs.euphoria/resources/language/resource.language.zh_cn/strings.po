@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-11-04 17:49+0000\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
 "Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/zh_cn/>\n"
 "Language: zh_cn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -45,7 +45,7 @@ msgstr "常规"
 #. Advanced settings category name on addon settings dialog (need user defined mode selected to have enabled)
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 #. Category name on addon settings dialog to enable modes in auto selection
 msgctxt "#30002"
@@ -55,149 +55,149 @@ msgstr "自动选择"
 #. Group name in category defined with 30002
 msgctxt "#30003"
 msgid "Types used for automatic selection"
-msgstr ""
+msgstr "用于自动选择的类型"
 
 #. List selection of used preset (in general options)
 msgctxt "#30010"
 msgid "Preset"
-msgstr ""
+msgstr "预设"
 
 #. Preset type in selection dialog
 msgctxt "#30011"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 #. Preset type in selection dialog
 msgctxt "#30012"
 msgid "Regular"
-msgstr ""
+msgstr "常规"
 
 #. Preset type in selection dialog
 msgctxt "#30013"
 msgid "Grid"
-msgstr ""
+msgstr "网格"
 
 #. Preset type in selection dialog
 msgctxt "#30014"
 msgid "Cubism"
-msgstr ""
+msgstr "立体主义"
 
 #. Preset type in selection dialog
 msgctxt "#30015"
 msgid "Bad math"
-msgstr ""
+msgstr "糟糕的数学"
 
 #. Preset type in selection dialog
 msgctxt "#30016"
 msgid "M-Theory"
-msgstr ""
+msgstr "大统一理论"
 
 #. Preset type in selection dialog
 msgctxt "#30017"
 msgid "UHF tunneling electron microscope"
-msgstr ""
+msgstr "超高频隧道电子显微镜"
 
 #. Preset type in selection dialog
 msgctxt "#30018"
 msgid "Jack"
-msgstr ""
+msgstr "杰克"
 
 #. Preset type in selection dialog
 msgctxt "#30019"
 msgid "Overdose"
-msgstr ""
+msgstr "过量"
 
 #. Preset type in selection dialog
 msgctxt "#30020"
 msgid "Nowhere"
-msgstr ""
+msgstr "无处"
 
 #. Preset type in selection dialog
 msgctxt "#30021"
 msgid "Echo"
-msgstr ""
+msgstr "回响"
 
 #. Preset type in selection dialog
 msgctxt "#30022"
 msgid "Kaleidoscope"
-msgstr ""
+msgstr "万花筒"
 
 #. Preset type in selection dialog, if used user defined settings becomes used and advanced settings enabled
 msgctxt "#30023"
 msgid "User defined"
-msgstr ""
+msgstr "用户定义"
 
 #. To open selection dialog with selection of wanted wisp texture and override baseics
 msgctxt "#30024"
 msgid "Wisp texture"
-msgstr ""
+msgstr "小束纹理"
 
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
 msgid "Default"
-msgstr ""
+msgstr "默认"
 
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #. Value in selection dialog to use plasma texture
 msgctxt "#30027"
 msgid "Plasma"
-msgstr ""
+msgstr "等离子体"
 
 #. Value in selection dialog to use stringy texture
 msgctxt "#30028"
 msgid "Stringy"
-msgstr ""
+msgstr "严格的"
 
 #. Value in selection dialog use lines
 msgctxt "#30029"
 msgid "Lines"
-msgstr ""
+msgstr "线"
 
 #. Value in selection dialog to use random selected type of texture
 msgctxt "#30030"
 msgid "Random"
-msgstr ""
+msgstr "随机"
 
 #. Slider to select number of wisps
 msgctxt "#30040"
 msgid "Wisps"
-msgstr ""
+msgstr "小束"
 
 #. Slider to number of background layers
 msgctxt "#30041"
 msgid "Background layers"
-msgstr ""
+msgstr "背景层"
 
 #. Slider to number of wisps
 msgctxt "#30042"
 msgid "Wisp mesh density"
-msgstr ""
+msgstr "小束网格密度"
 
 #. Slider to select render speed
 msgctxt "#30043"
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #. Slider to select feedback intensity
 msgctxt "#30044"
 msgid "Feedback intensity"
-msgstr ""
+msgstr "反馈强度"
 
 #. Slider to select feedback speed
 msgctxt "#30045"
 msgid "Feedback speed"
-msgstr ""
+msgstr "反馈速度"
 
 #. Slider to select feedback size
 msgctxt "#30046"
 msgid "Feedback size"
-msgstr ""
+msgstr "反馈大小"
 
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
 msgid "Wireframe"
-msgstr ""
+msgstr "线框"

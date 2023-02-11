@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-02-10 19:13+0000\n"
+"Last-Translator: Dino Sardelic <dino.sardelic@live.com>\n"
+"Language-Team: Croatian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-solarwinds/hr_hr/>\n"
 "Language: hr_hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgctxt "Addon Summary"
 msgid "A mesmerising particle effects screensaver"
-msgstr "Čuvar zaslona - Očaravajuće kretanje čestica."
+msgstr "Čuvar zaslona s očaravajućim efektima čestica"
 
 msgctxt "Addon Description"
 msgid "This is a very mesmerizing particle effects saver. Tweak the settings a little and you'll find that you can achieve an amazing number of different animated patterns. You can also connect the particles with lines for a very different effect."
-msgstr "Ovo je zaista očaravajuči čuvar zaslona. Moguće je ostvariti zapanjujući broj različitih uzoraka."
+msgstr "Ovo je jedan zaista očaravajući čuvar zaslona s efektima čestica. Vidjet ćete da možete postići čudesan broj različitih uzuoraka."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Ova implementacija temelji se na \"rss-glx\" čuvaru zaslona"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -37,92 +38,92 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Opće"
 
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Napredno"
 
 msgctxt "#30010"
 msgid "Mode"
-msgstr ""
+msgstr "Način rada"
 
 msgctxt "#30011"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatski"
 
 msgctxt "#30012"
 msgid "Regular"
-msgstr ""
+msgstr "Redovan"
 
 msgctxt "#30013"
 msgid "Cosmic Strings"
-msgstr ""
+msgstr "Cosmic Strings"
 
 msgctxt "#30014"
 msgid "Cold Pricklies"
-msgstr ""
+msgstr "Cold Pricklies"
 
 msgctxt "#30015"
 msgid "Space Fur"
-msgstr ""
+msgstr "Space Fur"
 
 msgctxt "#30016"
 msgid "Jiggly"
-msgstr ""
+msgstr "Jiggly"
 
 msgctxt "#30017"
 msgid "Undertow"
-msgstr ""
+msgstr "Undertow"
 
 msgctxt "#30018"
 msgid "Use advanced settings"
-msgstr ""
+msgstr "Upotrijebi napredne postavke"
 
 msgctxt "#30020"
 msgid "Number of solar winds"
-msgstr ""
+msgstr "Broj solarnih vjetrova"
 
 msgctxt "#30021"
 msgid "Particles per solar wind"
-msgstr ""
+msgstr "Čestica po solarnom vjetru"
 
 msgctxt "#30022"
 msgid "Emitters per solar wind"
-msgstr ""
+msgstr "Odašiljača po solarnom vjetru"
 
 msgctxt "#30023"
 msgid "Solar wind speed"
-msgstr ""
+msgstr "Brzina solarnog vjetra"
 
 msgctxt "#30024"
 msgid "Particle size"
-msgstr ""
+msgstr "Veličina čestice"
 
 msgctxt "#30025"
 msgid "Particle geometry"
-msgstr ""
+msgstr "Geometrija čestice"
 
 msgctxt "#30026"
 msgid "Lights"
-msgstr ""
+msgstr "Svjetla"
 
 msgctxt "#30027"
 msgid "Points"
-msgstr ""
+msgstr "Točke"
 
 msgctxt "#30028"
 msgid "Lines"
-msgstr ""
+msgstr "Linije"
 
 msgctxt "#30029"
 msgid "Particle speed"
-msgstr ""
+msgstr "Brzina čestice"
 
 msgctxt "#30030"
 msgid "Emitter speed"
-msgstr ""
+msgstr "Brzina odašiljača"
 
 msgctxt "#30031"
 msgid "Motion blur"
-msgstr ""
+msgstr "Zamućenost kretnje"

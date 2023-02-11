@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-22 09:29+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2022-08-26 11:14+0000\n"
+"Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-hufotunnel/fi_fi/>\n"
 "Language: fi_fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Tunnel saver"
-msgstr ""
+msgstr "Tunnelinäytönsäästäjä"
 
 msgctxt "Addon Description"
 msgid "From Jeremie Allard:[CR]\"A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website.\""
-msgstr ""
+msgstr "Jeremie Allard:[CR]\"Uudelleenkoodattu versio ensimmäisestä OpenGL Challenge -tapahtumastani. Jotain uudestisyntymän tapaista :) Oltuani sivussa haasteesta liian monta kuukautta, tein tämän pienen artikkelin tälle uudelle verkkosivustolle kiittääkseni Otrya ja BlackOrbia.\""
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -38,11 +38,11 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 msgctxt "#30001"
 msgid "Sinusoide"
-msgstr ""
+msgstr "Siniaalto"
 
 msgctxt "#30002"
 msgid "Wireframe"
@@ -50,24 +50,24 @@ msgstr "Rautalanka"
 
 msgctxt "#30003"
 msgid "Texture"
-msgstr ""
+msgstr "Tekstuuri"
 
 msgctxt "#30004"
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 msgctxt "#30005"
 msgid "Swirl"
-msgstr ""
+msgstr "Pyörre"
 
 msgctxt "#30006"
 msgid "Marble"
-msgstr ""
+msgstr "Marmori"
 
 msgctxt "#30007"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automaattinen valinta"
 
 msgctxt "#30008"
 msgid "Coarseness"
-msgstr ""
+msgstr "Karkeus"

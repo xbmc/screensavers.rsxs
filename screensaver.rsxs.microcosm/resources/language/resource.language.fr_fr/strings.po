@@ -5,16 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-12-25 00:50+0000\n"
+"Last-Translator: skypichat <skypichat@hotmail.fr>\n"
+"Language-Team: French (France) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/fr_fr/>\n"
 "Language: fr_fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15\n"
 
 msgctxt "Addon Summary"
 msgid "Phantasmagoria of gooey geometric shapes"
@@ -39,7 +40,7 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #. Main type selction
 msgctxt "#30001"
@@ -64,12 +65,12 @@ msgstr ""
 #. Main type selction list entry
 msgctxt "#30005"
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 #. Advanced category name on addon settings dialog
 msgctxt "#30010"
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 #. Advanced settings slider (for time in seconds)
 msgctxt "#30011"
@@ -84,7 +85,7 @@ msgstr ""
 #. Advanced settings slider
 msgctxt "#30013"
 msgid "Background"
-msgstr ""
+msgstr "Arrière-plan"
 
 #. Advanced settings slider
 msgctxt "#30014"
@@ -129,4 +130,4 @@ msgstr ""
 #. To show with slider value
 msgctxt "#30022"
 msgid "{0:d} %"
-msgstr ""
+msgstr "{0:d} %"

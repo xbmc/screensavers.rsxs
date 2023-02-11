@@ -5,16 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-09-25 08:14+0000\n"
+"Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
+"Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/fi_fi/>\n"
 "Language: fi_fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgctxt "Addon Summary"
 msgid "Floating wisps"
@@ -26,7 +27,7 @@ msgstr ""
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,27 +40,27 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 #. Advanced category name on addon settings dialog
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #. Setting open selection dialog to select used preset
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "Esiasetus"
 
 #. Selection dialog entry to select automatic mode selection
 msgctxt "#30003"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automaattinen"
 
 #. Selection dialog entry to select regualr preset
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "Tavallinen"
 
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"
@@ -69,12 +70,12 @@ msgstr ""
 #. Selection dialog entry to select blurred trails preset
 msgctxt "#30006"
 msgid "Blurred trails"
-msgstr ""
+msgstr "Sumennetut jäljet"
 
 #. Selection dialog entry to select blurred connections preset
 msgctxt "#30007"
 msgid "Blurred connections"
-msgstr ""
+msgstr "Sumennetut kytkennät"
 
 #. Selection dialog entry to select circles preset
 msgctxt "#30008"
@@ -109,22 +110,22 @@ msgstr ""
 #. Advanced setting spinner to select size
 msgctxt "#30014"
 msgid "Size"
-msgstr ""
+msgstr "Koko"
 
 #. Advanced setting spinner to select complexity
 msgctxt "#30015"
 msgid "Complexity"
-msgstr ""
+msgstr "Monimutkaisuus"
 
 #. Advanced setting spinner to select speed
 msgctxt "#30016"
 msgid "Speed"
-msgstr ""
+msgstr "Nopeus"
 
 #. Advanced setting spinner to select stretch
 msgctxt "#30017"
 msgid "Stretch"
-msgstr ""
+msgstr "Venytys"
 
 #. Advanced setting spinner to select color fade speed
 msgctxt "#30018"
@@ -149,7 +150,7 @@ msgstr ""
 #. Advanced setting spinner to select blur
 msgctxt "#30022"
 msgid "Blur"
-msgstr ""
+msgstr "Sumennus"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30023"
