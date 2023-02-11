@@ -23,7 +23,7 @@
       <screenshot>resources/screenshot-07.jpg</screenshot>
       <screenshot>resources/screenshot-08.jpg</screenshot>
     </assets>
-    <summary lang="af_ZA">'n Betoverende deeltjie effek sluimerskerm</summary>
+    <summary lang="af_ZA">&apos;n Betoverende deeltjie effek sluimerskerm</summary>
     <summary lang="ar_SA">أداة ساحرة تؤثر بشاشة التوقف</summary>
     <summary lang="be_BY">Ахоўнік экрану з зачаравальнымі эфэктамі часьціцаў</summary>
     <summary lang="bg_BG">Скрийнсейвър от частици, които очароват</summary>
@@ -47,7 +47,7 @@
     <summary lang="fr_FR">Un économiseur envoûtant à effets de particules</summary>
     <summary lang="gl_ES">Un hipnotizante protector de pantalla con efectos de partículas</summary>
     <summary lang="he_IL">שומר מסך עם אפקט חלקיקים מהפנט</summary>
-    <summary lang="hr_HR">Čuvar zaslona - Očaravajuće kretanje čestica.</summary>
+    <summary lang="hr_HR">Čuvar zaslona s očaravajućim efektima čestica</summary>
     <summary lang="hu_HU">Egy igéző részecske-effektus képernyővédő</summary>
     <summary lang="id_ID">Penyelamat layar dengan efek partikel yang mencuri perhatian</summary>
     <summary lang="it_IT">Un salvaschermo con effetti particellari ipnotizzanti</summary>
@@ -73,35 +73,35 @@
     <summary lang="vi_VN">Một trình bảo vệ màn hình với hiệu ứng thôi miên tạo từ các hạt</summary>
     <summary lang="zh_CN">一个迷人的粒子效果屏幕保护程序</summary>
     <summary lang="zh_TW">一個令人著迷的粒子效果的螢幕保護程式</summary>
-    <description lang="af_ZA">Hierdie is 'n uiters betoverende deeltjie effek sluimerskerm. Jy sal vind dat jy 'n ongelooflike aantal verskillende patrone kan bewerkstellig.</description>
+    <description lang="af_ZA">Hierdie is &apos;n uiters betoverende deeltjie effek sluimerskerm. Jy sal vind dat jy &apos;n ongelooflike aantal verskillende patrone kan bewerkstellig.</description>
     <description lang="ar_SA">أداة ساحرة جدا تؤثر بشاشة التوقف. ستجد أنك تستطيع أن تحقق عدد مذهل من الأنماط المختلفة.</description>
-    <description lang="be_BY">This is a very mesmerizing particle effects screensaver. You'll find that you can achieve an amazing number of different patterns.</description>
+    <description lang="be_BY">This is a very mesmerizing particle effects screensaver. You&apos;ll find that you can achieve an amazing number of different patterns.</description>
     <description lang="bg_BG">Това е скрийнсейвър, който очарова с частиците си. Ще откриете, че можете да създадете изключително голям брой различни модели.</description>
     <description lang="ca_ES">Aquest és un estalvi de pantalla amb uns efectes de partícules fascinants. Veuràs que pot obtenir un nombre increïble de patrons diferents.</description>
     <description lang="cs_CZ">Spořič obrazovky s velmi fascinujícími částicovými efekty. Zjistíte, že můžete dosáhnout úžasného množství různých vzorů.</description>
     <description lang="cy_GB">Mae hwn yn arbedwr sgrin effeithiau gronynnau hynod lesmeiriol. Mae modd cynhyrchu nifer anferthol o batrymau gwahanol.</description>
     <description lang="da_DK">Dette er en meget tryllebindende pauseskærm med partikeleffekter. Du vil opdage, at man kan opnå et forbløffende antal af forskellige mønstre. Du kan også forbinde partiklerne til linjer for en meget anderledes effekt.</description>
-    <description lang="de_DE">Dies ist ein faszinierender Bildschirmschoner mit Partikeleffekten. Du kannst eine verblüffend große Anzahl an verschiedenen Animationen einstellen.</description>
+    <description lang="de_DE">Dies ist ein Bildschirmschoner mit sehr faszinierender Partikeleffekten. Wenn man die Einstellungen ein wenig verändert, kann man eine erstaunliche Anzahl von verschiedenen animierten Mustern erzielen. Die Partikel können auch mit Linien verbunden werden, um einen ganz anderen Effekt zu erzielen.</description>
     <description lang="el_GR">Αυτή είναι μία μαγευτική σωματιδιακή προφύλαξη οθόνης. Θα διαπιστώσετε ότι μπορείτε να επιτύχετε έναν απίστευτο αριθμό διαφορετικών σχεδίων.</description>
-    <description lang="en_AU">This is a very mesmerising particle effects screensaver. You'll find that you can achieve an amazing number of different patterns.</description>
-    <description lang="en_GB">This is a very mesmerizing particle effects saver. Tweak the settings a little and you'll find that you can achieve an amazing number of different animated patterns. You can also connect the particles with lines for a very different effect.</description>
-    <description lang="en_NZ">This is a very mesmerising particle effects screensaver. You'll find that you can achieve an amazing number of different patterns.</description>
-    <description lang="en_US">This is a very mesmerizing particle effects screensaver. You'll find that you can achieve an amazing number of different patterns.</description>
+    <description lang="en_AU">This is a very mesmerising particle effects screensaver. You&apos;ll find that you can achieve an amazing number of different patterns.</description>
+    <description lang="en_GB">This is a very mesmerizing particle effects saver. Tweak the settings a little and you&apos;ll find that you can achieve an amazing number of different animated patterns. You can also connect the particles with lines for a very different effect.</description>
+    <description lang="en_NZ">This is a very mesmerising particle effects screensaver. You&apos;ll find that you can achieve an amazing number of different patterns.</description>
+    <description lang="en_US">This is a very mesmerizing particle effects screensaver. You&apos;ll find that you can achieve an amazing number of different patterns.</description>
     <description lang="es_AR">Este es un protector de pantalla con unos efectos de partículas hipnotizantes. Descubrirás que puedes obtener un número increíble de patrones diferentes.</description>
-    <description lang="es_ES">Este es un salvapatallas con unos efectos de partículas hipnotizantes. Descubrirás que puedes obtener un número increíble de patrones diferentes.</description>
+    <description lang="es_ES">Este es un salvapantallas de efectos de partículas muy hipnotizador. Ajusta un poco la configuración y verás que puedes conseguir un número asombroso de patrones animados diferentes. También puedes conectar las partículas con líneas para conseguir un efecto muy diferente.</description>
     <description lang="es_MX">Éste es un sorprendente protector de pantalla de partículas. Encontrará que puede obtener un gran número de patrones diferentes.</description>
     <description lang="es_VE">Este es un protector de pantalla con efectos de partículas bastante hipnotizante. Te darás cuenta que podrás lograr un gran número de patrones diferentes.</description>
     <description lang="et_EE">See on väga hüpnotiseeriv osakeste efektiga ekraanisäästja. Võimalik on koostada tohutul hulgal erinevaid mustreid.</description>
     <description lang="fi_FI">Erittäin lumoava partikkelitehostenäytönsäästäjä. Tulet huomaamaan uskomattoman määrän erilaisia kuvioita.</description>
-    <description lang="fr_CA">Voici un économiseur d'écran à effets de particules particulièrement envoûtant. Vous trouverez qu'il permet d'obtenir un nombre incroyable de modèles et d'effets différents.</description>
-    <description lang="fr_FR">Voici un économiseur d'écran à effets de particules particulièrement envoûtant. Vous trouverez qu'il permet d'obtenir un nombre incroyable de modèles et d'effets différents.</description>
+    <description lang="fr_CA">Voici un économiseur d&apos;écran à effets de particules particulièrement envoûtant. Vous trouverez qu&apos;il permet d&apos;obtenir un nombre incroyable de modèles et d&apos;effets différents.</description>
+    <description lang="fr_FR">Voici un économiseur d&apos;écran à effets de particules particulièrement envoûtant. Vous trouverez qu&apos;il permet d&apos;obtenir un nombre incroyable de modèles et d&apos;effets différents.</description>
     <description lang="gl_ES">Este é un protector de pantalla con efectos de partículas moi hipnotizante. Atopará que pode acadar un incrible número de patróns diferentes.</description>
-    <description lang="he_IL">זהו שומר מסך עם אפקט חלקיקים מהפנט ביותר. אתה תמצא עצמך מקבל מס' מפתיע של צורות שונות ומרהיבות.</description>
-    <description lang="hr_HR">Ovo je zaista očaravajuči čuvar zaslona. Moguće je ostvariti zapanjujući broj različitih uzoraka.</description>
+    <description lang="he_IL">זהו שומר מסך עם אפקט חלקיקים מהפנט ביותר. אתה תמצא עצמך מקבל מס&apos; מפתיע של צורות שונות ומרהיבות.</description>
+    <description lang="hr_HR">Ovo je jedan zaista očaravajući čuvar zaslona s efektima čestica. Vidjet ćete da možete postići čudesan broj različitih uzuoraka.</description>
     <description lang="hu_HU">Ez egy lebilincselő hatású részecske-effektus képernyővédő. Hihetetlen mennyiségű különböző minta képes benne kialakulni.</description>
     <description lang="id_ID">Ini adalah penyelamat layar dengan efek partikel yang sangat mencuri perhatian. Anda akan lihat bahwa Anda bisa mendapat sejumlah yang mengagumkan dari pola yang berbeda.</description>
-    <description lang="it_IT">Questo è un salvaschermo con effetti particellari è veramente ipnotizzante. E' inoltre possibile ottenere un incredibile numero di differenti schemi.</description>
-    <description lang="ja_JP">This is a very mesmerizing particle effects screensaver. You'll find that you can achieve an amazing number of different patterns.</description>
+    <description lang="it_IT">Questo è un salvaschermo con effetti particellari è veramente ipnotizzante. E&apos; inoltre possibile ottenere un incredibile numero di differenti schemi.</description>
+    <description lang="ja_JP">This is a very mesmerizing particle effects screensaver. You&apos;ll find that you can achieve an amazing number of different patterns.</description>
     <description lang="ko_KR">매혹적인 파티클 이펙트 화면보호기입니다. 아주 다양한 패턴의 보여줍니다.</description>
     <description lang="lt_LT">Tai labai itaigus dalelių poveikio ekrano užsklanda. Jūs galite pasiekti nuostabių ivairių modelių nustatymuose.</description>
     <description lang="lv_LV">Šis ir ļoti valdzinošs daļiņu efekta ekrānsaudzētājs. Jūs redzēsit, ka tas spēj izveidot neticamu skaitu dažādu musturu.</description>
@@ -124,12 +124,18 @@
     <description lang="zh_CN">这是一个非常迷人的粒子效果屏幕保护程序。你会发现你能看到惊人数量的不同图案。</description>
     <description lang="zh_TW">這是一個非常令人著迷的粒子效果螢幕保護程式。您會發現可以達到一個另人驚豔的圖形數。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

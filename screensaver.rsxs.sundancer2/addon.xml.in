@@ -21,16 +21,29 @@
     <summary lang="da_DK">Roterende stak af firkanter</summary>
     <summary lang="de_DE">Rotierender Würfelstapel</summary>
     <summary lang="en_GB">Rotating stack of quads</summary>
+    <summary lang="es_ES">Pila giratoria de cuadrantes</summary>
+    <summary lang="fi_FI">Kiertyvä neliönippu</summary>
+    <summary lang="it_IT">Pila rotante di quad</summary>
     <summary lang="zh_CN">四边形旋转堆栈</summary>
     <description lang="da_DK">Pæne rotationseffekter fra rotations- og skæve stabler af gennemsigtige kvadrater.</description>
+    <description lang="de_DE">Hübsche Rotationseffekte durch Drehen und Schrägstellen von transparenten Quadraten.</description>
     <description lang="en_GB">Neat rotation effects from rotation and skewing stack of transparent squares.</description>
+    <description lang="es_ES">Nítidos efectos de rotación a partir de la rotación y la inclinación de la pila de cuadrados transparentes.</description>
+    <description lang="fi_FI">Siistejä kiertotehosteita pyörivästä ja vääntyilevästä läpikuultavasta neliönipusta.</description>
+    <description lang="zh_CN">透明正方形的旋转和倾斜堆栈产生的整齐旋转效果。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

@@ -20,19 +20,33 @@
       <screenshot>resources/screenshot-04.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Flyver gennem hyperrummet</summary>
-    <summary lang="de_DE">Flug durch den Zwischenraum</summary>
+    <summary lang="de_DE">Fliegen durch den Hyperraum</summary>
     <summary lang="en_GB">Flying through hyper space</summary>
+    <summary lang="es_ES">Volando a través del hiperespacio</summary>
+    <summary lang="fi_FI">Lennä hyperavaruuden läpi</summary>
+    <summary lang="it_IT">Volare nell&apos;iperspazio</summary>
     <summary lang="ko_KR">하이퍼 스페이스를 통해 비행</summary>
+    <summary lang="zh_CN">飞越超空间</summary>
     <description lang="da_DK">Rejs gennem de fjerne dele af rummet virkelig, virkelig hurtigt. Flyv mellem stjernerne, henover kæmpe kosmiske planer og gennem endeløse flimrende tunneler. ... virkelig hurtigt.</description>
+    <description lang="de_DE">Sehr, sehr schnell in den Weiten des Weltraums herumkreuzen. Zwischen den Sternen, über sickernde kosmische Ebenen und durch endlos schimmernde Tunnel fliegen. ... wirklich schnell.</description>
     <description lang="en_GB">Cruise through the far reaches of space really, really fast. Fly between the stars, across oozing cosmic planes, and through endless shimmering tunnels. ...really fast.</description>
+    <description lang="es_ES">Navega por los confines del espacio a toda velocidad. Vuela entre las estrellas, a través de planos cósmicos rezumantes y por túneles interminables y resplandecientes. ... realmente rápido.</description>
+    <description lang="fi_FI">Kruisaile avaruuden kaukaisten alueiden läpi todella, todella nopeasti. Lennä tähtien välistä, tihkuvien kosmisten tasankojen yli ja loputtomien hohtavien tunneleiden läpi. ...todella nopeasti.</description>
     <description lang="ko_KR">우주의 먼 곳을 정말, 정말 빠르게 크루즈하세요. 별 사이, 스며나오는 우주 비행기, 끝없이 반짝이는 터널을 통해 날아보세요. ...정말 빠릅니다.</description>
+    <description lang="zh_CN">在遥远的太空漫游真的，真的很快。在恒星之间飞行，穿过渗出的宇宙面，穿过无尽的闪闪发光的隧道...真的很快。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>
