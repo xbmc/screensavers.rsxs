@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-06-01 21:14+0000\n"
-"Last-Translator: Kai Sommerfeld <kai.sommerfeld@gmx.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.2\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Floating wisps"
@@ -23,11 +23,11 @@ msgstr "Schwebende Rauchfähnchen"
 
 msgctxt "Addon Description"
 msgid "Here is a 3D variation on swarm savers, a favorite old theme. Try it out with Chromatek's ChromaDepth glasses for a cool 3D effect."
-msgstr ""
+msgstr "Hier ist eine 3D-Variante von Swarmsavers, ein beliebtes altes Thema. Einfach ausprobieren, mit ChromaDepth-Brillen von Chromatek, für einen coolen 3D-Effekt."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,52 +45,52 @@ msgstr "Allgemein"
 #. Advanced category name on addon settings dialog
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Fortgeschrittene"
 
 #. Setting open selection dialog to select used preset
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "Voreinstellung"
 
 #. Selection dialog entry to select automatic mode selection
 msgctxt "#30003"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automatische Auswahl"
 
 #. Selection dialog entry to select regualr preset
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "Normal"
 
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"
 msgid "Trails"
-msgstr ""
+msgstr "Spuren"
 
 #. Selection dialog entry to select blurred trails preset
 msgctxt "#30006"
 msgid "Blurred trails"
-msgstr ""
+msgstr "Unscharfe Spuren"
 
 #. Selection dialog entry to select blurred connections preset
 msgctxt "#30007"
 msgid "Blurred connections"
-msgstr ""
+msgstr "Unscharfe Verbindungen"
 
 #. Selection dialog entry to select circles preset
 msgctxt "#30008"
 msgid "Circles"
-msgstr ""
+msgstr "Kreise"
 
 #. Selection dialog entry to select random circles preset
 msgctxt "#30009"
 msgid "Random circles"
-msgstr ""
+msgstr "Zufällige Kreise"
 
 #. Selection dialog entry to select advanced settings mode
 msgctxt "#30010"
 msgid "Use advanced"
-msgstr ""
+msgstr "Erweiterte Einstellung verwenden"
 
 #. Advanced setting spinner to select leaders value
 msgctxt "#30011"
@@ -105,7 +105,7 @@ msgstr ""
 #. Advanced setting list to select geometry value in selection dialog
 msgctxt "#30013"
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrie"
 
 #. Advanced setting spinner to select size
 msgctxt "#30014"
@@ -115,7 +115,7 @@ msgstr "Größe"
 #. Advanced setting spinner to select complexity
 msgctxt "#30015"
 msgid "Complexity"
-msgstr ""
+msgstr "Komplexität"
 
 #. Advanced setting spinner to select speed
 msgctxt "#30016"
@@ -125,52 +125,52 @@ msgstr "Geschwindigkeit"
 #. Advanced setting spinner to select stretch
 msgctxt "#30017"
 msgid "Stretch"
-msgstr ""
+msgstr "Strecken"
 
 #. Advanced setting spinner to select color fade speed
 msgctxt "#30018"
 msgid "Color fade speed"
-msgstr ""
+msgstr "Geschwindigkeit der Farbüberblendung"
 
 #. Advanced setting boolean to enable chromatek
 msgctxt "#30019"
 msgid "Chromatek"
-msgstr ""
+msgstr "Chromatek"
 
 #. Advanced setting boolean to enable rendering connections
 msgctxt "#30020"
 msgid "Connections"
-msgstr ""
+msgstr "Verbindungen"
 
 #. Advanced setting spinner to select trail length
 msgctxt "#30021"
 msgid "Trail length"
-msgstr ""
+msgstr "Spurlänge"
 
 #. Advanced setting spinner to select blur
 msgctxt "#30022"
 msgid "Blur"
-msgstr ""
+msgstr "Unschärfe"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30023"
 msgid "Random colors"
-msgstr ""
+msgstr "Zufällige Farben"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30024"
 msgid "Draw blobs"
-msgstr ""
+msgstr "Kleckse zeichnen"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30025"
 msgid "Draw circle"
-msgstr ""
+msgstr "Kreise zeichnen"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30026"
 msgid "Draw dots"
-msgstr ""
+msgstr "Punkte zeichnen"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30027"

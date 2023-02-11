@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
-"Last-Translator: Alfonso Cachero <alfonso.cachero@gmail.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-drempels/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Hallucinatory desktop enhancer"
-msgstr ""
+msgstr "Potenciador de escritorio alucinatorio"
 
 msgctxt "Addon Description"
 msgid "A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver."
-msgstr ""
+msgstr "Un alucinante potenciador de escritorio: dé vida a su fondo de pantalla con imágenes elegantes y arremolinadas. Funciona perfectamente como fondo de pantalla animado o como salvapantallas."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,12 +45,12 @@ msgstr "General"
 #. Spinner to select number blurring
 msgctxt "#30001"
 msgid "Blur"
-msgstr ""
+msgstr "Desenfoque"
 
 #. Help text of number selection for blurring
 msgctxt "#30002"
 msgid "Blurring between frames"
-msgstr ""
+msgstr "Difuminado entre fotogramas"
 
 #. Spinner to select render speed
 msgctxt "#30003"
@@ -60,89 +60,89 @@ msgstr "Velocidad"
 #. Setting help text for select render speed
 msgctxt "#30004"
 msgid "Speed of flow, bigger is faster"
-msgstr ""
+msgstr "Velocidad de flujo, más grande es más rápido"
 
 #. Spinner to select scale factor
 msgctxt "#30005"
 msgid "Scale"
-msgstr ""
+msgstr "Escala"
 
 #. Help for scale factor selection
 msgctxt "#30006"
 msgid "Scale of flow, bigger is zoomed in"
-msgstr ""
+msgstr "Escala del flujo, más grande es más ampliado"
 
 #. Spinner to select number of cells
 msgctxt "#30007"
 msgid "Cells"
-msgstr ""
+msgstr "Celdas"
 
 #. Help for number of cells selection
 msgctxt "#30008"
 msgid "Number of cells (i.e. control points) in width/height in powers of two"
-msgstr ""
+msgstr "Número de celdas (es decir, puntos de control) en ancho/alto en potencias de dos"
 
 #. Spinner to select cell resolution
 msgctxt "#30009"
 msgid "Cell Resolution"
-msgstr ""
+msgstr "Resolución de celda"
 
 #. Help for cell resolution selection
 msgctxt "#30010"
 msgid "Resolution of each cell in powers of two.  4 - 8"
-msgstr ""
+msgstr "Resolución de cada celda en potencias de dos.  4 - 8"
 
 #. Boolean value to use images instead
 msgctxt "#30011"
 msgid "Use Images"
-msgstr ""
+msgstr "Utilizar imágenes"
 
 #. Help for boolean to allow use of images
 msgctxt "#30012"
 msgid "Cycle through the images"
-msgstr ""
+msgstr "Ciclo a través de las imágenes"
 
 #. To open dialog for folder selection of images
 msgctxt "#30013"
 msgid "Images (when empty, Kodi fanart images are used)"
-msgstr ""
+msgstr "Imágenes (cuando está vacío, se utilizan imágenes de fanart de Kodi)"
 
 #. Help to folder selection
 msgctxt "#30014"
 msgid "Select the folder from which the images will be used"
-msgstr ""
+msgstr "Seleccione la carpeta desde la que se utilizarán las imágenes"
 
 #. Folder selection dialog header
 msgctxt "#30015"
 msgid "Folder from which the images will be used"
-msgstr ""
+msgstr "Carpeta desde la que se utilizarán las imágenes"
 
 #. Slider for texture change intervall in seconds
 msgctxt "#30016"
 msgid "Texture interval (s)"
-msgstr ""
+msgstr "Intervalo de textura (s)"
 
 #. Help to texture interval
 msgctxt "#30017"
 msgid "Seconds to dwell on each texture"
-msgstr ""
+msgstr "Segundos para detenerse en cada textura"
 
 #. Slider for texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30018"
 msgid "Texture fade interval (s)"
-msgstr ""
+msgstr "Intervalo de desvanecimiento de la textura (s)"
 
 #. Help to texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30019"
 msgid "Fade time between subsequent textures, in tenths of second"
-msgstr ""
+msgstr "Tiempo de fundido entre texturas subsiguientes, en décimas de segundo"
 
 #. Spinner to select generated texture size
 msgctxt "#30020"
 msgid "Generated texture size"
-msgstr ""
+msgstr "Tamaño de textura generada"
 
 #. Help to generated texture size
 msgctxt "#30021"
 msgid "Resolution of randomly generated textures, in powers of two"
-msgstr ""
+msgstr "Resolución de las texturas generadas aleatoriamente, en potencias de dos"

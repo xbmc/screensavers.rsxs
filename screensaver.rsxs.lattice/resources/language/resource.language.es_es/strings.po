@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-06-11 11:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2023-01-22 16:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lattice/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.2\n"
+"X-Generator: Weblate 4.15.1\n"
 
 msgctxt "Addon Summary"
 msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr ""
+msgstr "Efectos de atracción/repulsión de partículas y algunas superficies lisas"
 
 msgctxt "Addon Description"
 msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr ""
+msgstr "Mezcle algunos efectos de atracción/repulsión de partículas y algunas superficies implícitas lisas y esto es lo que obtendrá."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,31 +39,31 @@ msgstr ""
 # Advanced
 msgctxt "#30000"
 msgid "Lattice density"
-msgstr ""
+msgstr "Densidad de la trama"
 
 msgctxt "#30001"
 msgid "Lattice depth"
-msgstr ""
+msgstr "Profundidad de la trama"
 
 msgctxt "#30002"
 msgid "Fog"
-msgstr ""
+msgstr "Niebla"
 
 msgctxt "#30003"
 msgid "Latitudinal divisions on each torus"
-msgstr ""
+msgstr "Divisiones latitudinales de cada toroide"
 
 msgctxt "#30004"
 msgid "Longitudinal divisions on each torus"
-msgstr ""
+msgstr "Divisiones longitudinales de cada toroide"
 
 msgctxt "#30005"
 msgid "Torus thinckness"
-msgstr ""
+msgstr "Delgadez del toroide"
 
 msgctxt "#30006"
 msgid "Smooth shading"
-msgstr ""
+msgstr "Sombreado suave"
 
 msgctxt "#30007"
 msgid "Speed"
@@ -71,40 +71,40 @@ msgstr "Velocidad"
 
 msgctxt "#30008"
 msgid "Density"
-msgstr ""
+msgstr "Densidad"
 
 # General
 msgctxt "#30010"
 msgid "Lattice type"
-msgstr ""
+msgstr "Tipo de trama"
 
 msgctxt "#30011"
 msgid "Regular"
-msgstr ""
+msgstr "Regular"
 
 msgctxt "#30012"
 msgid "Chainmail"
-msgstr ""
+msgstr "Cota de malla"
 
 msgctxt "#30013"
 msgid "Brass Mesh"
-msgstr ""
+msgstr "Malla de latón"
 
 msgctxt "#30014"
 msgid "Computer"
-msgstr ""
+msgstr "Ordenador"
 
 msgctxt "#30015"
 msgid "Slick"
-msgstr ""
+msgstr "Resbaladizo"
 
 msgctxt "#30016"
 msgid "Tasty"
-msgstr ""
+msgstr "Sabroso"
 
 msgctxt "#30017"
 msgid "Use Advanced Settings"
-msgstr ""
+msgstr "Utilizar configuración avanzada"
 
 # Setting groups
 msgctxt "#30020"
@@ -118,44 +118,44 @@ msgstr "Avanzado"
 #
 msgctxt "#30030"
 msgid "Texture"
-msgstr ""
+msgstr "Textura"
 
 msgctxt "#30031"
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 msgctxt "#30032"
 msgid "Industrial"
-msgstr ""
+msgstr "Industrial"
 
 msgctxt "#30033"
 msgid "Crystal"
-msgstr ""
+msgstr "Cristal"
 
 msgctxt "#30034"
 msgid "Chrome"
-msgstr ""
+msgstr "Cromo"
 
 msgctxt "#30035"
 msgid "Brass"
-msgstr ""
+msgstr "Latón"
 
 msgctxt "#30036"
 msgid "Shiny"
-msgstr ""
+msgstr "Brillante"
 
 msgctxt "#30037"
 msgid "Ghostly"
-msgstr ""
+msgstr "Fantasmagórico"
 
 msgctxt "#30038"
 msgid "Circuits"
-msgstr ""
+msgstr "Circuitos"
 
 msgctxt "#30039"
 msgid "Donuts"
-msgstr ""
+msgstr "Donuts"
 
 msgctxt "#30040"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Selección automática"

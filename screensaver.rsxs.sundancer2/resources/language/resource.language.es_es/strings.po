@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-06-11 11:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-sundancer2/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.2\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Rotating stack of quads"
-msgstr ""
+msgstr "Pila giratoria de cuadrantes"
 
 msgctxt "Addon Description"
 msgid "Neat rotation effects from rotation and skewing stack of transparent squares."
-msgstr ""
+msgstr "Nítidos efectos de rotación a partir de la rotación y la inclinación de la pila de cuadrados transparentes."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -38,27 +38,27 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 msgctxt "#30001"
 msgid "Automatic"
-msgstr ""
+msgstr "Automático"
 
 msgctxt "#30002"
 msgid "Sun"
-msgstr ""
+msgstr "Sol"
 
 msgctxt "#30003"
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgctxt "#30004"
 msgid "Foreground"
-msgstr ""
+msgstr "Primer plano"
 
 msgctxt "#30005"
 msgid "Background"
-msgstr "Fondo"
+msgstr "Segundo plano"
 
 msgctxt "#30006"
 msgid "Red"
@@ -74,35 +74,35 @@ msgstr "Azul"
 
 msgctxt "#30010"
 msgid "Reverse"
-msgstr ""
+msgstr "Invertir"
 
 msgctxt "#30011"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgctxt "#30012"
 msgid "Off"
-msgstr ""
+msgstr "Apagado"
 
 msgctxt "#30013"
 msgid "On"
-msgstr ""
+msgstr "Encendido"
 
 msgctxt "#30020"
 msgid "Automatic transparency"
-msgstr ""
+msgstr "Transparencia automática"
 
 msgctxt "#30021"
 msgid "Transparency value"
-msgstr ""
+msgstr "Valor de transparencia"
 
 msgctxt "#30022"
 msgid "Number of squares"
-msgstr ""
+msgstr "Número de cuadrados"
 
 msgctxt "#30023"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgctxt "#30024"
 msgid "Speed"
@@ -110,7 +110,7 @@ msgstr "Velocidad"
 
 msgctxt "#30025"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgctxt "#30030"
 msgid "Points"
@@ -118,7 +118,7 @@ msgstr "Puntos"
 
 msgctxt "#30031"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgctxt "#30040"
 msgid "General"
@@ -126,4 +126,4 @@ msgstr "General"
 
 msgctxt "#30041"
 msgid "Colors"
-msgstr ""
+msgstr "Colores"

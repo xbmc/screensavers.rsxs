@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-06-01 21:14+0000\n"
-"Last-Translator: Kai Sommerfeld <kai.sommerfeld@gmx.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-spirographx/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.2\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Animated spirographs"
@@ -23,11 +23,11 @@ msgstr "Animierte Spirographen®"
 
 msgctxt "Addon Description"
 msgid "Port of SpirographX Screensaver."
-msgstr ""
+msgstr "Portierung von SpirographX Bildschirmschoner."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,15 +42,15 @@ msgstr "Allgemein"
 
 msgctxt "#30001"
 msgid "Number of line segments"
-msgstr ""
+msgstr "Anzahl Linienabschnitte"
 
 msgctxt "#30002"
 msgid "Seconds between random settings change"
-msgstr ""
+msgstr "Sekunden zwischen zufälligen Einstellungsänderungen"
 
 msgctxt "#30003"
 msgid "Blur width"
-msgstr ""
+msgstr "Breite der Unschärfe"
 
 msgctxt "#30004"
 msgid "{0:d} pixel"
@@ -58,4 +58,4 @@ msgstr "{0:d} Pixel"
 
 msgctxt "#30005"
 msgid "Fit screen width"
-msgstr ""
+msgstr "Auf Bildschirmbreite anpassen"

@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-12-10 20:48+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-hufotunnel/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Tunnel saver"
-msgstr "Tunnel Bildschirmschoner"
+msgstr "Tunnel-Bildschirmschoner"
 
 msgctxt "Addon Description"
 msgid "From Jeremie Allard:[CR]\"A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website.\""
-msgstr ""
+msgstr "Von Jeremie Allard:[CR]„Eine überarbeitete Version meines ersten OpenGL-Challenge-Beitrags. So etwas wie eine Wiedergeburt :) Nachdem ich zu viele Monate nicht an dieser Challenge teilgenommen hatte, habe ich diesen kleinen Einstieg gemacht, um Otry und BlackOrb für diese tolle neue Website zu danken.“"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,7 +42,7 @@ msgstr "Allgemein"
 
 msgctxt "#30001"
 msgid "Sinusoide"
-msgstr ""
+msgstr "Sinusoid"
 
 msgctxt "#30002"
 msgid "Wireframe"
@@ -50,24 +50,24 @@ msgstr "Drahtgeflecht"
 
 msgctxt "#30003"
 msgid "Texture"
-msgstr ""
+msgstr "Beschaffenheit"
 
 msgctxt "#30004"
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 msgctxt "#30005"
 msgid "Swirl"
-msgstr ""
+msgstr "Wirbel"
 
 msgctxt "#30006"
 msgid "Marble"
-msgstr ""
+msgstr "Marmor"
 
 msgctxt "#30007"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automatische Auswahl"
 
 msgctxt "#30008"
 msgid "Coarseness"
-msgstr ""
+msgstr "Grobkörnigkeit"

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-12-10 20:48+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-fieldlines/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Simulation of the electric field lines between charged particles"
@@ -23,11 +23,11 @@ msgstr "Simulation elektrischer Feldlinien zwischen geladenen Teilchen"
 
 msgctxt "Addon Description"
 msgid "This is a simulation of the electric field lines between charged particles. Physics never looked so good."
-msgstr ""
+msgstr "Dies ist eine Simulation von elektrischen Feldlinien zwischen geladenen Teilchen. Physik sah noch nie so gut aus."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -44,64 +44,64 @@ msgstr "Allgemein"
 
 msgctxt "#30001"
 msgid "Number of ions"
-msgstr ""
+msgstr "Anzahl Ionen"
 
 msgctxt "#30002"
 msgid "Amount of used ions"
-msgstr ""
+msgstr "Menge verbrauchter Ionen"
 
 msgctxt "#30003"
 msgid "Motion speed"
-msgstr ""
+msgstr "Bewegungsgeschwindigkeit"
 
 msgctxt "#30004"
 msgid "Used speed in the presentation"
-msgstr ""
+msgstr "Geschwindigkeit in der Präsentation"
 
 msgctxt "#30005"
 msgid "Length of a line segment"
-msgstr ""
+msgstr "Länge eines Linienabschnitts"
 
 msgctxt "#30006"
 msgid "Step length along lines"
-msgstr ""
+msgstr "Schrittlänge entlang der Linien"
 
 msgctxt "#30007"
 msgid "Max number of steps"
-msgstr ""
+msgstr "Maximale Anzahl von Schritten"
 
 msgctxt "#30008"
 msgid "Maximum number of fieldline segments"
-msgstr ""
+msgstr "Maximale Anzahl von Feldlinienabschnitten"
 
 msgctxt "#30009"
 msgid "Line width"
-msgstr ""
+msgstr "Linienbreite"
 
 msgctxt "#30010"
 msgid "Fieldline width factor"
-msgstr ""
+msgstr "Breitenfaktor für Feldlinien"
 
 msgctxt "#30011"
 msgid "Constant width"
-msgstr ""
+msgstr "Konstante Breite"
 
 msgctxt "#30012"
 msgid "Constant fieldline width"
-msgstr ""
+msgstr "Konstante Feldlinienbreite"
 
 msgctxt "#30013"
 msgid "Electric mode"
-msgstr ""
+msgstr "Elektrischer Modus"
 
 msgctxt "#30014"
 msgid "To select electric rendering"
-msgstr ""
+msgstr "Elektrische Rendering wählen"
 
 msgctxt "#30015"
 msgid "Reduction"
-msgstr ""
+msgstr "Verringerung"
 
 msgctxt "#30016"
 msgid "The reduction of the display on the screen"
-msgstr ""
+msgstr "Die Verringerung der Anzeige auf dem Bildschirm"
