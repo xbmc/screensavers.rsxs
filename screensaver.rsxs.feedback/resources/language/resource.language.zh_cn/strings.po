@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-12-22 05:13+0000\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
 "Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-feedback/zh_cn/>\n"
 "Language: zh_cn\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Stirring colors with a jiggling warp"
-msgstr ""
+msgstr "用抖动的纱线搅动色彩"
 
 msgctxt "Addon Description"
 msgid "Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter."
-msgstr ""
+msgstr "通过反复将突然出现的网格映射到统一的网格来旋转颜色，从循环周长中引入颜色。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -45,42 +45,42 @@ msgstr "常规"
 #. Boolean value selection to render only in grey
 msgctxt "#30001"
 msgid "Grey only"
-msgstr ""
+msgstr "仅灰色"
 
 #. Help about boolean value before
 msgctxt "#30002"
 msgid "Use greyscale instead of hue wheel"
-msgstr ""
+msgstr "使用灰度代替色调轮"
 
 #. Slider to select saturation
 msgctxt "#30003"
 msgid "Saturation"
-msgstr ""
+msgstr "饱和度"
 
 #. Help about saturation selection
 msgctxt "#30004"
 msgid "Set color saturation"
-msgstr ""
+msgstr "设置颜色饱和度"
 
 #. Slider to select lightness
 msgctxt "#30005"
 msgid "Lightness"
-msgstr ""
+msgstr "亮度"
 
 #. Help about tightness selection
 msgctxt "#30006"
 msgid "Set color lightness"
-msgstr ""
+msgstr "设置颜色亮度"
 
 #. Spinner to select period time
 msgctxt "#30007"
 msgid "Period"
-msgstr ""
+msgstr "时期"
 
 #. Help to period time selection
 msgctxt "#30008"
 msgid "Sets color cycling period in seconds"
-msgstr ""
+msgstr "设置颜色循环周期（秒）"
 
 #. Slider to select rendering speed
 msgctxt "#30009"
@@ -90,34 +90,34 @@ msgstr "速度"
 #. Help text on speed selection
 msgctxt "#30010"
 msgid "Sets speed of warping grid wobble"
-msgstr ""
+msgstr "设置扭曲网格摆动的速度"
 
 #. Spinner to select cells amount as integer
 msgctxt "#30011"
 msgid "Cells"
-msgstr ""
+msgstr "单元"
 
 #. Help text for string before with cells
 msgctxt "#30012"
 msgid "Sets height and width of warping grid in powers of 2"
-msgstr ""
+msgstr "以2的幂设置扭曲网格的高度和宽度"
 
 #. Spinner to select testure size as integer
 msgctxt "#30013"
 msgid "Texture size"
-msgstr ""
+msgstr "纹理大小"
 
 #. Help text of texture size selection
 msgctxt "#30014"
 msgid "Sets height and width of warped texture in powers of 2"
-msgstr ""
+msgstr "以2的幂设置扭曲纹理的高度和宽度"
 
 #. Boolean value to enable/disable grid rendering
 msgctxt "#30015"
 msgid "Grid"
-msgstr ""
+msgstr "网格"
 
 #. Help text of boolean before
 msgctxt "#30016"
 msgid "Turns on rendering of the warping grid"
-msgstr ""
+msgstr "启用扭曲网格的渲染"

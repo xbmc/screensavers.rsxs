@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
-"Last-Translator: Alfonso Cachero <alfonso.cachero@gmail.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-matrixview/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "The Matrix Screensaver"
-msgstr ""
+msgstr "Salvapantallas de Matrix"
 
 msgctxt "Addon Description"
 msgid "This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series."
-msgstr ""
+msgstr "Este es un salvapantallas 3D de Matrix basado en las escenas de lluvia digital de The Matrix Reloaded. Cuenta con el texto verde de desplazamiento (o lluvia digital) que se envuelve alrededor de las representaciones en 3D de diferentes personajes de la serie."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,36 +42,36 @@ msgstr "General"
 
 msgctxt "#30001"
 msgid "Color of the falling text"
-msgstr ""
+msgstr "Color del texto que cae"
 
 msgctxt "#30002"
 msgid "Set color of the falling text. Can be `green', `red' or `blue'."
-msgstr ""
+msgstr "Establece el color del texto que cae. Puede ser `verde`, `rojo` o `azul`."
 
 msgctxt "#30003"
 msgid "Red"
-msgstr ""
+msgstr "Rojo"
 
 msgctxt "#30004"
 msgid "Green"
-msgstr ""
+msgstr "Verde"
 
 msgctxt "#30005"
 msgid "Blue"
-msgstr ""
+msgstr "Azul"
 
 msgctxt "#30006"
 msgid "Intensity of the digital rain"
-msgstr ""
+msgstr "Intensidad de la lluvia digital"
 
 msgctxt "#30007"
 msgid "Set the intensity of the digital rain. The default is 1, and is clamped to the range [1,50]. The intensity effects the number of white nodes, the number of random character changes and the general speed of the rain."
-msgstr ""
+msgstr "Establece la intensidad de la lluvia digital. El valor por defecto es 1, y se ajusta al rango [1,50]. La intensidad afecta al número de nodos blancos, al número de cambios de caracteres aleatorios y a la velocidad general de la lluvia."
 
 msgctxt "#30008"
 msgid "Classic (no images)"
-msgstr ""
+msgstr "Clásico (sin imágenes)"
 
 msgctxt "#30009"
 msgid "Enable static mode, which disables the display of 3D images. This mimics the style of the scrolling text from the original film."
-msgstr ""
+msgstr "Activa el modo estático, el cual desactiva la visualización de imágenes 3D. Esto imita el estilo del texto en movimiento de la película original."

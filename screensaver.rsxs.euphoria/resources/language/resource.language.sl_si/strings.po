@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-22 09:30+0000\n"
+"PO-Revision-Date: 2022-04-09 10:14+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Slovenian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/sl_si/>\n"
 "Language: sl_si\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.11.2\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -135,7 +135,7 @@ msgstr ""
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
 msgid "Default"
-msgstr ""
+msgstr "Privzeta"
 
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
@@ -180,7 +180,7 @@ msgstr ""
 #. Slider to select render speed
 msgctxt "#30043"
 msgid "Speed"
-msgstr ""
+msgstr "Hitrost"
 
 #. Slider to select feedback intensity
 msgctxt "#30044"
@@ -200,4 +200,4 @@ msgstr ""
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"
 msgid "Wireframe"
-msgstr ""
+msgstr "Shema"

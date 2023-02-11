@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-11-04 17:49+0000\n"
+"PO-Revision-Date: 2022-07-28 10:14+0000\n"
 "Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-drempels/zh_cn/>\n"
 "Language: zh_cn\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
 msgid "Hallucinatory desktop enhancer"
-msgstr ""
+msgstr "幻觉桌面增强器"
 
 msgctxt "Addon Description"
 msgid "A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver."
-msgstr ""
+msgstr "幻觉桌面增强器 - 以优雅、旋转的图像将您的壁纸带入生活。作为动画墙纸或屏幕保护程序运行良好。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -45,12 +45,12 @@ msgstr "常规"
 #. Spinner to select number blurring
 msgctxt "#30001"
 msgid "Blur"
-msgstr ""
+msgstr "模糊"
 
 #. Help text of number selection for blurring
 msgctxt "#30002"
 msgid "Blurring between frames"
-msgstr ""
+msgstr "帧间模糊"
 
 #. Spinner to select render speed
 msgctxt "#30003"
@@ -60,89 +60,89 @@ msgstr "速度"
 #. Setting help text for select render speed
 msgctxt "#30004"
 msgid "Speed of flow, bigger is faster"
-msgstr ""
+msgstr "流动速度，数越大就越快"
 
 #. Spinner to select scale factor
 msgctxt "#30005"
 msgid "Scale"
-msgstr ""
+msgstr "比例"
 
 #. Help for scale factor selection
 msgctxt "#30006"
 msgid "Scale of flow, bigger is zoomed in"
-msgstr ""
+msgstr "流动的比例，数越大就越放大"
 
 #. Spinner to select number of cells
 msgctxt "#30007"
 msgid "Cells"
-msgstr ""
+msgstr "细胞"
 
 #. Help for number of cells selection
 msgctxt "#30008"
 msgid "Number of cells (i.e. control points) in width/height in powers of two"
-msgstr ""
+msgstr "宽度/高度为二次幂的细胞数（即控制点）"
 
 #. Spinner to select cell resolution
 msgctxt "#30009"
 msgid "Cell Resolution"
-msgstr ""
+msgstr "细胞分辨率"
 
 #. Help for cell resolution selection
 msgctxt "#30010"
 msgid "Resolution of each cell in powers of two.  4 - 8"
-msgstr ""
+msgstr "每个细胞的二次幂分辨率。4 - 8"
 
 #. Boolean value to use images instead
 msgctxt "#30011"
 msgid "Use Images"
-msgstr ""
+msgstr "使用图像"
 
 #. Help for boolean to allow use of images
 msgctxt "#30012"
 msgid "Cycle through the images"
-msgstr ""
+msgstr "循环浏览图像"
 
 #. To open dialog for folder selection of images
 msgctxt "#30013"
 msgid "Images (when empty, Kodi fanart images are used)"
-msgstr ""
+msgstr "图像（为空则使用 Kodi 同人画图像）"
 
 #. Help to folder selection
 msgctxt "#30014"
 msgid "Select the folder from which the images will be used"
-msgstr ""
+msgstr "选择要使用图像的文件夹"
 
 #. Folder selection dialog header
 msgctxt "#30015"
 msgid "Folder from which the images will be used"
-msgstr ""
+msgstr "使用图像的文件夹"
 
 #. Slider for texture change intervall in seconds
 msgctxt "#30016"
 msgid "Texture interval (s)"
-msgstr ""
+msgstr "纹理间隔（秒）"
 
 #. Help to texture interval
 msgctxt "#30017"
 msgid "Seconds to dwell on each texture"
-msgstr ""
+msgstr "停留在每个纹理上的秒数"
 
 #. Slider for texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30018"
 msgid "Texture fade interval (s)"
-msgstr ""
+msgstr "纹理淡入淡出间隔（秒）"
 
 #. Help to texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30019"
 msgid "Fade time between subsequent textures, in tenths of second"
-msgstr ""
+msgstr "后续纹理之间的淡入淡出时间，以十分之一秒为单位"
 
 #. Spinner to select generated texture size
 msgctxt "#30020"
 msgid "Generated texture size"
-msgstr ""
+msgstr "生成的纹理大小"
 
 #. Help to generated texture size
 msgctxt "#30021"
 msgid "Resolution of randomly generated textures, in powers of two"
-msgstr ""
+msgstr "随机生成纹理的分辨率，二的幂"

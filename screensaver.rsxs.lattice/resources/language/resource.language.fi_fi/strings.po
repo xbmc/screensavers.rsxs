@@ -5,28 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-09-03 20:14+0000\n"
+"Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
+"Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lattice/fi_fi/>\n"
 "Language: fi_fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14\n"
 
 msgctxt "Addon Summary"
 msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr ""
+msgstr "Huokutus-/hylkimispartikkelitehosteita ja sileitä epäsuoria pintoja"
 
 msgctxt "Addon Description"
 msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr ""
+msgstr "Kun niputetaan huokutus-/hylkimispartikkelitehosteita ja sileitä epäsuoria pintoja, on tässä tulos."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -46,7 +47,7 @@ msgstr ""
 
 msgctxt "#30002"
 msgid "Fog"
-msgstr ""
+msgstr "Sumu"
 
 msgctxt "#30003"
 msgid "Latitudinal divisions on each torus"
@@ -66,7 +67,7 @@ msgstr ""
 
 msgctxt "#30007"
 msgid "Speed"
-msgstr ""
+msgstr "Nopeus"
 
 msgctxt "#30008"
 msgid "Density"
@@ -79,7 +80,7 @@ msgstr ""
 
 msgctxt "#30011"
 msgid "Regular"
-msgstr ""
+msgstr "Tavallinen"
 
 msgctxt "#30012"
 msgid "Chainmail"
@@ -108,20 +109,20 @@ msgstr ""
 # Setting groups
 msgctxt "#30020"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 msgctxt "#30021"
 msgid "Advanced"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #
 msgctxt "#30030"
 msgid "Texture"
-msgstr ""
+msgstr "Tekstuuri"
 
 msgctxt "#30031"
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 msgctxt "#30032"
 msgid "Industrial"
@@ -157,4 +158,4 @@ msgstr ""
 
 msgctxt "#30040"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automaattinen"

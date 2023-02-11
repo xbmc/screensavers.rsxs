@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-09-28 23:57+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-feedback/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Stirring colors with a jiggling warp"
-msgstr ""
+msgstr "Rührende Farben mit einer wackelnden Verwirbelung"
 
 msgctxt "Addon Description"
 msgid "Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter."
-msgstr ""
+msgstr "Die Farben werden durch wiederholtes Übertragen eines federnden Gitters auf ein gleichmäßiges Gitter verwirbelt, wobei die Farben vom Radumfang eingezogen werden."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,42 +45,42 @@ msgstr "Allgemein"
 #. Boolean value selection to render only in grey
 msgctxt "#30001"
 msgid "Grey only"
-msgstr ""
+msgstr "Nur grau"
 
 #. Help about boolean value before
 msgctxt "#30002"
 msgid "Use greyscale instead of hue wheel"
-msgstr ""
+msgstr "Graustufen anstelle des Farbrades verwenden"
 
 #. Slider to select saturation
 msgctxt "#30003"
 msgid "Saturation"
-msgstr ""
+msgstr "Sättigung"
 
 #. Help about saturation selection
 msgctxt "#30004"
 msgid "Set color saturation"
-msgstr ""
+msgstr "Farbsättigung festlegen"
 
 #. Slider to select lightness
 msgctxt "#30005"
 msgid "Lightness"
-msgstr ""
+msgstr "Helligkeit"
 
 #. Help about tightness selection
 msgctxt "#30006"
 msgid "Set color lightness"
-msgstr ""
+msgstr "Farbhelligkeit festlegen"
 
 #. Spinner to select period time
 msgctxt "#30007"
 msgid "Period"
-msgstr ""
+msgstr "Dauer"
 
 #. Help to period time selection
 msgctxt "#30008"
 msgid "Sets color cycling period in seconds"
-msgstr ""
+msgstr "Legt die Dauer des Farbwechsels in Sekunden fest"
 
 #. Slider to select rendering speed
 msgctxt "#30009"
@@ -90,34 +90,34 @@ msgstr "Geschwindigkeit"
 #. Help text on speed selection
 msgctxt "#30010"
 msgid "Sets speed of warping grid wobble"
-msgstr ""
+msgstr "Legt die Wobbler-Geschwindigkeit des Verformungsgitters fest"
 
 #. Spinner to select cells amount as integer
 msgctxt "#30011"
 msgid "Cells"
-msgstr ""
+msgstr "Zellen"
 
 #. Help text for string before with cells
 msgctxt "#30012"
 msgid "Sets height and width of warping grid in powers of 2"
-msgstr ""
+msgstr "Legt Höhe und Breite des Verformungsgitters in Potenzen von 2 fest"
 
 #. Spinner to select testure size as integer
 msgctxt "#30013"
 msgid "Texture size"
-msgstr ""
+msgstr "Texturgröße"
 
 #. Help text of texture size selection
 msgctxt "#30014"
 msgid "Sets height and width of warped texture in powers of 2"
-msgstr ""
+msgstr "Legt Höhe und Breite der verzerrten Textur in 2er-Potenzen fest"
 
 #. Boolean value to enable/disable grid rendering
 msgctxt "#30015"
 msgid "Grid"
-msgstr ""
+msgstr "Gitter"
 
 #. Help text of boolean before
 msgctxt "#30016"
 msgid "Turns on rendering of the warping grid"
-msgstr ""
+msgstr "Schaltet das Rendering des Verformungsgitters ein"

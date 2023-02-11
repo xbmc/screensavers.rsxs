@@ -5,17 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
-"Last-Translator: Alfonso Cachero <alfonso.cachero@gmail.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-solarwinds/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "A mesmerising particle effects screensaver"
@@ -23,11 +23,11 @@ msgstr "Un salvapatallas con unos efectos de partículas hipnotizantes"
 
 msgctxt "Addon Description"
 msgid "This is a very mesmerizing particle effects saver. Tweak the settings a little and you'll find that you can achieve an amazing number of different animated patterns. You can also connect the particles with lines for a very different effect."
-msgstr "Este es un salvapatallas con unos efectos de partículas hipnotizantes. Descubrirás que puedes obtener un número increíble de patrones diferentes."
+msgstr "Este es un salvapantallas de efectos de partículas muy hipnotizador. Ajusta un poco la configuración y verás que puedes conseguir un número asombroso de patrones animados diferentes. También puedes conectar las partículas con líneas para conseguir un efecto muy diferente."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,88 +42,88 @@ msgstr "General"
 
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 msgctxt "#30010"
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 msgctxt "#30011"
 msgid "Automatic"
-msgstr ""
+msgstr "Automático"
 
 msgctxt "#30012"
 msgid "Regular"
-msgstr ""
+msgstr "Regular"
 
 msgctxt "#30013"
 msgid "Cosmic Strings"
-msgstr ""
+msgstr "Cuerdas cósmicas"
 
 msgctxt "#30014"
 msgid "Cold Pricklies"
-msgstr ""
+msgstr "Puntas frías"
 
 msgctxt "#30015"
 msgid "Space Fur"
-msgstr ""
+msgstr "Piel espacial"
 
 msgctxt "#30016"
 msgid "Jiggly"
-msgstr ""
+msgstr "Meneo"
 
 msgctxt "#30017"
 msgid "Undertow"
-msgstr ""
+msgstr "Resaca"
 
 msgctxt "#30018"
 msgid "Use advanced settings"
-msgstr ""
+msgstr "Utilizar configuración avanzada"
 
 msgctxt "#30020"
 msgid "Number of solar winds"
-msgstr ""
+msgstr "Número de vientos solares"
 
 msgctxt "#30021"
 msgid "Particles per solar wind"
-msgstr ""
+msgstr "Partículas por viento solar"
 
 msgctxt "#30022"
 msgid "Emitters per solar wind"
-msgstr ""
+msgstr "Emisores por viento solar"
 
 msgctxt "#30023"
 msgid "Solar wind speed"
-msgstr ""
+msgstr "Velocidad del viento solar"
 
 msgctxt "#30024"
 msgid "Particle size"
-msgstr ""
+msgstr "Tamaño de partícula"
 
 msgctxt "#30025"
 msgid "Particle geometry"
-msgstr ""
+msgstr "Geometría de la partícula"
 
 msgctxt "#30026"
 msgid "Lights"
-msgstr ""
+msgstr "Luces"
 
 msgctxt "#30027"
 msgid "Points"
-msgstr ""
+msgstr "Puntos"
 
 msgctxt "#30028"
 msgid "Lines"
-msgstr ""
+msgstr "Líneas"
 
 msgctxt "#30029"
 msgid "Particle speed"
-msgstr ""
+msgstr "Velocidad de la partícula"
 
 msgctxt "#30030"
 msgid "Emitter speed"
-msgstr ""
+msgstr "Velocidad del emisor"
 
 msgctxt "#30031"
 msgid "Motion blur"
-msgstr ""
+msgstr "Desenfoque de movimiento"

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-09-28 23:57+0000\n"
-"Last-Translator: matchuek <hansi77@yandex.com>\n"
+"PO-Revision-Date: 2023-02-04 22:15+0000\n"
+"Last-Translator: Demian <Demian@gmx.co.uk>\n"
 "Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-solarwinds/de_de/>\n"
 "Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "A mesmerising particle effects screensaver"
@@ -23,11 +23,11 @@ msgstr "Ein faszinierender Bildschirmschoner mit Partikeleffekten"
 
 msgctxt "Addon Description"
 msgid "This is a very mesmerizing particle effects saver. Tweak the settings a little and you'll find that you can achieve an amazing number of different animated patterns. You can also connect the particles with lines for a very different effect."
-msgstr "Dies ist ein faszinierender Bildschirmschoner mit Partikeleffekten. Du kannst eine verblüffend große Anzahl an verschiedenen Animationen einstellen."
+msgstr "Dies ist ein Bildschirmschoner mit sehr faszinierender Partikeleffekten. Wenn man die Einstellungen ein wenig verändert, kann man eine erstaunliche Anzahl von verschiedenen animierten Mustern erzielen. Die Partikel können auch mit Linien verbunden werden, um einen ganz anderen Effekt zu erzielen."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Diese Implementierung basiert auf dem \"rss-glx\"-Bildschirmschoner"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,88 +42,88 @@ msgstr "Allgemein"
 
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Fortgeschrittene"
 
 msgctxt "#30010"
 msgid "Mode"
-msgstr ""
+msgstr "Modus"
 
 msgctxt "#30011"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatisch"
 
 msgctxt "#30012"
 msgid "Regular"
-msgstr ""
+msgstr "Normal"
 
 msgctxt "#30013"
 msgid "Cosmic Strings"
-msgstr ""
+msgstr "Kosmische Fäden"
 
 msgctxt "#30014"
 msgid "Cold Pricklies"
-msgstr ""
+msgstr "Kalte Stacheln"
 
 msgctxt "#30015"
 msgid "Space Fur"
-msgstr ""
+msgstr "Welraumpelz"
 
 msgctxt "#30016"
 msgid "Jiggly"
-msgstr ""
+msgstr "Zappelig"
 
 msgctxt "#30017"
 msgid "Undertow"
-msgstr ""
+msgstr "Sog"
 
 msgctxt "#30018"
 msgid "Use advanced settings"
-msgstr ""
+msgstr "Erweiterte Einstellungen verwenden"
 
 msgctxt "#30020"
 msgid "Number of solar winds"
-msgstr ""
+msgstr "Anzahl Solarwinde"
 
 msgctxt "#30021"
 msgid "Particles per solar wind"
-msgstr ""
+msgstr "Partikel pro Solarwind"
 
 msgctxt "#30022"
 msgid "Emitters per solar wind"
-msgstr ""
+msgstr "Emittenten pro Solarwind"
 
 msgctxt "#30023"
 msgid "Solar wind speed"
-msgstr ""
+msgstr "Solarwindgeschwindigkeit"
 
 msgctxt "#30024"
 msgid "Particle size"
-msgstr ""
+msgstr "Partielgröße"
 
 msgctxt "#30025"
 msgid "Particle geometry"
-msgstr ""
+msgstr "Partikelgeometrie"
 
 msgctxt "#30026"
 msgid "Lights"
-msgstr ""
+msgstr "Lichter"
 
 msgctxt "#30027"
 msgid "Points"
-msgstr ""
+msgstr "Punkte"
 
 msgctxt "#30028"
 msgid "Lines"
-msgstr ""
+msgstr "Linien"
 
 msgctxt "#30029"
 msgid "Particle speed"
-msgstr ""
+msgstr "Partikelgeschwindigkeit"
 
 msgctxt "#30030"
 msgid "Emitter speed"
-msgstr ""
+msgstr "Geschwindigkeit des Emitters"
 
 msgctxt "#30031"
 msgid "Motion blur"
-msgstr ""
+msgstr "Bewegungsunschärfe"

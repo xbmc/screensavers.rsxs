@@ -5,16 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-01-28 16:15+0000\n"
+"Last-Translator: skypichat <skypichat@hotmail.fr>\n"
+"Language-Team: French (France) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-hufosmoke/fr_fr/>\n"
 "Language: fr_fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Particle smoke effect"
@@ -26,7 +27,7 @@ msgstr ""
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Il s'agit d'une implémentation basée sur l'économiseur d'écran \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,7 +46,7 @@ msgstr ""
 
 msgctxt "#30002"
 msgid "White"
-msgstr ""
+msgstr "Blanc"
 
 msgctxt "#30003"
 msgid "Manual"
@@ -57,20 +58,20 @@ msgstr ""
 
 msgctxt "#30005"
 msgid "Background"
-msgstr ""
+msgstr "Arrière-plan"
 
 msgctxt "#30006"
 msgid "Red"
-msgstr ""
+msgstr "Rouge"
 
 msgctxt "#30007"
 msgid "Green"
-msgstr ""
+msgstr "Vert"
 
 msgctxt "#30008"
 msgid "Blue"
-msgstr ""
+msgstr "Bleu"
 
 msgctxt "#30009"
 msgid "Colors"
-msgstr ""
+msgstr "Couleurs"

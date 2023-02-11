@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-07-01 18:29+0000\n"
-"Last-Translator: Alfonso Cachero <alfonso.cachero@gmail.com>\n"
+"PO-Revision-Date: 2023-01-22 16:15+0000\n"
+"Last-Translator: José Antonio Alvarado <jalvarado0.eses@gmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-fieldlines/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.15.1\n"
 
 msgctxt "Addon Summary"
 msgid "Simulation of the electric field lines between charged particles"
-msgstr ""
+msgstr "Simulación de las líneas de campo eléctrico entre partículas cargadas"
 
 msgctxt "Addon Description"
 msgid "This is a simulation of the electric field lines between charged particles. Physics never looked so good."
-msgstr ""
+msgstr "Esta es una simulación de las líneas de campo eléctrico entre partículas cargadas. La física nunca tuvo tan buen aspecto."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Esta es una implementación basada en el salvapantallas \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -44,64 +44,64 @@ msgstr "General"
 
 msgctxt "#30001"
 msgid "Number of ions"
-msgstr ""
+msgstr "Número de iones"
 
 msgctxt "#30002"
 msgid "Amount of used ions"
-msgstr ""
+msgstr "Cantidad de iones utilizados"
 
 msgctxt "#30003"
 msgid "Motion speed"
-msgstr ""
+msgstr "Velocidad del movimiento"
 
 msgctxt "#30004"
 msgid "Used speed in the presentation"
-msgstr ""
+msgstr "Velocidad utilizada en la presentación"
 
 msgctxt "#30005"
 msgid "Length of a line segment"
-msgstr ""
+msgstr "Longitud de un segmento de línea"
 
 msgctxt "#30006"
 msgid "Step length along lines"
-msgstr ""
+msgstr "Longitud de paso a lo largo de las líneas"
 
 msgctxt "#30007"
 msgid "Max number of steps"
-msgstr ""
+msgstr "Número máximo de pasos"
 
 msgctxt "#30008"
 msgid "Maximum number of fieldline segments"
-msgstr ""
+msgstr "Número máximo de segmentos de línea de campo"
 
 msgctxt "#30009"
 msgid "Line width"
-msgstr ""
+msgstr "Ancho de línea"
 
 msgctxt "#30010"
 msgid "Fieldline width factor"
-msgstr ""
+msgstr "Factor de anchura de línea de campo"
 
 msgctxt "#30011"
 msgid "Constant width"
-msgstr ""
+msgstr "Ancho constante"
 
 msgctxt "#30012"
 msgid "Constant fieldline width"
-msgstr ""
+msgstr "Ancho de línea de campo constante"
 
 msgctxt "#30013"
 msgid "Electric mode"
-msgstr ""
+msgstr "Modo eléctrico"
 
 msgctxt "#30014"
 msgid "To select electric rendering"
-msgstr ""
+msgstr "Para seleccionar el renderizado eléctrico"
 
 msgctxt "#30015"
 msgid "Reduction"
-msgstr ""
+msgstr "Reducción"
 
 msgctxt "#30016"
 msgid "The reduction of the display on the screen"
-msgstr ""
+msgstr "La reducción de la visualización en pantalla"

@@ -5,16 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-02-27 09:14+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: Catalan (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/ca_es/>\n"
 "Language: ca_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11\n"
 
 msgctxt "Addon Summary"
 msgid "Rotating stack of quads"
@@ -64,7 +65,7 @@ msgstr ""
 #. For Setting 30000 used value in selection dialog list
 msgctxt "#30005"
 msgid "Points"
-msgstr ""
+msgstr "Punts"
 
 #. Help text for first setting where type is selected
 msgctxt "#30006"
@@ -114,7 +115,7 @@ msgstr ""
 #. Setting for selection of used points for render
 msgctxt "#30030"
 msgid "Points"
-msgstr ""
+msgstr "Punts"
 
 #. Help text for setting with point amount
 msgctxt "#30031"
@@ -129,4 +130,4 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30040"
 msgid "General"
-msgstr ""
+msgstr "General"
