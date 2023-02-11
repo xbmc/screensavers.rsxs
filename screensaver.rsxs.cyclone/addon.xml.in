@@ -19,19 +19,24 @@
       <screenshot>resources/screenshot-03.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Tornado pauseskærm</summary>
-    <summary lang="de_DE">Tornado Bildschirmschoner</summary>
+    <summary lang="de_DE">Bildschirmschoner Tornado</summary>
     <summary lang="en_GB">Tornado screen saver</summary>
+    <summary lang="es_ES">Salvapantallas Tornado</summary>
     <summary lang="fi_FI">Tornadonäytönsäästäjä</summary>
     <summary lang="it_IT">Salvaschermo Tornado</summary>
     <summary lang="zh_CN">龙卷风屏幕保护程序</summary>
     <description lang="da_DK">Denne pauseskærm laver tornadoer på din skærm.[CR]Blev skrevet til en stormjagende kammerat, men du kan også få den. Tag et kig på hans vejrside, hvis du er interesseret i meteorologi og vildt vejr.</description>
+    <description lang="de_DE">Dieser Bildschirmschoner bringt Tornados auf den Bildschirm. Er wurde für einen Freund, einem Sturmjäger, geschrieben, aber jeder kann ihn haben. Einfach einen Blick auf seine Wetterseite werfen, wenn man an Meteorologie und Unwettern interessiert ist.</description>
     <description lang="en_GB">This screensaver makes tornadoes on your screen.[CR]Was wrote for storm chasing buddy, but you can have it too. Have a look at his weather page if you&apos;re interested in meteorology and severe weather.</description>
+    <description lang="es_ES">Este salvapantallas hace tornados en tu pantalla.[CR]Fue escrito para un amigo cazador de tormentas, pero tú también puedes tenerlo. Echa un vistazo a su página del tiempo si estás interesado en la meteorología y el clima extremo.</description>
     <description lang="fi_FI">Tämä näytönsäästäjä luo tornadoja näytölläsi.[CR]Koodattiin myrskybongarikaverille, mutta sinäkin voit saada sen. Tutustu hänen sääsivuunsa, jos olet kiinnostunut meteorologiasta ja rajuilmoista.</description>
     <description lang="zh_CN">这个屏幕保护程序在你的屏幕上制造龙卷风。[CR]是为风暴追逐爱好者编写的，但你也可以拥有它。如果你对气象学和恶劣天气感兴趣，可以看看他的天气页面。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>

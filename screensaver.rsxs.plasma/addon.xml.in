@@ -26,7 +26,7 @@
     <summary lang="cs_CZ">Pravděpodobně druhý nejdivočejší šetřič obrazovky všech dob</summary>
     <summary lang="cy_GB">Mwy na thebyg yr ail arbedwr sgrin mwyaf seicadelig</summary>
     <summary lang="da_DK">Formodentlig den næst mest psykedeliske pauseskærm nogensinde</summary>
-    <summary lang="de_DE">Wahrscheinlich der zweit-psychodelischste Bildschirmschoner überhaupt</summary>
+    <summary lang="de_DE">Der wahrscheinlich zweitpsychedelischste Bildschirmschoner aller Zeiten</summary>
     <summary lang="el_GR">Πιθανότατα η δεύτερη πιο ψυχεδελική προφύλαξη οθόνης που έγινε ποτέ</summary>
     <summary lang="en_AU">Probably the second most psychedelic screensaver ever</summary>
     <summary lang="en_GB">Probably the second most psychedelic screensaver ever</summary>
@@ -75,7 +75,7 @@
     <description lang="cs_CZ">Pravděpodobně druhý nejdivočejší šetřič obrazovky všech dob. Zkuste si představit všechny ty poletující barvy.</description>
     <description lang="cy_GB">Mwy na thebyg yr ail arbedwr sgrin mwyaf seicadelig sy&apos;n bod. Ceisiwch ddychmygu&apos;r holl liwiau na&apos;n symud o gwmpas.</description>
     <description lang="da_DK">Formodentlig den næst mest psykedeliske pauseskærm, der eksisterer. Forestil dig alle de farver, der bevæger sig omkring.</description>
-    <description lang="de_DE">Wahrscheinlich der zweit-psychodelischste Bildschirmschoner, den es gibt. Versuche doch alle diese Farben, die sich umher bewegen, festzuhalten.</description>
+    <description lang="de_DE">Wahrscheinlich der zweitpsychedelischste Bildschirmschoner, den es gibt. Einfach versuchen, sich all diese Farben vorzustellen, die sich bewegen.</description>
     <description lang="el_GR">Πιθανότατα η δεύτερη πιο ψυχεδελική προφύλαξη οθόνης που υπάρχει. Απλά προσπαθήστε να φανταστείτε όλα αυτά τα χρώματα σε κίνηση.</description>
     <description lang="en_AU">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
     <description lang="en_GB">Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around.</description>
@@ -117,9 +117,11 @@
     <description lang="zh_CN">或许是排名第二的迷幻效果屏幕保护程序。你将看到所有颜色满处乱飞。</description>
     <description lang="zh_TW">可能是現存第二最夢幻的螢幕保護程式。快來嘗試想像一下所有移動中的色彩變化。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
     <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
