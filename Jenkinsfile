@@ -1,1 +1,1 @@
-buildPlugin(version: "Nexus", archive: 'screensaver.rsxs.*')
+buildPlugin(version: "Omega", archive: 'screensaver.rsxs.*')
