@@ -23,23 +23,36 @@
     <summary lang="da_DK">Partikel-kugle</summary>
     <summary lang="de_DE">Teilchenkugeln</summary>
     <summary lang="en_GB">Particle spheres</summary>
+    <summary lang="es_ES">Partículas en forma de esferas</summary>
+    <summary lang="fi_FI">Hiukkaspallot</summary>
     <summary lang="he_IL">כדורי חלקיקים</summary>
+    <summary lang="it_IT">Sfere di particelle</summary>
     <summary lang="ko_KR">입자 구</summary>
     <summary lang="pl_PL">Kule cząsteczek</summary>
     <summary lang="zh_CN">粒子球</summary>
     <description lang="da_DK">Kugler lavet af dansende partikler.</description>
+    <description lang="de_DE">Kugeln aus tanzenden Teilchen.</description>
     <description lang="en_GB">Spheres made of dancing particles.</description>
+    <description lang="es_ES">Esferas formadas por partículas bailarinas.</description>
+    <description lang="fi_FI">Tanssivista hiukkasista koostuvia palloja.</description>
     <description lang="he_IL">כדורים שעשויים מחלקיקים מרקדים.</description>
+    <description lang="it_IT">Sfere fatte di particelle danzanti.</description>
     <description lang="ko_KR">춤추는 입자로 만들어진 구.</description>
     <description lang="pl_PL">Kule zbudowane z tańczących cząsteczek.</description>
     <description lang="zh_CN">由舞动的粒子组成的球体。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

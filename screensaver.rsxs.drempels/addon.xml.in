@@ -22,18 +22,30 @@
       <screenshot>resources/screenshot-06.jpg</screenshot>
     </assets>
     <summary lang="da_DK">Hallucinerende desktopforstærker</summary>
+    <summary lang="de_DE">Halluzinatorischer Desktop-Enhancer</summary>
     <summary lang="en_GB">Hallucinatory desktop enhancer</summary>
+    <summary lang="es_ES">Potenciador de escritorio alucinatorio</summary>
     <summary lang="he_IL">משפר הזיות בשולחן עבודה</summary>
+    <summary lang="zh_CN">幻觉桌面增强器</summary>
     <description lang="da_DK">En hallucinerende desktopforstærker - væk dit tapet til live med yndefulde, hvirvlende billeder. Kører smukt som animeret tapet eller som en pauseskærm.</description>
+    <description lang="de_DE">Ein halluzinatorischer Desktop-Enhancer – erweckt das Hintergrundbild mit anmutigen, wirbelnden Motiven zum Leben. Läuft wunderbar als animierter Bildschirmhintergrund oder als Bildschirmschoner.</description>
     <description lang="en_GB">A hallucinatory desktop enhancer - bring your wallpaper to life with graceful, swirling imagery. Runs beautifully as animated wallpaper, or as a screensaver.</description>
+    <description lang="es_ES">Un alucinante potenciador de escritorio: dé vida a su fondo de pantalla con imágenes elegantes y arremolinadas. Funciona perfectamente como fondo de pantalla animado o como salvapantallas.</description>
     <description lang="he_IL">משפר הזיות בשולחן העבודה - מעורר את רקע המחשב שלך לחיים עם תמונות יפהפהיות מסתובבות. זמין כרקע מונפש או כשומר מסך.</description>
+    <description lang="zh_CN">幻觉桌面增强器 - 以优雅、旋转的图像将您的壁纸带入生活。作为动画墙纸或屏幕保护程序运行良好。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>

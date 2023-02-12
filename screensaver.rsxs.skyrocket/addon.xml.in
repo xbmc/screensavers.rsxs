@@ -22,15 +22,27 @@
     <summary lang="da_DK">Fyrværkeri-show</summary>
     <summary lang="de_DE">Feuerwerk</summary>
     <summary lang="en_GB">Fireworks show</summary>
+    <summary lang="es_ES">Espectáculo pirotécnico</summary>
+    <summary lang="it_IT">Spettacolo pirotecnico</summary>
+    <summary lang="zh_CN">烟花表演</summary>
     <description lang="da_DK">Den mest fuldstændige fyrværkeri screensaver nogensinde. Det har stærkt lys, røgstier, skyer der oplyses af eksplosionerne, lydeffekter og masser af andet eye candy.</description>
+    <description lang="de_DE">Der umfangreichste Feuerwerk-Bildschirmschoner überhaupt. Er hat helle Lichter, Rauchspuren, Wolken, die von den Explosionen beleuchtet werden, Soundeffekte und viele andere Hingucker.</description>
     <description lang="en_GB">The most full-blown fireworks screensaver ever. It has bright lights, smoke trails, clouds that are illuminated by the explosions, sound effects, and plenty of other eye candy.</description>
+    <description lang="es_ES">El salvapantallas de fuegos artificiales más completo que existe. Tiene luces brillantes, estelas de humo, nubes que se iluminan por las explosiones, efectos de sonido, y un montón de otros eye candy.</description>
+    <description lang="zh_CN">有史以来最全面的烟花屏幕保护程序。它有明亮的灯光、烟雾轨迹、被爆炸照亮的云朵、音效和大量其他吸引眼球的东西。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
-    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem &quot;rss-glx&quot;-Bildschirmschoner</disclaimer>
+    <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
+    <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
+    <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
+    <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
 </addon>
