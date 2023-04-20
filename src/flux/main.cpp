@@ -602,7 +602,7 @@ bool CScreensaverFlux::Start()
   m_lumdiff = 1.0f / float(gSettings.dTrail);
 
   // Initialize flux fields
-  m_fluxes = new CFlux[gSettings.dFluxes];
+  m_fluxes.resize(gSettings.dFluxes);
 
   glGenBuffers(1, &m_vertexVBO);
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
@@ -638,9 +638,6 @@ void CScreensaverFlux::Stop()
 #if defined(HAS_GL) || (defined(HAS_GLES) && HAS_GLES == 3)
   glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
 #endif
-
-  // Free memory
-  delete[] m_fluxes;
 }
 
 void CScreensaverFlux::Render()
