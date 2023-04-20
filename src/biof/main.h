@@ -89,6 +89,8 @@ private:
 
   bool m_startOK = false;
 
+  GLuint m_vao = -1;
+
   GLuint m_vboHandle[4] = {0};
 
   int m_pointsQty, m_linesQty;
