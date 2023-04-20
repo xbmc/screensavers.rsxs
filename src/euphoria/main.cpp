@@ -618,8 +618,8 @@ bool CScreensaverEuphoria::Start()
   }
 
   // Initialize wisps
-  m_wisps = new CWisp[g_settings.dWisps];
-  m_backwisps = new CWisp[g_settings.dBackground];
+  m_wisps.resize(g_settings.dWisps);
+  m_backwisps.resize(g_settings.dBackground);
 
   glGenBuffers(1, &m_vertexVBO);
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
@@ -656,10 +656,6 @@ void CScreensaverEuphoria::Stop()
   m_feedbackTex = 0;
   glDeleteTextures(1, &m_texture);
   m_texture = 0;
-
-  // Free memory
-  delete[] m_wisps;
-  delete[] m_backwisps;
 }
 
 void CScreensaverEuphoria::Render()
@@ -694,10 +690,11 @@ void CScreensaverEuphoria::Render()
   int i;
 
   // Update wisps
-  for (i = 0; i < g_settings.dWisps; i++)
-    m_wisps[i].update(frameTime);
-  for (i = 0; i < g_settings.dBackground; i++)
-    m_backwisps[i].update(frameTime);
+  for (auto& wisp : m_wisps)
+    wisp.update(frameTime);
+
+  for (auto& wisp : m_backwisps)
+    wisp.update(frameTime);
 
   // Render feedback and copy to texture if necessary
   if (g_settings.dFeedback)
@@ -750,10 +747,12 @@ void CScreensaverEuphoria::Render()
     m_modelMat = modelMat;
 
     BindTexture(GL_TEXTURE_2D, m_texture);
-    for (i = 0; i < g_settings.dBackground; i++)
-      m_backwisps[i].drawAsBackground(m_modelMat, this);
-    for (i = 0; i < g_settings.dWisps; i++)
-      m_wisps[i].draw(m_modelMat, this);
+
+    for (auto& wisp : m_backwisps)
+      wisp.drawAsBackground(m_modelMat, this);
+
+    for (auto& wisp : m_wisps)
+      wisp.draw(m_modelMat, this);
 
     // readback feedback texture
     glReadBuffer(GL_BACK);

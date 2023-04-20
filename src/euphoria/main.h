@@ -107,8 +107,8 @@ private:
 
   GLuint m_vertexVBO = 0;
 
-  CWisp *m_backwisps;
-  CWisp *m_wisps;
+  std::vector<CWisp> m_backwisps;
+  std::vector<CWisp> m_wisps;
 
   // GL stored variables to pop back during stop
   int m_glUnpackRowLength = 0;
