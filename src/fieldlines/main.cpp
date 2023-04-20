@@ -45,6 +45,8 @@ bool CScreensaverFieldLines::Start()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
 
   // calculate boundaries
@@ -92,6 +94,8 @@ void CScreensaverFieldLines::Stop()
   m_vertexVBO = 0;
 
   delete[] m_packets;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverFieldLines::Render()
@@ -105,6 +109,8 @@ void CScreensaverFieldLines::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   glVertexAttribPointer(m_hPos,  3, GL_FLOAT, 0, sizeof(PackedVertex), BUFFER_OFFSET(offsetof(PackedVertex, x)));
@@ -151,6 +157,10 @@ void CScreensaverFieldLines::Render()
 
   glDisableVertexAttribArray(m_hPos);
   glDisableVertexAttribArray(m_hCol);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverFieldLines::drawfieldline(CIon& ion, float x, float y, float z)
