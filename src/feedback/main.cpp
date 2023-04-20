@@ -111,9 +111,9 @@ bool CScreensaverFeedback::Start()
     delete [] pixels;
   }
 
-  m_displacements = new rsVec[gSettings.cwidth * gSettings.cheight];
-  m_velocities = new rsVec[gSettings.cwidth * gSettings.cheight];
-  m_accelerations = new rsVec[gSettings.cwidth * gSettings.cheight];
+  m_displacements.resize(gSettings.cwidth * gSettings.cheight);
+  m_velocities.resize(gSettings.cwidth * gSettings.cheight);
+  m_accelerations.resize(gSettings.cwidth * gSettings.cheight);
   m_framedTextures = new sLight[gSettings.cwidth * gSettings.cheight * 10];
 
   for (unsigned int hh = 0, ii = 0; hh < gSettings.cheight; ++hh)
@@ -167,9 +167,6 @@ void CScreensaverFeedback::Stop()
   glDeleteTextures(1, &m_texture);
   m_texture = 0;
 
-  delete[] m_displacements;
-  delete[] m_velocities;
-  delete[] m_accelerations;
   delete[] m_framedTextures;
 }
 
