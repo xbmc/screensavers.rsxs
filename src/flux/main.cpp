@@ -203,11 +203,11 @@ class CParticle
 {
 public:
   CParticle();
-  ~CParticle();
+  ~CParticle() = default;
   void update(float *c, CScreensaverFlux* base);
 
 private:
-  float **m_vertices;
+  std::vector<std::array<float, 5>> m_vertices;
   int m_counter;
   float m_offset[3];
 
@@ -227,24 +227,17 @@ CParticle::CParticle()
   gWhichparticle++;
 
   // Initialize memory and set initial positions out of view of the camera
-  m_vertices = new float*[gSettings.dTrail];
-  for (int i = 0; i < gSettings.dTrail; i++){
-    m_vertices[i] = new float[5];  // 0,1,2 = position, 3 = hue, 4 = saturation
-    m_vertices[i][0] = 0.0f;
-    m_vertices[i][1] = 3.0f;
-    m_vertices[i][2] = 0.0f;
-    m_vertices[i][3] = 0.0f;
-    m_vertices[i][4] = 0.0f;
+  m_vertices.resize(gSettings.dTrail);
+  for (auto& vertex : m_vertices)
+  {
+    vertex[0] = 0.0f;
+    vertex[1] = 3.0f;
+    vertex[2] = 0.0f;
+    vertex[3] = 0.0f;
+    vertex[4] = 0.0f;
   }
 
   m_counter = 0;
-}
-
-CParticle::~CParticle()
-{
-  for (int i = 0; i < gSettings.dTrail; i++)
-    delete[] m_vertices[i];
-  delete[] m_vertices;
 }
 
 void CParticle::update(float *c, CScreensaverFlux* base)
