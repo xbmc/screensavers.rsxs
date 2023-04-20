@@ -82,7 +82,7 @@ bool CScreensaverFeedback::Start()
       gSettings.dTexSize = newTexSize;
     }
 
-    uint8_t *pixels = new uint8_t[m_width * m_height * 3];
+    std::vector<uint8_t> pixels(m_width * m_height * 3);
     for (int hh = 0, ii = 0; hh < m_height; ++hh)
     {
       for (int ww = 0; ww < m_width; ++ww)
@@ -106,9 +106,7 @@ bool CScreensaverFeedback::Start()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
-
-    delete [] pixels;
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels.data());
   }
 
   m_displacements.resize(gSettings.cwidth * gSettings.cheight);
