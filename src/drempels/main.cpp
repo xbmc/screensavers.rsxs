@@ -130,7 +130,7 @@ bool CScreensaverDrempels::Start()
   gSettings.dGenTexSize = 256;
   m_textureManager.setTexSize(256, 256);
 
-  m_fadeBuf = new uint32_t[256 * 256];
+  m_fadeBuf.resize(256 * 256);
 
   m_textureManager.setGenTexSize(gSettings.dGenTexSize, gSettings.dGenTexSize);
 
@@ -211,7 +211,6 @@ void CScreensaverDrempels::Stop()
   m_startOK = false;
   m_textureManager.stop();
 
-  delete [] m_fadeBuf;
   delete [] m_cell;
   delete [] m_buf;
 
@@ -311,7 +310,7 @@ void CScreensaverDrempels::Render()
     glDisable (GL_BLEND);
 
     glBindTexture(GL_TEXTURE_2D, m_tex);
-    glReadPixels(0, 0, 256, 256, GL_RGBA, GL_UNSIGNED_BYTE, m_fadeBuf);
+    glReadPixels(0, 0, 256, 256, GL_RGBA, GL_UNSIGNED_BYTE, m_fadeBuf.data());
   }
   else if (!m_fadeComplete)
   {
@@ -602,7 +601,7 @@ void CScreensaverDrempels::Render()
     glBindTexture(GL_TEXTURE_2D, m_tex);
 
     unsigned short *uvbuf = m_buf;
-    uint32_t *texbuf = m_fadeComplete ? m_textureManager.getCurTex() : m_fadeBuf;
+    uint32_t *texbuf = m_fadeComplete ? m_textureManager.getCurTex() : m_fadeBuf.data();
     uint32_t *outbuf = (uint32_t *)m_buf;
     for (unsigned int ii = 0; ii < FXW * FXH; ++ii)
     {
