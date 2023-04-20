@@ -56,7 +56,7 @@ private:
   int m_cellResolution;
 
   bool m_fadeComplete = false;
-  uint32_t *m_fadeBuf = nullptr;
+  std::vector<uint32_t> m_fadeBuf;
 
   float m_animTime = 0;
 
