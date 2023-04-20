@@ -131,6 +131,7 @@ private:
   GLint m_hVertex = -1;
   GLint m_hColor = -1;
 
+  GLuint m_vao = 0;
   GLuint m_vertexVBO = 0;
 
   double m_lastTime;
