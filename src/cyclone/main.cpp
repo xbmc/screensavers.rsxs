@@ -16,6 +16,7 @@
 
 #include "main.h"
 
+#include <vector>
 #include <chrono>
 #include <algorithm>
 #include <glm/glm.hpp>
@@ -114,7 +115,7 @@ public:
   void Update(CScreensaverCyclone* base);
 
 private:
-  sLight* m_curves = nullptr;
+  std::vector<sLight> m_curves;
 };
 
 CCyclone::CCyclone()
@@ -122,7 +123,7 @@ CCyclone::CCyclone()
   int i;
 
   // Initialize position stuff
-  m_curves = new sLight[std::max(gCycloneSettings.dComplexity + 3, 50)];
+  m_curves.resize(std::max(gCycloneSettings.dComplexity + 3, 50));
 
   m_targetxyz = new float*[gCycloneSettings.dComplexity+3];
   m_xyz = new float*[gCycloneSettings.dComplexity+3];
@@ -196,8 +197,6 @@ CCyclone::~CCyclone()
   delete[] m_targetxyz;
   delete[] m_xyz;
   delete[] m_oldxyz;
-
-  delete[] m_curves;
 }
 
 void CCyclone::Update(CScreensaverCyclone* base)
@@ -378,7 +377,7 @@ void CCyclone::Update(CScreensaverCyclone* base)
       m_curves[ptr  ].color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
       m_curves[ptr++].vertex = point;
     }
-    base->DrawEntry(GL_LINE_STRIP, m_curves, ptr);
+    base->DrawEntry(GL_LINE_STRIP, m_curves.data(), ptr);
     ptr = 0;
 
     for (i = 0; i < (gCycloneSettings.dComplexity+3); i++)
@@ -386,7 +385,7 @@ void CCyclone::Update(CScreensaverCyclone* base)
       m_curves[ptr  ].color = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
       m_curves[ptr++].vertex = glm::vec3(m_xyz[i][0], m_xyz[i][1], m_xyz[i][2]);
     }
-    base->DrawEntry(GL_LINE_STRIP, m_curves, ptr);
+    base->DrawEntry(GL_LINE_STRIP, m_curves.data(), ptr);
     base->m_lightingEnabled = 1;
   }
 }
