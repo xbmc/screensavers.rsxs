@@ -211,8 +211,6 @@ void CScreensaverDrempels::Stop()
   m_startOK = false;
   m_textureManager.stop();
 
-  delete [] m_buf;
-
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
@@ -569,8 +567,9 @@ void CScreensaverDrempels::Render()
       CELL(i,j).dsdy = (CELL(i,j+1).s - CELL(i,j).s) / (v_delta*FXH);
     }
 
-    if (m_buf == nullptr)
-      m_buf = new unsigned short [FXW * FXH * 2];
+    m_buf.clear();
+    m_buf.resize(FXW * FXH * 2);
+
     for (unsigned int jj = 0; jj < UVCELLSY - 2; jj += 2)
     {
       for (unsigned int ii = 0; ii < UVCELLSX - 2; ii += 2)
@@ -597,9 +596,9 @@ void CScreensaverDrempels::Render()
     glEnable(GL_BLEND);
     glBindTexture(GL_TEXTURE_2D, m_tex);
 
-    unsigned short *uvbuf = m_buf;
+    unsigned short *uvbuf = m_buf.data();
     uint32_t *texbuf = m_fadeComplete ? m_textureManager.getCurTex() : m_fadeBuf.data();
-    uint32_t *outbuf = (uint32_t *)m_buf;
+    uint32_t *outbuf = (uint32_t *)m_buf.data();
     for (unsigned int ii = 0; ii < FXW * FXH; ++ii)
     {
       const uint16_t u0 = *uvbuf++;
@@ -618,7 +617,7 @@ void CScreensaverDrempels::Render()
       *outbuf++ = rgbLerp(l, r, u0);
     }
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, FXW, FXH, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_buf);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, FXW, FXH, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_buf.data());
 
     DrawQuads(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f - blurAmount));
 

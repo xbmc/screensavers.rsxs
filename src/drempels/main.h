@@ -72,7 +72,7 @@ private:
   double m_lastTexChange = 0;
 
   std::vector<td_cellcornerinfo> m_cell;
-  unsigned short *m_buf = nullptr;
+  std::vector<unsigned short> m_buf;
 
   glm::mat4 m_projMat;
   glm::mat4 m_modelMat;
