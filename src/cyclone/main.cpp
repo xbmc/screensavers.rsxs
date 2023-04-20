@@ -516,13 +516,22 @@ bool CScreensaverCyclone::Start()
   // Initialize cyclones and their particles
   for (i = 0; i < 13; i++)
     m_fact[i] = float(factorial(i));
-  m_cyclones = new CCyclone*[gCycloneSettings.dCyclones];
-  m_particles = new CParticle*[gCycloneSettings.dParticles * gCycloneSettings.dCyclones];
-  for (i = 0; i < gCycloneSettings.dCyclones; i++)
+
+  m_cyclones.resize(gCycloneSettings.dCyclones);
+  m_particles.resize(gCycloneSettings.dParticles * gCycloneSettings.dCyclones);
+
+  auto particles = m_particles.begin();
+
+  for (auto& cyclone : m_cyclones)
   {
-    m_cyclones[i] = new CCyclone;
-    for (j=i*gCycloneSettings.dParticles; j<((i+1)*gCycloneSettings.dParticles); j++)
-      m_particles[j] = new CParticle(m_cyclones[i]);
+    cyclone = std::make_unique<CCyclone>();
+
+    std::for_each(particles, particles + gCycloneSettings.dParticles, [&cyclone](auto& particle)
+    {
+      particle = std::make_unique<CParticle>(cyclone.get());
+    });
+
+    particles += gCycloneSettings.dParticles;
   }
 
   glGenBuffers(1, &m_vertexVBO);
@@ -546,10 +555,6 @@ void CScreensaverCyclone::Stop()
 
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
-
-  // Free memory
-  delete[] m_particles;
-  delete[] m_cyclones;
 }
 
 void CScreensaverCyclone::Render()
