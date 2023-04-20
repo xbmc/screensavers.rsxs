@@ -24,9 +24,6 @@
 #include <gli/gli.hpp>
 #include <bzlib.h>
 
-#define LOAD_TEXTURE(dest, src, compressedSize, size) dest = (unsigned char *)malloc(size); BZ2_bzBuffToBuffDecompress((char *)dest, &size, (char *)src, compressedSize, 0, 0);
-#define FREE_TEXTURE(tex) free(tex);
-
 // Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES
 #ifndef GL_RED
 #define GL_RED GL_LUMINANCE
@@ -72,20 +69,20 @@ bool CScreensaverColorFire::Start()
     {
       case TYPE_SMOKE:
       {
-        LOAD_TEXTURE(l_tex, smokemap, smokemap_compressedsize, smokemap_size);
         gli::texture Texture(gli::TARGET_2D, gli::FORMAT_RGB8_UNORM_PACK8, gli::texture::extent_type(TEXSIZE, TEXSIZE, 1), 1, 1, 1);
-        std::memcpy(Texture.data(), l_tex, Texture.size());
+
+        BZ2_bzBuffToBuffDecompress(reinterpret_cast<char*>(Texture.data()), &smokemap_size, const_cast<char*>(smokemap), smokemap_compressedsize, 0, 0);
+
         m_texture = kodi::gui::gl::Load(Texture);
-        FREE_TEXTURE(l_tex)
         break;
       }
       case TYPE_RIPPLES:
       {
-        LOAD_TEXTURE(l_tex, ripplemap, ripplemap_compressedsize, ripplemap_size);
         gli::texture Texture(gli::TARGET_2D, gli::FORMAT_RGB8_UNORM_PACK8, gli::texture::extent_type(TEXSIZE, TEXSIZE, 1), 1, 1, 1);
-        std::memcpy(Texture.data(), l_tex, Texture.size());
+
+        BZ2_bzBuffToBuffDecompress(reinterpret_cast<char*>(Texture.data()), &ripplemap_size, const_cast<char*>(ripplemap), ripplemap_compressedsize, 0, 0);
+
         m_texture = kodi::gui::gl::Load(Texture);
-        FREE_TEXTURE(l_tex)
         break;
       }
       case TYPE_SMOOTH:
