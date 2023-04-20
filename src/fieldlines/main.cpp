@@ -69,7 +69,7 @@ bool CScreensaverFieldLines::Start()
   m_projMat = glm::mat4(1.0f);
   m_modelMat = glm::scale(glm::mat4(1.0f), glm::vec3(1.0f/m_usedDeep/m_reduction, 1.0f/m_usedDeep/m_reduction, 1.0f/m_usedDeep/m_reduction));
 
-  m_packets = new PackedVertex[m_maxSteps * 4 + 2];
+  m_packets.resize(m_maxSteps * 4 + 2);
 
   m_startOK = true;
   m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -90,8 +90,6 @@ void CScreensaverFieldLines::Stop()
 
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
-
-  delete[] m_packets;
 }
 
 void CScreensaverFieldLines::Render()
