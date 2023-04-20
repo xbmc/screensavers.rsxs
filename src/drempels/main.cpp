@@ -211,7 +211,6 @@ void CScreensaverDrempels::Stop()
   m_startOK = false;
   m_textureManager.stop();
 
-  delete [] m_cell;
   delete [] m_buf;
 
   glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -330,12 +329,10 @@ void CScreensaverDrempels::Render()
     const float scale = 0.45f + 0.1f*sinf(intframe2*0.01f);
     const float rot = m_animTime*gSettings.rotational_speed*6.28f;
 
-    if (m_cell == NULL)
-      m_cell = new td_cellcornerinfo[UVCELLSX * UVCELLSY];
+    m_cell.clear();
+    m_cell.resize(UVCELLSX * UVCELLSY);
 
 #define CELL(i,j) m_cell[((i) * UVCELLSX) + (j)]
-
-    memset(m_cell, 0, sizeof(td_cellcornerinfo)*(UVCELLSX)*(UVCELLSY));
 
     #define NUM_MODES 7
 
