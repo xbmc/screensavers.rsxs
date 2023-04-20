@@ -22,8 +22,6 @@
 #include <rsMath/rsMath.h>
 #include <Rgbhsl/Rgbhsl.h>
 
-#define BUFFER_OFFSET(i) ((char *)nullptr + (i))
-
 namespace
 {
 struct sFeedbackSettings
