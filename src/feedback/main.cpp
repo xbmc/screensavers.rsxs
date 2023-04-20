@@ -114,7 +114,7 @@ bool CScreensaverFeedback::Start()
   m_displacements.resize(gSettings.cwidth * gSettings.cheight);
   m_velocities.resize(gSettings.cwidth * gSettings.cheight);
   m_accelerations.resize(gSettings.cwidth * gSettings.cheight);
-  m_framedTextures = new sLight[gSettings.cwidth * gSettings.cheight * 10];
+  m_framedTextures.resize(gSettings.cwidth * gSettings.cheight * 10);
 
   for (unsigned int hh = 0, ii = 0; hh < gSettings.cheight; ++hh)
   {
@@ -166,8 +166,6 @@ void CScreensaverFeedback::Stop()
   m_indexVBO = 0;
   glDeleteTextures(1, &m_texture);
   m_texture = 0;
-
-  delete[] m_framedTextures;
 }
 
 void CScreensaverFeedback::Render()
@@ -356,7 +354,7 @@ void CScreensaverFeedback::Render()
     }
 
     EnableShader();
-    glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*ptr, m_framedTextures, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*ptr, m_framedTextures.data(), GL_DYNAMIC_DRAW);
     glDrawArrays(GL_LINES, 0, ptr);
     DisableShader();
   }

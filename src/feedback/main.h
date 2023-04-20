@@ -78,7 +78,7 @@ private:
   GLuint m_texture;
 
   sLight m_rotatingColor[4];
-  sLight* m_framedTextures = nullptr;
+  std::vector<sLight> m_framedTextures;
   GLubyte m_rotatingColorIdx[4] = {0, 1, 3, 2};
 
   bool m_textureUsed = false;
