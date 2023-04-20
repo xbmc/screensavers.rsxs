@@ -52,7 +52,7 @@ class TexMgr
     std::string m_dirName;
     DIR* m_imageDir = nullptr;
 
-    std::thread* m_imageThread = nullptr;
+    std::thread m_imageThread;
     std::mutex m_nextTexMutex;
     std::condition_variable m_nextTexCond;
     volatile bool m_exiting = false;

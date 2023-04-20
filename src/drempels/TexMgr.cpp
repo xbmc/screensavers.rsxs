@@ -39,7 +39,6 @@ TexMgr::TexMgr()
 
 TexMgr::~TexMgr()
 {
-  delete m_imageThread;
   delete [] m_curTex;
   delete [] m_nextTex;
 }
@@ -51,7 +50,7 @@ void TexMgr::setImageDir(const std::string& newDirName)
 
 void TexMgr::start()
 {
-  m_imageThread = new std::thread(&TexMgr::imageThreadMain, this);
+  m_imageThread = std::thread(&TexMgr::imageThreadMain, this);
 }
 
 void TexMgr::stop()
@@ -63,7 +62,7 @@ void TexMgr::stop()
     m_nextTexCond.notify_one();
   }
 
-  m_imageThread->join();
+  m_imageThread.join();
 }
 
 bool TexMgr::getNext()
