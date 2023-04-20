@@ -236,7 +236,7 @@ class CBug
 {
 public:
   CBug();
-  ~CBug();
+  ~CBug() = default;
 
   void initTrail();
   void initLeader(int width, int height, int depth);
@@ -276,18 +276,12 @@ private:
   float ydrift;
   float zdrift;
 
-  sLight* m_trailLight = nullptr;
+  std::vector<sLight> m_trailLight;
 };
 
 CBug::CBug()
 {
   hcount = rand();
-}
-
-CBug::~CBug()
-{
-  delete[] m_trailLight;
-
 }
 
 void CBug::initTrail()
@@ -301,7 +295,7 @@ void CBug::initTrail()
   rtrail.resize(gSettings.dTrail);
   gtrail.resize(gSettings.dTrail);
   btrail.resize(gSettings.dTrail);
-  m_trailLight = new sLight[gSettings.dTrail];
+  m_trailLight.resize(gSettings.dTrail);
 
   for (int i = 0; i < gSettings.dTrail; i++)
   {
@@ -691,7 +685,7 @@ void CBug::render(CBug* bugs, CScreensaverFlocks* base)
     }
     base->m_uniformColorUsed = 0;
     base->m_lightingEnabled = 0;
-    base->DrawEntry(GL_LINE_STRIP, m_trailLight, gSettings.dTrail);
+    base->DrawEntry(GL_LINE_STRIP, m_trailLight.data(), gSettings.dTrail);
     base->m_lightingEnabled = gSettings.dGeometry ? 1 : 0;
 
     for (i = 0; i < gSettings.dTrail; i++)
