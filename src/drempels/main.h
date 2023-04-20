@@ -71,7 +71,7 @@ private:
 
   double m_lastTexChange = 0;
 
-  td_cellcornerinfo *m_cell = nullptr;
+  std::vector<td_cellcornerinfo> m_cell;
   unsigned short *m_buf = nullptr;
 
   glm::mat4 m_projMat;
