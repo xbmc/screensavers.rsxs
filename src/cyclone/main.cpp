@@ -16,6 +16,7 @@
 
 #include "main.h"
 
+#include <array>
 #include <vector>
 #include <chrono>
 #include <algorithm>
@@ -97,9 +98,9 @@ int factorial(int x)
 class CCyclone
 {
 public:
-  float **m_targetxyz;
-  float **m_xyz;
-  float **m_oldxyz;
+  std::vector<std::array<float, 3>> m_targetxyz;
+  std::vector<std::array<float, 3>> m_xyz;
+  std::vector<std::array<float, 3>> m_oldxyz;
   float *m_targetWidth;
   float *m_width;
   float *m_oldWidth;
@@ -111,7 +112,7 @@ public:
   float m_hslChange[2];
 
   CCyclone();
-  ~CCyclone();
+  ~CCyclone() = default;
   void Update(CScreensaverCyclone* base);
 
 private:
@@ -125,15 +126,10 @@ CCyclone::CCyclone()
   // Initialize position stuff
   m_curves.resize(std::max(gCycloneSettings.dComplexity + 3, 50));
 
-  m_targetxyz = new float*[gCycloneSettings.dComplexity+3];
-  m_xyz = new float*[gCycloneSettings.dComplexity+3];
-  m_oldxyz = new float*[gCycloneSettings.dComplexity+3];
-  for (i = 0; i < int(gCycloneSettings.dComplexity)+3; i++)
-  {
-    m_targetxyz[i] = new float[3];
-    m_xyz[i] = new float[3];
-    m_oldxyz[i] = new float[3];
-  }
+  m_targetxyz.resize(gCycloneSettings.dComplexity+3);
+  m_xyz.resize(gCycloneSettings.dComplexity+3);
+  m_oldxyz.resize(gCycloneSettings.dComplexity+3);
+
   m_xyz[gCycloneSettings.dComplexity+2][0] = rsRandf(float(WIDTH*2)) - float(WIDTH);
   m_xyz[gCycloneSettings.dComplexity+2][1] = float(HIGHT);
   m_xyz[gCycloneSettings.dComplexity+2][2] = rsRandf(float(WIDTH*2)) - float(WIDTH);
@@ -183,20 +179,6 @@ CCyclone::CCyclone()
   m_targethsl[2] = 1.0f;
   m_hslChange[0] = 0.0f;
   m_hslChange[1] = 10.0f;
-}
-
-CCyclone::~CCyclone()
-{
-  for (int i = 0; i < int(gCycloneSettings.dComplexity) + 3; i++)
-  {
-    delete[] m_targetxyz[i];
-    delete[] m_xyz[i];
-    delete[] m_oldxyz[i];
-  }
-
-  delete[] m_targetxyz;
-  delete[] m_xyz;
-  delete[] m_oldxyz;
 }
 
 void CCyclone::Update(CScreensaverCyclone* base)
