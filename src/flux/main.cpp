@@ -436,11 +436,11 @@ class CFlux
 {
 public:
   CFlux();
-  ~CFlux();
+  ~CFlux() = default;
   void update(CScreensaverFlux* base);
 
 private:
-  CParticle *m_particles;
+  std::vector<CParticle> m_particles;
   int m_randomize;
   float m_c[NUMCONSTS];     // constants
   float m_cv[NUMCONSTS];    // constants' change velocities
@@ -452,7 +452,7 @@ CFlux::CFlux()
 
   gWhichparticle = 0;
 
-  m_particles = new CParticle[gSettings.dParticles];
+  m_particles.resize(gSettings.dParticles);
   m_randomize = 1;
   for (i = 0; i < NUMCONSTS; i++)
   {
@@ -460,11 +460,6 @@ CFlux::CFlux()
     m_cv[i] = rsRandf(0.000005f * float(gSettings.dInstability) * float(gSettings.dInstability))
                     + 0.000001f * float(gSettings.dInstability) * float(gSettings.dInstability);
   }
-}
-
-CFlux::~CFlux()
-{
-  delete[] m_particles;
 }
 
 void CFlux::update(CScreensaverFlux* base)
