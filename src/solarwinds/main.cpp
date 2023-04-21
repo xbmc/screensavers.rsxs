@@ -270,6 +270,8 @@ bool CScreensaverSolarWinds::Start()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, m_vertexVBO);
 
   m_projMat = glm::perspective(glm::radians(90.0f), (float)Width() / (float)Height(), 1.0f, 10000.0f);
@@ -342,9 +344,10 @@ void CScreensaverSolarWinds::Stop()
 {
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, m_vertexVBO);
   memset(m_vertexVBO, 0, sizeof(m_vertexVBO));
+
+  glDeleteVertexArrays(1, &m_vao);
 
   // Free memory
   delete[] m_winds;
@@ -354,6 +357,8 @@ void CScreensaverSolarWinds::Render()
 {
   if (!m_startOK)
     return;
+
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO[0]);
   glVertexAttribPointer(m_hPos, 3, GL_FLOAT, 0, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
@@ -420,6 +425,10 @@ void CScreensaverSolarWinds::Render()
   glDisableVertexAttribArray(m_hPos);
   glDisableVertexAttribArray(m_hCol);
   glDisableVertexAttribArray(m_hCoord);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverSolarWinds::SetDefaults(int type)
