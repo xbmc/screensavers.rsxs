@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-05-19 02:42+0000\n"
+"PO-Revision-Date: 2023-11-08 21:11+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-matrixview/it_it/>\n"
 "Language: it_it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.1\n"
 
 msgctxt "Addon Summary"
 msgid "The Matrix Screensaver"
@@ -23,11 +23,11 @@ msgstr "Il salvaschermo Matrix"
 
 msgctxt "Addon Description"
 msgid "This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series."
-msgstr "Questo è uno screensaver a matrice 3D basato sulle scene di pioggia digitale di The Matrix Reloaded. Presenta il testo a scorrimento verde (o pioggia digitale) che avvolge le rappresentazioni 3D di diversi personaggi della serie."
+msgstr "Questo è un salvaschermo a matrice 3D basato sulle scene di pioggia digitale di The Matrix Reloaded. Presenta il testo a scorrimento verde (o pioggia digitale) che avvolge le rappresentazioni 3D di diversi personaggi della serie."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Questa è un'implementazione basata sullo screensaver \"rss-glx\""
+msgstr "Questa è un'implementazione basata sul salvaschermo \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
