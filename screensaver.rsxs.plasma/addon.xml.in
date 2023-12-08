@@ -59,7 +59,7 @@
     <summary lang="ru_RU">Наверное, вторая из самых психоделических заставок в мире</summary>
     <summary lang="sk_SK">Pravdepodobne druhý najviac hypnotizujúci šetrič obrazovky vôbec</summary>
     <summary lang="sl_SI">Gotovo drugi najbolj psihadelični ohranjevalnik zaslona na svetu</summary>
-    <summary lang="sv_SE">Troligen den näst mest psykedeliska skärmsläckaren någonsin.</summary>
+    <summary lang="sv_SE">Troligen den näst mest psykedeliska skärmsläckaren någonsin</summary>
     <summary lang="ta_IN">இரண்டாவது மாயத்தோற்றம் தரக்கூடிய திரைகாப்பான்</summary>
     <summary lang="tg_TJ">Эҳтимол аст, ки имрӯз дар тамоми ҷаҳон ин пардаи экран ҷои дуюмро мегирад</summary>
     <summary lang="tr_TR">Muhtemelen insanı hayallere sürükleyen en iyi ikinci ekran koruyucu</summary>
@@ -124,7 +124,7 @@
     <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
-    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sul salvaschermo &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>

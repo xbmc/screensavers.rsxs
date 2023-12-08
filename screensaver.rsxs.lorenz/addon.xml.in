@@ -25,7 +25,7 @@
     <summary lang="en_GB">Screensaver visualization of the Lorenz Attractor fractal</summary>
     <summary lang="es_ES">Salvapantallas de visualización del fractal Lorenz Attractor</summary>
     <summary lang="fi_FI">Näytönsäästäjävisualisointi Lorenzin attraktorista</summary>
-    <summary lang="it_IT">Visualizzazione screensaver del frattale Lorenz Attractor</summary>
+    <summary lang="it_IT">Visualizzazione salvaschermo del frattale Lorenz Attractor</summary>
     <summary lang="ko_KR">Lorenz Attractor 프랙탈의 화면 보호기 시각화</summary>
     <summary lang="zh_CN">洛伦兹吸引子分形的可视化屏幕保护程序</summary>
     <description lang="da_DK">Dette er en 3d realtidsvisualisering af Lorenz Attractor.</description>
@@ -44,7 +44,7 @@
     <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
     <disclaimer lang="hr_HR">Ova implementacija temelji se na &quot;rss-glx&quot; čuvaru zaslona</disclaimer>
-    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sullo screensaver &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="it_IT">Questa è un&apos;implementazione basata sul salvaschermo &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
