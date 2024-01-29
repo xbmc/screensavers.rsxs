@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-22 09:29+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2024-01-29 11:13+0000\n"
+"Last-Translator: rimasx <riks_12@hot.ee>\n"
 "Language-Team: Estonian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-cyclone/et_ee/>\n"
 "Language: et_ee\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 5.3\n"
 
 msgctxt "Addon Summary"
 msgid "Tornado screen saver"
-msgstr ""
+msgstr "Tornaado ekraanisäästja"
 
 msgctxt "Addon Description"
 msgid "This screensaver makes tornadoes on your screen.[CR]Was wrote for storm chasing buddy, but you can have it too. Have a look at his weather page if you're interested in meteorology and severe weather."
-msgstr ""
+msgstr "See ekraanisäästja tekitab tornaadosid su ekraanil.[CR]See loodi tormijälgijast sõbra jaoks, kuid ka sina võid seda omada. Kui oled huvitatud meteoroloogiast ja tormiilmast, tutvu tema ilmalehega."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "See on rakendus, mis põhineb \"rss-glx\" ekraanisäästjal"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,47 +39,47 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Üldine"
 
 #. To select amount of rendered Cyclones as number
 msgctxt "#30001"
 msgid "Cyclones"
-msgstr ""
+msgstr "Tsüklonid"
 
 #. Help text for selection of rendered Cyclones
 msgctxt "#30002"
 msgid "Number of cyclones.  1 - 10.  Default: 1"
-msgstr ""
+msgstr "Tsüklonite arv.  1 - 10.  Vaikimisi: 1"
 
 #. Selection of used particles as number
 msgctxt "#30003"
 msgid "Particles"
-msgstr ""
+msgstr "Osakesed"
 
 #. Help text for selection of used particles
 msgctxt "#30004"
 msgid "Particles per cyclone.  1 - 10000.  Default: 400"
-msgstr ""
+msgstr "Osakesi tsükloni kohta.  1 - 10000.  Vaikimisi: 400"
 
 #. Selection of size for particle as number
 msgctxt "#30005"
 msgid "Size"
-msgstr ""
+msgstr "Suurus"
 
 #. Help text for selection of size for particle
 msgctxt "#30006"
 msgid "Particle size.  1 - 100.  Default: 7"
-msgstr ""
+msgstr "Osakese suurus.  1 - 100.  Vaikimisi: 7"
 
 #. Selection of complexity as number
 msgctxt "#30007"
 msgid "Complexity"
-msgstr ""
+msgstr "Keerukus"
 
 #. Help text for selection of complexity
 msgctxt "#30008"
 msgid "Cyclone complexity.  1 - 10.  Default: 3"
-msgstr ""
+msgstr "Tsükloni keerukus.  1 - 10. Vaikimisi: 3"
 
 #. Selection of render speed as number
 msgctxt "#30009"
@@ -89,24 +89,24 @@ msgstr "Kiirus"
 #. Help text for selection of speed
 msgctxt "#30010"
 msgid "Speed.  1 - 100.  Default: 10"
-msgstr ""
+msgstr "Kiirus.  1–100. Vaikimisi: 10"
 
 #. Boolean selection to enable stretch
 msgctxt "#30011"
 msgid "Stretch"
-msgstr ""
+msgstr "Venita"
 
 #. Help text for selection boolean for stretch
 msgctxt "#30012"
 msgid "Stretch.  Default: True"
-msgstr ""
+msgstr "Venita.  Vaikimisi: Jah"
 
 #. Boolean selection to show of curves
 msgctxt "#30013"
 msgid "Show curves"
-msgstr ""
+msgstr "Kuva kaared"
 
 #. Help text for selection boolean for curves
 msgctxt "#30014"
 msgid "Show Curves.  Default: False"
-msgstr ""
+msgstr "Kuva kaared.  Vaikimisi: Ei"

@@ -5,24 +5,25 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-29 11:13+0000\n"
+"Last-Translator: rimasx <riks_12@hot.ee>\n"
+"Language-Team: Estonian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-colorfire/et_ee/>\n"
 "Language: et_ee\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3\n"
 
 msgctxt "Addon Summary"
 msgid "Color-fire-explosion-thing-effect"
-msgstr ""
+msgstr "Värv-tuli-plahvatus-asi-efekt"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "See on rakendus, mis põhineb \"rss-glx\" ekraanisäästjal"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -34,34 +35,34 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Üldine"
 
 #. The setting to select used texture type
 msgctxt "#30001"
 msgid "Texture"
-msgstr ""
+msgstr "Tekstuur"
 
 #. List entry of with 30001 opened selection dialog for auto selection of types below
 msgctxt "#30002"
 msgid "Auto selection"
-msgstr ""
+msgstr "Automaatne valik"
 
 #. List entry of with 30001 opened selection dialog for smoke texture rendering
 msgctxt "#30003"
 msgid "Smoke"
-msgstr ""
+msgstr "Suits"
 
 #. List entry of with 30001 opened selection dialog for ripple texture rendering
 msgctxt "#30004"
 msgid "Ripples"
-msgstr ""
+msgstr "Virvendus"
 
 #. List entry of with 30001 opened selection dialog for smooth rendering
 msgctxt "#30005"
 msgid "Smooth"
-msgstr ""
+msgstr "Sujuv"
 
 #. List entry of with 30001 opened selection dialog to prevent use of textures
 msgctxt "#30006"
 msgid "None"
-msgstr ""
+msgstr "Pole"
