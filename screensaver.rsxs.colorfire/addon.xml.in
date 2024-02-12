@@ -22,6 +22,7 @@
     <summary lang="de_DE">Farbiger-Feuer-Explosion-Dings-Effekt</summary>
     <summary lang="en_GB">Color-fire-explosion-thing-effect</summary>
     <summary lang="es_ES">Color-fuego-explosión-efecto-cosa</summary>
+    <summary lang="et_EE">Värv-tuli-plahvatus-asi-efekt</summary>
     <summary lang="fi_FI">Väri-tuli-räjähdys-juttu-tehoste</summary>
     <summary lang="it_IT">Colore-fuoco-esplosione-effetto-cosa</summary>
     <summary lang="ko_KR">색상-불-폭발-물건 효과</summary>
@@ -30,6 +31,7 @@
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="et_EE">See on rakendus, mis põhineb &quot;rss-glx&quot; ekraanisäästjal</disclaimer>
     <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
     <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>

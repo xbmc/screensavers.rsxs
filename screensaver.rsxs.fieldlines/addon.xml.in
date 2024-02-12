@@ -23,6 +23,7 @@
     <summary lang="de_DE">Simulation elektrischer Feldlinien zwischen geladenen Teilchen</summary>
     <summary lang="en_GB">Simulation of the electric field lines between charged particles</summary>
     <summary lang="es_ES">Simulación de las líneas de campo eléctrico entre partículas cargadas</summary>
+    <summary lang="et_EE">Laetud osakeste vaheliste elektrivälja joonte simuleerimine</summary>
     <summary lang="fr_FR">Simulation de lignes de champ électrique entre particules chargées</summary>
     <summary lang="it_IT">Simulazione delle linee di campo elettrico tra particelle cariche</summary>
     <summary lang="zh_CN">带电粒子间电场线的模拟</summary>
@@ -30,12 +31,14 @@
     <description lang="de_DE">Dies ist eine Simulation von elektrischen Feldlinien zwischen geladenen Teilchen. Physik sah noch nie so gut aus.</description>
     <description lang="en_GB">This is a simulation of the electric field lines between charged particles. Physics never looked so good.</description>
     <description lang="es_ES">Esta es una simulación de las líneas de campo eléctrico entre partículas cargadas. La física nunca tuvo tan buen aspecto.</description>
+    <description lang="et_EE">See on laetud osakeste vaheliste elektrivälja joonte simulatsioon. Füüsika pole kunagi nii hea välja näinud.</description>
     <description lang="fr_FR">Il s&apos;agit d&apos;une simulation de lignes de champ électrique entre les particules chargées. La physique n&apos;a jamais été aussi belle.</description>
     <description lang="zh_CN">这是带电粒子之间电场线的模拟。物理学看起来从来没有这么好。</description>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
     <disclaimer lang="es_ES">Esta es una implementación basada en el salvapantallas &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="et_EE">See on rakendus, mis põhineb &quot;rss-glx&quot; ekraanisäästjal</disclaimer>
     <disclaimer lang="fi_FI">Pohjautuu &quot;rss-glx&quot; -näytönsäästäjään</disclaimer>
     <disclaimer lang="fr_FR">Il s&apos;agit d&apos;une implémentation basée sur l&apos;économiseur d&apos;écran &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="he_IL">יישום שמבוסס על שומר המסך „rss-glx”</disclaimer>
