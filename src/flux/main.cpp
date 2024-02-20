@@ -203,11 +203,11 @@ class CParticle
 {
 public:
   CParticle();
-  ~CParticle();
+  ~CParticle() = default;
   void update(float *c, CScreensaverFlux* base);
 
 private:
-  float **m_vertices;
+  std::vector<std::array<float, 5>> m_vertices;
   int m_counter;
   float m_offset[3];
 
@@ -227,24 +227,17 @@ CParticle::CParticle()
   gWhichparticle++;
 
   // Initialize memory and set initial positions out of view of the camera
-  m_vertices = new float*[gSettings.dTrail];
-  for (int i = 0; i < gSettings.dTrail; i++){
-    m_vertices[i] = new float[5];  // 0,1,2 = position, 3 = hue, 4 = saturation
-    m_vertices[i][0] = 0.0f;
-    m_vertices[i][1] = 3.0f;
-    m_vertices[i][2] = 0.0f;
-    m_vertices[i][3] = 0.0f;
-    m_vertices[i][4] = 0.0f;
+  m_vertices.resize(gSettings.dTrail);
+  for (auto& vertex : m_vertices)
+  {
+    vertex[0] = 0.0f;
+    vertex[1] = 3.0f;
+    vertex[2] = 0.0f;
+    vertex[3] = 0.0f;
+    vertex[4] = 0.0f;
   }
 
   m_counter = 0;
-}
-
-CParticle::~CParticle()
-{
-  for (int i = 0; i < gSettings.dTrail; i++)
-    delete[] m_vertices[i];
-  delete[] m_vertices;
 }
 
 void CParticle::update(float *c, CScreensaverFlux* base)
@@ -443,11 +436,11 @@ class CFlux
 {
 public:
   CFlux();
-  ~CFlux();
+  ~CFlux() = default;
   void update(CScreensaverFlux* base);
 
 private:
-  CParticle *m_particles;
+  std::vector<CParticle> m_particles;
   int m_randomize;
   float m_c[NUMCONSTS];     // constants
   float m_cv[NUMCONSTS];    // constants' change velocities
@@ -459,7 +452,7 @@ CFlux::CFlux()
 
   gWhichparticle = 0;
 
-  m_particles = new CParticle[gSettings.dParticles];
+  m_particles.resize(gSettings.dParticles);
   m_randomize = 1;
   for (i = 0; i < NUMCONSTS; i++)
   {
@@ -467,11 +460,6 @@ CFlux::CFlux()
     m_cv[i] = rsRandf(0.000005f * float(gSettings.dInstability) * float(gSettings.dInstability))
                     + 0.000001f * float(gSettings.dInstability) * float(gSettings.dInstability);
   }
-}
-
-CFlux::~CFlux()
-{
-  delete[] m_particles;
 }
 
 void CFlux::update(CScreensaverFlux* base)
@@ -614,7 +602,7 @@ bool CScreensaverFlux::Start()
   m_lumdiff = 1.0f / float(gSettings.dTrail);
 
   // Initialize flux fields
-  m_fluxes = new CFlux[gSettings.dFluxes];
+  m_fluxes.resize(gSettings.dFluxes);
 
   glGenBuffers(1, &m_vertexVBO);
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
@@ -650,9 +638,6 @@ void CScreensaverFlux::Stop()
 #if defined(HAS_GL) || (defined(HAS_GLES) && HAS_GLES == 3)
   glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
 #endif
-
-  // Free memory
-  delete[] m_fluxes;
 }
 
 void CScreensaverFlux::Render()

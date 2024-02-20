@@ -16,6 +16,8 @@
 
 #include "main.h"
 
+#include <array>
+#include <vector>
 #include <chrono>
 #include <algorithm>
 #include <glm/glm.hpp>
@@ -96,9 +98,9 @@ int factorial(int x)
 class CCyclone
 {
 public:
-  float **m_targetxyz;
-  float **m_xyz;
-  float **m_oldxyz;
+  std::vector<std::array<float, 3>> m_targetxyz;
+  std::vector<std::array<float, 3>> m_xyz;
+  std::vector<std::array<float, 3>> m_oldxyz;
   float *m_targetWidth;
   float *m_width;
   float *m_oldWidth;
@@ -110,11 +112,11 @@ public:
   float m_hslChange[2];
 
   CCyclone();
-  ~CCyclone();
+  ~CCyclone() = default;
   void Update(CScreensaverCyclone* base);
 
 private:
-  sLight* m_curves = nullptr;
+  std::vector<sLight> m_curves;
 };
 
 CCyclone::CCyclone()
@@ -122,17 +124,12 @@ CCyclone::CCyclone()
   int i;
 
   // Initialize position stuff
-  m_curves = new sLight[std::max(gCycloneSettings.dComplexity + 3, 50)];
+  m_curves.resize(std::max(gCycloneSettings.dComplexity + 3, 50));
 
-  m_targetxyz = new float*[gCycloneSettings.dComplexity+3];
-  m_xyz = new float*[gCycloneSettings.dComplexity+3];
-  m_oldxyz = new float*[gCycloneSettings.dComplexity+3];
-  for (i = 0; i < int(gCycloneSettings.dComplexity)+3; i++)
-  {
-    m_targetxyz[i] = new float[3];
-    m_xyz[i] = new float[3];
-    m_oldxyz[i] = new float[3];
-  }
+  m_targetxyz.resize(gCycloneSettings.dComplexity+3);
+  m_xyz.resize(gCycloneSettings.dComplexity+3);
+  m_oldxyz.resize(gCycloneSettings.dComplexity+3);
+
   m_xyz[gCycloneSettings.dComplexity+2][0] = rsRandf(float(WIDTH*2)) - float(WIDTH);
   m_xyz[gCycloneSettings.dComplexity+2][1] = float(HIGHT);
   m_xyz[gCycloneSettings.dComplexity+2][2] = rsRandf(float(WIDTH*2)) - float(WIDTH);
@@ -182,22 +179,6 @@ CCyclone::CCyclone()
   m_targethsl[2] = 1.0f;
   m_hslChange[0] = 0.0f;
   m_hslChange[1] = 10.0f;
-}
-
-CCyclone::~CCyclone()
-{
-  for (int i = 0; i < int(gCycloneSettings.dComplexity) + 3; i++)
-  {
-    delete[] m_targetxyz[i];
-    delete[] m_xyz[i];
-    delete[] m_oldxyz[i];
-  }
-
-  delete[] m_targetxyz;
-  delete[] m_xyz;
-  delete[] m_oldxyz;
-
-  delete[] m_curves;
 }
 
 void CCyclone::Update(CScreensaverCyclone* base)
@@ -378,7 +359,7 @@ void CCyclone::Update(CScreensaverCyclone* base)
       m_curves[ptr  ].color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
       m_curves[ptr++].vertex = point;
     }
-    base->DrawEntry(GL_LINE_STRIP, m_curves, ptr);
+    base->DrawEntry(GL_LINE_STRIP, m_curves.data(), ptr);
     ptr = 0;
 
     for (i = 0; i < (gCycloneSettings.dComplexity+3); i++)
@@ -386,7 +367,7 @@ void CCyclone::Update(CScreensaverCyclone* base)
       m_curves[ptr  ].color = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
       m_curves[ptr++].vertex = glm::vec3(m_xyz[i][0], m_xyz[i][1], m_xyz[i][2]);
     }
-    base->DrawEntry(GL_LINE_STRIP, m_curves, ptr);
+    base->DrawEntry(GL_LINE_STRIP, m_curves.data(), ptr);
     base->m_lightingEnabled = 1;
   }
 }
@@ -535,13 +516,22 @@ bool CScreensaverCyclone::Start()
   // Initialize cyclones and their particles
   for (i = 0; i < 13; i++)
     m_fact[i] = float(factorial(i));
-  m_cyclones = new CCyclone*[gCycloneSettings.dCyclones];
-  m_particles = new CParticle*[gCycloneSettings.dParticles * gCycloneSettings.dCyclones];
-  for (i = 0; i < gCycloneSettings.dCyclones; i++)
+
+  m_cyclones.resize(gCycloneSettings.dCyclones);
+  m_particles.resize(gCycloneSettings.dParticles * gCycloneSettings.dCyclones);
+
+  auto particles = m_particles.begin();
+
+  for (auto& cyclone : m_cyclones)
   {
-    m_cyclones[i] = new CCyclone;
-    for (j=i*gCycloneSettings.dParticles; j<((i+1)*gCycloneSettings.dParticles); j++)
-      m_particles[j] = new CParticle(m_cyclones[i]);
+    cyclone = std::make_unique<CCyclone>();
+
+    std::for_each(particles, particles + gCycloneSettings.dParticles, [&cyclone](auto& particle)
+    {
+      particle = std::make_unique<CParticle>(cyclone.get());
+    });
+
+    particles += gCycloneSettings.dParticles;
   }
 
   glGenBuffers(1, &m_vertexVBO);
@@ -565,10 +555,6 @@ void CScreensaverCyclone::Stop()
 
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
-
-  // Free memory
-  delete[] m_particles;
-  delete[] m_cyclones;
 }
 
 void CScreensaverCyclone::Render()

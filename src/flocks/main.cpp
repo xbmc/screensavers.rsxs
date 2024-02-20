@@ -236,13 +236,13 @@ class CBug
 {
 public:
   CBug();
-  ~CBug();
+  ~CBug() = default;
 
   void initTrail();
   void initLeader(int width, int height, int depth);
   void initFollower(int width, int height, int depth);
   void update(CBug* bugs, float colorFade, float elapsedTime);
-  void render(CBug* bugs, CScreensaverFlocks* base) const;
+  void render(CBug* bugs, CScreensaverFlocks* base);
 
 private:
   int m_width;
@@ -264,19 +264,19 @@ private:
   int skipTrail;
   int trailEndPtr;
 
-  float *xtrail = nullptr;
-  float *ytrail = nullptr;
-  float *ztrail = nullptr;
+  std::vector<float> xtrail;
+  std::vector<float> ytrail;
+  std::vector<float> ztrail;
 
-  float *rtrail = nullptr;
-  float *gtrail = nullptr;
-  float *btrail = nullptr;
+  std::vector<float> rtrail;
+  std::vector<float> gtrail;
+  std::vector<float> btrail;
 
   float xdrift;
   float ydrift;
   float zdrift;
 
-  sLight* m_trailLight = nullptr;
+  std::vector<sLight> m_trailLight;
 };
 
 CBug::CBug()
@@ -284,30 +284,18 @@ CBug::CBug()
   hcount = rand();
 }
 
-CBug::~CBug()
-{
-  delete[] xtrail;
-  delete[] ytrail;
-  delete[] ztrail;
-  delete[] rtrail;
-  delete[] gtrail;
-  delete[] btrail;
-  delete[] m_trailLight;
-
-}
-
 void CBug::initTrail()
 {
   trailEndPtr = 0;
   skipTrail = 0;
 
-  xtrail = new float[gSettings.dTrail];
-  ytrail = new float[gSettings.dTrail];
-  ztrail = new float[gSettings.dTrail];
-  rtrail = new float[gSettings.dTrail];
-  gtrail = new float[gSettings.dTrail];
-  btrail = new float[gSettings.dTrail];
-  m_trailLight = new sLight[gSettings.dTrail];
+  xtrail.resize(gSettings.dTrail);
+  ytrail.resize(gSettings.dTrail);
+  ztrail.resize(gSettings.dTrail);
+  rtrail.resize(gSettings.dTrail);
+  gtrail.resize(gSettings.dTrail);
+  btrail.resize(gSettings.dTrail);
+  m_trailLight.resize(gSettings.dTrail);
 
   for (int i = 0; i < gSettings.dTrail; i++)
   {
@@ -555,7 +543,7 @@ void CBug::update(CBug* bugs, float colorFade, float elapsedTime)
   }
 }
 
-void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
+void CBug::render(CBug* bugs, CScreensaverFlocks* base)
 {
   int i;
   float scale[4] = { 0.0f };
@@ -697,7 +685,7 @@ void CBug::render(CBug* bugs, CScreensaverFlocks* base) const
     }
     base->m_uniformColorUsed = 0;
     base->m_lightingEnabled = 0;
-    base->DrawEntry(GL_LINE_STRIP, m_trailLight, gSettings.dTrail);
+    base->DrawEntry(GL_LINE_STRIP, m_trailLight.data(), gSettings.dTrail);
     base->m_lightingEnabled = gSettings.dGeometry ? 1 : 0;
 
     for (i = 0; i < gSettings.dTrail; i++)

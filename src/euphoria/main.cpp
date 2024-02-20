@@ -285,7 +285,7 @@ class CWisp
 {
 public:
   CWisp();
-  ~CWisp();
+  ~CWisp() = default;
   void update(float frameTime);
   void draw(glm::mat4& modelMat, CScreensaverEuphoria* base);
   void drawAsBackground(glm::mat4& modelMat, CScreensaverEuphoria* base);
@@ -295,7 +295,8 @@ private:
   const float m_viscon1 = float(g_settings.dVisibility) * 0.01f;
   const float m_viscon2 = 1.0f / m_viscon1;
 
-  float ***m_vertices;
+  std::vector<std::vector<std::array<float, 7>>> m_vertices;
+
   float m_c[NUMCONSTS];     // constants
   float m_cr[NUMCONSTS];    // constants' radial position
   float m_cv[NUMCONSTS];    // constants' change velocities
@@ -310,18 +311,17 @@ CWisp::CWisp()
   int i, j;
   float recHalfDens = 1.0f / (float(g_settings.dDensity) * 0.5f);
 
-  m_vertices = new float**[g_settings.dDensity+1];
-  for (i = 0; i <= g_settings.dDensity; i++)
+  m_vertices.resize(g_settings.dDensity+1);
+  for (auto& x : m_vertices)
   {
-    m_vertices[i] = new float*[g_settings.dDensity+1];
-    for (j = 0; j <= g_settings.dDensity; j++)
+    x.resize(g_settings.dDensity+1);
+    for (auto& y : x)
     {
-      m_vertices[i][j] = new float[7];
-      m_vertices[i][j][3] = float(i) * recHalfDens - 1.0f;  // x position on grid
-      m_vertices[i][j][4] = float(j) * recHalfDens - 1.0f;  // y position on grid
+      y[3] = float(i) * recHalfDens - 1.0f;  // x position on grid
+      y[4] = float(j) * recHalfDens - 1.0f;  // y position on grid
       // distance squared from the center
-      m_vertices[i][j][5] = m_vertices[i][j][3] * m_vertices[i][j][3] + m_vertices[i][j][4] * m_vertices[i][j][4];
-      m_vertices[i][j][6] = 0.0f;  // intensity
+      y[5] = y[3] * y[3] + y[4] * y[4];
+      y[6] = 0.0f;  // intensity
     }
   }
 
@@ -339,21 +339,6 @@ CWisp::CWisp()
   m_hsl[2] = 1.0f;
   m_hueSpeed = rsRandf(0.1f) - 0.05f;
   m_saturationSpeed = rsRandf(0.04f) + 0.001f;
-}
-
-CWisp::~CWisp()
-{
-  int i, j;
-
-  for (i = 0; i <= g_settings.dDensity; i++)
-  {
-    for (j = 0; j <= g_settings.dDensity; j++)
-    {
-      delete[] m_vertices[i][j];
-    }
-    delete[] m_vertices[i];
-  }
-  delete[] m_vertices;
 }
 
 void CWisp::update(float frameTime)
@@ -618,8 +603,8 @@ bool CScreensaverEuphoria::Start()
   }
 
   // Initialize wisps
-  m_wisps = new CWisp[g_settings.dWisps];
-  m_backwisps = new CWisp[g_settings.dBackground];
+  m_wisps.resize(g_settings.dWisps);
+  m_backwisps.resize(g_settings.dBackground);
 
   glGenBuffers(1, &m_vertexVBO);
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
@@ -656,10 +641,6 @@ void CScreensaverEuphoria::Stop()
   m_feedbackTex = 0;
   glDeleteTextures(1, &m_texture);
   m_texture = 0;
-
-  // Free memory
-  delete[] m_wisps;
-  delete[] m_backwisps;
 }
 
 void CScreensaverEuphoria::Render()
@@ -694,10 +675,11 @@ void CScreensaverEuphoria::Render()
   int i;
 
   // Update wisps
-  for (i = 0; i < g_settings.dWisps; i++)
-    m_wisps[i].update(frameTime);
-  for (i = 0; i < g_settings.dBackground; i++)
-    m_backwisps[i].update(frameTime);
+  for (auto& wisp : m_wisps)
+    wisp.update(frameTime);
+
+  for (auto& wisp : m_backwisps)
+    wisp.update(frameTime);
 
   // Render feedback and copy to texture if necessary
   if (g_settings.dFeedback)
@@ -750,10 +732,12 @@ void CScreensaverEuphoria::Render()
     m_modelMat = modelMat;
 
     BindTexture(GL_TEXTURE_2D, m_texture);
-    for (i = 0; i < g_settings.dBackground; i++)
-      m_backwisps[i].drawAsBackground(m_modelMat, this);
-    for (i = 0; i < g_settings.dWisps; i++)
-      m_wisps[i].draw(m_modelMat, this);
+
+    for (auto& wisp : m_backwisps)
+      wisp.drawAsBackground(m_modelMat, this);
+
+    for (auto& wisp : m_wisps)
+      wisp.draw(m_modelMat, this);
 
     // readback feedback texture
     glReadBuffer(GL_BACK);

@@ -107,7 +107,7 @@ private:
 
   GLuint m_lightingEnabled = 0;
 
-  CFlux *m_fluxes;
+  std::vector<CFlux> m_fluxes;
 
   std::vector<sLight> m_sphereTriangleFan1;
   std::vector<sLight> m_sphereTriangleFan2;

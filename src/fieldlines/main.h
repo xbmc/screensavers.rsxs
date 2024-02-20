@@ -57,7 +57,7 @@ private:
   double m_lastTime;
   std::vector<CIon> m_ions;
 
-  PackedVertex* m_packets = nullptr;
+  std::vector<PackedVertex> m_packets;
 
   unsigned int m_vertexVBO = 0;
 

@@ -22,8 +22,6 @@
 #include <rsMath/rsMath.h>
 #include <Rgbhsl/Rgbhsl.h>
 
-#define BUFFER_OFFSET(i) ((char *)nullptr + (i))
-
 namespace
 {
 struct sFeedbackSettings
@@ -82,7 +80,7 @@ bool CScreensaverFeedback::Start()
       gSettings.dTexSize = newTexSize;
     }
 
-    uint8_t *pixels = new uint8_t[m_width * m_height * 3];
+    std::vector<uint8_t> pixels(m_width * m_height * 3);
     for (int hh = 0, ii = 0; hh < m_height; ++hh)
     {
       for (int ww = 0; ww < m_width; ++ww)
@@ -106,15 +104,13 @@ bool CScreensaverFeedback::Start()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
-
-    delete [] pixels;
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels.data());
   }
 
-  m_displacements = new rsVec[gSettings.cwidth * gSettings.cheight];
-  m_velocities = new rsVec[gSettings.cwidth * gSettings.cheight];
-  m_accelerations = new rsVec[gSettings.cwidth * gSettings.cheight];
-  m_framedTextures = new sLight[gSettings.cwidth * gSettings.cheight * 10];
+  m_displacements.resize(gSettings.cwidth * gSettings.cheight);
+  m_velocities.resize(gSettings.cwidth * gSettings.cheight);
+  m_accelerations.resize(gSettings.cwidth * gSettings.cheight);
+  m_framedTextures.resize(gSettings.cwidth * gSettings.cheight * 10);
 
   for (unsigned int hh = 0, ii = 0; hh < gSettings.cheight; ++hh)
   {
@@ -166,11 +162,6 @@ void CScreensaverFeedback::Stop()
   m_indexVBO = 0;
   glDeleteTextures(1, &m_texture);
   m_texture = 0;
-
-  delete[] m_displacements;
-  delete[] m_velocities;
-  delete[] m_accelerations;
-  delete[] m_framedTextures;
 }
 
 void CScreensaverFeedback::Render()
@@ -359,7 +350,7 @@ void CScreensaverFeedback::Render()
     }
 
     EnableShader();
-    glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*ptr, m_framedTextures, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(sLight)*ptr, m_framedTextures.data(), GL_DYNAMIC_DRAW);
     glDrawArrays(GL_LINES, 0, ptr);
     DisableShader();
   }

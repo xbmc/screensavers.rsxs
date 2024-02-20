@@ -21,6 +21,9 @@
 #include <kodi/gui/gl/Shader.h>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <memory>
+#include <vector>
+
 struct sLight
 {
   glm::vec3 vertex;
@@ -93,8 +96,8 @@ private:
 
   GLuint m_vertexVBO = 0;
 
-  CCyclone **m_cyclones;
-  CParticle **m_particles;
+  std::vector<std::unique_ptr<CCyclone>> m_cyclones;
+  std::vector<std::unique_ptr<CParticle>> m_particles;
 
   float m_frameTime = 0.0f;
   bool m_startOK = false;
