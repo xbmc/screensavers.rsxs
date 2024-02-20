@@ -85,6 +85,8 @@ private:
 
   bool m_startOK = false;
   int m_startClearCnt = 5;
+
+  GLuint m_vao = 0;
   unsigned int m_vertexVBO[2] = {0};
   CWind *m_winds;
 

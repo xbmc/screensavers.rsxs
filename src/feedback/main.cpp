@@ -132,6 +132,8 @@ bool CScreensaverFeedback::Start()
   // Window initialization
   glViewport(X(), Y(), Width(), Height());
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
 
@@ -171,6 +173,8 @@ void CScreensaverFeedback::Stop()
   delete[] m_velocities;
   delete[] m_accelerations;
   delete[] m_framedTextures;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverFeedback::Render()
@@ -184,6 +188,8 @@ void CScreensaverFeedback::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
   BindTexture(GL_TEXTURE_2D, m_texture);
@@ -433,6 +439,11 @@ void CScreensaverFeedback::Render()
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
   glDisableVertexAttribArray(m_hCoord);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverFeedback::OnCompiledAndLinked()

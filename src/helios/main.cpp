@@ -360,21 +360,11 @@ bool CScreensaverHelios::Start()
       m_spheres[i + gHeliosSettings.dEmitters].setThickness(200.0f * sphereScaleFactor);
   }
 
+  glGenVertexArrays(1, &m_vao);
+  glBindVertexArray(m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
-
-  glVertexAttribPointer(m_hNormal, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, normal)));
-  glEnableVertexAttribArray(m_hNormal);
-
-  glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
-  glEnableVertexAttribArray(m_hVertex);
-
-  glVertexAttribPointer(m_hColor, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, color)));
-  glEnableVertexAttribArray(m_hColor);
-
-  glVertexAttribPointer(m_hCoord, 2, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, coord)));
-  glEnableVertexAttribArray(m_hCoord);
 
   m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
@@ -395,6 +385,8 @@ void CScreensaverHelios::Stop()
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
 
+  glDeleteVertexArrays(1, &m_vao);
+
   // Free memory
   delete[] m_elist;
   delete[] m_alist;
@@ -411,6 +403,8 @@ void CScreensaverHelios::Render()
 {
   if (!m_startOK)
     return;
+
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
@@ -705,6 +699,11 @@ void CScreensaverHelios::Render()
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
   glDisableVertexAttribArray(m_hCoord);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverHelios::OnCompiledAndLinked()

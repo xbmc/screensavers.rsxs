@@ -144,6 +144,8 @@ bool CScreensaverLorenz::Start()
   set_camera();
   glViewport(X(), Y(), Width()-X(), Height()-Y());
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
 
   m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -168,15 +170,18 @@ void CScreensaverLorenz::Stop()
   delete m_satellite_times;
   delete m_satellite_speeds;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverLorenz::Render()
 {
   if (!m_startOK)
     return;
+
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
@@ -214,6 +219,10 @@ void CScreensaverLorenz::Render()
   glDisableVertexAttribArray(m_hNormal);
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverLorenz::OnCompiledAndLinked()

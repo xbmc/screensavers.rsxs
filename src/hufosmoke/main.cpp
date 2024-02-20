@@ -130,8 +130,9 @@ bool CScreensaverHufoSmoke::Start()
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
   glEnable(GL_BLEND);
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   m_tFire = 0.0;
   FireInit();    // initialise fire
@@ -148,9 +149,10 @@ void CScreensaverHufoSmoke::Stop()
 
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   // Kodi defaults
   glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -174,6 +176,8 @@ void CScreensaverHufoSmoke::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
@@ -209,6 +213,10 @@ void CScreensaverHufoSmoke::Render()
 
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverHufoSmoke::FireInit()

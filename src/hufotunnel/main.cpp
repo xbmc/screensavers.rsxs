@@ -163,8 +163,9 @@ bool CScreensaverHufoTunnel::Start()
   m_tVit = 8000.0;
   HoleInit();    // initialise tunnel pos
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   m_uniformColorUsed = 0;
   m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -180,9 +181,10 @@ void CScreensaverHufoTunnel::Stop()
 
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   if (m_texture)
   {
@@ -205,6 +207,8 @@ void CScreensaverHufoTunnel::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glCullFace(GL_FRONT);  // reject fliped faces
   glEnable(GL_CULL_FACE);
   glDisable(GL_DEPTH_TEST);  // no zbuffer
@@ -317,6 +321,10 @@ void CScreensaverHufoTunnel::Render()
   glDisableVertexAttribArray(m_positionLoc);
   glDisableVertexAttribArray(m_colorLoc);
   glDisableVertexAttribArray(m_texCoord0Loc);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 
   glCullFace(GL_BACK);
   glDisable(GL_CULL_FACE);

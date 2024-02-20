@@ -142,6 +142,8 @@ bool CScreensaverColorFire::Start()
   m_light[3].coord = glm::vec2(0.0f, 1.0f);
   m_light[3].vertex = glm::vec3(-1.0f, 1.0f, 0.0f);
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
 
@@ -157,13 +159,14 @@ void CScreensaverColorFire::Stop()
 
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
   glDeleteTextures(1, &m_texture);
   m_texture = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverColorFire::Render()
@@ -177,6 +180,8 @@ void CScreensaverColorFire::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
   glEnable(GL_BLEND);
 
@@ -219,6 +224,11 @@ void CScreensaverColorFire::Render()
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
   glDisableVertexAttribArray(m_hCoord);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 
   glBlendFunc(GL_ONE, GL_ZERO);
   glDisable(GL_BLEND);

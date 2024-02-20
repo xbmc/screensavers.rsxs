@@ -621,8 +621,9 @@ bool CScreensaverEuphoria::Start()
   m_wisps = new CWisp[g_settings.dWisps];
   m_backwisps = new CWisp[g_settings.dBackground];
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   m_feedbackIntensity = float(g_settings.dFeedback) / 101.0f;
   m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -638,9 +639,10 @@ void CScreensaverEuphoria::Stop()
 
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   glViewport(m_viewport.x, m_viewport.y, m_viewport.width, m_viewport.height);
   glDisable(GL_BLEND);
@@ -673,6 +675,8 @@ void CScreensaverEuphoria::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glEnable(GL_BLEND);
   glBlendFunc(GL_ONE, GL_ONE);
 
@@ -788,6 +792,10 @@ void CScreensaverEuphoria::Render()
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
   glDisableVertexAttribArray(m_hCoord);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 
   glDisable(GL_BLEND);
   glBlendFunc(GL_ONE, GL_ZERO);

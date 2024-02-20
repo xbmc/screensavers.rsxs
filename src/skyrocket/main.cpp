@@ -69,8 +69,9 @@ bool CScreensaverSkyRocket::Start()
   if (m_settings.dSound)
     m_soundengine = new CSoundEngine(float(m_settings.dSound) * 0.01f);
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   // Change rocket firing rate
   m_rocketTimer = 0.0f;
@@ -91,9 +92,10 @@ void CScreensaverSkyRocket::Stop()
 {
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   // Kodi defaults
   glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -122,6 +124,8 @@ void CScreensaverSkyRocket::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glDisable(GL_DEPTH_TEST);
   glFrontFace(GL_CCW);
   glEnable(GL_CULL_FACE);
@@ -582,6 +586,10 @@ void CScreensaverSkyRocket::Render()
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
   glDisableVertexAttribArray(m_hCoord);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
   glEnable(GL_BLEND);

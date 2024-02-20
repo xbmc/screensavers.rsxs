@@ -188,10 +188,10 @@ bool CScreensaverDrempels::Start()
   m_quad[3].coord = glm::vec2(1.0f, 0.0f);
   m_quad[3].vertex = glm::vec3(1.0f, 0.0f, 0.0f);
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
 
   RandomizeStartValues();
 
@@ -215,10 +215,8 @@ void CScreensaverDrempels::Stop()
   delete [] m_cell;
   delete [] m_buf;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
   glDeleteTextures(1, &m_tex);
@@ -231,6 +229,8 @@ void CScreensaverDrempels::Stop()
   m_uvtex = 0;
   glDeleteTextures(1, &m_btex);
   m_btex = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverDrempels::Render()
@@ -244,6 +244,8 @@ void CScreensaverDrempels::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
@@ -636,9 +638,15 @@ void CScreensaverDrempels::Render()
     DrawQuads(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
   }
 
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
   glDisableVertexAttribArray(m_hCoord);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 
   glBlendFunc(GL_ONE, GL_ZERO);
 }

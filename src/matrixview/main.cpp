@@ -102,11 +102,11 @@ bool CScreensaverMatrixView::Start()
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   glGenBuffers(1, &m_indexVBO);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
 
   m_startOK = true;
 
@@ -120,13 +120,13 @@ void CScreensaverMatrixView::Stop()
 
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
 
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   glDeleteTextures(1, &m_texture1);
   m_texture1 = 0;
@@ -150,6 +150,7 @@ void CScreensaverMatrixView::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
@@ -184,6 +185,11 @@ void CScreensaverMatrixView::Render()
   glDisableVertexAttribArray(m_positionLoc);
   glDisableVertexAttribArray(m_colorLoc);
   glDisableVertexAttribArray(m_texCoord0Loc);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 /* Draw character #num on the screen. */

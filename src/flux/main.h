@@ -95,6 +95,7 @@ private:
   GLint m_hVertex = -1;
   GLint m_hCoord = -1;
 
+  GLuint m_vao = 0;
   GLuint m_vertexVBO = 0;
 
   glm::mat4 m_modelProjMat;

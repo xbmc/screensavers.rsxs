@@ -34,6 +34,8 @@ bool CScreensaverSpiroGraphX::Start()
   // Initialize pseudorandom number generator
   srand((unsigned)time(nullptr));
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(2, m_vertexVBO);
 
   m_content.blurWidth = kodi::addon::GetSettingInt("general.blurwidth");
@@ -63,6 +65,8 @@ void CScreensaverSpiroGraphX::Stop()
   glDeleteBuffers(2, m_vertexVBO);
   memset(m_vertexVBO, 0, sizeof(m_vertexVBO));
 
+  glDeleteVertexArrays(1, &m_vao);
+
   // Kodi defaults
   glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -90,6 +94,8 @@ void CScreensaverSpiroGraphX::Render()
     GetAll(m_contentOld);
 
   m_modelMat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f));
+
+  glBindVertexArray(m_vao);
 
   EnableShader();
 
@@ -135,6 +141,8 @@ void CScreensaverSpiroGraphX::Render()
   }
 
   m_content.equationBase += m_content.speed * (frameTime / (1.0f / 30.0f));
+
+  glBindVertexArray(0);
 
   glFlush();
 }

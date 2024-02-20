@@ -154,6 +154,7 @@ private:
   GLint m_aCoordLoc = -1;
   GLint m_aColorLoc = -1;
 
+  GLuint m_vao = 0;
   GLuint m_vertexVBO = 0;
 
   double m_lastTime;
