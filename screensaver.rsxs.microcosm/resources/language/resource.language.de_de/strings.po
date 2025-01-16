@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
-msgid "Phantasmagoria of gooey geometric shapes"
-msgstr "Trugbild zähflüssiger geometrischer Formen"
+msgid "About as psychedelic as screensavers get"
+msgstr "So psychedelisch wie ein Bildschirmschoner nur sein kann"
 
 msgctxt "Addon Description"
-msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
-msgstr "Als Trugbild aus klebrigen geometrischen Formen bietet dieser Bildschirmschoner ein spritzendes, sich windendes Spektakel aus 3D-Mustern und leuchtenden Farben auf dem Computerbildschirm. Ein einzelnes zappelndes Dingsbums, wenn man nicht will, dass sich der Computer zu sehr aufheizt oder der Kaleidoskopmodus für den maximalen Effekt."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "In etwa so psychedelisch wie ein Bildschirmschoner nur sein kann. mogumbo dachte, sein Plasma-Bildschirmschoner wäre bereits abstoßend, aber dieser hier ist noch verabscheuenswürdiger. Besser schon mal einen Kotzbeutel suchen, bevor man diesen Bildschirmschoner zu lange anstarrt."
 
 msgctxt "Addon Disclaimer"
-msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
-msgstr "Dies ist eine Implementierung, die auf dem Bildschirmschoner „reallyslickscreensavers“ basiert"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr "Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/

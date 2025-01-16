@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
-msgid "Flying through hyper space"
-msgstr "Flyver gennem hyperrummet"
+msgid "About as psychedelic as screensavers get"
+msgstr "Omtrent så psykedelisk som en pauseskærm kan blive"
 
 msgctxt "Addon Description"
-msgid "Cruise through the far reaches of space really, really fast. Fly between the stars, across oozing cosmic planes, and through endless shimmering tunnels. ...really fast."
-msgstr "Rejs gennem de fjerne dele af rummet virkelig, virkelig hurtigt. Flyv mellem stjernerne, henover kæmpe kosmiske planer og gennem endeløse flimrende tunneler. ... virkelig hurtigt."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Dette er omtrent så psykedelisk som en pauseskærm kan blive. Mogumbo troede hans Plasma-pauseskærm var i toppen af skalaen, men denne er endnu mere kvalmende. Du må hellere finde en papirpose, inden du kigger alt for længe på denne."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

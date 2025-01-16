@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
-msgid "Flux fields and stuff"
-msgstr "Fluxfelder und anderes"
+msgid "About as psychedelic as screensavers get"
+msgstr "So psychedelisch wie ein Bildschirmschoner nur sein kann"
 
 msgctxt "Addon Description"
-msgid "This screensaver rocks. If you know anything about strange attractors, you might recognize the patterns created by this saver."
-msgstr "Dieser Bildschirmschoner ist der Hammer. Falls man etwas über seltsame Anziehungskräfte weiß, erkennt man vielleicht die von diesem Bildschirmschoner erzeugten Muster."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "In etwa so psychedelisch wie ein Bildschirmschoner nur sein kann. mogumbo dachte, sein Plasma-Bildschirmschoner wäre bereits abstoßend, aber dieser hier ist noch verabscheuenswürdiger. Besser schon mal einen Kotzbeutel suchen, bevor man diesen Bildschirmschoner zu lange anstarrt."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

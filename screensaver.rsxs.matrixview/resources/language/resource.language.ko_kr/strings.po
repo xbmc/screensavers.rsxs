@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
-msgid "The Matrix Screensaver"
-msgstr "Matrix 스크린 세이버"
+msgid "About as psychedelic as screensavers get"
+msgstr "싸이키델릭 화면보호기"
 
 msgctxt "Addon Description"
-msgid "This is a 3D matrix screensaver based on the digital rain scenes from The Matrix Reloaded. It features the green scrolling text (or digital rain) that wraps around 3D representations of different characters from the series."
-msgstr "이것은 The Matrix Reloaded의 디지털 비 장면을 기반으로 한 3D 매트릭스 화면 보호기입니다. 그것은 시리즈의 다른 캐릭터의 3D 표현을 감싸는 녹색 스크롤 텍스트(또는 디지털 비)를 특징으로 합니다."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "싸이키델릭한 화면보호기입니다. 거의 토나올 정도의 화면보호기로 오래 쳐다보려면 봉투를 준비하는것이 좋을겁니다."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

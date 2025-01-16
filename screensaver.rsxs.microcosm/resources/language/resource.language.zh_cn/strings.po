@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
-msgid "Phantasmagoria of gooey geometric shapes"
-msgstr "粘性几何形状的幻影"
+msgid "About as psychedelic as screensavers get"
+msgstr "最具迷幻效果的屏幕保护程序"
 
 msgctxt "Addon Description"
-msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
-msgstr "这是一个由粘性几何形状组成的幻影，这个屏幕保护程序将在你的电脑屏幕上为你呈现一个飞溅、扭曲的3D图案和鲜艳色彩的奇观。如果你不想让电脑过热，可以观看一个蠕动的小玩意，或者观看万花筒模式以获得完整效果。"
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "这大概是最具迷幻效果的屏幕保护程序了。mogumbo 以为他的 Plasma 屏保已经是数一数二了，但这个更令人犯晕。如果你要长时间盯视它最好先准备一个晕机袋。"
 
 msgctxt "Addon Disclaimer"
-msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
-msgstr "这是一个基于“reallyslickscreensavers”屏幕保护程序的实现"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr "这是一个基于“rss-glx”屏幕保护程序的实现"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/

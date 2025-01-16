@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.7.2\n"
 
 msgctxt "Addon Summary"
-msgid "Probably the second most psychedelic screensaver ever"
-msgstr "Probablemente el segundo protector de pantalla más psicodélico"
+msgid "About as psychedelic as screensavers get"
+msgstr "Tan psicodélico como cualquier protector de pantalla debería"
 
 msgctxt "Addon Description"
-msgid "Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around."
-msgstr "Probablemente el segundo protector de pantallas más psicodélico. Solo trate de captar todos los colores moviéndose alrededor."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Esto es tan psicodélico como un protector de pantalla debe ser, mogumbo pensó que su protector Plasma estaba en la cima del mundo, pero éste es aún más nauseabundo. Deberías conseguir una bolsa para mareos antes de quedarte observando por mucho tiempo."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

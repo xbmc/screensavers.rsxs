@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
-msgid "Tunnel saver"
-msgstr "隧道屏保"
+msgid "About as psychedelic as screensavers get"
+msgstr "最具迷幻效果的屏幕保护程序"
 
 msgctxt "Addon Description"
-msgid "From Jeremie Allard:[CR]\"A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website.\""
-msgstr "来自 Jeremie Allard：[CR]“我的第一个 OpenGL 挑战条目的重写版本。有点像重生 :) 在经历了太多的一个月没有参与这个挑战之后，我做了这个小条目，只是为了感谢 Otry 和 BlackOrb 创建了这个伟大的新网站。”"
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "这大概是最具迷幻效果的屏幕保护程序了。mogumbo 以为他的 Plasma 屏保已经是数一数二了，但这个更令人犯晕。如果你要长时间盯视它最好先准备一个晕机袋。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

@@ -17,11 +17,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgctxt "Addon Summary"
-msgid "Fireworks show"
-msgstr ""
+msgid "About as psychedelic as screensavers get"
+msgstr "スクリーンセーバーはここまでサイケになれる"
 
 msgctxt "Addon Description"
-msgid "The most full-blown fireworks screensaver ever. It has bright lights, smoke trails, clouds that are illuminated by the explosions, sound effects, and plenty of other eye candy."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
 msgstr ""
 
 msgctxt "Addon Disclaimer"
