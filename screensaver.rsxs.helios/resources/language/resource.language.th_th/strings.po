@@ -17,11 +17,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgctxt "Addon Summary"
-msgid "Attraction/repulsion particle effects and some smooth surfaces"
+msgid "About as psychedelic as screensavers get"
 msgstr ""
 
 msgctxt "Addon Description"
-msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
 msgstr ""
 
 msgctxt "Addon Disclaimer"

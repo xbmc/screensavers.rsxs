@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.11.2\n"
 
 msgctxt "Addon Summary"
-msgid "Probably the second most psychedelic screensaver ever"
-msgstr "இரண்டாவது மாயத்தோற்றம் தரக்கூடிய திரைகாப்பான்"
+msgid "About as psychedelic as screensavers get"
+msgstr "மாயத்தோற்றம் தரக்கூடிய திரைகாப்பான்"
 
 msgctxt "Addon Description"
-msgid "Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around."
-msgstr "ஒருவேளை இரண்டாவது மாயத்தோற்றம் தரக்கூடிய திரைகாப்பான் இதுதான். இப்போது சுற்றி திரியும் வண்ணங்களை பார்க்க முயற்சி செய்துபாரும்."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "மாயத்தோற்றம் தரக்கூடிய திரைகாப்பான் இதுபோல் இல்லை. mogumbo நினைத்தார் பிளாஸ்மா திரைகாப்பன்தான் இப்படி தோற்றம் தரக்கூடியது என்று, ஆனால் இந்த திரைகாப்பன் அதைவிட உகட்டுதலை உண்டாக்கும். எச்சரிக்கை வெகு நேரம் இதை பார்க்கதிர்கள் - தலை சுற்றகூடும்."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

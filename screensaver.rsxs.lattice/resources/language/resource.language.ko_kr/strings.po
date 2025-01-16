@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.11.2\n"
 
 msgctxt "Addon Summary"
-msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr "끌어당김/반발 입자 효과 및 일부 매끄러운 표면"
+msgid "About as psychedelic as screensavers get"
+msgstr "싸이키델릭 화면보호기"
 
 msgctxt "Addon Description"
-msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr "끌어당김/반발 입자 효과와 부드러운 암시적 표면을 함께 던지는 효과를 얻을 수 있습니다."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "싸이키델릭한 화면보호기입니다. 거의 토나올 정도의 화면보호기로 오래 쳐다보려면 봉투를 준비하는것이 좋을겁니다."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

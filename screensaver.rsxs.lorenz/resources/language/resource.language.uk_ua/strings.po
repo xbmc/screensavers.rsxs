@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.12.2\n"
 
 msgctxt "Addon Summary"
-msgid "Screensaver visualization of the Lorenz Attractor fractal"
-msgstr ""
+msgid "About as psychedelic as screensavers get"
+msgstr "Настільки психоделічна наскільки можливо для заставки"
 
 msgctxt "Addon Description"
-msgid "This is a 3d realtime visualization of the Lorenz Attractor."
-msgstr ""
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Сама психоделічна в світі заставка. mogumbo вважав, що ніхто не зможе досягти ефекту його заставки плазми, але від цієї заставки заколисує ще сильніше. Якщо будете дивитися на цю заставку занадто довго, вам дуже скоро знадобиться гігієнічний пакет."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

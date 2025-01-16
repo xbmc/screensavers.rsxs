@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.10.1\n"
 
 msgctxt "Addon Summary"
-msgid "Tunnel saver"
-msgstr "Tunelowy wygaszacz ekranu"
+msgid "About as psychedelic as screensavers get"
+msgstr "Tak psychodeliczny jak tylko się da"
 
 msgctxt "Addon Description"
-msgid "From Jeremie Allard:[CR]\"A rewrited version of my first OpenGL Challenge entry. Something like a rebirth :) After too much month of not participing to this challenge I've done this little entry just to thanks Otry and BlackOrb for this great new website.\""
-msgstr "Od Jeremiego Allarda: [CR]„Przepisana wersja mojego pierwszego zgłoszenia na wyzwanie OpenGL. Coś w rodzaju odrodzenia :) Po zbyt długim miesiącu nieuczestniczenia w tym wyzwaniu zrobiłem to małe zgłoszenie tylko po to, by podziękować Otry i BlackOrb za to wspaniałe nową witrynę internetową.”"
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Tak psychodeliczny wygaszacz jak tylko się da. Lepiej zaopatrz się w worki na chorobę lokomocyjną."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
-msgid "Animated spirographs"
-msgstr ""
+msgid "About as psychedelic as screensavers get"
+msgstr "Le plus psychédélique des économiseurs d'écran"
 
 msgctxt "Addon Description"
-msgid "Port of SpirographX Screensaver."
-msgstr ""
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "C'est le plus psychédélique des économiseurs d'écran. mogumbo pensait que son économiseur de plasma était au sommet de l'échelle, mais celui-ci est encore plus nauséabond. Vous feriez mieux de trouver un de ces sacs contre le mal de l'air avant de regarder celui-ci trop longtemps."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

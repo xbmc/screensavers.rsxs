@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
-msgid "Attraction/repulsion particle effects and some smooth surfaces"
-msgstr "Tiltræknings-/afstødnings-partikeleffekter og nogle glatte overflader"
+msgid "About as psychedelic as screensavers get"
+msgstr "Omtrent så psykedelisk som en pauseskærm kan blive"
 
 msgctxt "Addon Description"
-msgid "Throw together some attraction/repulsion particle effects and some smooth implicit surfaces and this is what you get."
-msgstr "Smid nogle tiltræknings-/afstødnings-partikeleffekter og nogle glatte implicitte overflader sammen, og dette er resultatet."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Dette er omtrent så psykedelisk som en pauseskærm kan blive. Mogumbo troede hans Plasma-pauseskærm var i toppen af skalaen, men denne er endnu mere kvalmende. Du må hellere finde en papirpose, inden du kigger alt for længe på denne."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

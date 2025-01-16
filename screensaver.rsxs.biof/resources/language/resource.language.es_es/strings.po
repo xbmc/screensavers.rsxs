@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 5.5.4\n"
 
 msgctxt "Addon Summary"
-msgid "Rotating stack of quads"
-msgstr "Pila giratoria de cuadrantes"
+msgid "About as psychedelic as screensavers get"
+msgstr "Todo lo psicodélico que puede ser un salvapantallas"
 
 msgctxt "Addon Description"
-msgid "To rotating stack with various types of quads."
-msgstr "Apila de forma rotativa varios tipos de cuadrados."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Esto es lo más psicodélico que puede haber en salvapantallas. Mogumbo pensaba que su protector Plasma estaba en lo más alto de la escala, pero éste es aún más nauseabundo. Será mejor que encuentres una de esas bolsas para el mareo antes de mirar éste durante mucho tiempo."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

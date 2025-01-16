@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
-msgid "Fireworks show"
-msgstr "烟花表演"
+msgid "About as psychedelic as screensavers get"
+msgstr "最具迷幻效果的屏幕保护程序"
 
 msgctxt "Addon Description"
-msgid "The most full-blown fireworks screensaver ever. It has bright lights, smoke trails, clouds that are illuminated by the explosions, sound effects, and plenty of other eye candy."
-msgstr "有史以来最全面的烟花屏幕保护程序。它有明亮的灯光、烟雾轨迹、被爆炸照亮的云朵、音效和大量其他吸引眼球的东西。"
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "这大概是最具迷幻效果的屏幕保护程序了。mogumbo 以为他的 Plasma 屏保已经是数一数二了，但这个更令人犯晕。如果你要长时间盯视它最好先准备一个晕机袋。"
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

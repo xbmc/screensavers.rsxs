@@ -17,11 +17,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 msgctxt "Addon Summary"
-msgid "Simulation of the electric field lines between charged particles"
+msgid "About as psychedelic as screensavers get"
 msgstr ""
 
 msgctxt "Addon Description"
-msgid "This is a simulation of the electric field lines between charged particles. Physics never looked so good."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
 msgstr ""
 
 msgctxt "Addon Disclaimer"

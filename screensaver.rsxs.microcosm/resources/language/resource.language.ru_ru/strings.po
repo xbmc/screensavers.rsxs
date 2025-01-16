@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Weblate 5.4.3\n"
 
 msgctxt "Addon Summary"
-msgid "Phantasmagoria of gooey geometric shapes"
-msgstr ""
+msgid "About as psychedelic as screensavers get"
+msgstr "Самая психоделическая в мире заставка"
 
 msgctxt "Addon Description"
-msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
-msgstr ""
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Самая психоделическая в мире заставка. mogumbo считал, что никто не сможет достичь эффекта его заставки Plasma, но от этой заставки укачивает ещё сильнее. Если будете смотреть на эту заставку слишком долго, вам очень скоро понадобится гигиенический пакет."
 
 msgctxt "Addon Disclaimer"
-msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
-msgstr ""
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr "Эта реализация основана на заставке \"rss-glx\""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/

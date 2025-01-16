@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > 19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? 1 : 2);\n"
 
 msgctxt "Addon Summary"
-msgid "Fireworks show"
-msgstr ""
+msgid "About as psychedelic as screensavers get"
+msgstr "Psihodeline užsklanda nunešanti stoga"
 
 msgctxt "Addon Description"
-msgid "The most full-blown fireworks screensaver ever. It has bright lights, smoke trails, clouds that are illuminated by the explosions, sound effects, and plenty of other eye candy."
-msgstr ""
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Tai stogą nunešanti užsklanda. Mogumbo galvojo, kad jo užsklandą Plasma niekas nepršoks, tačiau ši užsklanda tai kažkas tokio. Ramiai atsisėskite, užtraukite kanapinio, pasiruoškite pampersų ir relaksuokite žiūrėdami šią užsklandą."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

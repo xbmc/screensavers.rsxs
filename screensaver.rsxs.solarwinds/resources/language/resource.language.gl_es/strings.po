@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.11.2\n"
 
 msgctxt "Addon Summary"
-msgid "A mesmerising particle effects screensaver"
-msgstr "Un hipnotizante protector de pantalla con efectos de partículas"
+msgid "About as psychedelic as screensavers get"
+msgstr "Máis ou menos tan psicodélico como o pode ser un protector de pantalla"
 
 msgctxt "Addon Description"
-msgid "This is a very mesmerizing particle effects saver. Tweak the settings a little and you'll find that you can achieve an amazing number of different animated patterns. You can also connect the particles with lines for a very different effect."
-msgstr "Este é un protector de pantalla con efectos de partículas moi hipnotizante. Atopará que pode acadar un incrible número de patróns diferentes."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Este é máis ou menos tan psicodélico como pode selo un protector de pantalla. mogumbo pensou que o seu protector de pantalla Plasma era do mello, pero este é aínda máis mareante. Será mellor que colla unha bolsa contra o mareo antes de quedar pampo mirando para el."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

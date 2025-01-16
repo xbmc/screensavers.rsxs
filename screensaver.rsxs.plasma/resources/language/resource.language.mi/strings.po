@@ -17,11 +17,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 
 msgctxt "Addon Summary"
-msgid "Probably the second most psychedelic screensaver ever"
+msgid "About as psychedelic as screensavers get"
 msgstr ""
 
 msgctxt "Addon Description"
-msgid "Probably the second most psychedelic screensaver in existence. Just try to picture all those colours moving around."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
 msgstr ""
 
 msgctxt "Addon Disclaimer"

@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.8\n"
 
 msgctxt "Addon Summary"
-msgid "Stirring colors with a jiggling warp"
-msgstr ""
+msgid "About as psychedelic as screensavers get"
+msgstr "Máis ou menos tan psicodélico como o pode ser un protector de pantalla"
 
 msgctxt "Addon Description"
-msgid "Colors are swirled by repeatedly mapping a spring loaded grid to a uniform grid, pulling in colors from the cycling perimeter."
-msgstr ""
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Este é máis ou menos tan psicodélico como pode selo un protector de pantalla. mogumbo pensou que o seu protector de pantalla Plasma era do mello, pero este é aínda máis mareante. Será mellor que colla unha bolsa contra o mareo antes de quedar pampo mirando para el."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

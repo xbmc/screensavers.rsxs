@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Weblate 4.11.2\n"
 
 msgctxt "Addon Summary"
-msgid "Rotating stack of quads"
-msgstr ""
+msgid "About as psychedelic as screensavers get"
+msgstr "זהו פחות או יותר שומר המסך הכי פסיכדלי שיש"
 
 msgctxt "Addon Description"
-msgid "Neat rotation effects from rotation and skewing stack of transparent squares."
-msgstr ""
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "זוהי הרמה הגבוהה ביותר של פסיכדליות אליה יכולים להגיע שומרי מסך. mogumbo חשב ששומר מסך הפלזמה שלו הגיע לראש הטבלה אבל זה אפילו יותר מסחרר. מוטב להצטייד במספר שקיות הקאה בטרם בהייה ממושכת בשומר מסך זה."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"

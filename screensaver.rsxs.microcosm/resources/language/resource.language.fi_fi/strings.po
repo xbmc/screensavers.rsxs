@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Weblate 4.13\n"
 
 msgctxt "Addon Summary"
-msgid "Phantasmagoria of gooey geometric shapes"
-msgstr "Tahmaisten geometristen muotojen fantasmagoria"
+msgid "About as psychedelic as screensavers get"
+msgstr "Jotakuinkin psykedeelisin mahdollinen näytönsäästäjä"
 
 msgctxt "Addon Description"
-msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
-msgstr "Tämä näytönsäästäjä on tahmaisten geometristen muotojen fantasmagoria, joka näyttää roiskuvan ja kiemurtelevan 3D-kuvioiden ja eloisien värien spektaakkelin. Katsele vain yksittäistä kiemurtelevaa vempainta, jos et halua tietokoneesi lämpenevän liikaa tai kaleidoskooppitilaa nähdäksesi kaikki tehosteet."
+msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
+msgstr "Tämä on jokseenkin niin psykedeelinen kuin vain näytönsäästäjä voi olla. mogumbo kuvitteli hänen Plasma-näytönäästäjänsä olevan asteikon huipulla, mutta tämä on sitäkin kuvottavampi. Oksennuspussi on suositeltavaa pitää valmiina ennen pitkäaikaista tuijotusta."
 
 msgctxt "Addon Disclaimer"
-msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
-msgstr "Toteutettu \"reallyslickscreensavers\" -näytönsäästäjän pohjalta"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr "Pohjautuu \"rss-glx\" -näytönsäästäjään"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
