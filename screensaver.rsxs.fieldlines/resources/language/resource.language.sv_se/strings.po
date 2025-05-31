@@ -5,20 +5,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-04-07 06:15+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-fieldlines/sv_se/>\n"
 "Language: sv_se\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr "Ungefär så psykedelisk som en skärmsläckare kan bli"
+msgstr "Ungefär så psykedelisk som skärmsläckare kan bli"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
@@ -26,7 +27,7 @@ msgstr "Detta är ungefär så psykedelisk som en skärmsläckare kan bli. mogum
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Detta är en implementering baserad på ”rss-glx” skärmsläckare"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,68 +40,68 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 msgctxt "#30001"
 msgid "Number of ions"
-msgstr ""
+msgstr "Antal joner"
 
 msgctxt "#30002"
 msgid "Amount of used ions"
-msgstr ""
+msgstr "Mängd använda joner"
 
 msgctxt "#30003"
 msgid "Motion speed"
-msgstr ""
+msgstr "Rörelsehastighet"
 
 msgctxt "#30004"
 msgid "Used speed in the presentation"
-msgstr ""
+msgstr "Använd hastighet i presentationen"
 
 msgctxt "#30005"
 msgid "Length of a line segment"
-msgstr ""
+msgstr "Längd på ett linjesegment"
 
 msgctxt "#30006"
 msgid "Step length along lines"
-msgstr ""
+msgstr "Steglängd längs linjer"
 
 msgctxt "#30007"
 msgid "Max number of steps"
-msgstr ""
+msgstr "Max antal steg"
 
 msgctxt "#30008"
 msgid "Maximum number of fieldline segments"
-msgstr ""
+msgstr "Maximalt antal fältlinjesegment"
 
 msgctxt "#30009"
 msgid "Line width"
-msgstr ""
+msgstr "Linjebredd"
 
 msgctxt "#30010"
 msgid "Fieldline width factor"
-msgstr ""
+msgstr "Faktor för fältlinjens bredd"
 
 msgctxt "#30011"
 msgid "Constant width"
-msgstr ""
+msgstr "Konstant bredd"
 
 msgctxt "#30012"
 msgid "Constant fieldline width"
-msgstr ""
+msgstr "Konstant fältlinjebredd"
 
 msgctxt "#30013"
 msgid "Electric mode"
-msgstr ""
+msgstr "Elektriskt läge"
 
 msgctxt "#30014"
 msgid "To select electric rendering"
-msgstr ""
+msgstr "För att välja elektrisk rendering"
 
 msgctxt "#30015"
 msgid "Reduction"
-msgstr ""
+msgstr "Minskning"
 
 msgctxt "#30016"
 msgid "The reduction of the display on the screen"
-msgstr ""
+msgstr "Förminskningen av visningen på skärmen"

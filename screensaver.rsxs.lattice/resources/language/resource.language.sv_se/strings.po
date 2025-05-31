@@ -5,21 +5,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-04-09 10:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2025-04-07 16:56+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lattice/sv_se/>\n"
 "Language: sv_se\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr "Ungefär så psykedelisk som en skärmsläckare kan bli"
+msgstr "Ungefär så psykedelisk som skärmsläckare kan bli"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
@@ -27,7 +27,7 @@ msgstr "Detta är ungefär så psykedelisk som en skärmsläckare kan bli. mogum
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Detta är en implementering baserad på ”rss-glx” skärmsläckare"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -39,31 +39,31 @@ msgstr ""
 # Advanced
 msgctxt "#30000"
 msgid "Lattice density"
-msgstr ""
+msgstr "Gitterdensitet"
 
 msgctxt "#30001"
 msgid "Lattice depth"
-msgstr ""
+msgstr "Gitterdjup"
 
 msgctxt "#30002"
 msgid "Fog"
-msgstr ""
+msgstr "Dimma"
 
 msgctxt "#30003"
 msgid "Latitudinal divisions on each torus"
-msgstr ""
+msgstr "Latitudindelning på varje torus"
 
 msgctxt "#30004"
 msgid "Longitudinal divisions on each torus"
-msgstr ""
+msgstr "Longitudindelning på varje torus"
 
 msgctxt "#30005"
 msgid "Torus thinckness"
-msgstr ""
+msgstr "Torus tjocklek"
 
 msgctxt "#30006"
 msgid "Smooth shading"
-msgstr ""
+msgstr "Mjuk skuggning"
 
 msgctxt "#30007"
 msgid "Speed"
@@ -71,91 +71,91 @@ msgstr "Hastighet"
 
 msgctxt "#30008"
 msgid "Density"
-msgstr ""
+msgstr "Densitet"
 
 # General
 msgctxt "#30010"
 msgid "Lattice type"
-msgstr ""
+msgstr "Typ av gitter"
 
 msgctxt "#30011"
 msgid "Regular"
-msgstr ""
+msgstr "Vanlig"
 
 msgctxt "#30012"
 msgid "Chainmail"
-msgstr ""
+msgstr "Ringbrynja"
 
 msgctxt "#30013"
 msgid "Brass Mesh"
-msgstr ""
+msgstr "Mässingsnät"
 
 msgctxt "#30014"
 msgid "Computer"
-msgstr ""
+msgstr "Dator"
 
 msgctxt "#30015"
 msgid "Slick"
-msgstr ""
+msgstr "Snygg"
 
 msgctxt "#30016"
 msgid "Tasty"
-msgstr ""
+msgstr "Läcker"
 
 msgctxt "#30017"
 msgid "Use Advanced Settings"
-msgstr ""
+msgstr "Använd avancerade inställningar"
 
 # Setting groups
 msgctxt "#30020"
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 msgctxt "#30021"
 msgid "Advanced"
-msgstr ""
+msgstr "Avancerat"
 
 #
 msgctxt "#30030"
 msgid "Texture"
-msgstr ""
+msgstr "Textur"
 
 msgctxt "#30031"
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 msgctxt "#30032"
 msgid "Industrial"
-msgstr ""
+msgstr "Industriell"
 
 msgctxt "#30033"
 msgid "Crystal"
-msgstr ""
+msgstr "Kristall"
 
 msgctxt "#30034"
 msgid "Chrome"
-msgstr ""
+msgstr "Krom"
 
 msgctxt "#30035"
 msgid "Brass"
-msgstr ""
+msgstr "Mässing"
 
 msgctxt "#30036"
 msgid "Shiny"
-msgstr ""
+msgstr "Glänsande"
 
 msgctxt "#30037"
 msgid "Ghostly"
-msgstr ""
+msgstr "Spöklik"
 
 msgctxt "#30038"
 msgid "Circuits"
-msgstr ""
+msgstr "Kretsar"
 
 msgctxt "#30039"
 msgid "Donuts"
-msgstr ""
+msgstr "Munkar"
 
 msgctxt "#30040"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automatiskt val"
