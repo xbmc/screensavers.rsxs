@@ -5,21 +5,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-04-09 10:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2025-04-07 16:56+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lorenz/sv_se/>\n"
 "Language: sv_se\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr "Ungefär så psykedelisk som en skärmsläckare kan bli"
+msgstr "Ungefär så psykedelisk som skärmsläckare kan bli"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
@@ -27,7 +27,7 @@ msgstr "Detta är ungefär så psykedelisk som en skärmsläckare kan bli. mogum
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Detta är en implementering baserad på ”rss-glx” skärmsläckare"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -38,35 +38,35 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 msgctxt "#30001"
 msgid "Points amount"
-msgstr ""
+msgstr "Antal punkter"
 
 msgctxt "#30002"
 msgid "Satellites amount"
-msgstr ""
+msgstr "Antal satelliter"
 
 msgctxt "#30003"
 msgid "Camera speed"
-msgstr ""
+msgstr "Kamerahastighet"
 
 msgctxt "#30004"
 msgid "Camera angle"
-msgstr ""
+msgstr "Kameravinkel"
 
 msgctxt "#30005"
 msgid "Line width"
-msgstr ""
+msgstr "Linjebredd"
 
 msgctxt "#30006"
 msgid "Satellite line width"
-msgstr ""
+msgstr "Linjebredd för satellit"
 
 msgctxt "#30007"
 msgid "Line cutoff"
-msgstr ""
+msgstr "Kapa av linje"
 
 msgctxt "#30008"
 msgid "Speed"
@@ -74,4 +74,4 @@ msgstr "Hastighet"
 
 msgctxt "#30009"
 msgid "{0:d}°"
-msgstr ""
+msgstr "{0:d}°"
