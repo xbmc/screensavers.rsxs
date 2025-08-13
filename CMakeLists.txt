@@ -19,10 +19,10 @@ else()
   add_definitions(${OPENGLES_DEFINITIONS})
 endif()
 
-include_directories(${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
-                    ${PROJECT_SOURCE_DIR}/lib
+include_directories(${PROJECT_SOURCE_DIR}/lib/gli
                     ${PROJECT_SOURCE_DIR}/lib/glm
-                    ${PROJECT_SOURCE_DIR}/lib/gli)
+                    ${PROJECT_SOURCE_DIR}/lib
+                    ${KODI_INCLUDE_DIR}/..) # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
 
 add_subdirectory(lib/kodi/gui/gl)
 add_subdirectory(lib/Implicit)
