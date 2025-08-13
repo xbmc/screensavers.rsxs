@@ -27,7 +27,7 @@ msgstr "Die is omtrent so psigedelies soos sluimerskerm kan kom. mogumbo het ged
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr "Hierdie is 'n implementering gebaseer op \"rss-glx\" skermskut"
+msgstr ""
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
