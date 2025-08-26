@@ -5,17 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-27 09:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2025-08-13 04:36+0000\n"
+"Last-Translator: Heiko Berner <berner.h@gmail.com>\n"
 "Language-Team: Afrikaans (South Africa) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/af_za/>\n"
 "Language: af_za\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 5.12.2\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -27,7 +27,7 @@ msgstr "Die is omtrent so psigedelies soos sluimerskerm kan kom. mogumbo het ged
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Hierdie is 'n implementering gebaseer op \"rss-glx\" skermskut"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -80,17 +80,17 @@ msgstr ""
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30011"
 msgid "Auto"
-msgstr ""
+msgstr "Outo"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30012"
 msgid "Off"
-msgstr ""
+msgstr "Af"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30013"
 msgid "On"
-msgstr ""
+msgstr "Aan"
 
 #. Help text for second setting where off angle is selected
 msgctxt "#30014"
@@ -110,7 +110,7 @@ msgstr ""
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30022"
 msgid "Auto"
-msgstr ""
+msgstr "Outo"
 
 #. Setting for selection of used points for render
 msgctxt "#30030"
@@ -125,7 +125,7 @@ msgstr ""
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30032"
 msgid "Auto"
-msgstr ""
+msgstr "Outo"
 
 #. Main category name on addon settings dialog
 msgctxt "#30040"
