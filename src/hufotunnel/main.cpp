@@ -488,7 +488,7 @@ void CScreensaverHufoTunnel::InterLnCircle(double u, double v, double w, float *
   *y1 = w * v + d * u;
   *x2 = w * u + d * v;
   *y2 = w * v - d * u;
-#if defined(_DEBUG) && !defined(_WIN32)
+#if defined(_DEBUG) && !defined(_WIN32) && !defined(__ANDROID__) && !defined(__APPLE__)
   assert (abs ((*x1) * u + (*y1) * v - w) < 1e-6);
   assert (abs ((*x2) * u + (*y2) * v - w) < 1e-6);
   assert (abs (sqr (*x1) + sqr (*y1) - 1.0f) < 1e-6);
