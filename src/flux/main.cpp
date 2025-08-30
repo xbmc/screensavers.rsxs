@@ -616,8 +616,9 @@ bool CScreensaverFlux::Start()
   // Initialize flux fields
   m_fluxes = new CFlux[gSettings.dFluxes];
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   m_cameraAngle = 0.0f;
   m_startOK = true;
@@ -631,9 +632,10 @@ void CScreensaverFlux::Stop()
     return;
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   if (gSettings.dGeometry == GEOMETRY_POINTS ||
       gSettings.dGeometry == GEOMETRY_LIGHTS)
@@ -666,6 +668,8 @@ void CScreensaverFlux::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glVertexAttribPointer(m_hVertex, 3, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
   glEnableVertexAttribArray(m_hVertex);
@@ -745,6 +749,10 @@ void CScreensaverFlux::Render()
   glDisableVertexAttribArray(m_hCoord);
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hNormal);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverFlux::DrawPoint()

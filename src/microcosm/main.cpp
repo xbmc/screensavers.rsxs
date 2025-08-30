@@ -66,10 +66,10 @@ bool CScreensaverMicrocosm::Start()
 
   m_settings.Load();
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
 
   srand((unsigned)time(nullptr));
 
@@ -314,13 +314,13 @@ void CScreensaverMicrocosm::Stop()
   delete m_volume2;
   m_volume2 = nullptr;
 
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   // Reset from addon changed GL values for Kodi's work (also done here to make
   // sure it is Kodi's default
@@ -354,6 +354,7 @@ void CScreensaverMicrocosm::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
@@ -768,6 +769,11 @@ void CScreensaverMicrocosm::Render()
 
   glDisableVertexAttribArray(m_hNormal);
   glDisableVertexAttribArray(m_hVertex);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverMicrocosm::Draw(const float* vertices, unsigned int vertex_offset, const unsigned int* indices, unsigned int index_offset)

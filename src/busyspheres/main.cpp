@@ -66,6 +66,8 @@ bool CScreensaverBusySpheres::Start()
   }
   m_texture_id = kodi::gui::gl::Load(Texture);
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
 
@@ -92,6 +94,8 @@ void CScreensaverBusySpheres::Stop()
   m_vertexVBO = 0;
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverBusySpheres::Render()
@@ -100,6 +104,8 @@ void CScreensaverBusySpheres::Render()
 
   if (!m_startOK)
     return;
+
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
@@ -269,6 +275,8 @@ void CScreensaverBusySpheres::Render()
   glDisableVertexAttribArray(m_aPosition);
   glDisableVertexAttribArray(m_aColor);
   glDisableVertexAttribArray(m_aCoord);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverBusySpheres::OnCompiledAndLinked()

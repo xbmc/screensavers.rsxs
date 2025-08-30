@@ -65,6 +65,8 @@ private:
 
   double m_lastTime;
   bool m_startOK = false;
+
+  GLuint m_vao = 0;
   unsigned int m_vertexVBO[2] = {0};
 
   int m_detail;

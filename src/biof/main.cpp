@@ -77,6 +77,9 @@ bool CScreensaverBiof::Start()
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
+  glGenVertexArrays(1, &m_vao);
+  glBindVertexArray(m_vao);
+
   glGenBuffers(4, m_vboHandle);
 
   m_normal.clear();
@@ -163,6 +166,8 @@ bool CScreensaverBiof::Start()
 
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+  glBindVertexArray(0);
+
   m_startFrameTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
   return true;
@@ -180,6 +185,8 @@ void CScreensaverBiof::Stop()
   glDeleteBuffers(4, m_vboHandle);
   memset(m_vboHandle, 0, sizeof(m_vboHandle));
 
+  glBindVertexArray(0);
+
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
 }
@@ -188,6 +195,8 @@ void CScreensaverBiof::Render()
 {
   if (!m_startOK)
     return;
+
+  glBindVertexArray(m_vao);
 
   if ((m_geometry == SPHERES) || (m_geometry == BIGSPHERES))
     glEnable(GL_CULL_FACE);
@@ -292,6 +301,8 @@ void CScreensaverBiof::Render()
   glDisableVertexAttribArray(m_hNormal);
   glDisableVertexAttribArray(m_hVertex);
   glDisableVertexAttribArray(m_hColor);
+
+  glBindVertexArray(0);
 
   if ((m_geometry == SPHERES) || (m_geometry == BIGSPHERES))
     glDisable(GL_CULL_FACE);

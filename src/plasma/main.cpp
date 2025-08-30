@@ -39,6 +39,8 @@ bool CScreensaverPlasma::Start()
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
 
   // Initialize pseudorandom number generator
@@ -60,6 +62,8 @@ void CScreensaverPlasma::Stop()
 {
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverPlasma::Render()
@@ -193,6 +197,8 @@ void CScreensaverPlasma::Render()
   packets[3].u1 = textop;
   packets[3].v1 = texright;
 
+  glBindVertexArray(m_vao);
+
   EnableShader();
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
@@ -214,6 +220,8 @@ void CScreensaverPlasma::Render()
   DisableShader();
 
   glBindTexture(GL_TEXTURE_2D, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverPlasma::SetPlasmaSize()

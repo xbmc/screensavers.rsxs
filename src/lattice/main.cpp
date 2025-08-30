@@ -214,6 +214,8 @@ bool CScreensaverLattice::Start()
   m_lastBorder = k;
   m_segments = 1;
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
   m_lastTime = std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
   m_startOK = true;
@@ -230,21 +232,22 @@ void CScreensaverLattice::Stop()
 
   m_startOK = false;
 
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
-  glBindTexture(GL_TEXTURE_2D, 0);
-
   glDisable(GL_CULL_FACE);
   glDisable(GL_BLEND);
   glDisable(GL_DEPTH_TEST);
 
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 }
 
 void CScreensaverLattice::Render()
 {
   if (!m_startOK)
     return;
+
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
@@ -446,6 +449,10 @@ void CScreensaverLattice::Render()
   glDisableVertexAttribArray(m_aVertexLoc);
   glDisableVertexAttribArray(m_aColorLoc);
   glDisableVertexAttribArray(m_aCoordLoc);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 
   glDisable(GL_BLEND);
   glBlendFunc(GL_ONE, GL_ZERO);

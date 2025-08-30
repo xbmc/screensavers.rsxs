@@ -89,6 +89,8 @@ bool CScreensaverSunDancer2::Start()
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
 
@@ -180,6 +182,8 @@ void CScreensaverSunDancer2::Stop()
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
 
+  glDeleteVertexArrays(1, &m_vao);
+
   // Kodi defaults
   glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -198,6 +202,8 @@ void CScreensaverSunDancer2::Render()
 
   if (!m_startOK)
     return;
+
+  glBindVertexArray(m_vao);
 
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
@@ -346,6 +352,11 @@ void CScreensaverSunDancer2::Render()
 
   glDisableVertexAttribArray(m_hPos);
   glDisableVertexAttribArray(m_hCol);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverSunDancer2::OnCompiledAndLinked()

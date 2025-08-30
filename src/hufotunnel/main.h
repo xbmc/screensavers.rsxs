@@ -126,6 +126,7 @@ private:
   GLint m_colorLoc = -1;
   GLint m_texCoord0Loc = -1;
 
+  GLuint m_vao = 0;
   GLuint m_vertexVBO = 0;
 
   GLuint m_texture = 0;

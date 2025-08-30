@@ -116,10 +116,10 @@ bool CScreensaverHyperspace::Start()
   Build2DMipmaps(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, GL_RGB, NEBULAMAPSIZE, NEBULAMAPSIZE, GL_RGB, GL_UNSIGNED_BYTE, nebulamap);
   Build2DMipmaps(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_RGB, NEBULAMAPSIZE, NEBULAMAPSIZE, GL_RGB, GL_UNSIGNED_BYTE, nebulamap);
 
+  glGenVertexArrays(1, &m_vao);
+
   glGenBuffers(1, &m_vertexVBO);
-  glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
   glGenBuffers(1, &m_indexVBO);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexVBO);
 
   m_first = true;
   m_textureTime = 0.0f;
@@ -135,13 +135,12 @@ void CScreensaverHyperspace::Stop()
     return;
   m_startOK = false;
 
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
-
   glDeleteBuffers(1, &m_vertexVBO);
   m_vertexVBO = 0;
   glDeleteBuffers(1, &m_indexVBO);
   m_indexVBO = 0;
+
+  glDeleteVertexArrays(1, &m_vao);
 
   delete m_sunStar;
   m_sunStar = nullptr;
@@ -181,6 +180,8 @@ void CScreensaverHyperspace::Render()
    * TODO: Maybe add a separate interface call to inform about?
    */
   //@{
+  glBindVertexArray(m_vao);
+
   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
 
   glVertexAttribPointer(m_aPosition, 4, GL_FLOAT, GL_TRUE, sizeof(sLight), BUFFER_OFFSET(offsetof(sLight, vertex)));
@@ -423,6 +424,12 @@ void CScreensaverHyperspace::Render()
   glDisableVertexAttribArray(m_aNormal);
   glDisableVertexAttribArray(m_aCoord);
   glDisableVertexAttribArray(m_aColor);
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+  glBindVertexArray(0);
 }
 
 void CScreensaverHyperspace::Draw(int primitive, const sLight* data, unsigned int size)

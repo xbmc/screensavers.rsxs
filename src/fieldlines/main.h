@@ -59,6 +59,7 @@ private:
 
   PackedVertex* m_packets = nullptr;
 
+  GLuint m_vao = 0;
   unsigned int m_vertexVBO = 0;
 
   glm::mat4 m_projMat;

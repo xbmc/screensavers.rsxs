@@ -105,6 +105,7 @@ private:
   GLint m_hCoord = -1;
   GLint m_hColor = -1;
 
+  GLuint m_vao = 0;
   GLuint m_vertexVBO = 0;
 
   CWisp *m_backwisps;

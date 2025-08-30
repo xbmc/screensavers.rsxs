@@ -76,6 +76,7 @@ private:
   GLint m_aCoord = -1;
   GLint m_aColor = -1;
 
+  GLuint m_vao = 0;
   GLuint m_vertexVBO = 0;
   GLuint m_indexVBO = 0;
 
