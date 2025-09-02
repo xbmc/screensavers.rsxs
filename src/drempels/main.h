@@ -56,7 +56,7 @@ private:
   int m_cellResolution;
 
   bool m_fadeComplete = false;
-  uint32_t *m_fadeBuf = nullptr;
+  std::vector<uint32_t> m_fadeBuf;
 
   float m_animTime = 0;
 
@@ -71,8 +71,8 @@ private:
 
   double m_lastTexChange = 0;
 
-  td_cellcornerinfo *m_cell = nullptr;
-  unsigned short *m_buf = nullptr;
+  std::vector<td_cellcornerinfo> m_cell;
+  std::vector<unsigned short> m_buf;
 
   glm::mat4 m_projMat;
   glm::mat4 m_modelMat;

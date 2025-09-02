@@ -22,6 +22,8 @@
 
 #include <glm/gtc/type_ptr.hpp>
 
+#include <vector>
+
 struct sLight
 {
   glm::vec3 vertex;
@@ -53,7 +55,11 @@ private:
   }
 
   int m_width = 256, m_height = 256;
-  rsVec *m_displacements, *m_velocities, *m_accelerations;
+
+  std::vector<rsVec> m_displacements;
+  std::vector<rsVec> m_velocities;
+  std::vector<rsVec> m_accelerations;
+
   rsVec m_totalV;
 
   glm::mat4 m_projMat;
@@ -72,7 +78,7 @@ private:
   GLuint m_texture;
 
   sLight m_rotatingColor[4];
-  sLight* m_framedTextures = nullptr;
+  std::vector<sLight> m_framedTextures;
   GLubyte m_rotatingColorIdx[4] = {0, 1, 3, 2};
 
   bool m_textureUsed = false;
