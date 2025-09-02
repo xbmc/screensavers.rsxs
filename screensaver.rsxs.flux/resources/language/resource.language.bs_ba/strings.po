@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-27 09:13+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2025-08-29 04:23+0000\n"
+"Last-Translator: SecularSteve <fairfull.playing@gmail.com>\n"
 "Language-Team: Bosnian (Bosnia and Herzegovina) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flux/bs_ba/>\n"
 "Language: bs_ba\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 5.13\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr ""
+msgstr "Otprilike najpsihodeličniji koliko čuvari ekrana mogu biti"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr ""
+msgstr "Ovo je psihodelično za koliko god čuvari ekrana mogu biti. Mogumbo je mislio da je njegov Plasma čuvar ekrana na vrhu ljestvice, ali ovaj je još mučeniji. Bolje vam je da nađete jednu od onih vrećica za mučninu od zraka prije nego što predugo buljite u ovu stravu."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Ovo je implementacija zasnovana na \"rss-glx\" čuvaru ekrana"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -38,75 +38,75 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "General"
-msgstr "Opšte"
+msgstr "Općenito"
 
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Napredno"
 
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "Podes"
 
 msgctxt "#30003"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automatski odabir"
 
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "Regularno"
 
 msgctxt "#30005"
 msgid "Hypnotic"
-msgstr ""
+msgstr "Hipnotičan"
 
 msgctxt "#30006"
 msgid "Insane"
-msgstr ""
+msgstr "Lud"
 
 msgctxt "#30007"
 msgid "Sparklers"
-msgstr ""
+msgstr "Prskalice"
 
 msgctxt "#30008"
 msgid "Paradigm"
-msgstr ""
+msgstr "Paradigma"
 
 msgctxt "#30009"
 msgid "Fusion"
-msgstr ""
+msgstr "Fuzija"
 
 msgctxt "#30010"
 msgid "Use advanced"
-msgstr ""
+msgstr "Koristite napredno"
 
 msgctxt "#30011"
 msgid "Fluxes"
-msgstr ""
+msgstr "Fluksi"
 
 msgctxt "#30012"
 msgid "Particles"
-msgstr ""
+msgstr "Čestice"
 
 msgctxt "#30013"
 msgid "Trail (from 3 to 10000)"
-msgstr ""
+msgstr "Staza (od 3 do 10000)"
 
 msgctxt "#30014"
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrija"
 
 msgctxt "#30015"
 msgid "Points"
-msgstr ""
+msgstr "Bodovi"
 
 msgctxt "#30016"
 msgid "Spheres"
-msgstr ""
+msgstr "Sfere"
 
 msgctxt "#30017"
 msgid "Lights"
-msgstr ""
+msgstr "Svjetla"
 
 msgctxt "#30018"
 msgid "Size"
@@ -114,32 +114,32 @@ msgstr "Velič."
 
 msgctxt "#30019"
 msgid "Complexity"
-msgstr ""
+msgstr "Složenost"
 
 msgctxt "#30020"
 msgid "Randomize"
-msgstr ""
+msgstr "Nasumno izmučkaj"
 
 msgctxt "#30021"
 msgid "Expansion"
-msgstr ""
+msgstr "Ekspanzija"
 
 msgctxt "#30022"
 msgid "Rotation"
-msgstr ""
+msgstr "Rotacija"
 
 msgctxt "#30023"
 msgid "Wind"
-msgstr ""
+msgstr "Vjetrovito"
 
 msgctxt "#30024"
 msgid "Instability"
-msgstr ""
+msgstr "Nestabilnost"
 
 msgctxt "#30025"
 msgid "Blur"
-msgstr ""
+msgstr "Zamućenje"
 
 msgctxt "#30026"
 msgid "Number from 3 to 10000"
-msgstr ""
+msgstr "Broj od 3 do 10000"

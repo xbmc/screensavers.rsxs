@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-27 09:14+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2025-08-29 04:23+0000\n"
+"Last-Translator: SecularSteve <fairfull.playing@gmail.com>\n"
 "Language-Team: Bosnian (Bosnia and Herzegovina) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/bs_ba/>\n"
 "Language: bs_ba\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 5.13\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr ""
+msgstr "Otprilike najpsihodeličniji koliko čuvari ekrana mogu biti"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr ""
+msgstr "Ovo je psihodelično za koliko god čuvari ekrana mogu biti. Mogumbo je mislio da je njegov Plasma čuvar ekrana na vrhu ljestvice, ali ovaj je još mučeniji. Bolje vam je da nađete jednu od onih vrećica za mučninu od zraka prije nego što predugo buljite u ovu stravu."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Ovo je implementacija zasnovana na \"rss-glx\" čuvaru ekrana"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -40,94 +40,94 @@ msgstr ""
 #. First setting on dialog for used type
 msgctxt "#30000"
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30001"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatski"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30002"
 msgid "Triangles"
-msgstr ""
+msgstr "Trouglovi"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30003"
 msgid "Spheres"
-msgstr ""
+msgstr "Sfere"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30004"
 msgid "Big spheres"
-msgstr ""
+msgstr "Velike sfere"
 
 #. For Setting 30000 used value in selection dialog list
 msgctxt "#30005"
 msgid "Points"
-msgstr ""
+msgstr "Bodovi"
 
 #. Help text for first setting where type is selected
 msgctxt "#30006"
 msgid "Sets geometry type"
-msgstr ""
+msgstr "Postavlja tip geometrije"
 
 #. Second setting in dialog for used geometry
 msgctxt "#30010"
 msgid "Off angle"
-msgstr ""
+msgstr "Van ugla"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30011"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30012"
 msgid "Off"
-msgstr ""
+msgstr "Ugašeno"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30013"
 msgid "On"
-msgstr ""
+msgstr "Upaljeno"
 
 #. Help text for second setting where off angle is selected
 msgctxt "#30014"
 msgid "Interesting 45 degree view instead of default head on view."
-msgstr ""
+msgstr "Zanimljiv pogled od 45 stepeni umjesto standardnog frontalnog pogleda."
 
 #. Setting for selection of used lines for render
 msgctxt "#30020"
 msgid "Lines"
-msgstr ""
+msgstr "Linije"
 
 #. Help text for setting with line amount
 msgctxt "#30021"
 msgid "Set number of lines (\"arms\").  1 - 1024."
-msgstr ""
+msgstr "Postavite broj linija (\"krakova\"). 1 - 1024."
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30022"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #. Setting for selection of used points for render
 msgctxt "#30030"
 msgid "Points"
-msgstr ""
+msgstr "Bodovi"
 
 #. Help text for setting with point amount
 msgctxt "#30031"
 msgid "Set number of points per line.  1 - 4096."
-msgstr ""
+msgstr "Postavite broj tačaka po liniji. 1 - 4096."
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30032"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #. Main category name on addon settings dialog
 msgctxt "#30040"
 msgid "General"
-msgstr "Opšte"
+msgstr "Općenito"

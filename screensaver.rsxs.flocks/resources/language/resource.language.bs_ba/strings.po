@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-02-27 09:13+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2025-08-29 04:23+0000\n"
+"Last-Translator: SecularSteve <fairfull.playing@gmail.com>\n"
 "Language-Team: Bosnian (Bosnia and Herzegovina) <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/bs_ba/>\n"
 "Language: bs_ba\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 5.13\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr ""
+msgstr "Otprilike najpsihodeličniji koliko čuvari ekrana mogu biti"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr ""
+msgstr "Ovo je psihodelično za koliko god čuvari ekrana mogu biti. Mogumbo je mislio da je njegov Plasma čuvar ekrana na vrhu ljestvice, ali ovaj je još mučeniji. Bolje vam je da nađete jednu od onih vrećica za mučninu od zraka prije nego što predugo buljite u ovu stravu."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Ovo je implementacija zasnovana na \"rss-glx\" čuvaru ekrana"
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -40,72 +40,72 @@ msgstr ""
 #. Main category name on addon settings dialog
 msgctxt "#30000"
 msgid "General"
-msgstr "Opšte"
+msgstr "Općenito"
 
 #. Advanced category name on addon settings dialog
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Napredno"
 
 #. Setting open selection dialog to select used preset
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "Podes"
 
 #. Selection dialog entry to select automatic mode selection
 msgctxt "#30003"
 msgid "Automatic selection"
-msgstr ""
+msgstr "Automatski odabir"
 
 #. Selection dialog entry to select regualr preset
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "Regularno"
 
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"
 msgid "Trails"
-msgstr ""
+msgstr "Staze"
 
 #. Selection dialog entry to select blurred trails preset
 msgctxt "#30006"
 msgid "Blurred trails"
-msgstr ""
+msgstr "Zamućene staze"
 
 #. Selection dialog entry to select blurred connections preset
 msgctxt "#30007"
 msgid "Blurred connections"
-msgstr ""
+msgstr "Zamućene veze"
 
 #. Selection dialog entry to select circles preset
 msgctxt "#30008"
 msgid "Circles"
-msgstr ""
+msgstr "Krugovi"
 
 #. Selection dialog entry to select random circles preset
 msgctxt "#30009"
 msgid "Random circles"
-msgstr ""
+msgstr "Slučajni krugovi"
 
 #. Selection dialog entry to select advanced settings mode
 msgctxt "#30010"
 msgid "Use advanced"
-msgstr ""
+msgstr "Koristite napredno"
 
 #. Advanced setting spinner to select leaders value
 msgctxt "#30011"
 msgid "Leaders"
-msgstr ""
+msgstr "Vođe"
 
 #. Advanced setting spinner to select followers value
 msgctxt "#30012"
 msgid "Followers"
-msgstr ""
+msgstr "Pratitelji"
 
 #. Advanced setting list to select geometry value in selection dialog
 msgctxt "#30013"
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrija"
 
 #. Advanced setting spinner to select size
 msgctxt "#30014"
@@ -115,7 +115,7 @@ msgstr "Velič."
 #. Advanced setting spinner to select complexity
 msgctxt "#30015"
 msgid "Complexity"
-msgstr ""
+msgstr "Složenost"
 
 #. Advanced setting spinner to select speed
 msgctxt "#30016"
@@ -125,54 +125,54 @@ msgstr "Brzina"
 #. Advanced setting spinner to select stretch
 msgctxt "#30017"
 msgid "Stretch"
-msgstr ""
+msgstr "Rastezanje"
 
 #. Advanced setting spinner to select color fade speed
 msgctxt "#30018"
 msgid "Color fade speed"
-msgstr ""
+msgstr "Brzina blijeđenja boje"
 
 #. Advanced setting boolean to enable chromatek
 msgctxt "#30019"
 msgid "Chromatek"
-msgstr ""
+msgstr "Hromatek"
 
 #. Advanced setting boolean to enable rendering connections
 msgctxt "#30020"
 msgid "Connections"
-msgstr ""
+msgstr "Veze"
 
 #. Advanced setting spinner to select trail length
 msgctxt "#30021"
 msgid "Trail length"
-msgstr ""
+msgstr "Dužina staze"
 
 #. Advanced setting spinner to select blur
 msgctxt "#30022"
 msgid "Blur"
-msgstr ""
+msgstr "Zamućenje"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30023"
 msgid "Random colors"
-msgstr ""
+msgstr "Nasumične boje"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30024"
 msgid "Draw blobs"
-msgstr ""
+msgstr "Crtanje mrlja"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30025"
 msgid "Draw circle"
-msgstr ""
+msgstr "Nacrtaj krug"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30026"
 msgid "Draw dots"
-msgstr ""
+msgstr "Crtanje tačaka"
 
 #. To 30013 related selection dialog entry
 msgctxt "#30027"
 msgid "Render clear completely"
-msgstr ""
+msgstr "Potpuno očisti"
