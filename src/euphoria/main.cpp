@@ -308,7 +308,8 @@ private:
 
 CWisp::CWisp()
 {
-  int i, j;
+  int i = 0;
+  int j = 0;
   float recHalfDens = 1.0f / (float(g_settings.dDensity) * 0.5f);
 
   m_vertices.resize(g_settings.dDensity+1);
