@@ -36,6 +36,8 @@
     <description lang="it_IT">Questo è un salvaschermo a matrice 3D basato sulle scene di pioggia digitale di The Matrix Reloaded. Presenta il testo a scorrimento verde (o pioggia digitale) che avvolge le rappresentazioni 3D di diversi personaggi della serie.</description>
     <description lang="ko_KR">이것은 The Matrix Reloaded의 디지털 비 장면을 기반으로 한 3D 매트릭스 화면 보호기입니다. 그것은 시리즈의 다른 캐릭터의 3D 표현을 감싸는 녹색 스크롤 텍스트(또는 디지털 비)를 특징으로 합니다.</description>
     <description lang="zh_CN">这是一个基于《黑客帝国重装上阵》中数字雨景的3D黑客帝国屏保。它以绿色滚动文本(或数字雨)为特色，包裹着该系列不同角色的3D表示。</description>
+    <disclaimer lang="af_ZA">Hierdie is &apos;n implementering gebaseer op &quot;rss-glx&quot; skermskut</disclaimer>
+    <disclaimer lang="bs_BA">Ovo je implementacija zasnovana na &quot;rss-glx&quot; čuvaru ekrana</disclaimer>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
@@ -49,6 +51,7 @@
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="sv_SE">Detta är en implementering baserad på ”rss-glx” skärmsläckare</disclaimer>
     <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>

@@ -36,6 +36,8 @@
     <description lang="ko_KR">Jeremie Allard:[CR]&quot;제 첫 번째 OpenGL 챌린지 항목의 재작성 버전입니다. 재탄생과 같은 것입니다. :) 이 챌린지에 참여하지 않은 지 오랜 후에, 이 멋진 새 웹사이트에 대해 Otry와 BlackOrb에게 감사하기 위해 이 작은 항목을 작성했습니다.&quot;</description>
     <description lang="pl_PL">Od Jeremiego Allarda: [CR]„Przepisana wersja mojego pierwszego zgłoszenia na wyzwanie OpenGL. Coś w rodzaju odrodzenia :) Po zbyt długim miesiącu nieuczestniczenia w tym wyzwaniu zrobiłem to małe zgłoszenie tylko po to, by podziękować Otry i BlackOrb za to wspaniałe nową witrynę internetową.”</description>
     <description lang="zh_CN">来自 Jeremie Allard：[CR]“我的第一个 OpenGL 挑战条目的重写版本。有点像重生 :) 在经历了太多的一个月没有参与这个挑战之后，我做了这个小条目，只是为了感谢 Otry 和 BlackOrb 创建了这个伟大的新网站。”</description>
+    <disclaimer lang="af_ZA">Hierdie is &apos;n implementering gebaseer op &quot;rss-glx&quot; skermskut</disclaimer>
+    <disclaimer lang="bs_BA">Ovo je implementacija zasnovana na &quot;rss-glx&quot; čuvaru ekrana</disclaimer>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
@@ -49,6 +51,7 @@
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="sv_SE">Detta är en implementering baserad på ”rss-glx” skärmsläckare</disclaimer>
     <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>

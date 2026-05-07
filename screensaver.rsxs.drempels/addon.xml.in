@@ -33,6 +33,8 @@
     <description lang="es_ES">Un alucinante potenciador de escritorio: dé vida a su fondo de pantalla con imágenes elegantes y arremolinadas. Funciona perfectamente como fondo de pantalla animado o como salvapantallas.</description>
     <description lang="he_IL">משפר הזיות בשולחן העבודה - מעורר את רקע המחשב שלך לחיים עם תמונות יפהפהיות מסתובבות. זמין כרקע מונפש או כשומר מסך.</description>
     <description lang="zh_CN">幻觉桌面增强器 - 以优雅、旋转的图像将您的壁纸带入生活。作为动画墙纸或屏幕保护程序运行良好。</description>
+    <disclaimer lang="af_ZA">Hierdie is &apos;n implementering gebaseer op &quot;rss-glx&quot; skermskut</disclaimer>
+    <disclaimer lang="bs_BA">Ovo je implementacija zasnovana na &quot;rss-glx&quot; čuvaru ekrana</disclaimer>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
@@ -46,6 +48,7 @@
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="sv_SE">Detta är en implementering baserad på ”rss-glx” skärmsläckare</disclaimer>
     <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>

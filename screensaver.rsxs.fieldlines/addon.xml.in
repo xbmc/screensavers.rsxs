@@ -34,6 +34,8 @@
     <description lang="et_EE">See on laetud osakeste vaheliste elektrivälja joonte simulatsioon. Füüsika pole kunagi nii hea välja näinud.</description>
     <description lang="fr_FR">Il s&apos;agit d&apos;une simulation de lignes de champ électrique entre les particules chargées. La physique n&apos;a jamais été aussi belle.</description>
     <description lang="zh_CN">这是带电粒子之间电场线的模拟。物理学看起来从来没有这么好。</description>
+    <disclaimer lang="af_ZA">Hierdie is &apos;n implementering gebaseer op &quot;rss-glx&quot; skermskut</disclaimer>
+    <disclaimer lang="bs_BA">Ovo je implementacija zasnovana na &quot;rss-glx&quot; čuvaru ekrana</disclaimer>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
@@ -47,6 +49,7 @@
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="sv_SE">Detta är en implementering baserad på ”rss-glx” skärmsläckare</disclaimer>
     <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>

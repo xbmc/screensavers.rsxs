@@ -30,6 +30,8 @@
     <description lang="en_GB">The most full-blown fireworks screensaver ever. It has bright lights, smoke trails, clouds that are illuminated by the explosions, sound effects, and plenty of other eye candy.</description>
     <description lang="es_ES">El salvapantallas de fuegos artificiales más completo que existe. Tiene luces brillantes, estelas de humo, nubes que se iluminan por las explosiones, efectos de sonido, y un montón de otros eye candy.</description>
     <description lang="zh_CN">有史以来最全面的烟花屏幕保护程序。它有明亮的灯光、烟雾轨迹、被爆炸照亮的云朵、音效和大量其他吸引眼球的东西。</description>
+    <disclaimer lang="af_ZA">Hierdie is &apos;n implementering gebaseer op &quot;rss-glx&quot; skermskut</disclaimer>
+    <disclaimer lang="bs_BA">Ovo je implementacija zasnovana na &quot;rss-glx&quot; čuvaru ekrana</disclaimer>
     <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;rss-glx&quot; pauseskærm</disclaimer>
     <disclaimer lang="de_DE">Diese Implementierung basiert auf dem „rss-glx“-Bildschirmschoner</disclaimer>
     <disclaimer lang="en_GB">This is an implementation based on &quot;rss-glx&quot; screensaver</disclaimer>
@@ -43,6 +45,7 @@
     <disclaimer lang="ko_KR">이것은 &quot;rss-glx&quot; 화면 보호기 기반입니다</disclaimer>
     <disclaimer lang="pl_PL">Jest to implementacja oparta na wygaszaczu ekranu „rss-glx”</disclaimer>
     <disclaimer lang="ru_RU">Эта реализация основана на заставке &quot;rss-glx&quot;</disclaimer>
+    <disclaimer lang="sv_SE">Detta är en implementering baserad på ”rss-glx” skärmsläckare</disclaimer>
     <disclaimer lang="uk_UA">Ця реалізація заснована на заставці &quot;rss-glx&quot;</disclaimer>
     <disclaimer lang="zh_CN">这是一个基于“rss-glx”屏幕保护程序的实现</disclaimer>
   </extension>
