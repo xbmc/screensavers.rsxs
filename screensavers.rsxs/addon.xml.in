@@ -3,7 +3,7 @@
 debian package build.-->
 <addon
   id="screensavers.rsxs"
-  version="22.0.3"
+  version="22.0.5"
   name="RSXS Screensaver collection"
   provider-name="Team Kodi">
   <extension point="xbmc.addon.metadata">
