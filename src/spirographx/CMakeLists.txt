@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5...4.0)
+cmake_minimum_required(VERSION 3.18...4.0)
 project(screensaver.rsxs.spirographx)
 
 message(STATUS "--------------------------------------------------------------------------------")
