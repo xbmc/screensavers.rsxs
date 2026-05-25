@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-09-02 17:34+0000\n"
-"Last-Translator: Alexey <signfinder@gmail.com>\n"
+"PO-Revision-Date: 2026-05-25 14:16+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-drempels/ru_ru/>\n"
 "Language: ru_ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 2026.5\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -45,12 +45,12 @@ msgstr "Общие"
 #. Spinner to select number blurring
 msgctxt "#30001"
 msgid "Blur"
-msgstr ""
+msgstr "Размытие"
 
 #. Help text of number selection for blurring
 msgctxt "#30002"
 msgid "Blurring between frames"
-msgstr ""
+msgstr "Размытие между кадрами"
 
 #. Spinner to select render speed
 msgctxt "#30003"
@@ -60,89 +60,89 @@ msgstr "Скорость"
 #. Setting help text for select render speed
 msgctxt "#30004"
 msgid "Speed of flow, bigger is faster"
-msgstr ""
+msgstr "Скорость потока, больше — быстрее"
 
 #. Spinner to select scale factor
 msgctxt "#30005"
 msgid "Scale"
-msgstr ""
+msgstr "Масштаб"
 
 #. Help for scale factor selection
 msgctxt "#30006"
 msgid "Scale of flow, bigger is zoomed in"
-msgstr ""
+msgstr "Масштаб потока, больше — увеличение"
 
 #. Spinner to select number of cells
 msgctxt "#30007"
 msgid "Cells"
-msgstr ""
+msgstr "Ячейки"
 
 #. Help for number of cells selection
 msgctxt "#30008"
 msgid "Number of cells (i.e. control points) in width/height in powers of two"
-msgstr ""
+msgstr "Количество ячеек (т.е. контрольных точек) по ширине/высоте, степень двойки"
 
 #. Spinner to select cell resolution
 msgctxt "#30009"
 msgid "Cell Resolution"
-msgstr ""
+msgstr "Разрешение ячейки"
 
 #. Help for cell resolution selection
 msgctxt "#30010"
 msgid "Resolution of each cell in powers of two.  4 - 8"
-msgstr ""
+msgstr "Разрешение каждой ячейки, степень двойки. 4–8"
 
 #. Boolean value to use images instead
 msgctxt "#30011"
 msgid "Use Images"
-msgstr ""
+msgstr "Использовать изображения"
 
 #. Help for boolean to allow use of images
 msgctxt "#30012"
 msgid "Cycle through the images"
-msgstr ""
+msgstr "Циклически перебирать изображения"
 
 #. To open dialog for folder selection of images
 msgctxt "#30013"
 msgid "Images (when empty, Kodi fanart images are used)"
-msgstr ""
+msgstr "Изображения (если пусто, используются изображения фан-арта Kodi)"
 
 #. Help to folder selection
 msgctxt "#30014"
 msgid "Select the folder from which the images will be used"
-msgstr ""
+msgstr "Выберите папку, из которой будут использоваться изображения"
 
 #. Folder selection dialog header
 msgctxt "#30015"
 msgid "Folder from which the images will be used"
-msgstr ""
+msgstr "Папка, из которой будут использоваться изображения"
 
 #. Slider for texture change intervall in seconds
 msgctxt "#30016"
 msgid "Texture interval (s)"
-msgstr ""
+msgstr "Период текстур (с)"
 
 #. Help to texture interval
 msgctxt "#30017"
 msgid "Seconds to dwell on each texture"
-msgstr ""
+msgstr "Секунд задержки на каждой текстуре"
 
 #. Slider for texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30018"
 msgid "Texture fade interval (s)"
-msgstr ""
+msgstr "Период затухания текстур (с)"
 
 #. Help to texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30019"
 msgid "Fade time between subsequent textures, in tenths of second"
-msgstr ""
+msgstr "Время затухания между последующими текстурами, в десятых долях секунды"
 
 #. Spinner to select generated texture size
 msgctxt "#30020"
 msgid "Generated texture size"
-msgstr ""
+msgstr "Размер генерируемой текстуры"
 
 #. Help to generated texture size
 msgctxt "#30021"
 msgid "Resolution of randomly generated textures, in powers of two"
-msgstr ""
+msgstr "Разрешение случайно генерируемых текстур, степень двойки"
