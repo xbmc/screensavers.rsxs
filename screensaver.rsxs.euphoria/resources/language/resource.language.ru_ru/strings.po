@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-05-25 14:16+0000\n"
+"PO-Revision-Date: 2026-05-30 19:21+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/ru_ru/>\n"
 "Language: ru_ru\n"
@@ -135,7 +135,7 @@ msgstr "Текстура шлейфа"
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
 msgid "Default"
-msgstr "По-умолчанию"
+msgstr "По умолчанию"
 
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
