@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-03-06 21:13+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2026-07-06 18:01+0000\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-euphoria/cs_cz/>\n"
 "Language: cs_cz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 2026.7\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr "Nejdivočejší šetřič obrazovky všech dob"
+msgstr "Tak psychedelický, jak jen spořič obrazovky může být"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr "Asi nejdivočejší šetřič obrazovky všech dob. Použití plazmového šetřiče bývalo vrcholem, ale tento spořič je ještě více zneklidňující. Připravte si pytlíky na zvracení pokud se jej rozhodnete sledovat příliš dlouho."
+msgstr "Tak psychedelický, jak jen spořič obrazovky může být. Mogumbo si myslel, že jeho spořič Plasma je vrchol, ale tento vyvolává ještě větší nevolnost. Než se na něj budete dívat příliš dlouho, raději si připravte sáček pro případ nevolnosti."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Tato implementace vychází ze spořiče obrazovky „rss-glx“."
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -45,92 +45,92 @@ msgstr "Obecné"
 #. Advanced settings category name on addon settings dialog (need user defined mode selected to have enabled)
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Pokročilé"
 
 #. Category name on addon settings dialog to enable modes in auto selection
 msgctxt "#30002"
 msgid "Auto selection"
-msgstr ""
+msgstr "Automatický výběr"
 
 #. Group name in category defined with 30002
 msgctxt "#30003"
 msgid "Types used for automatic selection"
-msgstr ""
+msgstr "Typy použité pro automatický výběr"
 
 #. List selection of used preset (in general options)
 msgctxt "#30010"
 msgid "Preset"
-msgstr ""
+msgstr "Předvolba"
 
 #. Preset type in selection dialog
 msgctxt "#30011"
 msgid "Automatic"
-msgstr ""
+msgstr "Automaticky"
 
 #. Preset type in selection dialog
 msgctxt "#30012"
 msgid "Regular"
-msgstr ""
+msgstr "Běžný"
 
 #. Preset type in selection dialog
 msgctxt "#30013"
 msgid "Grid"
-msgstr ""
+msgstr "Mřížka"
 
 #. Preset type in selection dialog
 msgctxt "#30014"
 msgid "Cubism"
-msgstr ""
+msgstr "Kubismus"
 
 #. Preset type in selection dialog
 msgctxt "#30015"
 msgid "Bad math"
-msgstr ""
+msgstr "Špatná matematika"
 
 #. Preset type in selection dialog
 msgctxt "#30016"
 msgid "M-Theory"
-msgstr ""
+msgstr "M-teorie"
 
 #. Preset type in selection dialog
 msgctxt "#30017"
 msgid "UHF tunneling electron microscope"
-msgstr ""
+msgstr "UHF tunelovací elektronový mikroskop"
 
 #. Preset type in selection dialog
 msgctxt "#30018"
 msgid "Jack"
-msgstr ""
+msgstr "Jack"
 
 #. Preset type in selection dialog
 msgctxt "#30019"
 msgid "Overdose"
-msgstr ""
+msgstr "Předávkování"
 
 #. Preset type in selection dialog
 msgctxt "#30020"
 msgid "Nowhere"
-msgstr ""
+msgstr "Nikde"
 
 #. Preset type in selection dialog
 msgctxt "#30021"
 msgid "Echo"
-msgstr ""
+msgstr "Ozvěna"
 
 #. Preset type in selection dialog
 msgctxt "#30022"
 msgid "Kaleidoscope"
-msgstr ""
+msgstr "Kaleidoskop"
 
 #. Preset type in selection dialog, if used user defined settings becomes used and advanced settings enabled
 msgctxt "#30023"
 msgid "User defined"
-msgstr ""
+msgstr "Uživatelsky definované"
 
 #. To open selection dialog with selection of wanted wisp texture and override baseics
 msgctxt "#30024"
 msgid "Wisp texture"
-msgstr ""
+msgstr "Textura vláken"
 
 #. Value in selection dialog, if set the to related preset defined texture becomes used
 msgctxt "#30025"
@@ -140,42 +140,42 @@ msgstr "Výchozí"
 #. Value in selection dialog to use no texture during rendering
 msgctxt "#30026"
 msgid "None"
-msgstr ""
+msgstr "Žádná"
 
 #. Value in selection dialog to use plasma texture
 msgctxt "#30027"
 msgid "Plasma"
-msgstr ""
+msgstr "Plazma"
 
 #. Value in selection dialog to use stringy texture
 msgctxt "#30028"
 msgid "Stringy"
-msgstr ""
+msgstr "Vláknitá"
 
 #. Value in selection dialog use lines
 msgctxt "#30029"
 msgid "Lines"
-msgstr ""
+msgstr "Čáry"
 
 #. Value in selection dialog to use random selected type of texture
 msgctxt "#30030"
 msgid "Random"
-msgstr ""
+msgstr "Náhodná"
 
 #. Slider to select number of wisps
 msgctxt "#30040"
 msgid "Wisps"
-msgstr ""
+msgstr "Vlákna"
 
 #. Slider to number of background layers
 msgctxt "#30041"
 msgid "Background layers"
-msgstr ""
+msgstr "Vrstvy pozadí"
 
 #. Slider to number of wisps
 msgctxt "#30042"
 msgid "Wisp mesh density"
-msgstr ""
+msgstr "Hustota mřížky vláken"
 
 #. Slider to select render speed
 msgctxt "#30043"
@@ -185,17 +185,17 @@ msgstr "Rychlost"
 #. Slider to select feedback intensity
 msgctxt "#30044"
 msgid "Feedback intensity"
-msgstr ""
+msgstr "Intenzita zpětné vazby"
 
 #. Slider to select feedback speed
 msgctxt "#30045"
 msgid "Feedback speed"
-msgstr ""
+msgstr "Rychlost zpětné vazby"
 
 #. Slider to select feedback size
 msgctxt "#30046"
 msgid "Feedback size"
-msgstr ""
+msgstr "Velikost zpětné vazby"
 
 #. Boolean setting to render wireframe instead of solid
 msgctxt "#30047"

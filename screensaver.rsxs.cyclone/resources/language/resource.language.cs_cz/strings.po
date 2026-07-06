@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-05-20 11:20+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2026-07-06 18:01+0000\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-cyclone/cs_cz/>\n"
 "Language: cs_cz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.6.2\n"
+"X-Generator: Weblate 2026.7\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr "Nejdivočejší šetřič obrazovky všech dob"
+msgstr "Tak psychedelický, jak jen spořič obrazovky může být"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr "Asi nejdivočejší šetřič obrazovky všech dob. Použití plazmového šetřiče bývalo vrcholem, ale tento spořič je ještě více zneklidňující. Připravte si pytlíky na zvracení pokud se jej rozhodnete sledovat příliš dlouho."
+msgstr "Tak psychedelický, jak jen spořič obrazovky může být. Mogumbo si myslel, že jeho spořič Plasma je vrchol, ale tento vyvolává ještě větší nevolnost. Než se na něj budete dívat příliš dlouho, raději si připravte sáček pro případ nevolnosti."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Tato implementace vychází ze spořiče obrazovky „rss-glx“."
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -44,22 +44,22 @@ msgstr "Obecné"
 #. To select amount of rendered Cyclones as number
 msgctxt "#30001"
 msgid "Cyclones"
-msgstr ""
+msgstr "Cyklony"
 
 #. Help text for selection of rendered Cyclones
 msgctxt "#30002"
 msgid "Number of cyclones.  1 - 10.  Default: 1"
-msgstr ""
+msgstr "Počet cyklonů. 1–10. Výchozí: 1"
 
 #. Selection of used particles as number
 msgctxt "#30003"
 msgid "Particles"
-msgstr ""
+msgstr "Částice"
 
 #. Help text for selection of used particles
 msgctxt "#30004"
 msgid "Particles per cyclone.  1 - 10000.  Default: 400"
-msgstr ""
+msgstr "Počet částic na cyklon. 1–10000. Výchozí: 400"
 
 #. Selection of size for particle as number
 msgctxt "#30005"
@@ -69,17 +69,17 @@ msgstr "Velikost"
 #. Help text for selection of size for particle
 msgctxt "#30006"
 msgid "Particle size.  1 - 100.  Default: 7"
-msgstr ""
+msgstr "Velikost částic. 1–100. Výchozí: 7"
 
 #. Selection of complexity as number
 msgctxt "#30007"
 msgid "Complexity"
-msgstr ""
+msgstr "Složitost"
 
 #. Help text for selection of complexity
 msgctxt "#30008"
 msgid "Cyclone complexity.  1 - 10.  Default: 3"
-msgstr ""
+msgstr "Složitost cyklonu. 1–10. Výchozí: 3"
 
 #. Selection of render speed as number
 msgctxt "#30009"
@@ -89,24 +89,24 @@ msgstr "Rychlost"
 #. Help text for selection of speed
 msgctxt "#30010"
 msgid "Speed.  1 - 100.  Default: 10"
-msgstr ""
+msgstr "Rychlost. 1–100. Výchozí: 10"
 
 #. Boolean selection to enable stretch
 msgctxt "#30011"
 msgid "Stretch"
-msgstr ""
+msgstr "Roztažení"
 
 #. Help text for selection boolean for stretch
 msgctxt "#30012"
 msgid "Stretch.  Default: True"
-msgstr ""
+msgstr "Roztažení. Výchozí: ano"
 
 #. Boolean selection to show of curves
 msgctxt "#30013"
 msgid "Show curves"
-msgstr ""
+msgstr "Zobrazit křivky"
 
 #. Help text for selection boolean for curves
 msgctxt "#30014"
 msgid "Show Curves.  Default: False"
-msgstr ""
+msgstr "Zobrazit křivky. Výchozí: ne"
