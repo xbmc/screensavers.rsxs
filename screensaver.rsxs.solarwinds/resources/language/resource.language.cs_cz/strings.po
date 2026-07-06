@@ -5,29 +5,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Main\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/screensavers.rsxs/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-03-06 21:13+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2026-07-06 18:01+0000\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-solarwinds/cs_cz/>\n"
 "Language: cs_cz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 2026.7\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
-msgstr "Nejdivočejší šetřič obrazovky všech dob"
+msgstr "Tak psychedelický, jak jen spořič obrazovky může být"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr "Asi nejdivočejší šetřič obrazovky všech dob. Použití plazmového šetřiče bývalo vrcholem, ale tento spořič je ještě více zneklidňující. Připravte si pytlíky na zvracení pokud se jej rozhodnete sledovat příliš dlouho."
+msgstr "Tak psychedelický, jak jen spořič obrazovky může být. Mogumbo si myslel, že jeho spořič Plasma je vrchol, ale tento vyvolává ještě větší nevolnost. Než se na něj budete dívat příliš dlouho, raději si připravte sáček pro případ nevolnosti."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
-msgstr ""
+msgstr "Tato implementace vychází ze spořiče obrazovky „rss-glx“."
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -42,7 +42,7 @@ msgstr "Obecné"
 
 msgctxt "#30001"
 msgid "Advanced"
-msgstr ""
+msgstr "Pokročilé"
 
 msgctxt "#30010"
 msgid "Mode"
@@ -50,63 +50,63 @@ msgstr "Režim"
 
 msgctxt "#30011"
 msgid "Automatic"
-msgstr ""
+msgstr "Automaticky"
 
 msgctxt "#30012"
 msgid "Regular"
-msgstr ""
+msgstr "Běžný"
 
 msgctxt "#30013"
 msgid "Cosmic Strings"
-msgstr ""
+msgstr "Kosmické struny"
 
 msgctxt "#30014"
 msgid "Cold Pricklies"
-msgstr ""
+msgstr "Studené bodliny"
 
 msgctxt "#30015"
 msgid "Space Fur"
-msgstr ""
+msgstr "Vesmírná srst"
 
 msgctxt "#30016"
 msgid "Jiggly"
-msgstr ""
+msgstr "Chvění"
 
 msgctxt "#30017"
 msgid "Undertow"
-msgstr ""
+msgstr "Spodní proud"
 
 msgctxt "#30018"
 msgid "Use advanced settings"
-msgstr ""
+msgstr "Použít pokročilá nastavení"
 
 msgctxt "#30020"
 msgid "Number of solar winds"
-msgstr ""
+msgstr "Počet slunečních větrů"
 
 msgctxt "#30021"
 msgid "Particles per solar wind"
-msgstr ""
+msgstr "Počet částic na sluneční vítr"
 
 msgctxt "#30022"
 msgid "Emitters per solar wind"
-msgstr ""
+msgstr "Počet emitorů na sluneční vítr"
 
 msgctxt "#30023"
 msgid "Solar wind speed"
-msgstr ""
+msgstr "Rychlost slunečního větru"
 
 msgctxt "#30024"
 msgid "Particle size"
-msgstr ""
+msgstr "Velikost částic"
 
 msgctxt "#30025"
 msgid "Particle geometry"
-msgstr ""
+msgstr "Geometrie částic"
 
 msgctxt "#30026"
 msgid "Lights"
-msgstr ""
+msgstr "Světla"
 
 msgctxt "#30027"
 msgid "Points"
@@ -114,16 +114,16 @@ msgstr "Body"
 
 msgctxt "#30028"
 msgid "Lines"
-msgstr ""
+msgstr "Čáry"
 
 msgctxt "#30029"
 msgid "Particle speed"
-msgstr ""
+msgstr "Rychlost částic"
 
 msgctxt "#30030"
 msgid "Emitter speed"
-msgstr ""
+msgstr "Rychlost emitorů"
 
 msgctxt "#30031"
 msgid "Motion blur"
-msgstr ""
+msgstr "Pohybové rozmazání"
