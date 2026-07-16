@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-12-26 18:13+0000\n"
+"PO-Revision-Date: 2026-07-15 01:59+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-biof/it_it/>\n"
 "Language: it_it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 2026.7.1\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -23,7 +23,7 @@ msgstr "Quanto di più psichedelico possa essere un salvaschermo"
 
 msgctxt "Addon Description"
 msgid "This is about as psychedelic as screensavers get. mogumbo thought his Plasma saver was at the top of the scale, but this one is even more nauseating. You'd better find one of those air sickness bags before you stare at this one for too long."
-msgstr "Questo è quanto di più psichedelico possa essere un salvaschermo. mogumbo pensava che il suo salvaschermo 'Plasma' fosse al massimo della psichedelicità, ma questo è anche più nauseante. Faresti meglio a cercare uno di quei sacchetti per il mal d'aria prima di fissarlo troppo a lungo."
+msgstr "Questo è quanto di più psichedelico possa essere un salvaschermo. mogumbo pensava che il suo salvaschermo Plasma fosse al massimo della psichedelicità, ma questo è anche più nauseante. Faresti meglio a cercare uno di quei sacchetti per il mal d'aria prima di fissarlo troppo a lungo."
 
 msgctxt "Addon Disclaimer"
 msgid "This is an implementation based on \"rss-glx\" screensaver"
@@ -40,7 +40,7 @@ msgstr "Questa è un'implementazione basata sul salvaschermo \"rss-glx\""
 #. First setting on dialog for used type
 msgctxt "#30000"
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30001"
@@ -50,17 +50,17 @@ msgstr "Automatico"
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30002"
 msgid "Triangles"
-msgstr ""
+msgstr "Triangoli"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30003"
 msgid "Spheres"
-msgstr ""
+msgstr "Sfere"
 
 #. For setting 30000 used value in selection dialog list
 msgctxt "#30004"
 msgid "Big spheres"
-msgstr ""
+msgstr "Sfere grandi"
 
 #. For Setting 30000 used value in selection dialog list
 msgctxt "#30005"
@@ -70,12 +70,12 @@ msgstr "Punti"
 #. Help text for first setting where type is selected
 msgctxt "#30006"
 msgid "Sets geometry type"
-msgstr ""
+msgstr "Imposta tipo di geometria"
 
 #. Second setting in dialog for used geometry
 msgctxt "#30010"
 msgid "Off angle"
-msgstr ""
+msgstr "Angolo di deviazione"
 
 #. For setting 30010 used value in selection dialog list
 msgctxt "#30011"
@@ -95,17 +95,17 @@ msgstr "Acceso"
 #. Help text for second setting where off angle is selected
 msgctxt "#30014"
 msgid "Interesting 45 degree view instead of default head on view."
-msgstr ""
+msgstr "Un'interessante visuale a 45 gradi invece della classica visuale frontale."
 
 #. Setting for selection of used lines for render
 msgctxt "#30020"
 msgid "Lines"
-msgstr ""
+msgstr "Linee"
 
 #. Help text for setting with line amount
 msgctxt "#30021"
 msgid "Set number of lines (\"arms\").  1 - 1024."
-msgstr ""
+msgstr "Imposta numero di linee (\"bracci\"). Da 1 a 1024."
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30022"
@@ -120,7 +120,7 @@ msgstr "Punti"
 #. Help text for setting with point amount
 msgctxt "#30031"
 msgid "Set number of points per line.  1 - 4096."
-msgstr ""
+msgstr "Imposta numero di punti per riga. Da 1 a 4096."
 
 #. Name of lowest value in spinner to report random number is automatic generated
 msgctxt "#30032"
