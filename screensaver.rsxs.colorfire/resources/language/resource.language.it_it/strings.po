@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-07-15 01:59+0000\n"
+"PO-Revision-Date: 2026-07-30 09:07+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-colorfire/it_it/>\n"
 "Language: it_it\n"
@@ -44,7 +44,7 @@ msgstr "Generale"
 #. The setting to select used texture type
 msgctxt "#30001"
 msgid "Texture"
-msgstr "Struttura"
+msgstr "Trama"
 
 #. List entry of with 30001 opened selection dialog for auto selection of types below
 msgctxt "#30002"
