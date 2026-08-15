@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-07-30 09:07+0000\n"
+"PO-Revision-Date: 2026-08-15 23:02+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-drempels/it_it/>\n"
 "Language: it_it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.7.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -50,7 +50,7 @@ msgstr "Sfocatura"
 #. Help text of number selection for blurring
 msgctxt "#30002"
 msgid "Blurring between frames"
-msgstr ""
+msgstr "Sfocatura tra i fotogrammi"
 
 #. Spinner to select render speed
 msgctxt "#30003"
@@ -60,89 +60,89 @@ msgstr "Velocità"
 #. Setting help text for select render speed
 msgctxt "#30004"
 msgid "Speed of flow, bigger is faster"
-msgstr ""
+msgstr "Velocità del flusso, valori più alti sono più veloci"
 
 #. Spinner to select scale factor
 msgctxt "#30005"
 msgid "Scale"
-msgstr ""
+msgstr "Scala"
 
 #. Help for scale factor selection
 msgctxt "#30006"
 msgid "Scale of flow, bigger is zoomed in"
-msgstr ""
+msgstr "Scala del flusso, valori più alti sono più ingranditi"
 
 #. Spinner to select number of cells
 msgctxt "#30007"
 msgid "Cells"
-msgstr ""
+msgstr "Celle"
 
 #. Help for number of cells selection
 msgctxt "#30008"
 msgid "Number of cells (i.e. control points) in width/height in powers of two"
-msgstr ""
+msgstr "Numero di celle (cioè punti di controllo) in larghezza/altezza, in potenze di due"
 
 #. Spinner to select cell resolution
 msgctxt "#30009"
 msgid "Cell Resolution"
-msgstr ""
+msgstr "Risoluzione celle"
 
 #. Help for cell resolution selection
 msgctxt "#30010"
 msgid "Resolution of each cell in powers of two.  4 - 8"
-msgstr ""
+msgstr "Risoluzione di ciascuna cella in potenze di due. 4 - 8"
 
 #. Boolean value to use images instead
 msgctxt "#30011"
 msgid "Use Images"
-msgstr ""
+msgstr "Usa immagini"
 
 #. Help for boolean to allow use of images
 msgctxt "#30012"
 msgid "Cycle through the images"
-msgstr ""
+msgstr "Alterna le immagini"
 
 #. To open dialog for folder selection of images
 msgctxt "#30013"
 msgid "Images (when empty, Kodi fanart images are used)"
-msgstr ""
+msgstr "Immagini (se vuoto, vengono usate le immagini fanart di Kodi)"
 
 #. Help to folder selection
 msgctxt "#30014"
 msgid "Select the folder from which the images will be used"
-msgstr ""
+msgstr "Seleziona la cartella da cui verranno usate le immagini"
 
 #. Folder selection dialog header
 msgctxt "#30015"
 msgid "Folder from which the images will be used"
-msgstr ""
+msgstr "Cartella da cui verranno usate le immagini"
 
 #. Slider for texture change intervall in seconds
 msgctxt "#30016"
 msgid "Texture interval (s)"
-msgstr ""
+msgstr "Intervallo texture (s)"
 
 #. Help to texture interval
 msgctxt "#30017"
 msgid "Seconds to dwell on each texture"
-msgstr ""
+msgstr "Secondi di permanenza su ciascuna texture"
 
 #. Slider for texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30018"
 msgid "Texture fade interval (s)"
-msgstr ""
+msgstr "Intervallo dissolvenza texture (s)"
 
 #. Help to texture fade intervall in 1/10 (shown as comma e.g. 0.1)
 msgctxt "#30019"
 msgid "Fade time between subsequent textures, in tenths of second"
-msgstr ""
+msgstr "Tempo di dissolvenza tra texture successive, in decimi di secondo"
 
 #. Spinner to select generated texture size
 msgctxt "#30020"
 msgid "Generated texture size"
-msgstr ""
+msgstr "Dimensione texture generata"
 
 #. Help to generated texture size
 msgctxt "#30021"
 msgid "Resolution of randomly generated textures, in powers of two"
-msgstr ""
+msgstr "Risoluzione delle texture generate casualmente, in potenze di due"
