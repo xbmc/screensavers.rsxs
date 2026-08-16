@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-07-15 01:59+0000\n"
+"PO-Revision-Date: 2026-08-15 23:02+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-feedback/it_it/>\n"
 "Language: it_it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.7.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -45,42 +45,42 @@ msgstr "Generale"
 #. Boolean value selection to render only in grey
 msgctxt "#30001"
 msgid "Grey only"
-msgstr ""
+msgstr "Solo grigio"
 
 #. Help about boolean value before
 msgctxt "#30002"
 msgid "Use greyscale instead of hue wheel"
-msgstr ""
+msgstr "Usa scala di grigi invece della ruota dei colori"
 
 #. Slider to select saturation
 msgctxt "#30003"
 msgid "Saturation"
-msgstr ""
+msgstr "Saturazione"
 
 #. Help about saturation selection
 msgctxt "#30004"
 msgid "Set color saturation"
-msgstr ""
+msgstr "Imposta saturazione colore"
 
 #. Slider to select lightness
 msgctxt "#30005"
 msgid "Lightness"
-msgstr ""
+msgstr "Luminosità"
 
 #. Help about tightness selection
 msgctxt "#30006"
 msgid "Set color lightness"
-msgstr ""
+msgstr "Imposta luminosità colore"
 
 #. Spinner to select period time
 msgctxt "#30007"
 msgid "Period"
-msgstr ""
+msgstr "Periodo"
 
 #. Help to period time selection
 msgctxt "#30008"
 msgid "Sets color cycling period in seconds"
-msgstr ""
+msgstr "Imposta il periodo di ciclo colore in secondi"
 
 #. Slider to select rendering speed
 msgctxt "#30009"
@@ -90,34 +90,34 @@ msgstr "Velocità"
 #. Help text on speed selection
 msgctxt "#30010"
 msgid "Sets speed of warping grid wobble"
-msgstr ""
+msgstr "Imposta la velocità di oscillazione della griglia deformata"
 
 #. Spinner to select cells amount as integer
 msgctxt "#30011"
 msgid "Cells"
-msgstr ""
+msgstr "Celle"
 
 #. Help text for string before with cells
 msgctxt "#30012"
 msgid "Sets height and width of warping grid in powers of 2"
-msgstr ""
+msgstr "Imposta altezza e larghezza della griglia deformata in potenze di 2"
 
 #. Spinner to select testure size as integer
 msgctxt "#30013"
 msgid "Texture size"
-msgstr ""
+msgstr "Dimensione texture"
 
 #. Help text of texture size selection
 msgctxt "#30014"
 msgid "Sets height and width of warped texture in powers of 2"
-msgstr ""
+msgstr "Imposta altezza e larghezza della texture deformata in potenze di 2"
 
 #. Boolean value to enable/disable grid rendering
 msgctxt "#30015"
 msgid "Grid"
-msgstr ""
+msgstr "Griglia"
 
 #. Help text of boolean before
 msgctxt "#30016"
 msgid "Turns on rendering of the warping grid"
-msgstr ""
+msgstr "Attiva il rendering della griglia deformata"
