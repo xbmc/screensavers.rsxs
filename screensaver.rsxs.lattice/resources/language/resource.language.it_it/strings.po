@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-07-30 09:07+0000\n"
+"PO-Revision-Date: 2026-08-20 23:16+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lattice/it_it/>\n"
 "Language: it_it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.7.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 msgctxt "Addon Summary"
 msgid "About as psychedelic as screensavers get"
@@ -39,31 +39,31 @@ msgstr "Questa è un'implementazione basata sul salvaschermo \"rss-glx\""
 # Advanced
 msgctxt "#30000"
 msgid "Lattice density"
-msgstr ""
+msgstr "Densità reticolo"
 
 msgctxt "#30001"
 msgid "Lattice depth"
-msgstr ""
+msgstr "Profondità reticolo"
 
 msgctxt "#30002"
 msgid "Fog"
-msgstr ""
+msgstr "Nebbia"
 
 msgctxt "#30003"
 msgid "Latitudinal divisions on each torus"
-msgstr ""
+msgstr "Divisioni latitudinali su ciascun toro"
 
 msgctxt "#30004"
 msgid "Longitudinal divisions on each torus"
-msgstr ""
+msgstr "Divisioni longitudinali su ciascun toro"
 
 msgctxt "#30005"
 msgid "Torus thinckness"
-msgstr ""
+msgstr "Spessore toro"
 
 msgctxt "#30006"
 msgid "Smooth shading"
-msgstr ""
+msgstr "Ombreggiatura morbida"
 
 msgctxt "#30007"
 msgid "Speed"
@@ -71,40 +71,40 @@ msgstr "Velocità"
 
 msgctxt "#30008"
 msgid "Density"
-msgstr ""
+msgstr "Densità"
 
 # General
 msgctxt "#30010"
 msgid "Lattice type"
-msgstr ""
+msgstr "Tipo di reticolo"
 
 msgctxt "#30011"
 msgid "Regular"
-msgstr ""
+msgstr "Normale"
 
 msgctxt "#30012"
 msgid "Chainmail"
-msgstr ""
+msgstr "Cotta di maglia"
 
 msgctxt "#30013"
 msgid "Brass Mesh"
-msgstr ""
+msgstr "Rete di ottone"
 
 msgctxt "#30014"
 msgid "Computer"
-msgstr ""
+msgstr "Computer"
 
 msgctxt "#30015"
 msgid "Slick"
-msgstr ""
+msgstr "Levigato"
 
 msgctxt "#30016"
 msgid "Tasty"
-msgstr ""
+msgstr "Gustoso"
 
 msgctxt "#30017"
 msgid "Use Advanced Settings"
-msgstr ""
+msgstr "Usa impostazioni avanzate"
 
 # Setting groups
 msgctxt "#30020"
@@ -113,7 +113,7 @@ msgstr "Generale"
 
 msgctxt "#30021"
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzate"
 
 #
 msgctxt "#30030"
@@ -126,35 +126,35 @@ msgstr "Nessuno"
 
 msgctxt "#30032"
 msgid "Industrial"
-msgstr ""
+msgstr "Industriale"
 
 msgctxt "#30033"
 msgid "Crystal"
-msgstr ""
+msgstr "Cristallo"
 
 msgctxt "#30034"
 msgid "Chrome"
-msgstr ""
+msgstr "Cromo"
 
 msgctxt "#30035"
 msgid "Brass"
-msgstr ""
+msgstr "Ottone"
 
 msgctxt "#30036"
 msgid "Shiny"
-msgstr ""
+msgstr "Lucido"
 
 msgctxt "#30037"
 msgid "Ghostly"
-msgstr ""
+msgstr "Spettrale"
 
 msgctxt "#30038"
 msgid "Circuits"
-msgstr ""
+msgstr "Circuiti"
 
 msgctxt "#30039"
 msgid "Donuts"
-msgstr ""
+msgstr "Ciambelle"
 
 msgctxt "#30040"
 msgid "Automatic selection"

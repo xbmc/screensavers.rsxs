@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-08-15 23:02+0000\n"
+"PO-Revision-Date: 2026-08-20 23:16+0000\n"
 "Last-Translator: Massimo Pissarello <mapi68@gmail.com>\n"
 "Language-Team: Italian <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-flocks/it_it/>\n"
 "Language: it_it\n"
@@ -50,7 +50,7 @@ msgstr "Avanzate"
 #. Setting open selection dialog to select used preset
 msgctxt "#30002"
 msgid "Preset"
-msgstr ""
+msgstr "Preimpostazione"
 
 #. Selection dialog entry to select automatic mode selection
 msgctxt "#30003"
@@ -60,62 +60,62 @@ msgstr "Selezione automatica"
 #. Selection dialog entry to select regualr preset
 msgctxt "#30004"
 msgid "Regular"
-msgstr ""
+msgstr "Normale"
 
 #. Selection dialog entry to select trails preset
 msgctxt "#30005"
 msgid "Trails"
-msgstr ""
+msgstr "Scie"
 
 #. Selection dialog entry to select blurred trails preset
 msgctxt "#30006"
 msgid "Blurred trails"
-msgstr ""
+msgstr "Scie sfocate"
 
 #. Selection dialog entry to select blurred connections preset
 msgctxt "#30007"
 msgid "Blurred connections"
-msgstr ""
+msgstr "Connessioni sfocate"
 
 #. Selection dialog entry to select circles preset
 msgctxt "#30008"
 msgid "Circles"
-msgstr ""
+msgstr "Cerchi"
 
 #. Selection dialog entry to select random circles preset
 msgctxt "#30009"
 msgid "Random circles"
-msgstr ""
+msgstr "Cerchi casuali"
 
 #. Selection dialog entry to select advanced settings mode
 msgctxt "#30010"
 msgid "Use advanced"
-msgstr ""
+msgstr "Usa avanzate"
 
 #. Advanced setting spinner to select leaders value
 msgctxt "#30011"
 msgid "Leaders"
-msgstr ""
+msgstr "Guide"
 
 #. Advanced setting spinner to select followers value
 msgctxt "#30012"
 msgid "Followers"
-msgstr ""
+msgstr "Seguaci"
 
 #. Advanced setting list to select geometry value in selection dialog
 msgctxt "#30013"
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #. Advanced setting spinner to select size
 msgctxt "#30014"
 msgid "Size"
-msgstr ""
+msgstr "Dimensione"
 
 #. Advanced setting spinner to select complexity
 msgctxt "#30015"
 msgid "Complexity"
-msgstr ""
+msgstr "Complessità"
 
 #. Advanced setting spinner to select speed
 msgctxt "#30016"
@@ -125,27 +125,27 @@ msgstr "Velocità"
 #. Advanced setting spinner to select stretch
 msgctxt "#30017"
 msgid "Stretch"
-msgstr ""
+msgstr "Allungamento"
 
 #. Advanced setting spinner to select color fade speed
 msgctxt "#30018"
 msgid "Color fade speed"
-msgstr ""
+msgstr "Velocità dissolvenza colore"
 
 #. Advanced setting boolean to enable chromatek
 msgctxt "#30019"
 msgid "Chromatek"
-msgstr ""
+msgstr "Chromatek"
 
 #. Advanced setting boolean to enable rendering connections
 msgctxt "#30020"
 msgid "Connections"
-msgstr ""
+msgstr "Connessioni"
 
 #. Advanced setting spinner to select trail length
 msgctxt "#30021"
 msgid "Trail length"
-msgstr ""
+msgstr "Lunghezza scia"
 
 #. Advanced setting spinner to select blur
 msgctxt "#30022"
