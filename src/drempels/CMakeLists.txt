@@ -21,3 +21,8 @@ set(DREMPELS_HEADERS ${CMAKE_CURRENT_LIST_DIR}/main.h
                      ${CMAKE_CURRENT_LIST_DIR}/TexMgr.h)
 
 build_addon(screensaver.rsxs.drempels DREMPELS DEPLIBS)
+
+if(WIN32)
+  find_path(DIRENT_INCLUDE_DIR NAMES dirent.h PATH_SUFFIXES dirent-1.26 REQUIRED)
+  target_include_directories(screensaver.rsxs.drempels PRIVATE ${DIRENT_INCLUDE_DIR})
+endif()
