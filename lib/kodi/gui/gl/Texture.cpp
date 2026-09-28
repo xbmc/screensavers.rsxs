@@ -20,6 +20,9 @@
 
 #include "Texture.h"
 
+#include <gli/gl.hpp>
+#include <gli/load.hpp>
+
 namespace kodi
 {
 namespace gui

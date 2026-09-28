@@ -21,7 +21,7 @@
 #include <rsMath/rsMath.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <gli/gli.hpp>
+#include <gli/texture.hpp>
 #include <bzlib.h>
 
 // Override GL_RED if not present with GL_LUMINANCE, e.g. on Android GLES

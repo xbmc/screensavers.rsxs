@@ -20,7 +20,7 @@
  */
 
 #include <kodi/gui/gl/GL.h>
-#include <gli/gli.hpp>
+#include <gli/texture.hpp>
 
 #include <string>
 

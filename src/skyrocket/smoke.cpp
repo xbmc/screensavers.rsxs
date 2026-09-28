@@ -18,7 +18,7 @@
 #include "smoketex.h"
 #include "main.h"
 
-#include <gli/gli.hpp>
+#include <gli/texture.hpp>
 #include <kodi/gui/gl/Texture.h>
 
 CSmoke::~CSmoke()

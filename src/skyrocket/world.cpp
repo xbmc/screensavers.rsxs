@@ -19,7 +19,7 @@
 #include <rsMath/rsMath.h>
 #include <kodi/gui/gl/Texture.h>
 #include <glm/ext.hpp>
-#include <gli/gli.hpp>
+#include <gli/texture.hpp>
 
 #include "world.h"
 #include "flare.h"
